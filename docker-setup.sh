@@ -44,7 +44,6 @@ chown -R www:www /var/www /var/log/nginx /var/lib/nginx/logs
 
 # Clean up files not needed in final container
 rm -rf /src/marketing-app
-npm uninstall yarn -g
 ls /src
 
 # Show in logs what we're publishing
