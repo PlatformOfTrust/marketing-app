@@ -21,7 +21,7 @@ Run project in dev mode by
 
 ## Add license font-awesome
 
-Create file `.npmrc.txt` and add token
+Create file `.npmrc` and add token
 
 `@fortawesome:registry=https://npm.fontawesome.com/
 //npm.fontawesome.com/:_authToken=YOUR_TOKEN_HERE`
