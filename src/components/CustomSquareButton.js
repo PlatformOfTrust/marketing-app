@@ -1,13 +1,13 @@
-import React from 'react'
-import styled, { css } from 'styled-components'
+import React from 'react';
+import styled, { css } from 'styled-components';
 
-import { colors } from '../Theme.js'
+import { colors } from '../Theme.js';
 
 const StyledButton = styled.button`
   &&& { background: ${props =>
-    props.bgColor ? colors[props.bgColor] : 'transparent'}; }
+      props.bgColor ? colors[props.bgColor] : 'transparent'}; }
   &&& { color: ${props =>
-    props.textColor ? colors[props.textColor] : colors.light}; }
+      props.textColor ? colors[props.textColor] : colors.light}; }
   &&& { border: 2px solid ${colors.light}; }
   &&& { border-radius: 1px; }
   padding: 0.25em 1em;
@@ -39,43 +39,43 @@ const StyledButton = styled.button`
   }
 
   ${props =>
-    props.primary &&
-    css`
-      &&& {
-        background: ${colors.main};
-      }
-      color: ${colors.light};
-      border: 2px solid ${colors.light};
-    `}
+      props.primary &&
+      css`
+          &&& {
+              background: ${colors.main};
+          }
+          color: ${colors.light};
+          border: 2px solid ${colors.light};
+      `}
 
   ${props =>
-    props.disabled &&
-    css`
-      // &&& { background: transparent; }
-      &&& {
-        background: ${colors.main};
-      }
-      color: ${colors.mainDark};
-      border: 2px solid ${colors.mainDark};
-    `}
+      props.disabled &&
+      css`
+          // &&& { background: transparent; }
+          &&& {
+              background: ${colors.main};
+          }
+          color: ${colors.mainDark};
+          border: 2px solid ${colors.mainDark};
+      `}
 
-`
+`;
 
 const CustomSquareButton = props => {
-  // console.log(props);
-  return (
-    <StyledButton
-      type="button"
-      className="btn"
-      primary={props.primary}
-      disabled={props.disabled}
-      textColor={props.textColor}
-      bgColor={props.bgColor}
-      href="/"
-    >
-      {props.label}
-    </StyledButton>
-  )
-}
+    // console.log(props);
+    return (
+        <StyledButton
+            type="button"
+            className="btn"
+            primary={props.primary}
+            disabled={props.disabled}
+            textColor={props.textColor}
+            bgColor={props.bgColor}
+            href="/"
+        >
+            {props.label}
+        </StyledButton>
+    );
+};
 
-export default CustomSquareButton
+export default CustomSquareButton;

@@ -1,160 +1,164 @@
-import React from 'react'
-import Link from 'gatsby-link'
-import styled from 'styled-components'
+import React from 'react';
+import Link from 'gatsby-link';
+import styled from 'styled-components';
 
-import FooterInfo from './FooterInfo'
-import Logo from '../images/platformoftrust-wide-white-rgb.svg'
-import LogoSymbol from '../images/logo-symbol.svg'
-import SomeIcons from './SomeIcons'
-import { colors, device, variables } from '../Theme.js'
+import FooterInfo from './FooterInfo';
+import Logo from '../images/platformoftrust-wide-white-rgb.svg';
+import LogoSymbol from '../images/logo-symbol.svg';
+import SomeIcons from './SomeIcons';
+import { colors, device, variables } from '../Theme.js';
 
 const StyledFooter = styled.footer`
-  &&& {
-    max-width: 1550px;
-  }
-  width: auto;
-  margin: 1rem auto 0 auto;
-  padding: 1rem 0;
-  background: ${colors.mainDarker};
-  .row {
-    max-width: ${variables.pageWidth};
-    margin: 0 auto;
-  }
-  clip-path: url('#footerPathSVG');
-  .clippath-svg {
-    position: absolute;
-  }
-  .logo-footer {
-    opacity: 0.5;
-    img {
-      width: 100%;
+    &&& {
+        max-width: 1550px;
     }
-  }
-  .logo-mobile {
-    display: block;
-    width: 100%;
-  }
-  .logo-mobile {
-    @media ${device.laptop} {
-      display: none;
+    width: auto;
+    margin: 1rem auto 0 auto;
+    padding: 1rem 0;
+    background: ${colors.mainDarker};
+    .row {
+        max-width: ${variables.pageWidth};
+        margin: 0 auto;
     }
-  }
-  .logo-desk {
-    display: none;
-  }
-  .logo-desk {
-    @media ${device.laptop} {
-      display: block;
-      margin: 0;
-      width: 100%;
+    clip-path: url('#footerPathSVG');
+    .clippath-svg {
+        position: absolute;
     }
-  }
-  a:link {
-    color: ${colors.light};
-  }
-  a:visited {
-    color: ${colors.lightUsed};
-  }
-  .sitemap a:link {
-    text-decoration: none;
-  }
-  .sitemap {
-    display: none;
-  }
-  .sitemap {
-    @media ${device.laptop} {
-      display: block;
+    .logo-footer {
+        opacity: 0.5;
+        img {
+            width: 100%;
+        }
     }
-  }
-  .keep-together {
-    white-space: nowrap;
-  }
-  .footer-contact {
-    color: ${colors.light};
-    text-align: left;
-    line-height: 1;
-    font-size: calc(0.5rem + ((1vw - 0.2rem) * 4.4444));
-    @media (min-width: 31.25rem) {
-      font-size: 1rem;
+    .logo-mobile {
+        display: block;
+        width: 100%;
     }
-    h5 {
-      color: ${colors.light};
-      font-size: calc(0.5rem + ((1vw - 0.2rem) * 4.4444));
-      @media (min-width: 31.25rem) {
-        font-size: 1rem;
-      }
+    .logo-mobile {
+        @media ${device.laptop} {
+            display: none;
+        }
     }
-    p {
-      font-size: 1rem;
+    .logo-desk {
+        display: none;
     }
-    a {
-      font-weight: 400;
+    .logo-desk {
+        @media ${device.laptop} {
+            display: block;
+            margin: 0;
+            width: 100%;
+        }
     }
-  }
-  .some-links {
-    flex-wrap: wrap;
-  }
-`
+    a:link {
+        color: ${colors.light};
+    }
+    a:visited {
+        color: ${colors.lightUsed};
+    }
+    .sitemap a:link {
+        text-decoration: none;
+    }
+    .sitemap {
+        display: none;
+    }
+    .sitemap {
+        @media ${device.laptop} {
+            display: block;
+        }
+    }
+    .keep-together {
+        white-space: nowrap;
+    }
+    .footer-contact {
+        color: ${colors.light};
+        text-align: left;
+        line-height: 1;
+        font-size: calc(0.5rem + ((1vw - 0.2rem) * 4.4444));
+        @media (min-width: 31.25rem) {
+            font-size: 1rem;
+        }
+        h5 {
+            color: ${colors.light};
+            font-size: calc(0.5rem + ((1vw - 0.2rem) * 4.4444));
+            @media (min-width: 31.25rem) {
+                font-size: 1rem;
+            }
+        }
+        p {
+            font-size: 1rem;
+        }
+        a {
+            font-weight: 400;
+        }
+    }
+    .some-links {
+        flex-wrap: wrap;
+    }
+`;
 
 const Footer = () => (
-  <StyledFooter className="page-footer footer">
-    <svg className="clippath-svg" width="0" height="0">
-      <clipPath id="footerPathSVG" clipPathUnits="objectBoundingBox">
-        <polygon points="0, 1, 0.1, 0, 0.90, 0, 1, 1" />
-      </clipPath>
-    </svg>
+    <StyledFooter className="page-footer footer">
+        <svg className="clippath-svg" width="0" height="0">
+            <clipPath id="footerPathSVG" clipPathUnits="objectBoundingBox">
+                <polygon points="0, 1, 0.1, 0, 0.90, 0, 1, 1" />
+            </clipPath>
+        </svg>
 
-    <div className="container-fluid text-center text-md-left">
-      <div className="row">
-        <div className="footer-logo col-2 offset-1 ">
-          <Link to="/">
-            <img src={Logo} className="logo-footer logo-desk" alt="Logo" />
-          </Link>
-          <Link to="/">
-            <img
-              src={LogoSymbol}
-              className="logo-footer logo-mobile"
-              alt="Logo"
-            />
-          </Link>
-        </div>
+        <div className="container-fluid text-center text-md-left">
+            <div className="row">
+                <div className="footer-logo col-2 offset-1 ">
+                    <Link to="/">
+                        <img
+                            src={Logo}
+                            className="logo-footer logo-desk"
+                            alt="Logo"
+                        />
+                    </Link>
+                    <Link to="/">
+                        <img
+                            src={LogoSymbol}
+                            className="logo-footer logo-mobile"
+                            alt="Logo"
+                        />
+                    </Link>
+                </div>
 
-        <div className="footer-contact col-4 col-lg-4 col-xl-4 mt-md-0 mt-1">
-          <FooterInfo />
-          {/* <h5 className="mb-md-1">Platform of Trust</h5>
+                <div className="footer-contact col-4 col-lg-4 col-xl-4 mt-md-0 mt-1">
+                    <FooterInfo />
+                    {/* <h5 className="mb-md-1">Platform of Trust</h5>
           <p>VAT-number FI29800052</p> */}
-          {/* <p><a href="https://www.tilaajavastuu.fi/en/data-protection/">Data protection statement</a></p>*/}
-        </div>
+                    {/* <p><a href="https://www.tilaajavastuu.fi/en/data-protection/">Data protection statement</a></p>*/}
+                </div>
 
-        <div className="sitemap col-md-1">
-          {/* <Link to="/pricing">Pricing</Link><br /> */}
-          <Link to="/cases">Cases</Link>
-          <br />
-          <Link to="/news">News</Link>
-          <br />
-        </div>
+                <div className="sitemap col-md-1">
+                    {/* <Link to="/pricing">Pricing</Link><br /> */}
+                    <Link to="/cases">Cases</Link>
+                    <br />
+                    <Link to="/news">News</Link>
+                    <br />
+                </div>
 
-        <div className="sitemap col-md-1">
-          <Link to="/events">Events</Link>
-          <br />
-          <Link to="/about">About</Link>
-          <br />
-          <Link to="/contact">Contact</Link>
-          <br />
-        </div>
+                <div className="sitemap col-md-1">
+                    <Link to="/events">Events</Link>
+                    <br />
+                    <Link to="/about">About</Link>
+                    <br />
+                    <Link to="/contact">Contact</Link>
+                    <br />
+                </div>
 
-        {/* <div className="sitemap col-md-1">
+                {/* <div className="sitemap col-md-1">
           <Link to="/faq">FAQ</Link><br />
           <Link to="/logos">Logos</Link><br />
         </div> */}
 
-        {/* <div className="sitemap col-md-1">
+                {/* <div className="sitemap col-md-1">
           <Link to="/">Login</Link><br />
         </div> */}
 
-        <div className="footer-somelinks col-4 col-lg-2 col-xl-2 text-right">
-          <SomeIcons className="footer-someicons" color="main" />
-          {/* <nav className="some-links">
+                <div className="footer-somelinks col-4 col-lg-2 col-xl-2 text-right">
+                    <SomeIcons className="footer-someicons" color="main" />
+                    {/* <nav className="some-links">
             <span className="keep-together">
               <a href="https://www.facebook.com/platformoftrust" className="some-link facebook"><img src={Facebook} className="some-icon" alt="Facebook" /></a>
               <a href="https://twitter.com/PlatformOfTrust" className="some-link twitter"><img src={Twitter} className="some-icon" alt="Twitter" /></a>
@@ -168,9 +172,9 @@ const Footer = () => (
               <a href="https://www.youtube.com/channel/UCSHXKYHxBCl_hXdBZU_A-gg" className="some-link youtube"><img src={Linkedin} className="some-icon" alt="Youtube" /></a>
             </span>
           </nav> */}
-        </div>
+                </div>
 
-        {/* <nav className="sitemap col-md-2 mb-md-0 mb-3">
+                {/* <nav className="sitemap col-md-2 mb-md-0 mb-3">
 
           <h5 className="text-uppercase">Pages</h5>
           <ul className="list-unstyled">
@@ -206,9 +210,9 @@ const Footer = () => (
             </li>
           </ul>
         </nav> */}
-      </div>
-    </div>
-  </StyledFooter>
-)
+            </div>
+        </div>
+    </StyledFooter>
+);
 
-export default Footer
+export default Footer;
