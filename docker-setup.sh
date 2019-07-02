@@ -19,15 +19,16 @@ adduser --disabled-password --gecos "" www
 usermod -aG www www
 
 # Set up Nginx configuration in place
-cp -r /src/nginx/* /etc/nginx
+cp -r /src/marketing-app/nginx/* /etc/nginx
 
 #
 # Marketing app
 #
 
 # Build the contents to be published
-npm install
-npm run build
+npm install yarn -g
+yarn install
+yarn run build
 
 # Publish everything necessary
 cd /src/marketing-app/public/
@@ -42,10 +43,9 @@ cp -r . /var/www/marketing-app
 chown -R www:www /var/www /var/log/nginx /var/lib/nginx/logs
 
 # Clean up files not needed in final container
-rm -rf /src/gatsby /src/nginx /src/marketing-app
-rm -rf /root/.npm /tmp/* /src/.git
-rm -rf /src/*.md /src/docs /src/Dockerfile
-rm -rf /src/.github /src/LICENSE
+rm -rf /src/marketing-app
+npm uninstall yarn -g
+ls /src
 
 # Show in logs what we're publishing
 set +x
