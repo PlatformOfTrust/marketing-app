@@ -5,19 +5,17 @@
 !NOTE: Recommended `node` version is `10.16.0`. Use `nvm` to manage versions. 
 
 ```
-npm i
-```
-
-if you don't already have gatsby-cli, install it
-```
-npm install --global gatsby-cli
+npm install yarn -g
+yarn install
 ```
 
 ## Development
 
 Run project in dev mode by
 
-`gatsby develop` or if you wat to auto open it in certain port like 8001 `gatsby develop -o -p 8001`
+```
+npm run develop
+```
 
 ## Add license font-awesome
 
