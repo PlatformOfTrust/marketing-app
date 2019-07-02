@@ -1,0 +1,19 @@
+@require 'variables.styl'
+
+breakpoint = $mobi-navi-breakpoint 
+#___gatsby
+  .logo
+    display inline-block
+    vertical-align middle
+    width 25%
+    margin auto
+    transform translateY(1rem)
+    @media (max-width breakpoint - 1px)
+      width 47%
+      margin-top -1rem
+      margin-left -1rem
+  .logo__header
+    width 15rem
+    margin-bottom 0
+    @media (max-width )
+      max-width 40vw
