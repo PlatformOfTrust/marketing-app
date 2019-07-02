@@ -1,74 +1,121 @@
 import React from 'react'
-import Link from "gatsby-link"
+import Link from 'gatsby-link'
 import styled from 'styled-components'
 
 import FooterInfo from './FooterInfo'
-import Logo from "../images/platformoftrust-wide-white-rgb.svg"
-import LogoSymbol from "../images/logo-symbol.svg"
-import SomeIcons from "./SomeIcons"
+import Logo from '../images/platformoftrust-wide-white-rgb.svg'
+import LogoSymbol from '../images/logo-symbol.svg'
+import SomeIcons from './SomeIcons'
 import { colors, device, variables } from '../Theme.js'
 
 const StyledFooter = styled.footer`
-  &&& { max-width: 1550px; }
+  &&& {
+    max-width: 1550px;
+  }
   width: auto;
   margin: 1rem auto 0 auto;
   padding: 1rem 0;
   background: ${colors.mainDarker};
-  .row { 
-    max-width: ${variables.pageWidth}; 
-    margin: 0 auto; 
+  .row {
+    max-width: ${variables.pageWidth};
+    margin: 0 auto;
   }
-  clip-path: url("#footerPathSVG");
-  .clippath-svg { position: absolute; }
-  .logo-footer { 
+  clip-path: url('#footerPathSVG');
+  .clippath-svg {
+    position: absolute;
+  }
+  .logo-footer {
     opacity: 0.5;
-    img { width: 100%; }
+    img {
+      width: 100%;
+    }
   }
-  .logo-mobile { display: block; width: 100%;  }
-  .logo-mobile { @media ${device.laptop} { display: none; } }
-  .logo-desk { display: none; }
-  .logo-desk { @media ${device.laptop} { display: block; margin: 0; width: 100%;  } }
-  a:link { color: ${colors.light}; }
-  a:visited { color: ${colors.lightUsed}; }
-  .sitemap a:link { text-decoration: none; }
-  .sitemap { display: none; }
-  .sitemap { @media ${device.laptop} { display: block; } }
-  .keep-together { white-space: nowrap; }
-  .footer-contact { 
+  .logo-mobile {
+    display: block;
+    width: 100%;
+  }
+  .logo-mobile {
+    @media ${device.laptop} {
+      display: none;
+    }
+  }
+  .logo-desk {
+    display: none;
+  }
+  .logo-desk {
+    @media ${device.laptop} {
+      display: block;
+      margin: 0;
+      width: 100%;
+    }
+  }
+  a:link {
+    color: ${colors.light};
+  }
+  a:visited {
+    color: ${colors.lightUsed};
+  }
+  .sitemap a:link {
+    text-decoration: none;
+  }
+  .sitemap {
+    display: none;
+  }
+  .sitemap {
+    @media ${device.laptop} {
+      display: block;
+    }
+  }
+  .keep-together {
+    white-space: nowrap;
+  }
+  .footer-contact {
     color: ${colors.light};
     text-align: left;
     line-height: 1;
     font-size: calc(0.5rem + ((1vw - 0.2rem) * 4.4444));
-      @media (min-width: 31.25rem) { font-size: 1rem; }
-    h5 { 
-      color: ${colors.light}; 
-      font-size: calc(0.5rem + ((1vw - 0.2rem) * 4.4444));
-      @media (min-width: 31.25rem) { font-size: 1rem; }
+    @media (min-width: 31.25rem) {
+      font-size: 1rem;
     }
-    p { font-size: 1rem; }
-    a { font-weight: 400; }
+    h5 {
+      color: ${colors.light};
+      font-size: calc(0.5rem + ((1vw - 0.2rem) * 4.4444));
+      @media (min-width: 31.25rem) {
+        font-size: 1rem;
+      }
+    }
+    p {
+      font-size: 1rem;
+    }
+    a {
+      font-weight: 400;
+    }
   }
-  .some-links { flex-wrap: wrap; }
+  .some-links {
+    flex-wrap: wrap;
+  }
 `
 
 const Footer = () => (
-  <StyledFooter className="page-footer footer" >
-
+  <StyledFooter className="page-footer footer">
     <svg className="clippath-svg" width="0" height="0">
       <clipPath id="footerPathSVG" clipPathUnits="objectBoundingBox">
-        <polygon points="0, 1, 0.1, 0, 0.90, 0, 1, 1"/>
+        <polygon points="0, 1, 0.1, 0, 0.90, 0, 1, 1" />
       </clipPath>
     </svg>
 
     <div className="container-fluid text-center text-md-left">
       <div className="row">
-      
         <div className="footer-logo col-2 offset-1 ">
           <Link to="/">
             <img src={Logo} className="logo-footer logo-desk" alt="Logo" />
           </Link>
           <Link to="/">
-            <img src={LogoSymbol} className="logo-footer logo-mobile" alt="Logo" />
+            <img
+              src={LogoSymbol}
+              className="logo-footer logo-mobile"
+              alt="Logo"
+            />
           </Link>
         </div>
 
@@ -77,18 +124,23 @@ const Footer = () => (
           {/* <h5 className="mb-md-1">Platform of Trust</h5>
           <p>VAT-number FI29800052</p> */}
           {/* <p><a href="https://www.tilaajavastuu.fi/en/data-protection/">Data protection statement</a></p>*/}
-        </div> 
-
-        <div className="sitemap col-md-1">
-          {/* <Link to="/pricing">Pricing</Link><br /> */}
-          <Link to="/cases">Cases</Link><br />
-          <Link to="/news">News</Link><br />
         </div>
 
         <div className="sitemap col-md-1">
-          <Link to="/events">Events</Link><br />
-          <Link to="/about">About</Link><br />
-          <Link to="/contact">Contact</Link><br />
+          {/* <Link to="/pricing">Pricing</Link><br /> */}
+          <Link to="/cases">Cases</Link>
+          <br />
+          <Link to="/news">News</Link>
+          <br />
+        </div>
+
+        <div className="sitemap col-md-1">
+          <Link to="/events">Events</Link>
+          <br />
+          <Link to="/about">About</Link>
+          <br />
+          <Link to="/contact">Contact</Link>
+          <br />
         </div>
 
         {/* <div className="sitemap col-md-1">
@@ -154,9 +206,7 @@ const Footer = () => (
             </li>
           </ul>
         </nav> */}
-
       </div>
-
     </div>
   </StyledFooter>
 )

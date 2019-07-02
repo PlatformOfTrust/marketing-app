@@ -118,9 +118,7 @@ function SEO({ description, lang, meta, keywords, title }) {
                 sizes: '152x152',
                 href: `${appleTouch152}`,
               },
-
             ]}
-
             meta={[
               {
                 name: `description`,
@@ -182,10 +180,10 @@ function SEO({ description, lang, meta, keywords, title }) {
               .concat(
                 keywords.length > 0
                   ? {
-                    name: `keywords`,
-                    content: keywords.join(`, `),
-                  }
-                  : [],
+                      name: `keywords`,
+                      content: keywords.join(`, `),
+                    }
+                  : []
               )
               .concat(meta)}
           />

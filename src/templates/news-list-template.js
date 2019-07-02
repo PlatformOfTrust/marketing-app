@@ -1,13 +1,13 @@
-import React from "react"
-import Link from "gatsby-link"
-import { graphql } from "gatsby"
+import React from 'react'
+import Link from 'gatsby-link'
+import { graphql } from 'gatsby'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import styled from 'styled-components'
 
-import HexImage from "../components/HexImage"
+import HexImage from '../components/HexImage'
 import Layout from '../components/layout'
 import CustomRoundedButton from '../components/CustomRoundedButton'
-import CustomSquareButton from "../components/CustomSquareButton"
+import CustomSquareButton from '../components/CustomSquareButton'
 import { colors, device, variables } from '../Theme.js'
 
 export const subtypeColors = {
@@ -15,19 +15,19 @@ export const subtypeColors = {
   news: `${colors.notice}`,
   article: `${colors.alert}`,
   business: `${colors.success}`,
-  technical:`${colors.mainLightest}`,
+  technical: `${colors.mainLightest}`,
 }
 
 const StyledSection = styled.article`
-  &&& { max-width: ${ variables.pageWidthNarrow } }
+  &&& { max-width: ${variables.pageWidthNarrow} }
   margin: 5rem auto;
-  // background: ${ colors.mainDarker }
+  // background: ${colors.mainDarker}
 `
 const StyledBlogs = styled.article`
   padding: 5%;
 `
 const StyledTools = styled.nav`
-  // background: ${ colors.mainDarkest }; 
+  // background: ${colors.mainDarkest}; 
   padding: 0.4rem;
 `
 const StyledSelector = styled.button`
@@ -35,11 +35,17 @@ const StyledSelector = styled.button`
   border: none;
   outline: none;
   color: white;
-  &.selected-filter { 
-    span { border-bottom: 1px dotted white; }
+  &.selected-filter {
+    span {
+      border-bottom: 1px dotted white;
+    }
   }
-  &:focus { outline: none; }
-  svg { margin-right: 0.2em; }
+  &:focus {
+    outline: none;
+  }
+  svg {
+    margin-right: 0.2em;
+  }
 `
 const StyledBlogBlock = styled.article`
   display: inline-block;
@@ -47,7 +53,7 @@ const StyledBlogBlock = styled.article`
   @media ${device.laptop} { width: calc(50% - 2rem); }
   padding: 1.5rem;
   margin: 1rem;
-  border-top: 2px dotted ${ colors.main }; 
+  border-top: 2px dotted ${colors.main}; 
   h2 { font-size: 1.4rem; }
 
   &:nth-of-type(1) { 
@@ -101,7 +107,7 @@ const StyledHexImage = styled.div`
   // max-width: 250px;
   // // margin-bottom: 2rem;
   transform: translateX(-1rem) rotate(10deg) scale(0.9);
-  // clip-path: polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%); 
+  // clip-path: polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%);
 `
 const StyledPad = styled.div`
   margin: 1rem;
@@ -149,16 +155,18 @@ let items = null
 
 export default class NewsList extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
-      filters: [ 'blog', 'article', 'pressRelease', 'business', 'technical' ],
-      selected: "all",
+      filters: ['blog', 'article', 'pressRelease', 'business', 'technical'],
+      selected: 'all',
       showFooter: true,
     }
   }
 
   handleFiltering = filter => {
-    filter === "all" ? this.setState({ filters: ['blog', 'article', 'pressRelease'] }) : this.setState({ filters: [filter] })
+    filter === 'all'
+      ? this.setState({ filters: ['blog', 'article', 'pressRelease'] })
+      : this.setState({ filters: [filter] })
     this.setState({ selected: [filter] })
   }
 
@@ -168,158 +176,226 @@ export default class NewsList extends React.Component {
     const { currentPage, numPages } = this.props.pageContext
     const isFirst = currentPage === 1
     const isLast = currentPage === numPages
-    const prevPage = currentPage - 1 === 1 ? "/news" : `/news/${(currentPage - 1).toString()}`
+    const prevPage =
+      currentPage - 1 === 1 ? '/news' : `/news/${(currentPage - 1).toString()}`
     const nextPage = `/news/${(currentPage + 1).toString()}`
- 
+
     return (
       <Layout className="blog-posts">
-      <StyledPad>
-        <StyledSection className="posts-listing">
-          <StyledTools className="filters">
+        <StyledPad>
+          <StyledSection className="posts-listing">
+            <StyledTools className="filters">
+              <StyledSelector
+                className={`tool-block all ${
+                  selected[0] === 'all' ? 'selected-filter' : ''
+                }`}
+              >
+                <span onClick={() => this.handleFiltering('all')}>All</span>
+              </StyledSelector>
 
-            <StyledSelector className={`tool-block all ${ selected[0] === "all" ? "selected-filter" : "" }`}>
-              <span onClick={() => this.handleFiltering("all")}>All</span>
-            </StyledSelector>
+              <StyledSelector
+                className={`tool-block blog ${
+                  selected[0] === 'blog' ? 'selected-filter' : ''
+                }`}
+              >
+                <FontAwesomeIcon icon={['fa', 'hexagon']} color={colors.blog} />
+                <span onClick={() => this.handleFiltering('blog')}>Blogs</span>
+              </StyledSelector>
 
-            <StyledSelector className={`tool-block blog ${ selected[0] === "blog" ? "selected-filter" : "" }`}>
-              <FontAwesomeIcon icon={['fa', 'hexagon']} color={ colors.blog } />
-              <span onClick={() => this.handleFiltering("blog")}>Blogs</span>
-            </StyledSelector>
+              <StyledSelector
+                className={`tool-block article ${
+                  selected[0] === 'article' ? 'selected-filter' : ''
+                }`}
+              >
+                <FontAwesomeIcon
+                  icon={['fa', 'hexagon']}
+                  color={colors.article}
+                />
+                <span onClick={() => this.handleFiltering('article')}>
+                  Articles
+                </span>
+              </StyledSelector>
 
-            <StyledSelector className={`tool-block article ${ selected[0] === "article" ? "selected-filter" : "" }`}>
-              <FontAwesomeIcon icon={['fa', 'hexagon']} color={ colors.article } />
-              <span onClick={() => this.handleFiltering("article")}>Articles</span>
-            </StyledSelector>
+              <StyledSelector
+                className={`tool-block pressRelease ${
+                  selected[0] === 'pressRelease' ? 'selected-filter' : ''
+                }`}
+              >
+                <FontAwesomeIcon
+                  icon={['fa', 'hexagon']}
+                  color={colors.press}
+                />
+                <span onClick={() => this.handleFiltering('pressRelease')}>
+                  Press releases
+                </span>
+              </StyledSelector>
 
-            <StyledSelector className={`tool-block pressRelease ${ selected[0] === "pressRelease" ? "selected-filter" : "" }`}>
-              <FontAwesomeIcon icon={['fa', 'hexagon']} color={ colors.press } />
-              <span onClick={() => this.handleFiltering("pressRelease")}>Press releases</span>
-            </StyledSelector>
+              <StyledSelector
+                className={`tool-block business ${
+                  selected[0] === 'business' ? 'selected-filter' : ''
+                }`}
+              >
+                <FontAwesomeIcon
+                  icon={['fa', 'hexagon']}
+                  color={colors.business}
+                />
+                <span onClick={() => this.handleFiltering('business')}>
+                  Business
+                </span>
+              </StyledSelector>
 
-            <StyledSelector className={`tool-block business ${ selected[0] === "business" ? "selected-filter" : "" }`}>
-              <FontAwesomeIcon icon={['fa', 'hexagon']} color={ colors.business } />
-              <span onClick={() => this.handleFiltering("business")}>Business</span>
-            </StyledSelector>
-
-            <StyledSelector className={`tool-block article ${ selected[0] === "technical" ? "selected-filter" : "" }`}>
-              <FontAwesomeIcon icon={['fa', 'hexagon']} color={ colors.technical } />
-              <span onClick={() => this.handleFiltering("technical")}>Technical</span>
-            </StyledSelector>
-
-          </StyledTools>
-          <StyledBlogs className="posts container">
-            <div className="row">
-              <div className="col-6">
-                <h1>News</h1>
+              <StyledSelector
+                className={`tool-block article ${
+                  selected[0] === 'technical' ? 'selected-filter' : ''
+                }`}
+              >
+                <FontAwesomeIcon
+                  icon={['fa', 'hexagon']}
+                  color={colors.technical}
+                />
+                <span onClick={() => this.handleFiltering('technical')}>
+                  Technical
+                </span>
+              </StyledSelector>
+            </StyledTools>
+            <StyledBlogs className="posts container">
+              <div className="row">
+                <div className="col-6">
+                  <h1>News</h1>
+                </div>
+                <div className="col-6 text-right">
+                  <Link to="/newsletter">
+                    <CustomRoundedButton label="Sign up for news" />
+                  </Link>
+                </div>
               </div>
-              <div className="col-6 text-right">
-                <Link to="/newsletter">
-                  <CustomRoundedButton label="Sign up for news" />
-                </Link>
-              </div>
-            </div>
-            <div className="row">
-                  
-              {posts
-                .filter(post => filters.includes(post.node.frontmatter.subtype))
-                .map(( { node: post }, index ) => {
-                  items = index + 1
-                  return (
-                    <StyledBlogBlock className="post-preview" key={post.id} >
-                      {/* {items} */}
-                      <div className="featured-image">
-                        <Link to={post.frontmatter.path} className="post-link" >
-                          <StyledHexImage>
-                            {/* <CustomImage filename={post.frontmatter.pic} alt={post.frontmatter.title} /> */}
-                            <HexImage 
-                              pic={require(`../pages${post.frontmatter.path}-${post.frontmatter.subtype}/${post.frontmatter.pic}`)} 
-                              hexId={`NewHex-${post.id}`} 
-                              rotate={true}
-                            />
-                          </StyledHexImage>
-                        </Link>
-                      </div>
-                      <div className="post-preview-content">
-                        <div className="title">
-                        <Link to={post.frontmatter.path} className="post-link" >
-                            <h2>{post.frontmatter.title}</h2>
-                        </Link>
-                        </div>
-                        <div className="meta">
-                          <p>
-                            <FontAwesomeIcon icon={['fa', 'hexagon']} color={ colors[post.frontmatter.subtype] } />
-                            {post.frontmatter.subtype && (
-                              <>
-                                <span>{post.frontmatter.subtype}</span>
-                                <span className="divider">.</span>
-                              </>
-                            )}
-                            {post.frontmatter.subtype === "blog" && (
-                              <>
-                                <span>{post.frontmatter.author}</span>
-                                <span className="divider">.</span>
-                              </>
-                            )}
-                            <span>{post.frontmatter.date}</span>
-                          </p>
-                        </div>
-                        <div className="excerpt">
-                          <Link to={post.frontmatter.path} className="post-link" >
-                            <p>{post.excerpt}</p>
-                            <CustomSquareButton label="Read" />
+              <div className="row">
+                {posts
+                  .filter(post =>
+                    filters.includes(post.node.frontmatter.subtype)
+                  )
+                  .map(({ node: post }, index) => {
+                    items = index + 1
+                    return (
+                      <StyledBlogBlock className="post-preview" key={post.id}>
+                        {/* {items} */}
+                        <div className="featured-image">
+                          <Link
+                            to={post.frontmatter.path}
+                            className="post-link"
+                          >
+                            <StyledHexImage>
+                              {/* <CustomImage filename={post.frontmatter.pic} alt={post.frontmatter.title} /> */}
+                              <HexImage
+                                pic={require(`../pages${
+                                  post.frontmatter.path
+                                }-${post.frontmatter.subtype}/${
+                                  post.frontmatter.pic
+                                }`)}
+                                hexId={`NewHex-${post.id}`}
+                                rotate={true}
+                              />
+                            </StyledHexImage>
                           </Link>
                         </div>
-                      </div>
-                    </StyledBlogBlock>
-
-                  );
-                })}
-            </div>
-          </StyledBlogs>
-
-          {(numPages > 1 || !isFirst ) && (
-          <StyledBlogFooter>
-            <div className="row">
-              <div className="col col-3 offset-1">
-                {!isFirst  && (
-                  <p>
-                    <Link to={prevPage}>
-                      <FontAwesomeIcon icon={['fal', 'arrow-left']} color="white" size="1x" />
-                      Previous page 
-                    </Link>
-                  </p>
-                )}
+                        <div className="post-preview-content">
+                          <div className="title">
+                            <Link
+                              to={post.frontmatter.path}
+                              className="post-link"
+                            >
+                              <h2>{post.frontmatter.title}</h2>
+                            </Link>
+                          </div>
+                          <div className="meta">
+                            <p>
+                              <FontAwesomeIcon
+                                icon={['fa', 'hexagon']}
+                                color={colors[post.frontmatter.subtype]}
+                              />
+                              {post.frontmatter.subtype && (
+                                <>
+                                  <span>{post.frontmatter.subtype}</span>
+                                  <span className="divider">.</span>
+                                </>
+                              )}
+                              {post.frontmatter.subtype === 'blog' && (
+                                <>
+                                  <span>{post.frontmatter.author}</span>
+                                  <span className="divider">.</span>
+                                </>
+                              )}
+                              <span>{post.frontmatter.date}</span>
+                            </p>
+                          </div>
+                          <div className="excerpt">
+                            <Link
+                              to={post.frontmatter.path}
+                              className="post-link"
+                            >
+                              <p>{post.excerpt}</p>
+                              <CustomSquareButton label="Read" />
+                            </Link>
+                          </div>
+                        </div>
+                      </StyledBlogBlock>
+                    )
+                  })}
               </div>
+            </StyledBlogs>
 
-              <div className="col col-4">
-                
-                {Array.from({ length: numPages }, (_, i) => (
-                  <Link 
-                    className={`pagination-number ${(i + 1) === currentPage ? "current" : ""}`}
-                    key={`pagination-number${i + 1}`} 
-                    to={`/news/${i === 0 ? "" : i + 1}`}
-                  >
-                    {i + 1}
-                  </Link>
-                ))}
-              </div>
+            {(numPages > 1 || !isFirst) && (
+              <StyledBlogFooter>
+                <div className="row">
+                  <div className="col col-3 offset-1">
+                    {!isFirst && (
+                      <p>
+                        <Link to={prevPage}>
+                          <FontAwesomeIcon
+                            icon={['fal', 'arrow-left']}
+                            color="white"
+                            size="1x"
+                          />
+                          Previous page
+                        </Link>
+                      </p>
+                    )}
+                  </div>
 
-              <div className="col col-3">
-                {!isLast && (
-                <p>
-                  <Link to={nextPage}>
-                    More news 
-                    <FontAwesomeIcon icon={['fal', 'arrow-right']} color="white" size="1x" />
-                  </Link>
-                </p>
-                )}
-              </div>
-            </div>
-          </StyledBlogFooter>
-          )}
-        </StyledSection>
-      </StyledPad>
-    </Layout>
+                  <div className="col col-4">
+                    {Array.from({ length: numPages }, (_, i) => (
+                      <Link
+                        className={`pagination-number ${
+                          i + 1 === currentPage ? 'current' : ''
+                        }`}
+                        key={`pagination-number${i + 1}`}
+                        to={`/news/${i === 0 ? '' : i + 1}`}
+                      >
+                        {i + 1}
+                      </Link>
+                    ))}
+                  </div>
+
+                  <div className="col col-3">
+                    {!isLast && (
+                      <p>
+                        <Link to={nextPage}>
+                          More news
+                          <FontAwesomeIcon
+                            icon={['fal', 'arrow-right']}
+                            color="white"
+                            size="1x"
+                          />
+                        </Link>
+                      </p>
+                    )}
+                  </div>
+                </div>
+              </StyledBlogFooter>
+            )}
+          </StyledSection>
+        </StyledPad>
+      </Layout>
     )
   }
 }

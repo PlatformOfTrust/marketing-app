@@ -1,3 +1,3 @@
-import Logos from './Logos';
+import Logos from './Logos'
 
-export default Logos;
+export default Logos

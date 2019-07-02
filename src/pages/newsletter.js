@@ -8,19 +8,21 @@ import NewsletterForm from '../components/NewsletterForm'
 import { colors, device, variables } from '../Theme.js'
 
 const StyledPage = styled.div`
-  &&& { max-width: ${ variables.pageWidth } 
+  &&& { max-width: ${variables.pageWidth} 
   width: auto;
   min-height: 75vh;
   margin: 0 auto;
-  @media ${ device.laptop } {
+  @media ${device.laptop} {
   }
   * { color: white }
 `
 const StyledSection = styled.article`
-  &&& { max-width: ${ variables.pageWidth } }
+  &&& {
+    max-width: ${variables.pageWidth};
+  }
   margin: 5rem auto;
   padding: 10%;
-  background: ${ colors.mainDarker }
+  background: ${colors.mainDarker};
 `
 const StyledPad = styled.div`
   margin: 1rem;
@@ -33,7 +35,7 @@ const Newsletter = () => (
       <StyledPad>
         <StyledSection>
           <NewsletterForm />
-        </StyledSection>      
+        </StyledSection>
       </StyledPad>
     </StyledPage>
   </Layout>

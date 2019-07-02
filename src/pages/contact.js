@@ -7,30 +7,35 @@ import ContactBlurbs from '../components/ContactBlurbs'
 import Locations from '../components/Locations'
 import ContactForm from '../components/ContactForm'
 
-
 import { colors, device, variables } from '../Theme.js'
 
 const StyledPage = styled.div`
   width: auto;
-  max-width: ${ variables.pageWidthNarrow };
+  max-width: ${variables.pageWidthNarrow};
   margin: 0 auto;
   min-height: 75vh;
   margin: 0 auto;
-  @media ${ device.laptop } {
+  @media ${device.laptop} {
   }
-  * { color: white }
+  * {
+    color: white;
+  }
 `
 const StyledGraph = styled.div`
   width: auto;
-  max-width: ${ variables.pageWidth };
+  max-width: ${variables.pageWidth};
   min-height: 30vh;
-  margin: 0 auto;   
+  margin: 0 auto;
   // background-color: white;
-  h2{ color: ${ colors.main }; }
+  h2 {
+    color: ${colors.main};
+  }
 `
 const StyledSection = styled.section`
-  &&& { max-width: ${ variables.pageWidth } }
-  margin: 5rem auto;   
+  &&& {
+    max-width: ${variables.pageWidth};
+  }
+  margin: 5rem auto;
 `
 const StyledBilling = styled.article`
   border: 2px solid;
@@ -50,11 +55,13 @@ const Contact = () => (
     <StyledPage className="container">
       <StyledPad>
         <StyledSection className="contacts container">
-            <h1>Contact</h1>
-            <h2>Interested in turning your data in revenue? Let us tell you how.</h2>
-            <StyledGraph>
-              <ContactForm />
-            </StyledGraph> 
+          <h1>Contact</h1>
+          <h2>
+            Interested in turning your data in revenue? Let us tell you how.
+          </h2>
+          <StyledGraph>
+            <ContactForm />
+          </StyledGraph>
         </StyledSection>
         <StyledSection className="contacts container">
           <h2>Meet the team</h2>
@@ -72,9 +79,8 @@ const Contact = () => (
             <p>OVT: 003723273271</p>
           </StyledBilling>
         </StyledSection>
-      </ StyledPad>
+      </StyledPad>
     </StyledPage>
-
   </Layout>
 )
 

@@ -27,20 +27,26 @@ const StyledLocation = styled.article`
   }
 `
 
-const Location = (props) => {
+const Location = props => {
   return (
     <StyledLocation className="location col-12 col-md-6 col-lg-4">
       <div className="content">
-        <a href={`${props.googlelink}`} target="_blank" rel="noopener noreferrer">
+        <a
+          href={`${props.googlelink}`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <CustomImage filename={props.map} alt={props.name} />
         </a>
         <h3>{props.name}</h3>
         <p>{props.streetAddress}</p>
-        <p>{props.postalCode} {props.addressRegion}</p>
+        <p>
+          {props.postalCode} {props.addressRegion}
+        </p>
         <p>{props.addressCountry}</p>
       </div>
-    </StyledLocation>  
-)}
-
+    </StyledLocation>
+  )
+}
 
 export default Location

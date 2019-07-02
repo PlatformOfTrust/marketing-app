@@ -11,8 +11,13 @@ import { colors } from '../Theme.js'
 const StyledFeatured = styled.div`
   position: relative;
   x-index: 10;
-  .featured-case { transform: translate(25%, 0); color: ${colors.main}; }
-  .featured-event { padding-top: 44% }
+  .featured-case {
+    transform: translate(25%, 0);
+    color: ${colors.main};
+  }
+  .featured-event {
+    padding-top: 44%;
+  }
 `
 const StyledFeaturedHex = styled.div`
   position: relative;
@@ -25,18 +30,21 @@ const StyledFeaturedHex = styled.div`
 `
 
 const Featured = ({ data }) => (
-  
   <StyledFeatured className="featured">
     <HexImage pic={HexPic} hexId="FeaturedHex" />
-    
+
     <StyledFeaturedHex className="featured-case">
       <FeaturedCase />
-      <div className="hex"><Hex color="light" /></div> 
+      <div className="hex">
+        <Hex color="light" />
+      </div>
     </StyledFeaturedHex>
 
     <StyledFeaturedHex className="featured-event">
       <FeaturedEvent />
-      <div className="hex"><Hex color="mainDarker" /></div> 
+      <div className="hex">
+        <Hex color="mainDarker" />
+      </div>
     </StyledFeaturedHex>
   </StyledFeatured>
 )

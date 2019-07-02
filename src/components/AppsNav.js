@@ -10,11 +10,13 @@ const StyledAppsNav = styled.nav`
   justify-content: center;
   color: ${colors.mainDark};
   a {
-    font-weight: 900; 
-    color: ${colors.mainDark}; 
+    font-weight: 900;
+    color: ${colors.mainDark};
     padding: 0.5rem 1rem;
   }
-  a:visited { color: ${colors.mainDarker}; }
+  a:visited {
+    color: ${colors.mainDarker};
+  }
 
   @media ${device.tablet} {
     position: absolute;
@@ -33,7 +35,7 @@ const StyledAppsNav = styled.nav`
       padding: 0;
       font-weight: 400;
       &:after {
-        content: "";
+        content: '';
         position: absolute;
         width: 0%;
         height: 0px;
@@ -42,12 +44,13 @@ const StyledAppsNav = styled.nav`
         border-radius: 10%;
         transition: all 0.3s ease-in;
       }
-      &:hover,:focus {
-        text-shadow: 0px 0px 2px rgba(240,240,240,0.4);
+      &:hover,
+      :focus {
+        text-shadow: 0px 0px 2px rgba(240, 240, 240, 0.4);
         text-decoration: none;
         outline: none;
         &:after {
-          content: "";
+          content: '';
           position: absolute;
           width: 100%;
           height: 0px;
@@ -57,10 +60,9 @@ const StyledAppsNav = styled.nav`
           border-bottom: 2px dotted #a897fe;
           border-radius: 0%;
         }
-
       }
       &.active:after {
-        content: "";
+        content: '';
         position: absolute;
         width: 100%;
         height: 0px;
@@ -74,13 +76,18 @@ const StyledAppsNav = styled.nav`
   }
 `
 
-const AppsNav = (props) => {
+const AppsNav = props => {
   return (
-    <StyledAppsNav className="apps"> 
-      <Link to="/" className="apps-nav-link active">Platform of Trust</Link>
+    <StyledAppsNav className="apps">
+      <Link to="/" className="apps-nav-link active">
+        Platform of Trust
+      </Link>
       {/* <a href="https://world.oftrust.net/" className="apps-nav-link" >MyWorld</a> */}
-      <a href="https://developer.oftrust.net/" className="apps-nav-link">Developer portal</a>
+      <a href="https://developer.oftrust.net/" className="apps-nav-link">
+        Developer portal
+      </a>
     </StyledAppsNav>
-)}
+  )
+}
 
 export default AppsNav

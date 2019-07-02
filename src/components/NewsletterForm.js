@@ -7,19 +7,18 @@ import HubspotForm from 'react-hubspot-form'
 const StyledForm = styled.article`
   * { color: white; }
 }
-`;
+`
 
-const NewsletterForm = (props) => {
+const NewsletterForm = props => {
   return (
-    <StyledForm> 
-      
+    <StyledForm>
       <HubspotForm
-        portalId='4568282'
-        formId='6ac54a8a-a93a-4e18-91ef-6698f8ba380f'
+        portalId="4568282"
+        formId="6ac54a8a-a93a-4e18-91ef-6698f8ba380f"
         loading={<div>Loading...</div>}
       />
-
-    </StyledForm> 
-)}
+    </StyledForm>
+  )
+}
 
 export default NewsletterForm

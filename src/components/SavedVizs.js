@@ -6,24 +6,24 @@ import SavedViz from './SavedViz'
 import { device } from '../Theme.js'
 
 const StyledSavedVizs = styled.section`
-display: flex;
-flex-direction: column;
-width: 100%;
-margin: 0;
-@media ${device.tablet} {
-  flex-direction: row;
-  flex-wrap: wrap;
-  // padding: 0;
-}
-@media ${device.laptop} {
-  flex-direction: row;
-  padding: 0;
-}
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 0;
+  @media ${device.tablet} {
+    flex-direction: row;
+    flex-wrap: wrap;
+    // padding: 0;
+  }
+  @media ${device.laptop} {
+    flex-direction: row;
+    padding: 0;
+  }
 `
 
 const SavedVizs = ({ data }) => (
   <StyledSavedVizs>
-    <SavedViz 
+    <SavedViz
       headerContent="214 587"
       middleContent=""
       footerContent="euros saved"
@@ -31,7 +31,7 @@ const SavedVizs = ({ data }) => (
       viz="Viz1"
       color="mainDark"
     />
-    <SavedViz 
+    <SavedViz
       headerContent=""
       middleContent="89"
       footerContent="integrations avoided"
@@ -39,7 +39,7 @@ const SavedVizs = ({ data }) => (
       viz="Viz2"
       color="mainDark"
     />
-    <SavedViz 
+    <SavedViz
       headerContent="110"
       middleContent=""
       footerContent="number of users"
@@ -47,7 +47,7 @@ const SavedVizs = ({ data }) => (
       viz="Viz3"
       color="mainDark"
     />
-    <SavedViz 
+    <SavedViz
       headerContent=""
       middleContent="0 1 2 4 0 0"
       footerContent="hours saved"

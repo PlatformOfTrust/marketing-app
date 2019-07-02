@@ -4,8 +4,10 @@ import styled, { css } from 'styled-components'
 import { colors } from '../Theme.js'
 
 const StyledButton = styled.button`
-  &&& { background: ${ props => props.bgColor ? colors[props.bgColor] : "transparent" }; }
-  &&& { color: ${ props => props.textColor ? colors[props.textColor] : colors.light }; }
+  &&& { background: ${props =>
+    props.bgColor ? colors[props.bgColor] : 'transparent'}; }
+  &&& { color: ${props =>
+    props.textColor ? colors[props.textColor] : colors.light}; }
   &&& { border: 2px solid ${colors.light}; }
   &&& { border-radius: 1px; }
   padding: 0.25em 1em;
@@ -36,35 +38,44 @@ const StyledButton = styled.button`
     outline: none;
   }
 
-  ${props => props.primary && css`
-    &&& { background: ${colors.main}; }
-    color: ${colors.light};
-    border: 2px solid ${colors.light};
-  `}
+  ${props =>
+    props.primary &&
+    css`
+      &&& {
+        background: ${colors.main};
+      }
+      color: ${colors.light};
+      border: 2px solid ${colors.light};
+    `}
 
-  ${props => props.disabled && css`
-    // &&& { background: transparent; }
-    &&& { background: ${colors.main}; }
-    color: ${colors.mainDark};
-    border: 2px solid ${colors.mainDark};
-  `}
+  ${props =>
+    props.disabled &&
+    css`
+      // &&& { background: transparent; }
+      &&& {
+        background: ${colors.main};
+      }
+      color: ${colors.mainDark};
+      border: 2px solid ${colors.mainDark};
+    `}
 
-`;
+`
 
-const CustomSquareButton = (props) => {
+const CustomSquareButton = props => {
   // console.log(props);
   return (
-    <StyledButton 
-      type="button" 
-      className="btn" 
-      primary={props.primary} 
+    <StyledButton
+      type="button"
+      className="btn"
+      primary={props.primary}
       disabled={props.disabled}
       textColor={props.textColor}
       bgColor={props.bgColor}
       href="/"
-      > 
-      {props.label} 
+    >
+      {props.label}
     </StyledButton>
-)}
+  )
+}
 
 export default CustomSquareButton
