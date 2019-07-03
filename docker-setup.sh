@@ -24,8 +24,7 @@ cp -r /src/marketing-app/nginx/* /etc/nginx
 # Marketing app
 #
 
- sed -i 's+$FORT_AWESOME_AUTH_TOKEN+'"${FORT_AWESOME_AUTH_TOKEN}"'+g' /src/marketing-app/.npmrc
- cat /src/marketing-app/.npmrc
+sed -i 's+$FORT_AWESOME_AUTH_TOKEN+'"${FORT_AWESOME_AUTH_TOKEN}"'+g' /src/marketing-app/.npmrc
 
 # Build the contents to be published
 npm install yarn -g
@@ -35,7 +34,6 @@ yarn run build
 # Publish everything necessary
 cd /src/marketing-app/public/
 cp -r . /var/www/marketing-app
-
 
 #
 # Finishing up
