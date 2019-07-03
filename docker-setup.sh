@@ -1,9 +1,8 @@
-#!/usr/bin/env sh
+#!/bin/sh
+set -exuo pipefail
 
 echo "The build environment consists of the following files:"
 find /src/marketing-app
-
-set -eux
 
 # Clean up any defaults
 rm -rf /etc/nginx/nginx.conf /etc/nginx/conf.d /var/lib/nginx /var/www
@@ -24,6 +23,9 @@ cp -r /src/marketing-app/nginx/* /etc/nginx
 #
 # Marketing app
 #
+
+ sed -i 's+$FORT_AWESOME_AUTH_TOKEN+'"${FORT_AWESOME_AUTH_TOKEN}"'+g' /src/marketing-app/.npmrc
+ cat /src/marketing-app/.npmrc
 
 # Build the contents to be published
 npm install yarn -g
