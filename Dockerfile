@@ -1,7 +1,9 @@
 FROM ubuntu:18.04
 
+ARG FORT_AWESOME_AUTH_TOKEN=""
 ENV LC_ALL=C.UTF-8 \
-    LANG=C.UTF-8
+    LANG=C.UTF-8 \
+    FORT_AWESOME_AUTH_TOKEN=${FORT_AWESOME_AUTH_TOKEN}
 
 ADD . /src/marketing-app
 WORKDIR /src/marketing-app
