@@ -1,5 +1,5 @@
-#!/bin/sh
-set -exuo pipefail
+#!/usr/bin/env sh
+set -eux
 
 echo "The build environment consists of the following files:"
 find /src/marketing-app
