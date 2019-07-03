@@ -5,6 +5,7 @@
 # NPM
 node_modules/
 .cache
+.npmrc
 package-lock.json
 
 # testing
