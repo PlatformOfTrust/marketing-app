@@ -1,4 +1,8 @@
-# Marketing app
+
+[![Build status](https://dev.azure.com/DLIOy/Platform%20of%20Trust/_apis/build/status/Builds/Build%20Marketing%20App%20(Github))](https://dev.azure.com/DLIOy/Platform%20of%20Trust/_build/latest?definitionId=65)
+
+
+# Marketing app 
 
 ## Installation
 
