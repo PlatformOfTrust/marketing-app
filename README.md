@@ -23,7 +23,7 @@ npm run develop
 
 ## Add license font-awesome
 
-Create file `.npmrc` and add token
+Check file `.npmrc` and replace token placeholder with a valid one
 
 `@fortawesome:registry=https://npm.fontawesome.com/
 //npm.fontawesome.com/:_authToken=YOUR_TOKEN_HERE`
