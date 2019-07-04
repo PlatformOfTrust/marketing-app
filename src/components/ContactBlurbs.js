@@ -6,7 +6,7 @@ import ContactBlurb from './ContactBlurb';
 
 const StyledContactBlurbs = styled.section``;
 
-const ContactBlurbs = ({ data }) => (
+const ContactBlurbs = () => (
     <StaticQuery
         query={graphql`
             query {
