@@ -67,8 +67,8 @@ const StyledCaption = styled.div`
   position: absolute;
   transform: translateY(-100%);
   background: linear-gradient(to bottom, rgba(0,0,0,0), ${
-      colors.mainDarker
-  } 100%);
+    colors.mainDarker
+} 100%);
   padding: 4rem 10% 0;
   justify-content: flex-end;
   p {
@@ -135,10 +135,35 @@ const StyledCustomImage = styled.div`
     // display: inline-block;
     max-width: 150px;
     margin-bottom: 2rem;
-    transform: translateX(-1rem) rotate(10deg) scale(0.9);
+    transform: translateY(1rem) rotate(10deg) scale(1);
     clip-path: polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%);
     .gatsby-image-wrapper {
         transform: rotate(-10deg);
+    }
+    @media only screen and (max-width:983px) {
+
+        transform: translateY(1.7rem) rotate(10deg) scale(1.5);
+
+    }
+
+    @media only screen and (min-width:640px) and (max-width: 760px) {
+
+        transform: translateY(0.2rem) rotate(10deg) scale(2.3);
+
+    }
+
+
+
+    @media only screen and (min-width:501px) and (max-width: 600px) {
+
+        transform: translateY(0.2rem) rotate(10deg) scale(3.3);
+
+    }
+
+    @media only screen and (max-width:500px) {
+
+        transform: translateY(0rem) rotate(10deg) scale(5);
+
     }
 `;
 const StyledDisqus = styled.div`
@@ -158,7 +183,7 @@ export default function Template({ data, location, pageContext }) {
             <Helmet title={`Platform of Trust - ${post.frontmatter.title}`} />
             <StyledBlog>
                 <StyledHeader className="container">
-                    <div className="row">
+                    <div style={{marginTop: '50px'}} className="row">
                         <Link to="/news">
                             <FontAwesomeIcon icon={['fal', 'arrow-left']} />{' '}
                             Back to news
@@ -201,7 +226,7 @@ export default function Template({ data, location, pageContext }) {
                     {post.frontmatter.author && (
                         <div className="row">
                             {post.frontmatter.subtype === 'blog' && (
-                                <div className="col-1 offset-1">
+                                <div className="img col-1 offset-1">
                                     <StyledCustomImage>
                                         <CustomImage
                                             filename={

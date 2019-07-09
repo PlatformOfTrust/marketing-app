@@ -2,7 +2,7 @@ import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
 
-import HexBg from '../images/bg-square2.jpg';
+import HexBg from '../images/new-bg-square-bigger5.jpg';
 import HexImage from './HexImage';
 import { device } from '../Theme.js';
 

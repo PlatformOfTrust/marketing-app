@@ -1,17 +1,17 @@
 ---
-path: "/news/stack-overflow" 
+path: "/news/stack-overflow"
 date: "2019-04-03T13:45:33.962Z"
 title: "Platform of Trust uses Stack Overflow for technical questions and overall developer experience development"
-image: "./sparks.jpg" 
-pic: "sparks-square.jpg" 
+image: "./stack overflow.jpg"
+pic: "stack overflow2.jpg"
 pictext: ""
 type: "news"
-subtype: "article" 
-tags: ['Stack Overfow'] 
-lang: "en-GB" 
+subtype: "article"
+tags: ['Stack Overfow']
+lang: "en-GB"
 author: "Jarkko Moilanen"
 authorpic: "jarkko-moilanen.jpg"
-status: "published" 
+status: "published"
 ---
 As part of the Developer relations we decided to utilise Stack Overflow as the platform for our technical questions and answers.
 
