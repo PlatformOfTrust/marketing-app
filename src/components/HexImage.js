@@ -32,7 +32,7 @@ const HexImage = props => {
                         <image
                             xlinkHref={props.pic}
                             x="0"
-                            y="0"
+                            y={(props.isContactImage !== undefined && props.isContactImage === true) ? '0.05' : '0'}
                             width="1"
                             height="1"
                             transform={`scale(1.2 1.1) 

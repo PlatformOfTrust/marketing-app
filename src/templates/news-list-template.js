@@ -3,12 +3,14 @@ import Link from 'gatsby-link';
 import { graphql } from 'gatsby';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styled from 'styled-components';
+import MetaTags from 'react-meta-tags';
 
 import HexImage from '../components/HexImage';
 import Layout from '../components/layout';
 import CustomRoundedButton from '../components/CustomRoundedButton';
 import CustomSquareButton from '../components/CustomSquareButton';
 import { colors, device, variables } from '../Theme.js';
+import SocialPreviewImage from '../images/preview_social_share/news.jpg';
 
 export const subtypeColors = {
     blog: `${colors.ok}`,
@@ -190,6 +192,15 @@ export default class NewsList extends React.Component {
 
         return (
             <Layout className="blog-posts">
+                <MetaTags>
+                    <meta property="og:title" content={SocialPreviewData.title} />
+                    <meta name="description" content={SocialPreviewData.description} />
+                    <meta property="og:image" content={SocialPreviewImage} />
+                    <meta name="twitter:card" content="summary_large_image" />
+                    <meta name="twitter:title" content={SocialPreviewData.title} />
+                    <meta name="twitter:description" content={SocialPreviewData.description} />
+                    <meta name="twitter:image" content={SocialPreviewImage} />
+                </MetaTags>
                 <StyledPad>
                     <StyledSection className="posts-listing">
                         <StyledTools className="filters">
@@ -526,6 +537,11 @@ export default class NewsList extends React.Component {
         );
     }
 }
+
+const SocialPreviewData = {
+    title: 'Platform Of Trust | News',
+    description: 'Platform of Trust news, blog posts, press releases, and articles. Topics: platform economy, data, sustainability, data-based ecosystems, and smart city.'
+};
 
 export const newsListQuery = graphql`
     query newsListQuery($skip: Int!, $limit: Int!) {
