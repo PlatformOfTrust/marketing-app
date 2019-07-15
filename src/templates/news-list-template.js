@@ -27,6 +27,16 @@ const StyledSection = styled.article`
 `;
 const StyledBlogs = styled.article`
     padding: 5%;
+    .news-not-found {
+        text-align: center;
+        padding-top: 15.6vh;
+        padding-bottom: 15.7vh;
+    }
+
+    .news-not-found h2 {
+        font-weight: 400 ;
+        font-size: 2.4rem;
+    }
 `;
 const StyledTools = styled.nav`
   // background: ${colors.mainDarkest}; 
@@ -328,6 +338,13 @@ export default class NewsList extends React.Component {
                                 </div>
                             </div>
                             <div className="row">
+                                {posts
+                                    .filter(post =>
+                                        filters.includes(
+                                            post.node.frontmatter.subtype
+                                        )
+                                    ).length === 0 && <div className="col-12 news-not-found"><h2>Sorry, nothing here for now. See the other filters.</h2></div>
+                                }
                                 {posts
                                     .filter(post =>
                                         filters.includes(
