@@ -3,12 +3,14 @@ import Link from 'gatsby-link';
 import { graphql } from 'gatsby';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styled from 'styled-components';
+import MetaTags from 'react-meta-tags';
 
 import HexImage from '../components/HexImage';
 import Layout from '../components/layout';
 import CustomRoundedButton from '../components/CustomRoundedButton';
 import CustomSquareButton from '../components/CustomSquareButton';
 import { colors, device, variables } from '../Theme.js';
+import SocialPreviewImage from '../images/preview_social_share/news.jpg';
 
 export const subtypeColors = {
     blog: `${colors.ok}`,
@@ -25,6 +27,16 @@ const StyledSection = styled.article`
 `;
 const StyledBlogs = styled.article`
     padding: 5%;
+    .news-not-found {
+        text-align: center;
+        padding-top: 15.6vh;
+        padding-bottom: 15.7vh;
+    }
+
+    .news-not-found h2 {
+        font-weight: 400 ;
+        font-size: 2.4rem;
+    }
 `;
 const StyledTools = styled.nav`
   // background: ${colors.mainDarkest}; 
@@ -190,6 +202,15 @@ export default class NewsList extends React.Component {
 
         return (
             <Layout className="blog-posts">
+                <MetaTags>
+                    <meta property="og:title" content={SocialPreviewData.title} />
+                    <meta name="description" content={SocialPreviewData.description} />
+                    <meta property="og:image" content={SocialPreviewImage} />
+                    <meta name="twitter:card" content="summary_large_image" />
+                    <meta name="twitter:title" content={SocialPreviewData.title} />
+                    <meta name="twitter:description" content={SocialPreviewData.description} />
+                    <meta name="twitter:image" content={SocialPreviewImage} />
+                </MetaTags>
                 <StyledPad>
                     <StyledSection className="posts-listing">
                         <StyledTools className="filters">
@@ -317,6 +338,13 @@ export default class NewsList extends React.Component {
                                 </div>
                             </div>
                             <div className="row">
+                                {posts
+                                    .filter(post =>
+                                        filters.includes(
+                                            post.node.frontmatter.subtype
+                                        )
+                                    ).length === 0 && <div className="col-12 news-not-found"><h2>Sorry, nothing here for now. See the other filters.</h2></div>
+                                }
                                 {posts
                                     .filter(post =>
                                         filters.includes(
@@ -526,6 +554,11 @@ export default class NewsList extends React.Component {
         );
     }
 }
+
+const SocialPreviewData = {
+    title: 'Platform Of Trust | News',
+    description: 'Platform of Trust news, blog posts, press releases, and articles. Topics: platform economy, data, sustainability, data-based ecosystems, and smart city.'
+};
 
 export const newsListQuery = graphql`
     query newsListQuery($skip: Int!, $limit: Int!) {
