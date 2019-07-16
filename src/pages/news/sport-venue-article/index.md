@@ -30,6 +30,8 @@ Read more about Sport Venue´s [KnowUr.Biz](http://www.sportvenue.fi/en/analytic
 
 ### More information
 
+<br/><br/>
+
 #### Toni Luhti
 
 Platform of Trust Oy
@@ -38,6 +40,7 @@ Platform of Trust Oy
 
 toni.luhti@oftrust.net
 
+<br/><br/>
 
 #### Karri Kylliö
 

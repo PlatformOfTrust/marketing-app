@@ -23,13 +23,21 @@ SignSpace is a service provided by Suomen Tilaajavastuu Oy and Platform of Trust
 
 ### More information
 
+<br/><br/>
+
 #### Henri Svensson
+
+<br/>
 
 +358 50 538 7289
 
 henri.svensson@tilaajavastuu.fi
 
+<br/><br/>
+
 #### Jani Syvähuoko
+
+<br/>
 
 +358 40 584 3807
 

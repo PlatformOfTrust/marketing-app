@@ -29,7 +29,11 @@ Platform of Trust is a community-based platform that will be launched in June. I
 
 ### More information
 
+<br/><br/>
+
 #### Toni Luhti
+
+<br/>
 
 Platform of Trust Oy
 
@@ -37,7 +41,11 @@ Platform of Trust Oy
 
 toni.luhti@oftrust.net
 
+<br/><br/>
+
 #### Emilia Rönkkö
+
+<br/>
 
 Locia Oy
 

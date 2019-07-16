@@ -93,6 +93,8 @@ const StyledFooter = styled.footer`
     }
     .some-links {
         flex-wrap: wrap;
+        width: 140px;
+        margin-top: 10px;
     }
 `;
 
@@ -158,6 +160,9 @@ const Footer = () => (
 
                 <div className="footer-somelinks col-4 col-lg-2 col-xl-2 text-right">
                     <SomeIcons className="footer-someicons" color="main" />
+                    <br/>
+                    <br/>
+                    <span>#dataflow</span>
                     {/* <nav className="some-links">
             <span className="keep-together">
               <a href="https://www.facebook.com/platformoftrust" className="some-link facebook"><img src={Facebook} className="some-icon" alt="Facebook" /></a>
