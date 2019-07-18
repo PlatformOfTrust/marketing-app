@@ -35,6 +35,9 @@ yarn run build
 cd /src/marketing-app/public/
 cp -r . /var/www/marketing-app
 
+# Copy cms admin
+cp -r /src/marketing-app/cmsadmin /var/www/marketing-app
+
 #
 # Finishing up
 #
