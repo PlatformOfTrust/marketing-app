@@ -53,7 +53,11 @@ const StyledBlogBlock = styled.article`
     padding: 1.5rem;
     margin: 1rem;
     border-top: 2px dotted ${colors.main};
-    h2 { font-size: 1.6rem; letter-spacing: 0.01em; word-spacing: 0.065em; line-height: 1.2em;}
+    h2 { font-size: 1.6rem;
+        letter-spacing: 0.01em;
+        word-spacing: 0.065em;
+        line-height: 1.2em;
+    }
 
     &:nth-of-type(1) {
         width: 100%;

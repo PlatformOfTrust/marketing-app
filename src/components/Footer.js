@@ -160,9 +160,12 @@ const Footer = () => (
 
                 <div className="footer-somelinks col-4 col-lg-2 col-xl-2 text-right">
                     <SomeIcons className="footer-someicons" color="main" />
-                    <br/>
-                    <br/>
-                    <span>#dataflow</span>
+
+                    <span style={{paddingTop: '50px',
+                        position: 'absolute',
+                        left: '145px'}}>
+                                  #dataflow
+                    </span>
                     {/* <nav className="some-links">
             <span className="keep-together">
               <a href="https://www.facebook.com/platformoftrust" className="some-link facebook"><img src={Facebook} className="some-icon" alt="Facebook" /></a>
