@@ -3,6 +3,7 @@ import Link from 'gatsby-link';
 import { graphql } from 'gatsby';
 import MDXRenderer from 'gatsby-mdx/mdx-renderer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import MetaTags from 'react-meta-tags';
 import styled from 'styled-components';
 import HexImage from '../components/HexImage';
 import CustomSquareButton from '../components/CustomSquareButton';
@@ -10,6 +11,7 @@ import CustomRoundedButton from '../components/CustomRoundedButton';
 import SomeIcons from '../components/SomeIcons';
 import Layout from '../components/layout';
 import { colors, device, variables } from '../Theme.js';
+import SocialPreviewImage from '../images/preview_social_share/events.jpg';
 
 export const subtypeColors = {
     blog: `${colors.ok}`,
@@ -181,6 +183,15 @@ export default class Events extends React.Component {
 
         return (
             <Layout className="blog-posts">
+                <MetaTags>
+                    <meta property="og:title" content={SocialPreviewData.title} />
+                    <meta name="description" content={SocialPreviewData.description} />
+                    <meta property="og:image" content={SocialPreviewImage} />
+                    <meta name="twitter:card" content="summary_large_image" />
+                    <meta name="twitter:title" content={SocialPreviewData.title} />
+                    <meta name="twitter:description" content={SocialPreviewData.description} />
+                    <meta name="twitter:image" content={SocialPreviewImage} />
+                </MetaTags>
                 <StyledPad>
                     <StyledSection className="posts-listing">
                         <StyledTools className="filters">
@@ -861,6 +872,11 @@ export default class Events extends React.Component {
         );
     }
 }
+
+const SocialPreviewData = {
+    title: 'Platform Of Trust | Events',
+    description: 'Events organized by Platform of Trust and events that Platform of Trust is attending or a team member is speaking at.'
+};
 
 export const pageQuery = graphql`
     query eventsQuery {
