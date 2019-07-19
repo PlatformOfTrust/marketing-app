@@ -8,7 +8,7 @@ import NewsletterForm from '../components/NewsletterForm';
 import { colors, device, variables } from '../Theme.js';
 
 const StyledPage = styled.div`
-  &&& { max-width: ${variables.pageWidth} 
+  &&& { max-width: ${variables.pageWidth}
   width: auto;
   min-height: 75vh;
   margin: 0 auto;

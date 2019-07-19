@@ -2,8 +2,8 @@
 path: "/news/signspace" # path to where you want blog to be published aka https://www.platformoftrust.net//blogs/sport-venue
 date: "2019-03-08T13:45:33.962Z"
 title: "With SignSpace, you’ll never need a pen again"
-image: "./harbour-city.jpg" # Featured image shown on page and listings. Save in same folder. Don't use svg.
-pic: "harbour-city-square.jpg" # Hex image shown on page and listings. No path, just filename. Save in same folder. Don't use svg.
+image: "./SignSpace.jpg" # Featured image shown on page and listings. Save in same folder. Don't use svg.
+pic: "SignSpace2.jpg" # Hex image shown on page and listings. No path, just filename. Save in same folder. Don't use svg.
 pictext: ""
 type: "news" # All "News" are blogs to separate them from real pages made with MarkDown, so that they appear in blog listings etc.
 subtype: "article" # "blog" / "news" / "pressRelease" etc.
@@ -23,13 +23,21 @@ SignSpace is a service provided by Suomen Tilaajavastuu Oy and Platform of Trust
 
 ### More information
 
+<br/><br/>
+
 #### Henri Svensson
+
+<br/>
 
 +358 50 538 7289
 
 henri.svensson@tilaajavastuu.fi
 
+<br/><br/>
+
 #### Jani Syvähuoko
+
+<br/>
 
 +358 40 584 3807
 

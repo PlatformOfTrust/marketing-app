@@ -34,7 +34,7 @@ const StyledBlogs = styled.div`
     padding: 5%;
 `;
 const StyledTools = styled.nav`
-  // background: ${colors.mainDarkest}; 
+  // background: ${colors.mainDarkest};
   padding: 0.4rem;
 `;
 const StyledSelector = styled.button`
@@ -70,23 +70,23 @@ const StyledDefault = styled.article`
 `;
 const StyledBlogBlock = styled.article`
   display: inline-block;
-  width: 100%; 
+  width: 100%;
   // @media ${device.laptop} { width: calc(50% - 2rem); }
   padding: 0.5rem;
   padding-bottom: 0;
   margin: 1rem 0 0;
-  border-top: 2px dotted ${colors.light}; 
+  border-top: 2px dotted ${colors.light};
   &:last-child { border-bottom: 2px dotted ${colors.light}; }
   h2 { font-size: 1.4rem; }
 
-  // &:nth-of-type(1) { 
-  //   width: 100%; 
+  // &:nth-of-type(1) {
+  //   width: 100%;
   //   border-top: none;
   //   h2 { font-size: 2.4rem; }
   // }
 
   // &:nth-child(n+5) {
-  //   width: 100%; 
+  //   width: 100%;
   //   .featured-image, .excerpt { display: none }
   //   .title { order: 2; }
   //   .meta { order: 1; }
@@ -94,25 +94,25 @@ const StyledBlogBlock = styled.article`
   //   h2 { font-size: 2.4rem; }
   // }
 
-  .post-link { 
+  .post-link {
     text-decoration: none;
   }
   .meta {
     svg { margin-right: 0.4em; }
-    span { 
-      margin-right: 0.3em; 
-      text-transform: capitalize; 
+    span {
+      margin-right: 0.3em;
+      text-transform: capitalize;
     }
-    .divider { 
+    .divider {
       display: inline-block;
       transform: translateY(-0.2em);
      }
   }
-  .featured-image { 
+  .featured-image {
     display: inline-block;
     width: 30%;
   }
-  .post-preview-content { 
+  .post-preview-content {
     display: inline-flex;
     flex-direction: column;
     width: 70%;
@@ -151,14 +151,14 @@ export default class Events extends React.Component {
     handleFiltering = filter => {
         filter === 'all'
             ? this.setState({
-                  filters: [
-                      'blog',
-                      'article',
-                      'pressRelease',
-                      'business',
-                      'technical'
-                  ]
-              })
+                filters: [
+                    'blog',
+                    'article',
+                    'pressRelease',
+                    'business',
+                    'technical'
+                ]
+            })
             : this.setState({ filters: [filter] });
         this.setState({ selected: [filter] });
     };
@@ -258,8 +258,8 @@ export default class Events extends React.Component {
                                     <StyledHexImage>
                                         {/* <CustomImage filename="bg-square2.jpg" alt="Graphical element" /> */}
                                         <HexImage
-                                            pic={require(`./../images/bg-square2.jpg`)}
-                                            hexId={`EventHex-Hero`}
+                                            pic={require('./../images/new-bg-square-bigger5.jpg')}
+                                            hexId={'EventHex-Hero'}
                                             rotate={true}
                                         />
                                     </StyledHexImage>

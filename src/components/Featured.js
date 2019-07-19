@@ -5,7 +5,7 @@ import Hex from './Hex';
 import HexImage from './HexImage';
 import FeaturedEvent from './FeaturedEvent';
 import FeaturedCase from './FeaturedCase';
-import HexPic from '../images/city-square.jpg';
+import HexPic from '../images/new-bg-square-smaller.jpg';
 import { colors } from '../Theme.js';
 
 const StyledFeatured = styled.div`

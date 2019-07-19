@@ -2,8 +2,8 @@
 path: "/news/sport-venue" # path to where you want blog to be published aka https://www.platformoftrust.net//blogs/sport-venue
 date: "2019-04-08T13:45:33.962Z"
 title: "Towards smoother and simpler knowledge management"
-image: "./pic.jpg" # Featured image shown on page and listings. Save in same folder. Don't use svg.
-pic: "pic-square.jpg" # Hex image shown on page and listings. No path, just filename. Save in same folder. Don't use svg.
+image: "./smoother knowledge management.jpg" # Featured image shown on page and listings. Save in same folder. Don't use svg.
+pic: "smoother knowledge management2.jpg" # Hex image shown on page and listings. No path, just filename. Save in same folder. Don't use svg.
 pictext: ""
 type: "news" # All "News" are blogs to separate them from real pages made with MarkDown, so that they appear in blog listings etc.
 subtype: "article" # "blog" / "news" / "press-realease" etc.
@@ -30,6 +30,8 @@ Read more about Sport Venue´s [KnowUr.Biz](http://www.sportvenue.fi/en/analytic
 
 ### More information
 
+<br/><br/>
+
 #### Toni Luhti
 
 Platform of Trust Oy
@@ -37,3 +39,13 @@ Platform of Trust Oy
 +358 50 506 6327
 
 toni.luhti@oftrust.net
+
+<br/><br/>
+
+#### Karri Kylliö
+
+CEO, Sport Venue Oy
+
++358 50 3853 387
+
+karri.kyllio@sportvenue.fi

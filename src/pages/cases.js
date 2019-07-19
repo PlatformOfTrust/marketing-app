@@ -29,7 +29,7 @@ const StyledBlogs = styled.article`
     padding: 5%;
 `;
 const StyledTools = styled.nav`
-  // background: ${colors.mainDarkest}; 
+  // background: ${colors.mainDarkest};
   padding: 0.4rem;
 `;
 const StyledSelector = styled.button`
@@ -55,8 +55,10 @@ const StyledBlogBlock = styled.article`
     padding: 1.5rem;
     margin: 1rem;
     border-top: 2px dotted ${colors.main};
-    h2 {
-        font-size: 1.4rem;
+    h2 { font-size: 1.6rem;
+        letter-spacing: 0.01em;
+        word-spacing: 0.065em;
+        line-height: 1.2em;
     }
 
     &:nth-of-type(1) {
@@ -148,14 +150,14 @@ export default class Events extends React.Component {
     handleFiltering = filter => {
         filter === 'all'
             ? this.setState({
-                  filters: [
-                      'blog',
-                      'article',
-                      'pressRelease',
-                      'business',
-                      'technical'
-                  ]
-              })
+                filters: [
+                    'blog',
+                    'article',
+                    'pressRelease',
+                    'business',
+                    'technical'
+                ]
+            })
             : this.setState({ filters: [filter] });
         this.setState({ selected: [filter] });
     };

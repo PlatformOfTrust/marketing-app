@@ -39,7 +39,7 @@ const StyledBlogs = styled.article`
     }
 `;
 const StyledTools = styled.nav`
-  // background: ${colors.mainDarkest}; 
+  // background: ${colors.mainDarkest};
   padding: 0.4rem;
 `;
 const StyledSelector = styled.button`
@@ -61,49 +61,52 @@ const StyledSelector = styled.button`
 `;
 const StyledBlogBlock = styled.article`
   display: inline-block;
-  width: width: 100%; 
+  width: width: 100%;
   @media ${device.laptop} { width: calc(50% - 2rem); }
   padding: 1.5rem;
   margin: 1rem;
-  border-top: 2px dotted ${colors.main}; 
-  h2 { font-size: 1.4rem; }
+  border-top: 2px dotted ${colors.main};
+  h2 { font-size: 1.6rem; letter-spacing: 0.02em; word-spacing: 0.065em; line-height: 1.2em;}
+  span { font-size: 15px;}
+  p {word-spacing: 0.064em; line-spacing: 0.048em; font-size: 17px;}
 
-  &:nth-of-type(1) { 
-    width: 100%; 
+  &:nth-of-type(1) {
+    width: 100%;
     border-top: none;
-    h2 { font-size: 2.4rem; }
+      h2 { font-size: 2.5rem; letter-spacing: 0.01em; word-spacing: 0.065em; line-height: 1.2em;}
+
   }
 
   &:nth-child(n+5) {
-    width: 100%; 
+    width: 100%;
     padding-top: 0;
     padding-bottom: 0;
     .featured-image, .excerpt { display: none }
     .title { order: 2; }
     .meta { order: 1; }
     .post-preview-content { width: 100%; }
-    h2 { font-size: 1.5rem; }
+    h2 { font-size: 1.6rem;word-spacing: 0.065em; line-height: 1.2em;}
   }
 
-  .post-link { 
+  .post-link {
     text-decoration: none;
   }
   .meta {
     svg { margin-right: 0.4em; }
-    span { 
-      margin-right: 0.3em; 
-      text-transform: capitalize; 
+    span {
+      margin-right: 0.3em;
+      text-transform: capitalize;
     }
-    .divider { 
+    .divider {
       display: inline-block;
       transform: translateY(-0.2em);
      }
   }
-  .featured-image { 
+  .featured-image {
     display: inline-block;
     width: 30%;
   }
-  .post-preview-content { 
+  .post-preview-content {
     display: inline-flex;
     flex-direction: column;
     width: 70%;
@@ -133,12 +136,12 @@ const StyledBlogFooter = styled.div`
   // .col { border: 1px solid; }
   .col:nth-of-type(2) { text-align: center; }
   .col:nth-of-type(3) { text-align: right; }
-  p { 
+  p {
     padding-top: 0.5em;
     a { color: ${colors.light}; }
   }
-  svg { 
-    vertical-align: middle; 
+  svg {
+    vertical-align: middle;
     // &.fa-hexagon { transform: rotate(90deg); }
     &.fa-arrow-left { margin-right: 1rem; }
     &.fa-arrow-right { margin-left: 1rem; }

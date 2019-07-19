@@ -92,6 +92,8 @@ const StyledFooter = styled.footer`
     }
     .some-links {
         flex-wrap: wrap;
+        width: 140px;
+        margin-top: 10px;
     }
     .footer-elements-opacity {
         opacity: 0.8;
@@ -159,7 +161,13 @@ const Footer = () => (
         </div> */}
 
                 <div className="footer-somelinks col-4 col-lg-2 col-xl-2 text-right">
-                    <SomeIcons className="footer-someicons" color="lightUsed" />
+                    <SomeIcons className="footer-someicons" color="main" />
+
+                    <span style={{paddingTop: '50px',
+                        position: 'absolute',
+                        left: '145px'}}>
+                                  #dataflow
+                    </span>
                     {/* <nav className="some-links">
             <span className="keep-together">
               <a href="https://www.facebook.com/platformoftrust" className="some-link facebook"><img src={Facebook} className="some-icon" alt="Facebook" /></a>

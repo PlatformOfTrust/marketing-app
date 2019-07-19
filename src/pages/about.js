@@ -70,7 +70,7 @@ const About = ({ data }) => (
                         <p>
                             Platform of Trust differs from other platforms with
                             a built-in trust engine that makes sure both the
-                            data producers and data users are trustworthy{' '}
+                            data producers and data users are trustworthy.{' '}
                         </p>
                     </div>
                 </div>

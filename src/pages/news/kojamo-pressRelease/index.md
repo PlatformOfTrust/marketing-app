@@ -2,8 +2,8 @@
 path: "/news/kojamo" # path to where you want blog to be published aka https://www.platformoftrust.net//blogs/sport-venue
 date: "2019-05-03T13:45:33.962Z"
 title: "Collaboration can help effectively utilise fragmented data in the property sector"
-image: "./light.jpg" # Featured image shown on page and listings. Save in same folder. Don't use svg.
-pic: "light-square.jpg" # Hex image shown on page and listings. No path, just filename. Save in same folder. Don't use svg.
+image: "./Collaboration smart home pic.jpg" # Featured image shown on page and listings. Save in same folder. Don't use svg.
+pic: "Collaboration smart home pic2.jpg" # Hex image shown on page and listings. No path, just filename. Save in same folder. Don't use svg.
 pictext: ""
 type: "news" # All "News" are blogs to separate them from real pages made with MarkDown, so that they appear in blog listings etc.
 subtype: "pressRelease" # "blog" / "news" / "pressRelease" etc.
@@ -42,8 +42,11 @@ The development of Platform of Trust began in 2018 as a collaborative project be
 <br/><br/><br/><br/>
 
 ### Further information
+<br/><br/><br/>
 
-#### Vesa Ilmarinen
+## Vesa Ilmarinen
+
+
 
 Chief Impact Officer, Platform of Trust
 
@@ -51,7 +54,11 @@ Chief Impact Officer, Platform of Trust
 
 vesa.ilmarinen@oftrust.net
 
-#### Pirkka Frosti
+<br/><br/><br/>
+
+## Pirkka Frosti
+
+
 
 Platform of Trust/Digital Living
 
