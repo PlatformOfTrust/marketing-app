@@ -98,6 +98,11 @@ const StyledFooter = styled.footer`
     .footer-elements-opacity {
         opacity: 0.8;
     }
+    .dataFlowPlacement {
+        top: 50px;
+        position: absolute;
+        left: 145px;
+    }
 `;
 
 const Footer = () => (
@@ -163,11 +168,7 @@ const Footer = () => (
                 <div className="footer-somelinks col-4 col-lg-2 col-xl-2 text-right">
                     <SomeIcons className="footer-someicons" color="lightUsed" />
 
-                    <span style={{paddingTop: '50px',
-                        position: 'absolute',
-                        left: '145px'}}>
-                                  #dataflow
-                    </span>
+                    <span className="dataFlowPlacement">#dataflow</span>
                     {/* <nav className="some-links">
             <span className="keep-together">
               <a href="https://www.facebook.com/platformoftrust" className="some-link facebook"><img src={Facebook} className="some-icon" alt="Facebook" /></a>
