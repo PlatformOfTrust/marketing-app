@@ -2,6 +2,7 @@ import React from 'react';
 import { graphql, Link } from 'gatsby';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import MetaTags from 'react-meta-tags';
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';
@@ -10,16 +11,12 @@ import Featured from '../components/Featured';
 import HexBlurb from '../components/HexBlurb';
 import CustomRoundedButton from '../components/CustomRoundedButton';
 import ToolsIntro from '../components/ToolsIntro';
-// import PricingCards from '../components/PricingCards'
-// import SavedVizs from '../components/SavedVizs'
-// import NewsletterCTA from '../components/NewsletterCTA'
-// import CustomImage from '../components/CustomImage'
-// import HexImage from '../components/HexImage'
 import FeaturedNews from '../components/FeaturedNews';
 
 import 'bootstrap/dist/css/bootstrap.css';
 import '../styles/global.css';
 import { colors, variables } from '../Theme.js';
+import SocialPreviewImage from '../images/preview_social_share/home.jpg';
 
 const StyledMain = styled.main`
     &&& {
@@ -57,7 +54,16 @@ const IndexPage = ({ data }) => {
     const contents = data.allContent.edges;
     return (
         <Layout>
-            <SEO title="Home" keywords={['Platform of Trust']} />
+            <MetaTags>
+                <meta property="og:title" content={SocialPreviewData.title} />
+                <meta name="description" content={SocialPreviewData.description} />
+                <meta property="og:image" content={SocialPreviewImage} />
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content={SocialPreviewData.title} />
+                <meta name="twitter:description" content={SocialPreviewData.description} />
+                <meta name="twitter:image" content={SocialPreviewImage} />
+            </MetaTags>
+            <SEO title="Home" keywords={[`Platform of Trust`]} />
             <StyledMain className="home page-content container">
                 <div className="dev-test" style={{ display: 'none' }}>
                     <div
@@ -250,6 +256,12 @@ const IndexPage = ({ data }) => {
         </Layout>
     );
 };
+
+const SocialPreviewData = {
+    title: 'Platform Of Trust | Home',
+    description: 'Platform of Trust harmonizes incompatible data and makes it flow to enable automated business ecosystems and knowledge-based decision making.'
+};
+
 export const query = graphql`
     query {
         allContent: allMarkdownRemark(

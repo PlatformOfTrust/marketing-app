@@ -35,7 +35,7 @@ const SomeIcons = props => {
         >
             <a
                 href="https://www.facebook.com/platformoftrust"
-                className="some-link facebook"
+                className="some-link facebook footer-elements-opacity"
                 target="_blank"
                 rel="noopener noreferrer"
             >
@@ -44,7 +44,7 @@ const SomeIcons = props => {
 
             <a
                 href="https://twitter.com/PlatformOfTrust"
-                className="some-link twitter"
+                className="some-link twitter footer-elements-opacity"
                 target="_blank"
                 rel="noopener noreferrer"
             >
@@ -53,7 +53,7 @@ const SomeIcons = props => {
 
             <a
                 href="https://github.com/PlatformOfTrust/"
-                className="some-link github"
+                className="some-link github footer-elements-opacity"
                 target="_blank"
                 rel="noopener noreferrer"
             >
@@ -62,7 +62,7 @@ const SomeIcons = props => {
 
             <a
                 href="https://www.linkedin.com/company/platform-of-trust/"
-                className="some-link linkedin"
+                className="some-link linkedin footer-elements-opacity"
                 target="_blank"
                 rel="noopener noreferrer"
             >
@@ -71,7 +71,7 @@ const SomeIcons = props => {
 
             <a
                 href="https://www.youtube.com/channel/UCSHXKYHxBCl_hXdBZU_A-gg"
-                className="some-link youtube"
+                className="some-link youtube footer-elements-opacity"
                 target="_blank"
                 rel="noopener noreferrer"
             >
