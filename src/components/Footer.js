@@ -91,9 +91,15 @@ const StyledFooter = styled.footer`
         }
     }
     .some-links {
-        flex-wrap: wrap;
-        width: 140px;
-        margin-top: 10px;
+      flex-wrap: wrap;
+        width: 100px;
+        margin-top: 20px;
+
+        @media ${device.laptop} {
+          flex-wrap: wrap;
+          width: 140px;
+          margin-top: 10px;
+         }
     }
     .footer-elements-opacity {
         opacity: 0.8;

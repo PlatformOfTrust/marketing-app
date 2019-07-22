@@ -11,11 +11,6 @@ import Featured from '../components/Featured';
 import HexBlurb from '../components/HexBlurb';
 import CustomRoundedButton from '../components/CustomRoundedButton';
 import ToolsIntro from '../components/ToolsIntro';
-// import PricingCards from '../components/PricingCards'
-// import SavedVizs from '../components/SavedVizs'
-// import NewsletterCTA from '../components/NewsletterCTA'
-// import CustomImage from '../components/CustomImage'
-// import HexImage from '../components/HexImage'
 import FeaturedNews from '../components/FeaturedNews';
 
 import 'bootstrap/dist/css/bootstrap.css';
@@ -132,7 +127,7 @@ const IndexPage = ({ data }) => {
                                     return (
                                         <li className="benefit" key={node.id}>
                                             <FontAwesomeIcon
-                                                icon={['fal', `check-circle`]}
+                                                icon={['fal', 'check-circle']}
                                                 size="1x"
                                             />
                                             {node.html.replace(/<[^>]*>/g, '')}
@@ -217,7 +212,7 @@ const IndexPage = ({ data }) => {
                 {/* <div className="row mt-5">
           <div className="col-12">
             <h2 className="mb-5">Enjoy the benefits:</h2>
-            <PricingCards />      
+            <PricingCards />
           </div>
         </div> */}
 
