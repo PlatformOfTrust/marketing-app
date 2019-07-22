@@ -26,7 +26,7 @@ const FooterInfo = props => {
             <h5 className="mb-md-1 footer-elements-opacity">Platform of Trust Oy</h5>
             <p className="footer-elements-opacity"> VAT-number FI29800052</p>
             <p>
-                <Link to="/privacy-policy" className="footer-elements-opacity">Data protection statement</Link>
+                <Link to="/privacy-policy" className="footer-elements-opacity">Privacy Policy</Link>
             </p>
         </StyledFooterInfo>
     );
