@@ -57,7 +57,7 @@ const IndexPage = ({ data }) => {
     const contents = data.allContent.edges;
     return (
         <Layout>
-            <SEO title="Home" keywords={[`Platform of Trust`]} />
+            <SEO title="Home" keywords={['Platform of Trust']} />
             <StyledMain className="home page-content container">
                 <div className="dev-test" style={{ display: 'none' }}>
                     <div
@@ -121,7 +121,7 @@ const IndexPage = ({ data }) => {
                                     return (
                                         <li className="benefit" key={node.id}>
                                             <FontAwesomeIcon
-                                                icon={['fal', `check-circle`]}
+                                                icon={['fal', 'check-circle']}
                                                 size="1x"
                                             />
                                             {node.html.replace(/<[^>]*>/g, '')}
@@ -206,7 +206,7 @@ const IndexPage = ({ data }) => {
                 {/* <div className="row mt-5">
           <div className="col-12">
             <h2 className="mb-5">Enjoy the benefits:</h2>
-            <PricingCards />      
+            <PricingCards />
           </div>
         </div> */}
 

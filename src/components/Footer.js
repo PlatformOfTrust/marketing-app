@@ -92,9 +92,15 @@ const StyledFooter = styled.footer`
         }
     }
     .some-links {
-        flex-wrap: wrap;
-        width: 140px;
-        margin-top: 10px;
+      flex-wrap: wrap;
+        width: 100px;
+        margin-top: 20px;
+
+        @media ${device.laptop} {
+          flex-wrap: wrap;
+          width: 140px;
+          margin-top: 10px;
+         }
     }
 `;
 
@@ -164,7 +170,7 @@ const Footer = () => (
                     <span style={{paddingTop: '50px',
                         position: 'absolute',
                         left: '145px'}}>
-                                  #dataflow
+                                  #dataflows
                     </span>
                     {/* <nav className="some-links">
             <span className="keep-together">

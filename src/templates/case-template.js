@@ -54,8 +54,8 @@ const StyledCaption = styled.div`
   position: absolute;
   transform: translateY(-100%);
   background: linear-gradient(to bottom, rgba(0,0,0,0), ${
-      colors.mainDarker
-  } 100%);
+    colors.mainDarker
+} 100%);
   padding: 4rem 10% 0;
   justify-content: flex-end;
   p {
@@ -121,7 +121,7 @@ export default function Template({ data, location, pageContext }) {
             <Helmet title={`Platform of Trust - ${post.frontmatter.title}`} />
             <StyledBlog>
                 <StyledHeader className="container">
-                    <div className="row">
+                    <div style={{marginTop: '50px'}} className="row">
                         <Link to="/cases">
                             <FontAwesomeIcon icon={['fal', 'arrow-left']} />{' '}
                             Back to cases

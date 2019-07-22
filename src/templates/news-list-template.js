@@ -49,7 +49,7 @@ const StyledSelector = styled.button`
 `;
 const StyledBlogBlock = styled.article`
   display: inline-block;
-  width: width: 100%;
+  width: 100%;
   @media ${device.laptop} { width: calc(50% - 2rem); }
   padding: 1.5rem;
   margin: 1rem;
