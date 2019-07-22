@@ -18,6 +18,10 @@ body {
   font-family: 'Fira Sans', sans-serif;
   line-height: 1.125em;
 }
+
+body hr {
+  background: rgb(255, 250, 250, 0.3); /*probably should make a var for this */
+}
 /* body p, */
 body h1,
 body h2,
