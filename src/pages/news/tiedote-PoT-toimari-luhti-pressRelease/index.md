@@ -1,6 +1,6 @@
 ---
 path: "/news/tiedote-PoT-toimari-luhti" # path to where you want blog to be published aka https://www.platformoftrust.net//blogs/sport-venue
-date: "2019-05-03T13:45:33.962Z"
+date: "2019-07-23T13:45:33.962Z"
 title: "Toni Luhti appointed as the CEO of Platform of Trust"
 image: "./toni.jpg" # Featured image shown on page and listings. Save in same folder. Don't use svg.
 pic: "toni2.jpg" # Hex image shown on page and listings. No path, just filename. Save in same folder. Don't use svg.
