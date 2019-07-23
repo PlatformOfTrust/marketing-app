@@ -254,7 +254,7 @@ export default class Events extends React.Component {
                                     )
                                 )
                                 .map(({ node: post }) => {
-                                    console.log(this.state);
+                              
 
                                     return (
                                         <StyledBlogBlock
