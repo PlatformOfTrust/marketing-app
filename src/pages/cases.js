@@ -9,7 +9,7 @@ import MetaTags from 'react-meta-tags';
 import HexImage from '../components/HexImage';
 import CustomSquareButton from '../components/CustomSquareButton';
 import Layout from '../components/layout';
-import { colors, variables } from '../Theme.js';
+import { colors, device, variables } from '../Theme.js';
 import SocialPreviewImage from '../images/preview_social_share/cases.jpg';
 
 export const subtypeColors = {
@@ -27,6 +27,16 @@ const StyledSection = styled.article`
 `;
 const StyledBlogs = styled.article`
     padding: 5%;
+    .news-not-found {
+        text-align: center;
+        padding-top: 15.6vh;
+        padding-bottom: 15.7vh;
+    }
+
+    .news-not-found h2 {
+        font-weight: 400 ;
+        font-size: 2.4rem;
+    }
 `;
 const StyledTools = styled.nav`
   // background: ${colors.mainDarkest};
@@ -50,75 +60,62 @@ const StyledSelector = styled.button`
     }
 `;
 const StyledBlogBlock = styled.article`
+  display: inline-block;
+  width: width: 100%;
+  @media ${device.laptop} { width: calc(50% - 2rem); }
+  padding: 1.5rem;
+  margin: 1rem;
+  border-top: 2px dotted ${colors.main};
+  h2 { font-size: 1.6rem; letter-spacing: 0.02em; word-spacing: 0.065em; line-height: 1.2em;}
+  span { font-size: 15px;}
+  p {word-spacing: 0.064em; line-spacing: 0.048em; font-size: 17px;}
+
+  &:nth-of-type(1) {
+    width: 100%;
+    border-top: none;
+      h2 { font-size: 2.5rem; letter-spacing: 0.01em; word-spacing: 0.065em; line-height: 1.2em;}
+
+  }
+
+  &:nth-child(n+5) {
+    width: 100%;
+    padding-top: 0;
+    padding-bottom: 0;
+    .featured-image, .excerpt { display: none }
+    .title { order: 2; }
+    .meta { order: 1; }
+    .post-preview-content { width: 100%; }
+    h2 { font-size: 1.6rem;word-spacing: 0.065em; line-height: 1.2em;}
+  }
+
+  .post-link {
+    text-decoration: none;
+  }
+  .meta {
+    svg { margin-right: 0.4em; }
+    span {
+      margin-right: 0.3em;
+      text-transform: capitalize;
+    }
+    .divider {
+      display: inline-block;
+      transform: translateY(-0.2em);
+     }
+  }
+  .featured-image {
     display: inline-block;
-    width: calc(50% - 2rem);
-    padding: 1.5rem;
-    margin: 1rem;
-    border-top: 2px dotted ${colors.main};
-    h2 { font-size: 1.6rem;
-        letter-spacing: 0.01em;
-        word-spacing: 0.065em;
-        line-height: 1.2em;
+    width: 30%;
+  }
+  .post-preview-content {
+    display: inline-flex;
+    flex-direction: column;
+    width: 70%;
+    padding: 1rem 10% 1rem 0;
+    vertical-align: top;
+    h2 {
+      font-weight: 400;
     }
-
-    &:nth-of-type(1) {
-        width: 100%;
-        border-top: none;
-        h2 {
-            font-size: 2.4rem;
-        }
-    }
-
-    &:nth-child(n + 5) {
-        width: 100%;
-        .featured-image,
-        .excerpt {
-            display: none;
-        }
-        .title {
-            order: 2;
-        }
-        .meta {
-            order: 1;
-        }
-        .post-preview-content {
-            width: 100%;
-        }
-        h2 {
-            font-size: 2.4rem;
-        }
-    }
-
-    .post-link {
-        text-decoration: none;
-    }
-    .meta {
-        svg {
-            margin-right: 0.4em;
-        }
-        span {
-            margin-right: 0.3em;
-            text-transform: capitalize;
-        }
-        .divider {
-            display: inline-block;
-            transform: translateY(-0.2em);
-        }
-    }
-    .featured-image {
-        display: inline-block;
-        width: 30%;
-    }
-    .post-preview-content {
-        display: inline-flex;
-        flex-direction: column;
-        width: 70%;
-        padding: 1rem 10% 1rem 0;
-        vertical-align: top;
-        h2 {
-            font-weight: 400;
-        }
-    }
+  }
 `;
 const StyledHexImage = styled.div`
     width: 85%;
@@ -243,7 +240,13 @@ export default class Events extends React.Component {
                         </StyledTools>
                         <StyledBlogs className="posts">
                             <h1>Cases</h1>
-
+                            {posts
+                                .filter(post =>
+                                    filters.includes(
+                                        post.node.frontmatter.subtype
+                                    )
+                                ).length === 0 && <div className="col-12 news-not-found"><h2>Sorry, nothing here for now. See the other filters.</h2></div>
+                              }
                             {posts
                                 .filter(post =>
                                     filters.includes(
@@ -251,6 +254,8 @@ export default class Events extends React.Component {
                                     )
                                 )
                                 .map(({ node: post }) => {
+                                    console.log(this.state);
+
                                     return (
                                         <StyledBlogBlock
                                             className="post-preview"
@@ -350,6 +355,7 @@ export default class Events extends React.Component {
                                         </StyledBlogBlock>
                                     );
                                 })}
+
                         </StyledBlogs>
                     </StyledSection>
                 </StyledPad>

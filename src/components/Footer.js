@@ -163,8 +163,8 @@ const Footer = () => (
                 <div className="footer-somelinks col-4 col-lg-2 col-xl-2 text-right">
                     <SomeIcons className="footer-someicons" color="lightUsed" />
 
-                    <span style={{paddingTop: '50px',
-                        position: 'absolute',
+                    <span style={{paddingTop: '70px',
+
                         left: '145px'}}>
                                   #dataflow
                     </span>
