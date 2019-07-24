@@ -18,6 +18,11 @@ body {
   font-family: 'Fira Sans', sans-serif;
   line-height: 1.125em;
 }
+
+body .page-content {
+  margin-top: 50px;
+}
+
 /* body p, */
 body h1,
 body h2,
