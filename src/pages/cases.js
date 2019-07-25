@@ -165,16 +165,18 @@ export default class Events extends React.Component {
     render() {
         const { filters, selected } = this.state;
         const { edges: posts } = this.props.data.allMdx;
+        const socialPreviewImageFullUri = window.location.origin + SocialPreviewImage;
+
         return (
             <Layout className="blog-posts">
                 <MetaTags>
                     <meta property="og:title" content={SocialPreviewData.title} />
-                    <meta name="description" content={SocialPreviewData.description} />
-                    <meta property="og:image" content={SocialPreviewImage} />
+                    <meta property="og:description" content={SocialPreviewData.description} />
+                    <meta property="og:image" content={socialPreviewImageFullUri} />
                     <meta name="twitter:card" content="summary_large_image" />
                     <meta name="twitter:title" content={SocialPreviewData.title} />
                     <meta name="twitter:description" content={SocialPreviewData.description} />
-                    <meta name="twitter:image" content={SocialPreviewImage} />
+                    <meta name="twitter:image" content={socialPreviewImageFullUri} />
                 </MetaTags>
                 <StyledPad>
                     <StyledSection className="posts-listing">

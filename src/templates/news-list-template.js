@@ -202,17 +202,18 @@ export default class NewsList extends React.Component {
                 ? '/news'
                 : `/news/${(currentPage - 1).toString()}`;
         const nextPage = `/news/${(currentPage + 1).toString()}`;
+        const socialPreviewImageFullUri = window.location.origin + SocialPreviewImage;
 
         return (
             <Layout className="blog-posts">
                 <MetaTags>
                     <meta property="og:title" content={SocialPreviewData.title} />
-                    <meta name="description" content={SocialPreviewData.description} />
-                    <meta property="og:image" content={SocialPreviewImage} />
+                    <meta property="og:description" content={SocialPreviewData.description} />
+                    <meta property="og:image" content={socialPreviewImageFullUri} />
                     <meta name="twitter:card" content="summary_large_image" />
                     <meta name="twitter:title" content={SocialPreviewData.title} />
                     <meta name="twitter:description" content={SocialPreviewData.description} />
-                    <meta name="twitter:image" content={SocialPreviewImage} />
+                    <meta name="twitter:image" content={socialPreviewImageFullUri} />
                 </MetaTags>
                 <StyledPad>
                     <StyledSection className="posts-listing">
