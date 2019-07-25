@@ -63,14 +63,20 @@ Platform of Trust is a community-based platform that will be launched in summer 
 
 The development of Platform of Trust began in 2018 as a collaborative project between operators in the property and construction sectors. The goal was to promote the harmonisation of the data these sectors use and to open up new business models. In the future, the platform will be available for operators in any sector. Platform of Trust Oy, a part of the Suomen Tilaajavastuu group, was incorporated in February 2019. Business Finland has granted Platform of Trust 5 million of funding for international expansion.
 
-<br/><br/><br/><br/>
+<br/><br/>
+
+<hr/>
+
+<br/><br/>
 
 ### Further information
-<br/><br/><br/><br/>
 
-### **Vesa Ilmarinen**
+<br/><br/>
+
 
 <br/>
+
+### **Vesa Ilmarinen**
 
 Chief Impact Officer, Platform of Trust
 
@@ -81,8 +87,6 @@ vesa.ilmarinen@oftrust.net
 <br/><br/><br/><br/>
 
 ### **Pirkka Frosti**
-
-<br/>
 
 Platform of Trust/Digital Living
 
