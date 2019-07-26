@@ -101,6 +101,17 @@ const StyledBlogFooter = styled.div`
     &&& {
         max-width: ${variables.pageWidth};
     }
+    @media only screen and (max-width:640px) {
+
+      p a {
+        display: flex;
+      }
+
+      p a svg {
+        margin-top: 3px;
+      }
+
+    }
     margin: 0 auto;
     padding: 2rem 0;
     background: ${colors.mainDarker};
