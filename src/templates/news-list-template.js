@@ -422,22 +422,8 @@ export default class NewsList extends React.Component {
                                                         <StyledHexImage>
                                                             {/* <CustomImage filename={post.frontmatter.pic} alt={post.frontmatter.title} /> */}
                                                             <HexImage
-                                                                pic={require(`../pages${
-                                                                    post
-                                                                        .frontmatter
-                                                                        .path
-                                                                }-${
-                                                                    post
-                                                                        .frontmatter
-                                                                        .subtype
-                                                                }/${
-                                                                    post
-                                                                        .frontmatter
-                                                                        .pic
-                                                                }`)}
-                                                                hexId={`NewHex-${
-                                                                    post.id
-                                                                }`}
+                                                                pic={require(`../pages${post.frontmatter.path}-${post.frontmatter.subtype}/${post.frontmatter.pic}`)}
+                                                                hexId={`NewHex-${post.id}`}
                                                                 rotate={true}
                                                             />
                                                         </StyledHexImage>

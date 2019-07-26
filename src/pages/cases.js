@@ -277,16 +277,8 @@ export default class Events extends React.Component {
                                                     <StyledHexImage>
                                                         {/* <CustomImage filename={post.frontmatter.pic} alt={post.frontmatter.title} /> */}
                                                         <HexImage
-                                                            pic={require(`.${
-                                                                post.frontmatter
-                                                                    .path
-                                                            }/${
-                                                                post.frontmatter
-                                                                    .pic
-                                                            }`)}
-                                                            hexId={`EventHex-${
-                                                                post.id
-                                                            }`}
+                                                            pic={require(`.${post.frontmatter.path}/${post.frontmatter.pic}`)}
+                                                            hexId={`EventHex-${post.id}`}
                                                             rotate={true}
                                                         />
                                                     </StyledHexImage>
