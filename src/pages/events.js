@@ -151,14 +151,14 @@ export default class Events extends React.Component {
     handleFiltering = filter => {
         filter === 'all'
             ? this.setState({
-                filters: [
-                    'blog',
-                    'article',
-                    'pressRelease',
-                    'business',
-                    'technical'
-                ]
-            })
+                  filters: [
+                      'blog',
+                      'article',
+                      'pressRelease',
+                      'business',
+                      'technical'
+                  ]
+              })
             : this.setState({ filters: [filter] });
         this.setState({ selected: [filter] });
     };
@@ -184,12 +184,24 @@ export default class Events extends React.Component {
         return (
             <Layout className="blog-posts">
                 <MetaTags>
-                    <meta property="og:title" content={SocialPreviewData.title} />
-                    <meta name="description" content={SocialPreviewData.description} />
+                    <meta
+                        property="og:title"
+                        content={SocialPreviewData.title}
+                    />
+                    <meta
+                        name="description"
+                        content={SocialPreviewData.description}
+                    />
                     <meta property="og:image" content={SocialPreviewImage} />
                     <meta name="twitter:card" content="summary_large_image" />
-                    <meta name="twitter:title" content={SocialPreviewData.title} />
-                    <meta name="twitter:description" content={SocialPreviewData.description} />
+                    <meta
+                        name="twitter:title"
+                        content={SocialPreviewData.title}
+                    />
+                    <meta
+                        name="twitter:description"
+                        content={SocialPreviewData.description}
+                    />
                     <meta name="twitter:image" content={SocialPreviewImage} />
                 </MetaTags>
                 <StyledPad>
@@ -875,7 +887,8 @@ export default class Events extends React.Component {
 
 const SocialPreviewData = {
     title: 'Platform Of Trust | Events',
-    description: 'Events organized by Platform of Trust and events that Platform of Trust is attending or a team member is speaking at.'
+    description:
+        'Events organized by Platform of Trust and events that Platform of Trust is attending or a team member is speaking at.'
 };
 
 export const pageQuery = graphql`

@@ -60,12 +60,24 @@ const Layout = ({ pathname, children }) => (
                 <GlobalStyle />
                 <Helmet title={data.site.siteMetadata.title} />
                 <MetaTags>
-                    <meta property="og:title" content={SocialPreviewData.title} />
-                    <meta name="description" content={SocialPreviewData.description} />
+                    <meta
+                        property="og:title"
+                        content={SocialPreviewData.title}
+                    />
+                    <meta
+                        name="description"
+                        content={SocialPreviewData.description}
+                    />
                     <meta property="og:image" content={SocialPreviewImage} />
                     <meta name="twitter:card" content="summary_large_image" />
-                    <meta name="twitter:title" content={SocialPreviewData.title} />
-                    <meta name="twitter:description" content={SocialPreviewData.description} />
+                    <meta
+                        name="twitter:title"
+                        content={SocialPreviewData.title}
+                    />
+                    <meta
+                        name="twitter:description"
+                        content={SocialPreviewData.description}
+                    />
                     <meta name="twitter:image" content={SocialPreviewImage} />
                 </MetaTags>
 
@@ -86,7 +98,8 @@ Layout.propTypes = {
 
 const SocialPreviewData = {
     title: 'Platform Of Trust | Home',
-    description: 'Platform of Trust harmonizes incompatible data and makes it flow to enable automated business ecosystems and knowledge-based decision making.'
+    description:
+        'Platform of Trust harmonizes incompatible data and makes it flow to enable automated business ecosystems and knowledge-based decision making.'
 };
 
 export default Layout;

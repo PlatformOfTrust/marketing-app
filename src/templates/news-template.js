@@ -67,8 +67,8 @@ const StyledCaption = styled.div`
   position: absolute;
   transform: translateY(-100%);
   background: linear-gradient(to bottom, rgba(0,0,0,0), ${
-    colors.mainDarker
-} 100%);
+      colors.mainDarker
+  } 100%);
   padding: 4rem 10% 0;
   justify-content: flex-end;
   p {
@@ -140,30 +140,20 @@ const StyledCustomImage = styled.div`
     .gatsby-image-wrapper {
         transform: rotate(-10deg);
     }
-    @media only screen and (max-width:983px) {
-
+    @media only screen and (max-width: 983px) {
         transform: translateY(1.7rem) rotate(10deg) scale(1.5);
-
     }
 
-    @media only screen and (min-width:640px) and (max-width: 760px) {
-
+    @media only screen and (min-width: 640px) and (max-width: 760px) {
         transform: translateY(0.2rem) rotate(10deg) scale(2.3);
-
     }
 
-
-
-    @media only screen and (min-width:501px) and (max-width: 600px) {
-
+    @media only screen and (min-width: 501px) and (max-width: 600px) {
         transform: translateY(0.2rem) rotate(10deg) scale(3.3);
-
     }
 
-    @media only screen and (max-width:500px) {
-
+    @media only screen and (max-width: 500px) {
         transform: translateY(0rem) rotate(10deg) scale(5);
-
     }
 `;
 const StyledDisqus = styled.div`
@@ -183,7 +173,7 @@ export default function Template({ data, location, pageContext }) {
             <Helmet title={`Platform of Trust - ${post.frontmatter.title}`} />
             <StyledBlog>
                 <StyledHeader className="container">
-                    <div style={{marginTop: '50px'}} className="row">
+                    <div style={{ marginTop: '50px' }} className="row">
                         <Link to="/news">
                             <FontAwesomeIcon icon={['fal', 'arrow-left']} />{' '}
                             Back to news
