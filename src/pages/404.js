@@ -44,13 +44,21 @@ const NotFoundPage = () => (
                         If you found this link on the internet (and didn't just
                         type it wrong) we would very much appreciate if you'd
                         report it to us.{' '}
-                        <a class="decoration-dotted" href="mailto:support@oftrust.net">support@oftrust.net</a>{' '}
+                        <a
+                            class="decoration-dotted"
+                            href="mailto:support@oftrust.net"
+                        >
+                            support@oftrust.net
+                        </a>{' '}
                         Thanks!
                     </p>
 
                     <p>
                         You can also go to the{' '}
-                        <a class="decoration-dotted" href="https://www.platformoftrust.net/">
+                        <a
+                            class="decoration-dotted"
+                            href="https://www.platformoftrust.net/"
+                        >
                             front page
                         </a>{' '}
                         to find what you were looking for.
