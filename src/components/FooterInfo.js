@@ -1,5 +1,5 @@
 import React from 'react';
-import Link from 'gatsby-link';
+import LocalizedLink from './LocalizedLink';
 import styled from 'styled-components';
 
 import { colors } from '../Theme.js';
@@ -28,9 +28,12 @@ const FooterInfo = props => {
             </h5>
             <p className="footer-elements-opacity"> VAT-number FI29800052</p>
             <p>
-                <Link to="/privacy-policy" className="footer-elements-opacity">
+                <LocalizedLink
+                    to="/privacy-policy"
+                    className="footer-elements-opacity"
+                >
                     Privacy Policy
-                </Link>
+                </LocalizedLink>
             </p>
         </StyledFooterInfo>
     );

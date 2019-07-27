@@ -1,7 +1,6 @@
 import React from 'react';
-import Link from 'gatsby-link';
 import styled from 'styled-components';
-
+import LocalizedLink from './LocalizedLink';
 import FooterInfo from './FooterInfo';
 import Logo from '../images/platformoftrust-wide-white-rgb.svg';
 import LogoSymbol from '../images/logo-symbol.svg';
@@ -122,20 +121,20 @@ const Footer = () => (
         <div className="container-fluid text-center text-md-left">
             <div className="row">
                 <div className="footer-logo col-2 offset-1 ">
-                    <Link to="/">
+                    <LocalizedLink to="/">
                         <img
                             src={Logo}
                             className="logo-footer logo-desk footer-elements-opacity"
                             alt="Logo"
                         />
-                    </Link>
-                    <Link to="/">
+                    </LocalizedLink>
+                    <LocalizedLink to="/">
                         <img
                             src={LogoSymbol}
                             className="logo-footer logo-mobile footer-elements-opacity"
                             alt="Logo"
                         />
-                    </Link>
+                    </LocalizedLink>
                 </div>
 
                 <div className="footer-contact col-4 col-lg-4 col-xl-4 mt-md-0 mt-1">
@@ -147,28 +146,43 @@ const Footer = () => (
 
                 <div className="sitemap col-md-1">
                     {/* <Link to="/pricing">Pricing</Link><br /> */}
-                    <Link to="/cases" className="footer-elements-opacity">
+                    <LocalizedLink
+                        to="/cases"
+                        className="footer-elements-opacity"
+                    >
                         Cases
-                    </Link>
+                    </LocalizedLink>
                     <br />
-                    <Link to="/news" className="footer-elements-opacity">
+                    <LocalizedLink
+                        to="/news"
+                        className="footer-elements-opacity"
+                    >
                         News
-                    </Link>
+                    </LocalizedLink>
                     <br />
                 </div>
 
                 <div className="sitemap col-md-1">
-                    <Link to="/events" className="footer-elements-opacity">
+                    <LocalizedLink
+                        to="/events"
+                        className="footer-elements-opacity"
+                    >
                         Events
-                    </Link>
+                    </LocalizedLink>
                     <br />
-                    <Link to="/about" className="footer-elements-opacity">
+                    <LocalizedLink
+                        to="/about"
+                        className="footer-elements-opacity"
+                    >
                         About
-                    </Link>
+                    </LocalizedLink>
                     <br />
-                    <Link to="/contact" className="footer-elements-opacity">
+                    <LocalizedLink
+                        to="/contact"
+                        className="footer-elements-opacity"
+                    >
                         Contact
-                    </Link>
+                    </LocalizedLink>
                     <br />
                 </div>
 

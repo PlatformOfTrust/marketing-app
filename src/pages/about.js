@@ -4,7 +4,7 @@ import Img from 'gatsby-image';
 import styled from 'styled-components';
 import MetaTags from 'react-meta-tags';
 
-import Layout from '../components/layout';
+import Layout from '../components/Layout';
 import SEO from '../components/seo';
 import Video from '../components/Video';
 import Logos from '../components/Logos';
@@ -36,8 +36,8 @@ const StyledVideo = styled.section`
     margin: 5rem auto;
 `;
 
-const About = ({ data }) => (
-    <Layout>
+const About = ({ data, pathContext }) => (
+    <Layout locale={pathContext.locale}>
         <SEO title="About Platform of Trust" />
         <MetaTags>
             <meta property="og:title" content={SocialPreviewData.title} />

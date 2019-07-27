@@ -1,6 +1,6 @@
 import React from 'react';
-import { Link } from 'gatsby';
 import styled from 'styled-components';
+import LocalizedLink from './LocalizedLink';
 
 import { colors } from '../Theme.js';
 
@@ -20,18 +20,18 @@ const StyledToolsNav = styled.nav`
 const ToolsNav = props => {
     return (
         <StyledToolsNav className="apps">
-            <Link className="nav-link" to="/search">
+            <LocalizedLink className="nav-link" to="/search">
                 Search
-            </Link>
-            <Link className="nav-link" to="/faq">
+            </LocalizedLink>
+            <LocalizedLink className="nav-link" to="/faq">
                 FAQ
-            </Link>
-            <Link className="nav-link" to="/language">
+            </LocalizedLink>
+            <LocalizedLink className="nav-link" to="/language">
                 En/Fi
-            </Link>
-            <Link className="nav-link" to="/login">
+            </LocalizedLink>
+            <LocalizedLink className="nav-link" to="/login">
                 Login
-            </Link>
+            </LocalizedLink>
         </StyledToolsNav>
     );
 };

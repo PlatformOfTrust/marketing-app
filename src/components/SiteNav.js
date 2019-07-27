@@ -1,6 +1,6 @@
 import React from 'react';
-import { Link } from 'gatsby';
 import styled from 'styled-components';
+import LocalizedLink from './LocalizedLink';
 
 import { colors, device } from '../Theme.js';
 
@@ -58,41 +58,41 @@ const SiteNav = props => {
     return (
         <StyledSiteNav className="apps">
             {/* <Link className="site-nav-link" to="/pricing" activeStyle={activeStyles}>Pricing</Link> */}
-            <Link
+            <LocalizedLink
                 className="site-nav-link"
                 to="/cases"
                 activeStyle={activeStyles}
             >
                 Cases
-            </Link>
-            <Link
+            </LocalizedLink>
+            <LocalizedLink
                 className="site-nav-link"
                 to="/news"
                 activeStyle={activeStyles}
             >
                 News
-            </Link>
-            <Link
+            </LocalizedLink>
+            <LocalizedLink
                 className="site-nav-link"
                 to="/events"
                 activeStyle={activeStyles}
             >
                 Events
-            </Link>
-            <Link
+            </LocalizedLink>
+            <LocalizedLink
                 className="site-nav-link"
                 to="/about"
                 activeStyle={activeStyles}
             >
                 About
-            </Link>
-            <Link
+            </LocalizedLink>
+            <LocalizedLink
                 className="site-nav-link"
                 to="/contact"
                 activeStyle={activeStyles}
             >
                 Contact
-            </Link>
+            </LocalizedLink>
         </StyledSiteNav>
     );
 };

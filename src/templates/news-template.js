@@ -2,15 +2,16 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import Img from 'gatsby-image';
-import { graphql, Link } from 'gatsby';
+import { graphql } from 'gatsby';
 import MDXRenderer from 'gatsby-mdx/mdx-renderer';
 import Disqus from 'gatsby-plugin-disqus';
 import styled from 'styled-components';
+import LocalizedLink from './../components/LocalizedLink';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import CustomImage from '../components/CustomImage';
-import Layout from '../components/layout';
+import Layout from '../components/Layout';
 import { colors, device, variables } from '../Theme.js';
 
 const StyledBlog = styled.article`
@@ -173,18 +174,18 @@ const StyledDisqus = styled.div`
 
 export default function Template({ data, location, pageContext }) {
     const post = data.mdx;
-    const { next, prev } = pageContext;
+    const { next, prev, locale } = pageContext;
 
     return (
-        <Layout pathname={location.pathname}>
+        <Layout pathname={location.pathname} locale={locale}>
             <Helmet title={`Platform of Trust - ${post.frontmatter.title}`} />
             <StyledBlog>
                 <StyledHeader className="container">
                     <div style={{ marginTop: '50px' }} className="row">
-                        <Link to="/news">
+                        <LocalizedLink to="/news">
                             <FontAwesomeIcon icon={['fal', 'arrow-left']} />{' '}
                             Back to news
-                        </Link>
+                        </LocalizedLink>
                         <h1>{post.frontmatter.title}</h1>
                         <StyledMeta>
                             <FontAwesomeIcon
@@ -313,7 +314,7 @@ export default function Template({ data, location, pageContext }) {
                         <div className="col col-3 offset-1">
                             <p>
                                 {prev && (
-                                    <Link to={prev.frontmatter.path}>
+                                    <LocalizedLink to={prev.frontmatter.path}>
                                         <FontAwesomeIcon
                                             icon={['fal', 'arrow-left']}
                                             color="white"
@@ -321,21 +322,23 @@ export default function Template({ data, location, pageContext }) {
                                         />
                                         Previous
                                         {/* {prev.frontmatter.title} */}
-                                    </Link>
+                                    </LocalizedLink>
                                 )}
                             </p>
                         </div>
 
                         <div className="col col-4">
                             <p>
-                                <Link to="/news">Back to news</Link>
+                                <LocalizedLink to="/news">
+                                    Back to news
+                                </LocalizedLink>
                             </p>
                         </div>
 
                         <div className="col col-3">
                             <p>
                                 {next && (
-                                    <Link to={next.frontmatter.path}>
+                                    <LocalizedLink to={next.frontmatter.path}>
                                         Next
                                         {/* {next.frontmatter.title} */}
                                         <FontAwesomeIcon
@@ -343,7 +346,7 @@ export default function Template({ data, location, pageContext }) {
                                             color="white"
                                             size="1x"
                                         />
-                                    </Link>
+                                    </LocalizedLink>
                                 )}
                             </p>
                         </div>
@@ -355,8 +358,8 @@ export default function Template({ data, location, pageContext }) {
 }
 
 export const pageQuery = graphql`
-    query newsPostByPath($path: String!) {
-        mdx(frontmatter: { path: { eq: $path } }) {
+    query newsPostByPath($pagePath: String!) {
+        mdx(frontmatter: { path: { eq: $pagePath } }) {
             frontmatter {
                 date(formatString: "MMMM DD, YYYY")
                 path

@@ -1,12 +1,13 @@
 import React from 'react';
-import Link from 'gatsby-link';
 import { graphql } from 'gatsby';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styled from 'styled-components';
 import MetaTags from 'react-meta-tags';
 
+import LocalizedLink from './../components/LocalizedLink';
+
 import HexImage from '../components/HexImage';
-import Layout from '../components/layout';
+import Layout from '../components/Layout';
 import CustomRoundedButton from '../components/CustomRoundedButton';
 import CustomSquareButton from '../components/CustomSquareButton';
 import { colors, device, variables } from '../Theme.js';
@@ -236,7 +237,10 @@ export default class NewsList extends React.Component {
         const nextPage = `/news/${(currentPage + 1).toString()}`;
 
         return (
-            <Layout className="blog-posts">
+            <Layout
+                locale={this.props.pathContext.locale}
+                className="blog-posts"
+            >
                 <MetaTags>
                     <meta
                         property="og:title"
@@ -379,9 +383,9 @@ export default class NewsList extends React.Component {
                                     <h1>News</h1>
                                 </div>
                                 <div className="col-6 text-right">
-                                    <Link to="/newsletter">
+                                    <LocalizedLink to="/newsletter">
                                         <CustomRoundedButton label="Sign up for news" />
-                                    </Link>
+                                    </LocalizedLink>
                                 </div>
                             </div>
                             <div className="row">
@@ -412,7 +416,7 @@ export default class NewsList extends React.Component {
                                             >
                                                 {/* {items} */}
                                                 <div className="featured-image">
-                                                    <Link
+                                                    <LocalizedLink
                                                         to={
                                                             post.frontmatter
                                                                 .path
@@ -427,11 +431,11 @@ export default class NewsList extends React.Component {
                                                                 rotate={true}
                                                             />
                                                         </StyledHexImage>
-                                                    </Link>
+                                                    </LocalizedLink>
                                                 </div>
                                                 <div className="post-preview-content">
                                                     <div className="title">
-                                                        <Link
+                                                        <LocalizedLink
                                                             to={
                                                                 post.frontmatter
                                                                     .path
@@ -445,7 +449,7 @@ export default class NewsList extends React.Component {
                                                                         .title
                                                                 }
                                                             </h2>
-                                                        </Link>
+                                                        </LocalizedLink>
                                                     </div>
                                                     <div className="meta">
                                                         <p>
@@ -503,7 +507,7 @@ export default class NewsList extends React.Component {
                                                         </p>
                                                     </div>
                                                     <div className="excerpt">
-                                                        <Link
+                                                        <LocalizedLink
                                                             to={
                                                                 post.frontmatter
                                                                     .path
@@ -514,7 +518,7 @@ export default class NewsList extends React.Component {
                                                                 {post.excerpt}
                                                             </p>
                                                             <CustomSquareButton label="Read" />
-                                                        </Link>
+                                                        </LocalizedLink>
                                                     </div>
                                                 </div>
                                             </StyledBlogBlock>
@@ -529,7 +533,7 @@ export default class NewsList extends React.Component {
                                     <div className="col col-3 offset-1">
                                         {!isFirst && (
                                             <p>
-                                                <Link to={prevPage}>
+                                                <LocalizedLink to={prevPage}>
                                                     <FontAwesomeIcon
                                                         icon={[
                                                             'fal',
@@ -539,7 +543,7 @@ export default class NewsList extends React.Component {
                                                         size="1x"
                                                     />
                                                     Previous page
-                                                </Link>
+                                                </LocalizedLink>
                                             </p>
                                         )}
                                     </div>
@@ -548,7 +552,7 @@ export default class NewsList extends React.Component {
                                         {Array.from(
                                             { length: numPages },
                                             (_, i) => (
-                                                <Link
+                                                <LocalizedLink
                                                     className={`pagination-number ${
                                                         i + 1 === currentPage
                                                             ? 'current'
@@ -561,7 +565,7 @@ export default class NewsList extends React.Component {
                                                     }`}
                                                 >
                                                     {i + 1}
-                                                </Link>
+                                                </LocalizedLink>
                                             )
                                         )}
                                     </div>
@@ -569,7 +573,7 @@ export default class NewsList extends React.Component {
                                     <div className="col col-3">
                                         {!isLast && (
                                             <p>
-                                                <Link to={nextPage}>
+                                                <LocalizedLink to={nextPage}>
                                                     More news
                                                     <FontAwesomeIcon
                                                         icon={[
@@ -579,7 +583,7 @@ export default class NewsList extends React.Component {
                                                         color="white"
                                                         size="1x"
                                                     />
-                                                </Link>
+                                                </LocalizedLink>
                                             </p>
                                         )}
                                     </div>

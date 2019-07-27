@@ -1,5 +1,6 @@
 import React from 'react';
-import { StaticQuery, graphql, Link } from 'gatsby';
+import { StaticQuery, graphql } from 'gatsby';
+import LocalizedLink from './LocalizedLink';
 import styled from 'styled-components';
 
 import { device } from '../Theme.js';
@@ -108,7 +109,7 @@ const FeaturedEvent = ({ data }) => (
                         <StyledFeaturedEvent className="hex-content">
                             <div className="content-wrapper">
                                 {hasOwnUpgomingEvents && (
-                                    <Link
+                                    <LocalizedLink
                                         to={
                                             ownUpcomingEvents[0].node
                                                 .frontmatter.path
@@ -129,10 +130,10 @@ const FeaturedEvent = ({ data }) => (
                                         <span className="read-more">
                                             Read more
                                         </span>
-                                    </Link>
+                                    </LocalizedLink>
                                 )}
                                 {!hasOwnUpgomingEvents && (
-                                    <Link to="/events">
+                                    <LocalizedLink to="/events">
                                         <h3>
                                             {
                                                 friendsUpcomingEvents[0].node
@@ -148,7 +149,7 @@ const FeaturedEvent = ({ data }) => (
                                         <span className="read-more">
                                             Read more
                                         </span>
-                                    </Link>
+                                    </LocalizedLink>
                                 )}
                             </div>
                         </StyledFeaturedEvent>

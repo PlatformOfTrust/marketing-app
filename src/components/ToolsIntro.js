@@ -1,7 +1,6 @@
 import React from 'react';
-import { Link } from 'gatsby';
 import styled from 'styled-components';
-
+import LocalizedLink from './LocalizedLink';
 import HexBlurb from './HexBlurb';
 import CustomRoundedButton from './CustomRoundedButton';
 
@@ -118,13 +117,13 @@ const ToolsIntro = props => {
                     </p>
                 </div>
                 <div className="disabled button-col col-md-3 col-lg-2 ">
-                    <Link to="/">
+                    <LocalizedLink to="/">
                         <CustomRoundedButton
                             label="Coming soon"
                             primary
                             disabled
                         />
-                    </Link>
+                    </LocalizedLink>
                 </div>
             </div>
 
@@ -148,14 +147,14 @@ const ToolsIntro = props => {
                     </p>
                 </div>
                 <div className="disabled button-col col-md-3 col-lg-2">
-                    <Link to="/">
+                    <LocalizedLink to="/">
                         <CustomRoundedButton
                             label="Future feature"
                             primary
                             disabled
                             className="disabled"
                         />
-                    </Link>
+                    </LocalizedLink>
                 </div>
             </div>
         </ToolsSection>

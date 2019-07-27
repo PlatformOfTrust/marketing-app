@@ -1,6 +1,7 @@
 import React from 'react';
-import { StaticQuery, graphql, Link } from 'gatsby';
+import { StaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
+import LocalizedLink from './LocalizedLink';
 
 import { device, colors } from '../Theme.js';
 
@@ -91,13 +92,15 @@ const FeaturedCase = ({ data }) => (
         render={data => (
             <StyledFeaturedCase className="hex-content">
                 <div className="content-wrapper">
-                    <Link to={data.allMdx.edges[0].node.frontmatter.path}>
+                    <LocalizedLink
+                        to={data.allMdx.edges[0].node.frontmatter.path}
+                    >
                         <h3>{data.allMdx.edges[0].node.frontmatter.type}</h3>
                         <p>
                             {data.allMdx.edges[0].node.frontmatter.shorttitle}
                         </p>
                         <span className="read-more">Read more</span>
-                    </Link>
+                    </LocalizedLink>
                 </div>
             </StyledFeaturedCase>
         )}

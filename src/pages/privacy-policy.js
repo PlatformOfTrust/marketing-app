@@ -1,12 +1,12 @@
 import React from 'react';
 
-import Layout from '../components/layout';
+import Layout from '../components/Layout';
 import SEO from '../components/seo';
 
 class Tietosuojaseloste extends React.Component {
     render() {
         return (
-            <Layout>
+            <Layout locale={this.props.pathContext.locale}>
                 <SEO
                     title="Platform of Trust Developers"
                     keywords={[`Platform of trust`, `developers`]}

@@ -1,10 +1,11 @@
 import React from 'react';
-import { graphql, Link } from 'gatsby';
+import { graphql } from 'gatsby';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import MetaTags from 'react-meta-tags';
+import LocalizedLink from './../components/LocalizedLink';
 
-import Layout from '../components/layout';
+import Layout from '../components/Layout';
 import SEO from '../components/seo';
 import Hero from '../components/Hero';
 import Featured from '../components/Featured';
@@ -49,11 +50,12 @@ const StyledPartners = styled.div`
     }
 `;
 
-const IndexPage = ({ data }) => {
+const IndexPage = ({ data, pathContext }) => {
     const testContent = data.allContent.edges[0].node;
     const contents = data.allContent.edges;
+
     return (
-        <Layout>
+        <Layout locale={pathContext.locale}>
             <MetaTags>
                 <meta property="og:title" content={SocialPreviewData.title} />
                 <meta
@@ -143,9 +145,9 @@ const IndexPage = ({ data }) => {
                         </StyledBenefits>
                     </div>
                     <div className="col-6 col-md-3">
-                        <Link to="/newsletter">
+                        <LocalizedLink to="/newsletter">
                             <CustomRoundedButton label="Signup for news" />
-                        </Link>
+                        </LocalizedLink>
                     </div>
                 </div>
 

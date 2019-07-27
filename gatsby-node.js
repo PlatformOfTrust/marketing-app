@@ -5,6 +5,7 @@
  */
 
 const path = require('path');
+const locales = require('./src/locales/index');
 
 exports.createPages = ({ actions, graphql }) => {
     const { createPage } = actions;
@@ -109,72 +110,141 @@ exports.createPages = ({ actions, graphql }) => {
         if (result.errors) {
             return Promise.reject(result.errors);
         }
-        
-        const events = result.data.events.edges
-        events.forEach(({ node }, index ) => {
-            const prev = index === 0 ? null : events[index - 1].node
-            const next = index === events.length - 1 ? null : events[index + 1].node
-            createPage({
-                path: node.frontmatter.path,
-                component: eventTemplate,
-                context: {
-                    prev,
-                    next
-                }
+
+        const events = result.data.events.edges;
+        events.forEach(({ node }, index) => {
+            const prev = index === 0 ? null : events[index - 1].node;
+            const next = index === events.length - 1 ? null : events[index + 1].node;
+            Object.keys(locales).map(lang => {
+                const pagePath = node.frontmatter.path;
+                const localizedPath = `${locales[lang].path}${pagePath}`;
+                console.log('creating path', localizedPath);
+                createPage({
+                    path: localizedPath,
+                    component: eventTemplate,
+                    context: {
+                        prev,
+                        next,
+                        pagePath,
+                        locale: lang
+                    }
+                });
             });
         });
-        
+
         // Create news-list pages
-        const posts = result.data.news.edges
-        const postsPerPage = 10
-        const numPages = Math.ceil(posts.length / postsPerPage)
+        const posts = result.data.news.edges;
+        const postsPerPage = 10;
+        const numPages = Math.ceil(posts.length / postsPerPage);
         Array.from({ length: numPages }).forEach((_, i) => {
-          createPage({
-            path: i === 0 ? `/news` : `/news/${i + 1}`,
-            component: path.resolve(newsListTemplate),
-            context: {
-              limit: postsPerPage,
-              skip: i * postsPerPage,
-              numPages,
-              currentPage: i + 1,
-            },
-          })
-        })
-
-        result.data.news.edges.forEach(({ node }, index ) => {
-            const prev = index === 0 ? null : posts[index - 1].node
-            const next = index === posts.length - 1 ? null : posts[index + 1].node
-            createPage({
-                path: node.frontmatter.path,
-                component: newsTemplate,
-                context: {
-                    prev,
-                    next
-                } 
+            const pagePath = (i === 0 ? `/news` : `/news/${i + 1}`);
+            Object.keys(locales).map(lang => {
+                const localizedPath = `${locales[lang].path}${pagePath}`;
+                console.log('creating path', localizedPath);
+                createPage({
+                    path: localizedPath,
+                    component: path.resolve(newsListTemplate),
+                    context: {
+                        limit: postsPerPage,
+                        skip: i * postsPerPage,
+                        numPages,
+                        currentPage: i + 1,
+                        pagePath,
+                        locale: lang
+                    }
+                });
             });
         });
 
-        
-        const cases = result.data.cases.edges
-        cases.forEach(({ node }, index ) => {
-            const prev = index === 0 ? null : cases[index - 1].node
-            const next = index === cases.length - 1 ? null : cases[index + 1].node
-            createPage({
-                path: node.frontmatter.path,
-                component: caseTemplate,
-                context: {
-                    prev,
-                    next
-                }
+        result.data.news.edges.forEach(({ node }, index) => {
+            const prev = index === 0 ? null : posts[index - 1].node;
+            const next = index === posts.length - 1 ? null : posts[index + 1].node;
+            Object.keys(locales).map(lang => {
+                const pagePath = node.frontmatter.path;
+                const localizedPath = `${locales[lang].path}${pagePath}`;
+                console.log('creating path', localizedPath);
+                createPage({
+                    path: localizedPath,
+                    component: newsTemplate,
+                    context: {
+                        prev,
+                        next,
+                        pagePath,
+                        locale: lang
+                    }
+                });
+            });
+        });
+
+
+        const cases = result.data.cases.edges;
+        cases.forEach(({ node }, index) => {
+            const prev = index === 0 ? null : cases[index - 1].node;
+            const next = index === cases.length - 1 ? null : cases[index + 1].node;
+
+            Object.keys(locales).map(lang => {
+                const pagePath = node.frontmatter.path;
+                const localizedPath = `${locales[lang].path}${pagePath}`;
+                console.log('creating path', localizedPath);
+                createPage({
+                    path: localizedPath,
+                    component: caseTemplate,
+                    context: {
+                        prev,
+                        next,
+                        pagePath,
+                        locale: lang
+                    }
+                });
             });
         });
 
         result.data.pricing.edges.forEach(({ node }) => {
-            createPage({
-                path: node.frontmatter.path,
-                component: pricingTemplate,
-                context: {} // additional data can be passed via context
+            Object.keys(locales).map(lang => {
+                const pagePath = node.frontmatter.path;
+                const localizedPath = `${locales[lang].path}${pagePath}`;
+                console.log('creating path', localizedPath);
+                createPage({
+                    path: localizedPath,
+                    component: pricingTemplate,
+                    context: {
+                        pagePath,
+                        locale: lang
+                    } // additional data can be passed via context
+                });
             });
         });
+    });
+};
+
+
+exports.onCreatePage = ({ page, actions }) => {
+    const { createPage, deletePage } = actions;
+    return new Promise(resolve => {
+        Object.keys(locales).map(lang => {
+            const url = (page.context && page.context.frontmatter && page.context.frontmatter.path) || page.path;
+            if (url.indexOf('dev-404') === -1) {
+                if (Object.keys(page.context).length === 0) {
+                    const localizedPath = locales[lang].path + url;
+                    console.log('Creating page', url, localizedPath);
+
+                    createPage({
+                        ...page,
+                        path: localizedPath,
+                        context: {
+                            locale: lang
+                        }
+                    });
+
+                    console.log('Delete', url);
+                    return deletePage(page);
+                } else {
+                    console.log('Delete', url);
+                    return deletePage(page);
+                }
+            }
+        });
+
+        resolve();
     });
 };

@@ -1,5 +1,6 @@
 import React from 'react';
-import { StaticQuery, graphql, Link } from 'gatsby';
+import { StaticQuery, graphql } from 'gatsby';
+import LocalizedLink from './LocalizedLink';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styled from 'styled-components';
 
@@ -125,7 +126,7 @@ const FeaturedNews = ({ data }) => (
                     <h2>Latest News</h2>
 
                     {data.news.edges.map(({ node }) => (
-                        <Link to={node.frontmatter.path} key={node.id}>
+                        <LocalizedLink to={node.frontmatter.path} key={node.id}>
                             <div>
                                 <p className="meta">
                                     <span className="icon icon-blog">
@@ -148,12 +149,12 @@ const FeaturedNews = ({ data }) => (
                                     {node.frontmatter.title}
                                 </p>
                             </div>
-                        </Link>
+                        </LocalizedLink>
                     ))}
 
-                    <Link to="/news" className="go-to-link">
+                    <LocalizedLink to="/news" className="go-to-link">
                         Go to news
-                    </Link>
+                    </LocalizedLink>
                 </StyledContent>
             </StyledNews>
         )}

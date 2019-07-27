@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Layout from '../components/layout';
+import Layout from '../components/Layout';
 import SEO from '../components/seo';
 import { colors, device, variables } from '../Theme.js';
 
@@ -29,8 +29,8 @@ const StyledPad = styled.div`
     margin: 1rem;
 `;
 
-const NotFoundPage = () => (
-    <Layout>
+const NotFoundPage = ({ pathContext }) => (
+    <Layout locale={pathContext.locale}>
         <SEO title="Platform of Trust 404: Not found" />
         <StyledPage>
             <StyledPad>
@@ -45,7 +45,7 @@ const NotFoundPage = () => (
                         type it wrong) we would very much appreciate if you'd
                         report it to us.{' '}
                         <a
-                            class="decoration-dotted"
+                            className="decoration-dotted"
                             href="mailto:support@oftrust.net"
                         >
                             support@oftrust.net
@@ -56,7 +56,7 @@ const NotFoundPage = () => (
                     <p>
                         You can also go to the{' '}
                         <a
-                            class="decoration-dotted"
+                            className="decoration-dotted"
                             href="https://www.platformoftrust.net/"
                         >
                             front page

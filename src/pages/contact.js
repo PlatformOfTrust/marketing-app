@@ -1,5 +1,5 @@
 import React from 'react';
-import Layout from '../components/layout';
+import Layout from '../components/Layout';
 import SEO from '../components/seo';
 import styled from 'styled-components';
 import MetaTags from 'react-meta-tags';
@@ -51,8 +51,8 @@ const StyledPad = styled.div`
     // margin: 1rem;
 `;
 
-const Contact = () => (
-    <Layout>
+const Contact = ({ pathContext }) => (
+    <Layout locale={pathContext.locale}>
         <SEO title="Platform of Trust Contact information" />
         <MetaTags>
             <meta property="og:title" content={SocialPreviewData.title} />

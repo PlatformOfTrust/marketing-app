@@ -1,14 +1,15 @@
 import React from 'react';
-import Link from 'gatsby-link';
 import { graphql } from 'gatsby';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styled from 'styled-components';
 import MetaTags from 'react-meta-tags';
 
+import LocalizedLink from './../components/LocalizedLink';
+
 // import CustomImage from "../components/CustomImage"
 import HexImage from '../components/HexImage';
 import CustomSquareButton from '../components/CustomSquareButton';
-import Layout from '../components/layout';
+import Layout from '../components/Layout';
 import { colors, variables } from '../Theme.js';
 import SocialPreviewImage from '../images/preview_social_share/cases.jpg';
 
@@ -167,7 +168,10 @@ export default class Events extends React.Component {
         const { filters, selected } = this.state;
         const { edges: posts } = this.props.data.allMdx;
         return (
-            <Layout className="blog-posts">
+            <Layout
+                locale={this.props.pathContext.locale}
+                className="blog-posts"
+            >
                 <MetaTags>
                     <meta
                         property="og:title"
@@ -270,7 +274,7 @@ export default class Events extends React.Component {
                                             key={post.id}
                                         >
                                             <div className="featured-image">
-                                                <Link
+                                                <LocalizedLink
                                                     to={post.frontmatter.path}
                                                     className="post-link"
                                                 >
@@ -282,11 +286,11 @@ export default class Events extends React.Component {
                                                             rotate={true}
                                                         />
                                                     </StyledHexImage>
-                                                </Link>
+                                                </LocalizedLink>
                                             </div>
                                             <div className="post-preview-content">
                                                 <div className="title">
-                                                    <Link
+                                                    <LocalizedLink
                                                         to={
                                                             post.frontmatter
                                                                 .path
@@ -299,7 +303,7 @@ export default class Events extends React.Component {
                                                                     .title
                                                             }
                                                         </h2>
-                                                    </Link>
+                                                    </LocalizedLink>
                                                 </div>
                                                 <div className="meta">
                                                     <p>
@@ -340,7 +344,7 @@ export default class Events extends React.Component {
                                                     </p>
                                                 </div>
                                                 <div className="excerpt">
-                                                    <Link
+                                                    <LocalizedLink
                                                         to={
                                                             post.frontmatter
                                                                 .path
@@ -349,7 +353,7 @@ export default class Events extends React.Component {
                                                     >
                                                         <p>{post.excerpt}</p>
                                                         <CustomSquareButton label="Read" />
-                                                    </Link>
+                                                    </LocalizedLink>
                                                 </div>
                                             </div>
                                         </StyledBlogBlock>

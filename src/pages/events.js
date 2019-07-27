@@ -1,5 +1,4 @@
 import React from 'react';
-import Link from 'gatsby-link';
 import { graphql } from 'gatsby';
 import MDXRenderer from 'gatsby-mdx/mdx-renderer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -9,9 +8,10 @@ import HexImage from '../components/HexImage';
 import CustomSquareButton from '../components/CustomSquareButton';
 import CustomRoundedButton from '../components/CustomRoundedButton';
 import SomeIcons from '../components/SomeIcons';
-import Layout from '../components/layout';
+import Layout from '../components/Layout';
 import { colors, device, variables } from '../Theme.js';
 import SocialPreviewImage from '../images/preview_social_share/events.jpg';
+import LocalizedLink from './../components/LocalizedLink';
 
 export const subtypeColors = {
     blog: `${colors.ok}`,
@@ -182,7 +182,10 @@ export default class Events extends React.Component {
         );
 
         return (
-            <Layout className="blog-posts">
+            <Layout
+                locale={this.props.pathContext.locale}
+                className="blog-posts"
+            >
                 <MetaTags>
                     <meta
                         property="og:title"
@@ -293,9 +296,9 @@ export default class Events extends React.Component {
                                                 up for news to receive events
                                                 info and follow us
                                             </h2>
-                                            <Link to="/newsletter">
+                                            <LocalizedLink to="/newsletter">
                                                 <CustomRoundedButton label="Sign up for news" />
-                                            </Link>
+                                            </LocalizedLink>
                                             <SomeIcons color="light" />
                                         </StyledDefault>
                                     )}
@@ -315,7 +318,7 @@ export default class Events extends React.Component {
                                                     <div className="featured-image">
                                                         {post.frontmatter
                                                             .potevent && (
-                                                            <Link
+                                                            <LocalizedLink
                                                                 to={
                                                                     post
                                                                         .frontmatter
@@ -333,7 +336,7 @@ export default class Events extends React.Component {
                                                                         }
                                                                     />
                                                                 </StyledHexImage>
-                                                            </Link>
+                                                            </LocalizedLink>
                                                         )}
                                                         {!post.frontmatter
                                                             .potevent && (
@@ -363,7 +366,7 @@ export default class Events extends React.Component {
                                                         <div className="title">
                                                             {post.frontmatter
                                                                 .potevent && (
-                                                                <Link
+                                                                <LocalizedLink
                                                                     to={
                                                                         post
                                                                             .frontmatter
@@ -378,7 +381,7 @@ export default class Events extends React.Component {
                                                                                 .title
                                                                         }
                                                                     </h2>
-                                                                </Link>
+                                                                </LocalizedLink>
                                                             )}
                                                             {!post.frontmatter
                                                                 .potevent && (
@@ -464,7 +467,7 @@ export default class Events extends React.Component {
                                                         <div className="event-link">
                                                             {post.frontmatter
                                                                 .potevent && (
-                                                                <Link
+                                                                <LocalizedLink
                                                                     to={
                                                                         post
                                                                             .frontmatter
@@ -472,7 +475,7 @@ export default class Events extends React.Component {
                                                                     }
                                                                 >
                                                                     <CustomSquareButton label="Read more" />
-                                                                </Link>
+                                                                </LocalizedLink>
                                                             )}
                                                             {!post.frontmatter
                                                                 .potevent && (
@@ -520,7 +523,7 @@ export default class Events extends React.Component {
                                                     <div className="featured-image">
                                                         {post.frontmatter
                                                             .potevent && (
-                                                            <Link
+                                                            <LocalizedLink
                                                                 to={
                                                                     post
                                                                         .frontmatter
@@ -538,7 +541,7 @@ export default class Events extends React.Component {
                                                                         }
                                                                     />
                                                                 </StyledHexImage>
-                                                            </Link>
+                                                            </LocalizedLink>
                                                         )}
                                                         {!post.frontmatter
                                                             .potevent && (
@@ -568,7 +571,7 @@ export default class Events extends React.Component {
                                                         <div className="title">
                                                             {post.frontmatter
                                                                 .potevent && (
-                                                                <Link
+                                                                <LocalizedLink
                                                                     to={
                                                                         post
                                                                             .frontmatter
@@ -583,7 +586,7 @@ export default class Events extends React.Component {
                                                                                 .title
                                                                         }
                                                                     </h2>
-                                                                </Link>
+                                                                </LocalizedLink>
                                                             )}
                                                             {!post.frontmatter
                                                                 .potevent && (
@@ -669,7 +672,7 @@ export default class Events extends React.Component {
                                                         <div className="event-link">
                                                             {post.frontmatter
                                                                 .potevent && (
-                                                                <Link
+                                                                <LocalizedLink
                                                                     to={
                                                                         post
                                                                             .frontmatter
@@ -677,7 +680,7 @@ export default class Events extends React.Component {
                                                                     }
                                                                 >
                                                                     <CustomSquareButton label="Read more" />
-                                                                </Link>
+                                                                </LocalizedLink>
                                                             )}
                                                             {!post.frontmatter
                                                                 .potevent && (
@@ -791,7 +794,7 @@ export default class Events extends React.Component {
                                                                 {post
                                                                     .frontmatter
                                                                     .potevent && (
-                                                                    <Link
+                                                                    <LocalizedLink
                                                                         to={
                                                                             post
                                                                                 .frontmatter
@@ -806,7 +809,7 @@ export default class Events extends React.Component {
                                                                                     .title
                                                                             }
                                                                         </h2>
-                                                                    </Link>
+                                                                    </LocalizedLink>
                                                                 )}
                                                                 {!post
                                                                     .frontmatter

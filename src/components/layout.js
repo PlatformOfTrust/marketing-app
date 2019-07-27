@@ -8,6 +8,20 @@ import Helmet from 'react-helmet';
 import CookieConsent from 'react-cookie-consent';
 import MetaTags from 'react-meta-tags';
 
+import { IntlProvider, addLocaleData } from 'react-intl';
+
+// Locale data
+import enData from 'react-intl/locale-data/en';
+import fiData from 'react-intl/locale-data/fi';
+
+// Messages
+import en from './../locales/en/SiteNav.json';
+import fi from './../locales/fi/SiteNav.json';
+
+const messages = { en, fi };
+
+addLocaleData([...enData, ...fiData]);
+
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faHexagon, faEllipsisV } from '@fortawesome/pro-solid-svg-icons';
 import { fal } from '@fortawesome/pro-light-svg-icons';
@@ -43,54 +57,68 @@ const StyledWrapper = styled.section`
     padding-top: 0;
 `;
 
-const Layout = ({ pathname, children }) => (
-    <StaticQuery
-        query={graphql`
-            query SiteTitleQuery {
-                site {
-                    siteMetadata {
-                        title
-                        siteUrl
+const Layout = ({ locale, children }) => {
+    return (
+        <IntlProvider locale={locale} messages={messages[locale]}>
+            <StaticQuery
+                query={graphql`
+                    query SiteTitleQuery {
+                        site {
+                            siteMetadata {
+                                title
+                                siteUrl
+                            }
+                        }
                     }
-                }
-            }
-        `}
-        render={data => (
-            <StyledSite>
-                <GlobalStyle />
-                <Helmet title={data.site.siteMetadata.title} />
-                <MetaTags>
-                    <meta
-                        property="og:title"
-                        content={SocialPreviewData.title}
-                    />
-                    <meta
-                        name="description"
-                        content={SocialPreviewData.description}
-                    />
-                    <meta property="og:image" content={SocialPreviewImage} />
-                    <meta name="twitter:card" content="summary_large_image" />
-                    <meta
-                        name="twitter:title"
-                        content={SocialPreviewData.title}
-                    />
-                    <meta
-                        name="twitter:description"
-                        content={SocialPreviewData.description}
-                    />
-                    <meta name="twitter:image" content={SocialPreviewImage} />
-                </MetaTags>
+                `}
+                render={data => (
+                    <StyledSite>
+                        <GlobalStyle />
+                        <Helmet title={data.site.siteMetadata.title} />
+                        <MetaTags>
+                            <meta
+                                property="og:title"
+                                content={SocialPreviewData.title}
+                            />
+                            <meta
+                                name="description"
+                                content={SocialPreviewData.description}
+                            />
+                            <meta
+                                property="og:image"
+                                content={SocialPreviewImage}
+                            />
+                            <meta
+                                name="twitter:card"
+                                content="summary_large_image"
+                            />
+                            <meta
+                                name="twitter:title"
+                                content={SocialPreviewData.title}
+                            />
+                            <meta
+                                name="twitter:description"
+                                content={SocialPreviewData.description}
+                            />
+                            <meta
+                                name="twitter:image"
+                                content={SocialPreviewImage}
+                            />
+                        </MetaTags>
 
-                <Header siteTitle={data.site.siteMetadata.title} />
-                <StyledWrapper>{children}</StyledWrapper>
-                <Footer />
-                <CookieConsent>
-                    This website uses cookies to enhance the user experience.
-                </CookieConsent>
-            </StyledSite>
-        )}
-    />
-);
+                        <Header siteTitle={data.site.siteMetadata.title} />
+                        <StyledWrapper>{children}</StyledWrapper>
+                        <Footer />
+                        <CookieConsent>
+                            This website uses cookies to enhance the user
+                            experience.
+                        </CookieConsent>
+                    </StyledSite>
+                )}
+            />
+        </IntlProvider>
+    );
+};
 
 Layout.propTypes = {
     children: PropTypes.node.isRequired
