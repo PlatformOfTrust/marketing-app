@@ -15,8 +15,8 @@ import enData from 'react-intl/locale-data/en';
 import fiData from 'react-intl/locale-data/fi';
 
 // Messages
-import en from './../locales/en/SiteNav.json';
-import fi from './../locales/fi/SiteNav.json';
+import en from './../locales/en/UI.json';
+import fi from './../locales/fi/UI.json';
 
 const messages = { en, fi };
 
@@ -31,13 +31,10 @@ import Header from './Header';
 import Footer from './Footer';
 import BgImage from '../images/bg-image.svg';
 import SocialPreviewImage from '../images/preview_social_share/home.jpg';
-// import '../scss/bootstrap.scss'
-// import './Layout.css'
 
 import { colors } from '../Theme.js';
 
 library.add(fal, fab, faHexagon, faEllipsisV);
-// icon({prefix: 'fal', iconName: 'draftingCompass'})
 
 const GlobalStyle = createGlobalStyle`
   /* OVERRIDES */

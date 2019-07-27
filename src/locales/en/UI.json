@@ -1,0 +1,14 @@
+{
+    "SiteNav": {
+        "cases": "Cases",
+        "news": "News",
+        "events": "Events",
+        "about": "About",
+        "contact": "Contact"
+    },
+    "FooterInfo": {
+        "companyName": "Platform of Trust Oy",
+        "VAT": "VAT-number FI29800052",
+        "privacyPolicy": "Privacy Policy"
+    }
+}

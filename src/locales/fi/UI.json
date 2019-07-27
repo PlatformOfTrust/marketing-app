@@ -1,0 +1,14 @@
+{
+    "SiteNav": {
+        "cases": "Käyttötapaukset",
+        "news": "Ajankohtaiset",
+        "events": "Tapahtumat",
+        "about": "Tietoa meistä",
+        "contact": "Ota yhteyttä"
+    },
+    "FooterInfo": {
+        "companyName": "Platform of Trust Oy",
+        "VAT": "Y-tunnus 2980005-2",
+        "privacyPolicy": "Tietosuojaseloste"
+    }
+}

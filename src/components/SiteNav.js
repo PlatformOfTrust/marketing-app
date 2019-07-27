@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import LocalizedLink from './LocalizedLink';
 
+import { injectIntl } from 'react-intl';
+
 import { colors, device } from '../Theme.js';
 
 const StyledSiteNav = styled.nav`
@@ -54,7 +56,11 @@ const activeStyles = {
     borderRadius: '0%'
 };
 
-const SiteNav = props => {
+const SiteNav = ({
+    intl: {
+        messages: { SiteNav }
+    }
+}) => {
     return (
         <StyledSiteNav className="apps">
             {/* <Link className="site-nav-link" to="/pricing" activeStyle={activeStyles}>Pricing</Link> */}
@@ -63,38 +69,38 @@ const SiteNav = props => {
                 to="/cases"
                 activeStyle={activeStyles}
             >
-                Cases
+                {`${SiteNav.cases}`}
             </LocalizedLink>
             <LocalizedLink
                 className="site-nav-link"
                 to="/news"
                 activeStyle={activeStyles}
             >
-                News
+                {`${SiteNav.news}`}
             </LocalizedLink>
             <LocalizedLink
                 className="site-nav-link"
                 to="/events"
                 activeStyle={activeStyles}
             >
-                Events
+                {`${SiteNav.events}`}
             </LocalizedLink>
             <LocalizedLink
                 className="site-nav-link"
                 to="/about"
                 activeStyle={activeStyles}
             >
-                About
+                {`${SiteNav.about}`}
             </LocalizedLink>
             <LocalizedLink
                 className="site-nav-link"
                 to="/contact"
                 activeStyle={activeStyles}
             >
-                Contact
+                {`${SiteNav.contact}`}
             </LocalizedLink>
         </StyledSiteNav>
     );
 };
 
-export default SiteNav;
+export default injectIntl(SiteNav);
