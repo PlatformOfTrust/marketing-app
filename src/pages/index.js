@@ -75,7 +75,7 @@ const IndexPage = ({ data, pathContext }) => {
                     content={socialPreviewImageFullUri}
                 />
             </MetaTags>
-            <SEO title="Home" keywords={[`Platform of Trust`]} />
+            <SEO title="Home" keywords={['Platform of Trust']} />
             <StyledMain className="home page-content container">
                 <div className="dev-test" style={{ display: 'none' }}>
                     <div

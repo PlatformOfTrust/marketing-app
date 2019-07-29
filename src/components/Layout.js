@@ -32,6 +32,21 @@ import Footer from './Footer';
 import BgImage from '../images/bg-image.svg';
 import SocialPreviewImage from '../images/preview_social_share/home.jpg';
 
+import favicon16 from '../images/favicon-16x16.png';
+import favicon32 from '../images/favicon-32x32.png';
+import favicon96 from '../images/favicon-96x96.png';
+import favicon128 from '../images/favicon-128.png';
+import favicon196 from '../images/favicon-196x196.png';
+
+import appleTouch57 from '../images/apple-touch-icon-57x57.png';
+import appleTouch60 from '../images/apple-touch-icon-60x60.png';
+import appleTouch72 from '../images/apple-touch-icon-72x72.png';
+import appleTouch76 from '../images/apple-touch-icon-76x76.png';
+import appleTouch114 from '../images/apple-touch-icon-114x114.png';
+import appleTouch120 from '../images/apple-touch-icon-120x120.png';
+import appleTouch144 from '../images/apple-touch-icon-144x144.png';
+import appleTouch152 from '../images/apple-touch-icon-152x152.png';
+
 import { colors } from '../Theme.js';
 
 library.add(fal, fab, faHexagon, faEllipsisV);

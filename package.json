@@ -60,7 +60,9 @@
         "format": "prettier --write \"src/**/*.js\"",
         "clean": "gatsby clean",
         "check": "prettier --check \"src/**/*.js\"",
-        "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
+        "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\"",
+        "lint": "eslint src",
+        "lint-fix": "eslint src --fix"
     },
     "devDependencies": {
         "@fortawesome/fontawesome-pro": "5.8.2",
@@ -75,5 +77,7 @@
     },
     "bugs": {
         "url": "https://github.com/gatsbyjs/gatsby/issues"
-    }
+    },
+    "eslintIgnore": [
+    ]
 }

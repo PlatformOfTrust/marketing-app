@@ -9,7 +9,7 @@ class Tietosuojaseloste extends React.Component {
             <Layout locale={this.props.pathContext.locale}>
                 <SEO
                     title="Platform of Trust Developers"
-                    keywords={[`Platform of trust`, `developers`]}
+                    keywords={['Platform of trust', 'developers']}
                 />
                 <section className="page-content">
                     <main className="main container">
