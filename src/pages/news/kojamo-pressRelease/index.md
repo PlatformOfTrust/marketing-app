@@ -42,11 +42,11 @@ The development of Platform of Trust began in 2018 as a collaborative project be
 <br/><br/><br/><br/>
 
 ### Further information
-<br/><br/><br/>
+<br/><br/><br/><br/>
 
-## Vesa Ilmarinen
+### **Vesa Ilmarinen**
 
-
+<br/>
 
 Chief Impact Officer, Platform of Trust
 
@@ -54,11 +54,11 @@ Chief Impact Officer, Platform of Trust
 
 vesa.ilmarinen@oftrust.net
 
-<br/><br/><br/>
+<br/><br/><br/><br/>
 
-## Pirkka Frosti
+### **Pirkka Frosti**
 
-
+<br/>
 
 Platform of Trust/Digital Living
 

@@ -60,17 +60,16 @@ const StyledSelector = styled.button`
     }
 `;
 const StyledBlogBlock = styled.article`
-  display: inline-block;
-  width: width: 100%;
-  @media ${device.laptop} { width: calc(50% - 2rem); }
-  padding: 1.5rem;
-  margin: 1rem;
-  border-top: 2px dotted ${colors.main};
-  h2 { 
-      font-size: 1.6rem; 
-      letter-spacing: 0.02em; 
-      word-spacing: 0.065em; 
-      line-height: 1.2em;
+    display: inline-block;
+    width: calc(50% - 2rem);
+    padding: 1.5rem;
+    margin: 1rem;
+    border-top: 2px dotted ${colors.main};
+    h2 {
+        font-size: 1.6rem;
+        letter-spacing: 0.01em;
+        word-spacing: 0.065em;
+        line-height: 1.2em;
     }
 
   span { 
@@ -164,14 +163,14 @@ export default class Events extends React.Component {
     handleFiltering = filter => {
         filter === 'all'
             ? this.setState({
-                filters: [
-                    'blog',
-                    'article',
-                    'pressRelease',
-                    'business',
-                    'technical'
-                ]
-            })
+                  filters: [
+                      'blog',
+                      'article',
+                      'pressRelease',
+                      'business',
+                      'technical'
+                  ]
+              })
             : this.setState({ filters: [filter] });
         this.setState({ selected: [filter] });
     };
@@ -179,6 +178,9 @@ export default class Events extends React.Component {
     render() {
         const { filters, selected } = this.state;
         const { edges: posts } = this.props.data.allMdx;
+        const socialPreviewImageFullUri =
+            window.location.origin + SocialPreviewImage;
+
         return (
             <Layout className="blog-posts">
                 <MetaTags>
@@ -187,10 +189,13 @@ export default class Events extends React.Component {
                         content={SocialPreviewData.title}
                     />
                     <meta
-                        name="description"
+                        property="og:description"
                         content={SocialPreviewData.description}
                     />
-                    <meta property="og:image" content={SocialPreviewImage} />
+                    <meta
+                        property="og:image"
+                        content={socialPreviewImageFullUri}
+                    />
                     <meta name="twitter:card" content="summary_large_image" />
                     <meta
                         name="twitter:title"
@@ -200,7 +205,10 @@ export default class Events extends React.Component {
                         name="twitter:description"
                         content={SocialPreviewData.description}
                     />
-                    <meta name="twitter:image" content={SocialPreviewImage} />
+                    <meta
+                        name="twitter:image"
+                        content={socialPreviewImageFullUri}
+                    />
                 </MetaTags>
                 <StyledPad>
                     <StyledSection className="posts-listing">
@@ -299,16 +307,8 @@ export default class Events extends React.Component {
                                                     <StyledHexImage>
                                                         {/* <CustomImage filename={post.frontmatter.pic} alt={post.frontmatter.title} /> */}
                                                         <HexImage
-                                                            pic={require(`.${
-                                                                post.frontmatter
-                                                                    .path
-                                                            }/${
-                                                                post.frontmatter
-                                                                    .pic
-                                                            }`)}
-                                                            hexId={`EventHex-${
-                                                                post.id
-                                                            }`}
+                                                            pic={require(`.${post.frontmatter.path}/${post.frontmatter.pic}`)}
+                                                            hexId={`EventHex-${post.id}`}
                                                             rotate={true}
                                                         />
                                                     </StyledHexImage>

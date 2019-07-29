@@ -50,18 +50,25 @@ const StyledBilling = styled.article`
 const StyledPad = styled.div`
     // margin: 1rem;
 `;
+const socialPreviewImageFullUri = window.location.origin + SocialPreviewImage;
 
 const Contact = () => (
     <Layout>
         <SEO title="Platform of Trust Contact information" />
         <MetaTags>
             <meta property="og:title" content={SocialPreviewData.title} />
-            <meta name="description" content={SocialPreviewData.description} />
-            <meta property="og:image" content={SocialPreviewImage} />
+            <meta
+                property="og:description"
+                content={SocialPreviewData.description}
+            />
+            <meta property="og:image" content={socialPreviewImageFullUri} />
             <meta name="twitter:card" content="summary_large_image" />
             <meta name="twitter:title" content={SocialPreviewData.title} />
-            <meta name="twitter:description" content={SocialPreviewData.description} />
-            <meta name="twitter:image" content={SocialPreviewImage} />
+            <meta
+                name="twitter:description"
+                content={SocialPreviewData.description}
+            />
+            <meta name="twitter:image" content={socialPreviewImageFullUri} />
         </MetaTags>
         <StyledPage className="container">
             <StyledPad>
@@ -99,7 +106,8 @@ const Contact = () => (
 
 const SocialPreviewData = {
     title: 'Platform Of Trust | Contact',
-    description: 'Contact us, request a meeting, meet the team, check office locations, and see billing information.'
+    description:
+        'Contact us, request a meeting, meet the team, check office locations, and see billing information.'
 };
 
 export default Contact;
