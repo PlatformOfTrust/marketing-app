@@ -25,7 +25,6 @@ const StyledFooter = styled.footer`
         position: absolute;
     }
     .logo-footer {
-        opacity: 0.5;
         img {
             width: 100%;
         }
@@ -102,6 +101,9 @@ const StyledFooter = styled.footer`
           margin-top: 10px;
          }
     }
+    .footer-elements-opacity {
+        opacity: 0.8;
+    }
 `;
 
 const Footer = () => (
@@ -118,14 +120,14 @@ const Footer = () => (
                     <Link to="/">
                         <img
                             src={Logo}
-                            className="logo-footer logo-desk"
+                            className="logo-footer logo-desk footer-elements-opacity"
                             alt="Logo"
                         />
                     </Link>
                     <Link to="/">
                         <img
                             src={LogoSymbol}
-                            className="logo-footer logo-mobile"
+                            className="logo-footer logo-mobile footer-elements-opacity"
                             alt="Logo"
                         />
                     </Link>
@@ -140,18 +142,18 @@ const Footer = () => (
 
                 <div className="sitemap col-md-1">
                     {/* <Link to="/pricing">Pricing</Link><br /> */}
-                    <Link to="/cases">Cases</Link>
+                    <Link to="/cases" className="footer-elements-opacity">Cases</Link>
                     <br />
-                    <Link to="/news">News</Link>
+                    <Link to="/news" className="footer-elements-opacity">News</Link>
                     <br />
                 </div>
 
                 <div className="sitemap col-md-1">
-                    <Link to="/events">Events</Link>
+                    <Link to="/events" className="footer-elements-opacity">Events</Link>
                     <br />
-                    <Link to="/about">About</Link>
+                    <Link to="/about" className="footer-elements-opacity">About</Link>
                     <br />
-                    <Link to="/contact">Contact</Link>
+                    <Link to="/contact" className="footer-elements-opacity">Contact</Link>
                     <br />
                 </div>
 
@@ -165,7 +167,7 @@ const Footer = () => (
         </div> */}
 
                 <div className="footer-somelinks col-4 col-lg-2 col-xl-2 text-right">
-                    <SomeIcons className="footer-someicons" color="main" />
+                    <SomeIcons className="footer-someicons" color="lightUsed" />
 
                     <span style={{paddingTop: '50px',
                         position: 'absolute',

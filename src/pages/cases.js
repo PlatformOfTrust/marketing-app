@@ -3,12 +3,14 @@ import Link from 'gatsby-link';
 import { graphql } from 'gatsby';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styled from 'styled-components';
+import MetaTags from 'react-meta-tags';
 
 // import CustomImage from "../components/CustomImage"
 import HexImage from '../components/HexImage';
 import CustomSquareButton from '../components/CustomSquareButton';
 import Layout from '../components/layout';
 import { colors, variables } from '../Theme.js';
+import SocialPreviewImage from '../images/preview_social_share/cases.jpg';
 
 export const subtypeColors = {
     blog: `${colors.ok}`,
@@ -165,6 +167,15 @@ export default class Events extends React.Component {
         const { edges: posts } = this.props.data.allMdx;
         return (
             <Layout className="blog-posts">
+                <MetaTags>
+                    <meta property="og:title" content={SocialPreviewData.title} />
+                    <meta name="description" content={SocialPreviewData.description} />
+                    <meta property="og:image" content={SocialPreviewImage} />
+                    <meta name="twitter:card" content="summary_large_image" />
+                    <meta name="twitter:title" content={SocialPreviewData.title} />
+                    <meta name="twitter:description" content={SocialPreviewData.description} />
+                    <meta name="twitter:image" content={SocialPreviewImage} />
+                </MetaTags>
                 <StyledPad>
                     <StyledSection className="posts-listing">
                         <StyledTools className="filters">
@@ -346,6 +357,12 @@ export default class Events extends React.Component {
         );
     }
 }
+
+const SocialPreviewData = {
+    title: 'Platform Of Trust | Cases',
+    description: 'Platform of Trust use cases, examples of how the platform works in practice and how it helps create business ecosystems.'
+};
+
 export const pageQuery = graphql`
     query caseQuery {
         allMdx(
