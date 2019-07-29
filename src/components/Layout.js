@@ -60,139 +60,142 @@ const Layout = ({ locale, children }) => {
         <IntlProvider locale={locale} messages={messages[locale]}>
             <StaticQuery
                 query={graphql`
-            query SiteTitleQuery {
-                site {
-                    siteMetadata {
-                        title
-                        siteUrl
-                    }
-                }
-            }
-        `} render={data => (
-                <StyledSite>
-                    <GlobalStyle/>
-                    <Helmet
-                        title={data.site.siteMetadata.title}
-                        link={[
-                            {
-                                rel: 'icon',
-                                type: 'image/png',
-                                sizes: '16x16',
-                                href: `${favicon16}`
-                            },
-                            {
-                                rel: 'icon',
-                                type: 'image/png',
-                                sizes: '32x32',
-                                href: `${favicon32}`
-                            },
-                            {
-                                rel: 'icon',
-                                type: 'image/png',
-                                sizes: '96x96',
-                                href: `${favicon96}`
-                            },
-                            {
-                                rel: 'icon',
-                                type: 'image/png',
-                                sizes: '128x128',
-                                href: `${favicon128}`
-                            },
-                            {
-                                rel: 'shortcut icon',
-                                type: 'image/png',
-                                sizes: '196x196',
-                                href: `${favicon196}`
-                            },
-
-                            {
-                                rel: 'apple-touch-icon-precomposed',
-                                type: 'image/png',
-                                sizes: '57x57',
-                                href: `${appleTouch57}`
-                            },
-                            {
-                                rel: 'apple-touch-icon-precomposed',
-                                type: 'image/png',
-                                sizes: '60x60',
-                                href: `${appleTouch60}`
-                            },
-                            {
-                                rel: 'apple-touch-icon-precomposed',
-                                type: 'image/png',
-                                sizes: '72x72',
-                                href: `${appleTouch72}`
-                            },
-                            {
-                                rel: 'apple-touch-icon-precomposed',
-                                type: 'image/png',
-                                sizes: '76x76',
-                                href: `${appleTouch76}`
-                            },
-                            {
-                                rel: 'apple-touch-icon-precomposed',
-                                type: 'image/png',
-                                sizes: '114x114',
-                                href: `${appleTouch114}`
-                            },
-                            {
-                                rel: 'apple-touch-icon-precomposed',
-                                type: 'image/png',
-                                sizes: '120x120',
-                                href: `${appleTouch120}`
-                            },
-                            {
-                                rel: 'apple-touch-icon-precomposed',
-                                type: 'image/png',
-                                sizes: '144x144',
-                                href: `${appleTouch144}`
-                            },
-                            {
-                                rel: 'apple-touch-icon-precomposed',
-                                type: 'image/png',
-                                sizes: '152x152',
-                                href: `${appleTouch152}`
+                    query SiteTitleQuery {
+                        site {
+                            siteMetadata {
+                                title
+                                siteUrl
                             }
-                        ]}
-                    />
-                    <MetaTags>
-                        <meta
-                            property="og:title"
-                            content={SocialPreviewData.title}
-                        />
-                        <meta
-                            property="og:description"
-                            content={SocialPreviewData.description}
-                        />
-                        <meta
-                            property="og:image"
-                            content={socialPreviewImageFullUri}
-                        />
-                        <meta name="twitter:card"
-                              content="summary_large_image"/>
-                        <meta
-                            name="twitter:title"
-                            content={SocialPreviewData.title}
-                        />
-                        <meta
-                            name="twitter:description"
-                            content={SocialPreviewData.description}
-                        />
-                        <meta
-                            name="twitter:image"
-                            content={socialPreviewImageFullUri}
-                        />
-                    </MetaTags>
+                        }
+                    }
+                `}
+                render={data => (
+                    <StyledSite>
+                        <GlobalStyle />
+                        <Helmet
+                            title={data.site.siteMetadata.title}
+                            link={[
+                                {
+                                    rel: 'icon',
+                                    type: 'image/png',
+                                    sizes: '16x16',
+                                    href: `${favicon16}`
+                                },
+                                {
+                                    rel: 'icon',
+                                    type: 'image/png',
+                                    sizes: '32x32',
+                                    href: `${favicon32}`
+                                },
+                                {
+                                    rel: 'icon',
+                                    type: 'image/png',
+                                    sizes: '96x96',
+                                    href: `${favicon96}`
+                                },
+                                {
+                                    rel: 'icon',
+                                    type: 'image/png',
+                                    sizes: '128x128',
+                                    href: `${favicon128}`
+                                },
+                                {
+                                    rel: 'shortcut icon',
+                                    type: 'image/png',
+                                    sizes: '196x196',
+                                    href: `${favicon196}`
+                                },
 
-                    <Header siteTitle={data.site.siteMetadata.title}/>
-                    <StyledWrapper>{children}</StyledWrapper>
-                    <Footer/>
-                    <CookieConsent>
-                        This website uses cookies to enhance the user
-                        experience.
-                    </CookieConsent>
-                </StyledSite>
-            )}
+                                {
+                                    rel: 'apple-touch-icon-precomposed',
+                                    type: 'image/png',
+                                    sizes: '57x57',
+                                    href: `${appleTouch57}`
+                                },
+                                {
+                                    rel: 'apple-touch-icon-precomposed',
+                                    type: 'image/png',
+                                    sizes: '60x60',
+                                    href: `${appleTouch60}`
+                                },
+                                {
+                                    rel: 'apple-touch-icon-precomposed',
+                                    type: 'image/png',
+                                    sizes: '72x72',
+                                    href: `${appleTouch72}`
+                                },
+                                {
+                                    rel: 'apple-touch-icon-precomposed',
+                                    type: 'image/png',
+                                    sizes: '76x76',
+                                    href: `${appleTouch76}`
+                                },
+                                {
+                                    rel: 'apple-touch-icon-precomposed',
+                                    type: 'image/png',
+                                    sizes: '114x114',
+                                    href: `${appleTouch114}`
+                                },
+                                {
+                                    rel: 'apple-touch-icon-precomposed',
+                                    type: 'image/png',
+                                    sizes: '120x120',
+                                    href: `${appleTouch120}`
+                                },
+                                {
+                                    rel: 'apple-touch-icon-precomposed',
+                                    type: 'image/png',
+                                    sizes: '144x144',
+                                    href: `${appleTouch144}`
+                                },
+                                {
+                                    rel: 'apple-touch-icon-precomposed',
+                                    type: 'image/png',
+                                    sizes: '152x152',
+                                    href: `${appleTouch152}`
+                                }
+                            ]}
+                        />
+                        <MetaTags>
+                            <meta
+                                property="og:title"
+                                content={SocialPreviewData.title}
+                            />
+                            <meta
+                                property="og:description"
+                                content={SocialPreviewData.description}
+                            />
+                            <meta
+                                property="og:image"
+                                content={socialPreviewImageFullUri}
+                            />
+                            <meta
+                                name="twitter:card"
+                                content="summary_large_image"
+                            />
+                            <meta
+                                name="twitter:title"
+                                content={SocialPreviewData.title}
+                            />
+                            <meta
+                                name="twitter:description"
+                                content={SocialPreviewData.description}
+                            />
+                            <meta
+                                name="twitter:image"
+                                content={socialPreviewImageFullUri}
+                            />
+                        </MetaTags>
+
+                        <Header siteTitle={data.site.siteMetadata.title} />
+                        <StyledWrapper>{children}</StyledWrapper>
+                        <Footer />
+                        <CookieConsent>
+                            This website uses cookies to enhance the user
+                            experience.
+                        </CookieConsent>
+                    </StyledSite>
+                )}
             />
         </IntlProvider>
     );

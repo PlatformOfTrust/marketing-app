@@ -178,14 +178,14 @@ export default class Events extends React.Component {
     handleFiltering = filter => {
         filter === 'all'
             ? this.setState({
-                filters: [
-                    'blog',
-                    'article',
-                    'pressRelease',
-                    'business',
-                    'technical'
-                ]
-            })
+                  filters: [
+                      'blog',
+                      'article',
+                      'pressRelease',
+                      'business',
+                      'technical'
+                  ]
+              })
             : this.setState({ filters: [filter] });
         this.setState({ selected: [filter] });
     };
@@ -214,7 +214,7 @@ export default class Events extends React.Component {
                         property="og:image"
                         content={socialPreviewImageFullUri}
                     />
-                    <meta name="twitter:card" content="summary_large_image"/>
+                    <meta name="twitter:card" content="summary_large_image" />
                     <meta
                         name="twitter:title"
                         content={SocialPreviewData.title}
@@ -236,7 +236,7 @@ export default class Events extends React.Component {
                                     selected[0] === 'all'
                                         ? 'selected-filter'
                                         : ''
-                                    }`}
+                                }`}
                             >
                                 <span
                                     onClick={() => this.handleFiltering('all')}
@@ -257,7 +257,7 @@ export default class Events extends React.Component {
                                     selected[0] === 'business'
                                         ? 'selected-filter'
                                         : ''
-                                    }`}
+                                }`}
                             >
                                 <FontAwesomeIcon
                                     icon={['fa', 'hexagon']}
@@ -277,7 +277,7 @@ export default class Events extends React.Component {
                                     selected[0] === 'technical'
                                         ? 'selected-filter'
                                         : ''
-                                    }`}
+                                }`}
                             >
                                 <FontAwesomeIcon
                                     icon={['fa', 'hexagon']}
@@ -332,8 +332,7 @@ export default class Events extends React.Component {
                                                     </StyledHexImage>
                                                 </LocalizedLink>
                                             </div>
-                                            <div
-                                                className="post-preview-content">
+                                            <div className="post-preview-content">
                                                 <div className="title">
                                                     <LocalizedLink
                                                         to={
@@ -362,7 +361,7 @@ export default class Events extends React.Component {
                                                                     post
                                                                         .frontmatter
                                                                         .subtype
-                                                                    ]
+                                                                ]
                                                             }
                                                         />
                                                         {post.frontmatter
@@ -375,8 +374,7 @@ export default class Events extends React.Component {
                                                                             .subtype
                                                                     }
                                                                 </span>
-                                                                <span
-                                                                    className="divider">
+                                                                <span className="divider">
                                                                     .
                                                                 </span>
                                                             </>
@@ -398,8 +396,7 @@ export default class Events extends React.Component {
                                                         className="post-link"
                                                     >
                                                         <p>{post.excerpt}</p>
-                                                        <CustomSquareButton
-                                                            label="Read"/>
+                                                        <CustomSquareButton label="Read" />
                                                     </LocalizedLink>
                                                 </div>
                                             </div>
