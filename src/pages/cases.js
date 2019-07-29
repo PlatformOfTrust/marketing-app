@@ -9,7 +9,7 @@ import MetaTags from 'react-meta-tags';
 import HexImage from '../components/HexImage';
 import CustomSquareButton from '../components/CustomSquareButton';
 import Layout from '../components/layout';
-import { colors, variables } from '../Theme.js';
+import { colors, device, variables } from '../Theme.js';
 import SocialPreviewImage from '../images/preview_social_share/cases.jpg';
 
 export const subtypeColors = {
@@ -27,6 +27,16 @@ const StyledSection = styled.article`
 `;
 const StyledBlogs = styled.article`
     padding: 5%;
+    .news-not-found {
+        text-align: center;
+        padding-top: 15.6vh;
+        padding-bottom: 15.7vh;
+    }
+
+    .news-not-found h2 {
+        font-weight: 400;
+        font-size: 2.4rem;
+    }
 `;
 const StyledTools = styled.nav`
   // background: ${colors.mainDarkest};
@@ -62,16 +72,30 @@ const StyledBlogBlock = styled.article`
         line-height: 1.2em;
     }
 
+    span {
+        font-size: 15px;
+    }
+    p {
+        word-spacing: 0.064em;
+        line-spacing: 0.048em;
+        font-size: 17px;
+    }
+
     &:nth-of-type(1) {
         width: 100%;
         border-top: none;
         h2 {
-            font-size: 2.4rem;
+            font-size: 2.5rem;
+            letter-spacing: 0.01em;
+            word-spacing: 0.065em;
+            line-height: 1.2em;
         }
     }
 
     &:nth-child(n + 5) {
         width: 100%;
+        padding-top: 0;
+        padding-bottom: 0;
         .featured-image,
         .excerpt {
             display: none;
@@ -86,7 +110,9 @@ const StyledBlogBlock = styled.article`
             width: 100%;
         }
         h2 {
-            font-size: 2.4rem;
+            font-size: 1.6rem;
+            word-spacing: 0.065em;
+            line-height: 1.2em;
         }
     }
 
@@ -265,7 +291,16 @@ export default class Events extends React.Component {
                         </StyledTools>
                         <StyledBlogs className="posts">
                             <h1>Cases</h1>
-
+                            {posts.filter(post =>
+                                filters.includes(post.node.frontmatter.subtype)
+                            ).length === 0 && (
+                                <div className="col-12 news-not-found">
+                                    <h2>
+                                        Sorry, nothing here for now. See the
+                                        other filters.
+                                    </h2>
+                                </div>
+                            )}
                             {posts
                                 .filter(post =>
                                     filters.includes(
