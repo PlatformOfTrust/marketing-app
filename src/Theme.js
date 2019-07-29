@@ -21,7 +21,7 @@ export const colors = {
     pressRelease: 'rgb(252,88,107)',
     business: 'rgb(151, 209, 41)',
     technical: '#a897fe',
-    horizontal: '#7955FF'
+    horizontalLineColor: '#7955FF'
 };
 
 export const variables = {

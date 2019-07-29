@@ -16,7 +16,7 @@ html {
 }
 
 :root {
-  --horizontal : #FFFFFF;
+  --horizontal-line-color : #FFFFFF;
 }
 
 body {
@@ -25,7 +25,7 @@ body {
 }
 
 body hr {
-  background: var(--horizontal); /*probably should make a var for this */
+  background: var(--horizontal-line-color); /*probably should make a var for this */
 }
 /* body p, */
 body h1,
