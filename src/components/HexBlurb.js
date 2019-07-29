@@ -57,7 +57,9 @@ const StyledHexContent = styled.div`
 `;
 
 const HexBlurb = props => {
-    const { intl: { messages } } = props;
+    const {
+        intl: { messages }
+    } = props;
     return (
         <StyledHexBlurb className="content-wrapper" bgColor={props.bgColor}>
             <StyledHexContent className="content" textColor={props.textColor}>

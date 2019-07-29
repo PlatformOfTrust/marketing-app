@@ -61,7 +61,7 @@ const StyledFeaturedEvent = styled.div`
     }
 `;
 
-const FeaturedEvent = ({intl: { messages }}) => (
+const FeaturedEvent = ({ intl: { messages } }) => (
     <StaticQuery
         query={graphql`
             query featuredEventQuery {
@@ -117,9 +117,7 @@ const FeaturedEvent = ({intl: { messages }}) => (
                                                 .frontmatter.path
                                         }
                                     >
-                                        <h3>
-                                            {`${messages.event}`}
-                                        </h3>
+                                        <h3>{`${messages.event}`}</h3>
                                         <p>
                                             {
                                                 ownUpcomingEvents[0].node
@@ -133,9 +131,7 @@ const FeaturedEvent = ({intl: { messages }}) => (
                                 )}
                                 {!hasOwnUpgomingEvents && (
                                     <LocalizedLink to="/events">
-                                        <h3>
-                                            {`${messages.event}`}
-                                        </h3>
+                                        <h3>{`${messages.event}`}</h3>
                                         <p>
                                             {
                                                 friendsUpcomingEvents[0].node

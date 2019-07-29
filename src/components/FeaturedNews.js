@@ -84,7 +84,7 @@ const StyledContent = styled.div`
         }
     }
 `;
-const FeaturedNews = ({intl: { messages }}) => (
+const FeaturedNews = ({ intl: { messages } }) => (
     <StaticQuery
         query={graphql`
             query {

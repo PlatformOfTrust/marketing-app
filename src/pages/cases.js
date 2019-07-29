@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styled from 'styled-components';
 import MetaTags from 'react-meta-tags';
 
-
 import LocalizedLink from './../components/LocalizedLink';
 import SpanElement from './../components/SpanElement';
 
@@ -181,14 +180,14 @@ class Events extends React.Component {
     handleFiltering = filter => {
         filter === 'all'
             ? this.setState({
-                filters: [
-                    'blog',
-                    'article',
-                    'pressRelease',
-                    'business',
-                    'technical'
-                ]
-            })
+                  filters: [
+                      'blog',
+                      'article',
+                      'pressRelease',
+                      'business',
+                      'technical'
+                  ]
+              })
             : this.setState({ filters: [filter] });
         this.setState({ selected: [filter] });
     };
@@ -217,7 +216,7 @@ class Events extends React.Component {
                         property="og:image"
                         content={socialPreviewImageFullUri}
                     />
-                    <meta name="twitter:card" content="summary_large_image"/>
+                    <meta name="twitter:card" content="summary_large_image" />
                     <meta
                         name="twitter:title"
                         content={SocialPreviewData.title}
@@ -239,13 +238,12 @@ class Events extends React.Component {
                                     selected[0] === 'all'
                                         ? 'selected-filter'
                                         : ''
-                                    }`}
+                                }`}
                             >
                                 <SpanElement
                                     text="all"
                                     onClick={() => this.handleFiltering('all')}
                                 />
-
                             </StyledSelector>
                             {/* <StyledSelector className={`tool-block blog ${ selected[0] === "blog" ? "selected-filter" : "" }`}>
                 <FontAwesomeIcon icon={['fa', 'hexagon']} color={ colors.ok } />
@@ -260,7 +258,7 @@ class Events extends React.Component {
                                     selected[0] === 'business'
                                         ? 'selected-filter'
                                         : ''
-                                    }`}
+                                }`}
                             >
                                 <FontAwesomeIcon
                                     icon={['fa', 'hexagon']}
@@ -280,7 +278,7 @@ class Events extends React.Component {
                                     selected[0] === 'technical'
                                         ? 'selected-filter'
                                         : ''
-                                    }`}
+                                }`}
                             >
                                 <FontAwesomeIcon
                                     icon={['fa', 'hexagon']}
@@ -296,7 +294,7 @@ class Events extends React.Component {
                             </StyledSelector>
                         </StyledTools>
                         <StyledBlogs className="posts">
-                            <HeaderElement tag="h1" content="cases"/>
+                            <HeaderElement tag="h1" content="cases" />
                             {posts.filter(post =>
                                 filters.includes(post.node.frontmatter.subtype)
                             ).length === 0 && (
@@ -334,8 +332,7 @@ class Events extends React.Component {
                                                     </StyledHexImage>
                                                 </LocalizedLink>
                                             </div>
-                                            <div
-                                                className="post-preview-content">
+                                            <div className="post-preview-content">
                                                 <div className="title">
                                                     <LocalizedLink
                                                         to={
@@ -364,7 +361,7 @@ class Events extends React.Component {
                                                                     post
                                                                         .frontmatter
                                                                         .subtype
-                                                                    ]
+                                                                ]
                                                             }
                                                         />
                                                         {post.frontmatter
@@ -377,8 +374,7 @@ class Events extends React.Component {
                                                                             .subtype
                                                                     }
                                                                 </span>
-                                                                <span
-                                                                    className="divider">
+                                                                <span className="divider">
                                                                     .
                                                                 </span>
                                                             </>
@@ -400,8 +396,7 @@ class Events extends React.Component {
                                                         className="post-link"
                                                     >
                                                         <p>{post.excerpt}</p>
-                                                        <CustomSquareButton
-                                                            label="read"/>
+                                                        <CustomSquareButton label="read" />
                                                     </LocalizedLink>
                                                 </div>
                                             </div>

@@ -61,14 +61,14 @@ const IndexPage = ({ data, pathContext }) => {
     return (
         <Layout locale={pathContext.locale}>
             <MetaTags>
-                <meta property="og:title" content={SocialPreviewData.title}/>
+                <meta property="og:title" content={SocialPreviewData.title} />
                 <meta
                     property="og:description"
                     content={SocialPreviewData.description}
                 />
-                <meta property="og:image" content={socialPreviewImageFullUri}/>
-                <meta name="twitter:card" content="summary_large_image"/>
-                <meta name="twitter:title" content={SocialPreviewData.title}/>
+                <meta property="og:image" content={socialPreviewImageFullUri} />
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content={SocialPreviewData.title} />
                 <meta
                     name="twitter:description"
                     content={SocialPreviewData.description}
@@ -78,7 +78,7 @@ const IndexPage = ({ data, pathContext }) => {
                     content={socialPreviewImageFullUri}
                 />
             </MetaTags>
-            <SEO title="Home" keywords={['Platform of Trust']}/>
+            <SEO title="Home" keywords={['Platform of Trust']} />
             <StyledMain className="home page-content container">
                 <div className="dev-test" style={{ display: 'none' }}>
                     <div
@@ -103,15 +103,20 @@ const IndexPage = ({ data, pathContext }) => {
                 </div>
                 <div className="row">
                     <div className="col-12 col-sm-10 offset-sm-1 col-lg-7">
-                        {contents.filter(content => content.node.frontmatter.section === 'herohex').map(data => {
-                            const { node } = data;
-                            return <Hero key={node.id} data={node}/>;
-                        })}
-                        <FeaturedNews/>
+                        {contents
+                            .filter(
+                                content =>
+                                    content.node.frontmatter.section ===
+                                    'herohex'
+                            )
+                            .map(data => {
+                                const { node } = data;
+                                return <Hero key={node.id} data={node} />;
+                            })}
+                        <FeaturedNews />
                     </div>
-                    <div
-                        className="col-9 offset-3 col-sm-6 offset-sm-3 col-lg-3 offset-lg-0">
-                        <Featured/>
+                    <div className="col-9 offset-3 col-sm-6 offset-sm-3 col-lg-3 offset-lg-0">
+                        <Featured />
                     </div>
                 </div>
                 <div className="row mt-5">
@@ -157,7 +162,7 @@ const IndexPage = ({ data, pathContext }) => {
                     </div>
                     <div className="col-6 col-md-3">
                         <LocalizedLink to="/newsletter">
-                            <CustomRoundedButton label="signUpForNews"/>
+                            <CustomRoundedButton label="signUpForNews" />
                         </LocalizedLink>
                     </div>
                 </div>
@@ -225,7 +230,7 @@ const IndexPage = ({ data, pathContext }) => {
         </div> */}
 
                 <div className="row mt-5">
-                    <ToolsIntro/>
+                    <ToolsIntro />
                 </div>
 
                 {/* <div className="row mt-5">
@@ -246,8 +251,8 @@ const IndexPage = ({ data, pathContext }) => {
 
                 <div className="row mt-5">
                     <div className="col-md-10 offset-md-1 mb-3">
-                       {/* TODO: Only for translation purposes, must be refactored */}
-                        <HederElement tag="h5" content={"partnersHeaderText"}/>
+                        {/* TODO: Only for translation purposes, must be refactored */}
+                        <HederElement tag="h5" content={'partnersHeaderText'} />
                     </div>
                     <StyledPartners id="partners" className="col-10 offset-1">
                         {contents
@@ -286,7 +291,9 @@ const SocialPreviewData = {
 export const query = graphql`
     query($locale: String!) {
         allContent: allMarkdownRemark(
-            filter: { frontmatter: { page: { eq: "index" }, locale: { eq: $locale } } }
+            filter: {
+                frontmatter: { page: { eq: "index" }, locale: { eq: $locale } }
+            }
             sort: { order: ASC, fields: [frontmatter___order] }
         ) {
             edges {

@@ -64,7 +64,9 @@ const StyledButton = styled.button`
 `;
 
 const CustomSquareButton = props => {
-    const { intl: { messages } } = props;
+    const {
+        intl: { messages }
+    } = props;
     return (
         <StyledButton
             type="button"

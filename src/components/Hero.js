@@ -43,12 +43,12 @@ const StyledContent = styled.div`
     }
 `;
 
-const Hero = (props) => {
+const Hero = props => {
     const content = props.data;
     return (
         <StyledHero>
             <StyledBg>
-                <HexImage pic={HexBg} hexId="HeroHex"/>
+                <HexImage pic={HexBg} hexId="HeroHex" />
             </StyledBg>
             <StyledContent
                 key={content.id}
@@ -56,7 +56,6 @@ const Hero = (props) => {
             />
         </StyledHero>
     );
-
 };
 
 export default Hero;

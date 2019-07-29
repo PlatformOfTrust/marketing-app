@@ -68,7 +68,9 @@ const ToolsSection = styled.div`
 `;
 
 const ToolsIntro = props => {
-    const { intl: { messages } } = props;
+    const {
+        intl: { messages }
+    } = props;
     return (
         <ToolsSection className="container" bgColor={props.bgColor}>
             <div className="row">
@@ -78,8 +80,7 @@ const ToolsIntro = props => {
             </div>
 
             <div className="row mb-5 mb-md-3 mb-lg-0">
-                <div
-                    className="hex-col col-8 col-sm-6 col-md-3 col-lg-2 offset-md-1 hexBlurbWrapper">
+                <div className="hex-col col-8 col-sm-6 col-md-3 col-lg-2 offset-md-1 hexBlurbWrapper">
                     <HexBlurb
                         title="developerPortal"
                         icon="terminal"
@@ -89,20 +90,17 @@ const ToolsIntro = props => {
                 </div>
                 <div className="col-md-4 col-lg-4">
                     <h3>{`${messages.hackData}`}</h3>
-                    <p>
-                        {`${messages.hackDataContent}`}
-                    </p>
+                    <p>{`${messages.hackDataContent}`}</p>
                 </div>
                 <div className="button-col col-md-3 col-lg-2">
                     <a href="https://developers.oftrust.net">
-                        <CustomRoundedButton label="joinTheParty"/>
+                        <CustomRoundedButton label="joinTheParty" />
                     </a>
                 </div>
             </div>
 
             <div className="row mb-5 mb-md-3 mb-lg-0">
-                <div
-                    className="hex-col col-8 col-sm-6 col-md-3 col-lg-2 offset-lg-2 offset-md-1 hexBlurbWrapper">
+                <div className="hex-col col-8 col-sm-6 col-md-3 col-lg-2 offset-lg-2 offset-md-1 hexBlurbWrapper">
                     <HexBlurb
                         title="myWorld"
                         icon="globe-stand"
@@ -112,9 +110,7 @@ const ToolsIntro = props => {
                 </div>
                 <div className="col-md-4 col-lg-4">
                     <h3>{`${messages.ruleData}`}</h3>
-                    <p>
-                        {`${messages.ruleDataContent}`}
-                    </p>
+                    <p>{`${messages.ruleDataContent}`}</p>
                 </div>
                 <div className="disabled button-col col-md-3 col-lg-2 ">
                     <LocalizedLink to="/">
@@ -128,8 +124,7 @@ const ToolsIntro = props => {
             </div>
 
             <div className="row mb-5 mb-md-3 mb-lg-0">
-                <div
-                    className="hex-col col-8 col-sm-6 col-md-3 col-lg-2 offset-lg-3 offset-md-1 hexBlurbWrapper">
+                <div className="hex-col col-8 col-sm-6 col-md-3 col-lg-2 offset-lg-3 offset-md-1 hexBlurbWrapper">
                     <HexBlurb
                         title="marketPlace"
                         icon="shopping-bag"
@@ -139,9 +134,7 @@ const ToolsIntro = props => {
                 </div>
                 <div className="col-md-4 col-lg-4">
                     <h3>{`${messages.sellAndBuy}`}</h3>
-                    <p>
-                        {`${messages.sellAndBuyContent}`}
-                    </p>
+                    <p>{`${messages.sellAndBuyContent}`}</p>
                 </div>
                 <div className="disabled button-col col-md-3 col-lg-2">
                     <LocalizedLink to="/">
