@@ -27,13 +27,11 @@ The experiment showed that it was possible to achieve real-time updates of previ
 
 <br/>
 
-_________________
+>_“It only took a couple of months to create a whole new digital service experience that connected the digital building copy, residents, the maintenance company and the owner. Platform of Trust demonstrated that existing system data can be used more efficiently without modifying the systems themselves. A one-off technical integration between the platform and a data source makes it possible to create a functional client application in weeks.”_
 
-_“It only took a couple of months to create a whole new digital service experience that connected the digital building copy, residents, the maintenance company and the owner. Platform of Trust demonstrated that existing system data can be used more efficiently without modifying the systems themselves. A one-off technical integration between the platform and a data source makes it possible to create a functional client application in weeks.”_
+>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- says one of the masterminds behind Platform of Trust, **Pirkka Frosti** of Digital Living.
 
-_________________
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- says one of the masterminds behind Platform of Trust, **Pirkka Frosti** of Digital Living.
 
 <br/><br/>
 
@@ -43,13 +41,13 @@ Platform of Trust aims to make service providers more efficient and speed up com
 
 <br/>
 
-_________________
 
-_“In the property sector, data is often invisible and incompatible, slowing down the increased productivity made possible by digitalisation. By working together, we can solve this problem. The pilot was not limited to a few operators: instead, it demonstrated just how much the entire sector can up its game. The capabilities created on Platform of Trust and in the parties’ proprietary systems during the pilot period benefit everyone,”_
+>_“In the property sector, data is often invisible and incompatible, slowing down the increased productivity made possible by digitalisation. By working together, we can solve this problem. The pilot was not limited to a few operators: instead, it demonstrated just how much the entire sector can up its game. The capabilities created on Platform of Trust and in the parties’ proprietary systems during the pilot period benefit everyone,”_
 
-_________________
+>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- says Chief Development Officer **Teemu Suila** of Kojamo.
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- says Chief Development Officer **Teemu Suila** of Kojamo.
+
+
 
 <br/><br/>
 
@@ -57,25 +55,29 @@ Platform of Trust is a community-based platform that will be launched in summer 
 
 <br/>
 
-_________________
+>_“Platform of Trust helped Kojamo harmonise its fragmented data models, making the data flow and, most importantly, to use the data to create meaningful services for its customers. The platform proved it could bring systems, data, developers and users together and turn data into a component for creating new and innovative services quickly and efficiently. The pilot project allows other companies that join the project to speed up their processes and reduce costs,”_
 
-_“Platform of Trust helped Kojamo harmonise its fragmented data models, making the data flow and, most importantly, to use the data to create meaningful services for its customers. The platform proved it could bring systems, data, developers and users together and turn data into a component for creating new and innovative services quickly and efficiently. The pilot project allows other companies that join the project to speed up their processes and reduce costs,”_
-_________________
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- says Pirkka Frosti.
+>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- says Pirkka Frosti.
 
 <br/><br/>
 
 The development of Platform of Trust began in 2018 as a collaborative project between operators in the property and construction sectors. The goal was to promote the harmonisation of the data these sectors use and to open up new business models. In the future, the platform will be available for operators in any sector. Platform of Trust Oy, a part of the Suomen Tilaajavastuu group, was incorporated in February 2019. Business Finland has granted Platform of Trust 5 million of funding for international expansion.
 
-<br/><br/><br/><br/>
+<br/><br/>
+
+<hr/>
+
+<br/><br/>
 
 ### Further information
-<br/><br/><br/><br/>
 
-### **Vesa Ilmarinen**
+<br/><br/>
 
 <br/>
+
+<br/>
+
+### **Vesa Ilmarinen**
 
 Chief Impact Officer, Platform of Trust
 
@@ -86,8 +88,6 @@ vesa.ilmarinen@oftrust.net
 <br/><br/><br/><br/>
 
 ### **Pirkka Frosti**
-
-<br/>
 
 Platform of Trust/Digital Living
 
