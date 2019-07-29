@@ -87,7 +87,8 @@ Layout.propTypes = {
 
 const SocialPreviewData = {
     title: 'Platform Of Trust | Home',
-    description: 'Platform of Trust harmonizes incompatible data and makes it flow to enable automated business ecosystems and knowledge-based decision making.'
+    description:
+        'Platform of Trust harmonizes incompatible data and makes it flow to enable automated business ecosystems and knowledge-based decision making.'
 };
 
 export default Layout;

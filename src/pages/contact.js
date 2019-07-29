@@ -100,7 +100,8 @@ const Contact = () => (
 
 const SocialPreviewData = {
     title: 'Platform Of Trust | Contact',
-    description: 'Contact us, request a meeting, meet the team, check office locations, and see billing information.'
+    description:
+        'Contact us, request a meeting, meet the team, check office locations, and see billing information.'
 };
 
 export default Contact;

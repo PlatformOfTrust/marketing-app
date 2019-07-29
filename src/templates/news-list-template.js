@@ -34,7 +34,7 @@ const StyledBlogs = styled.article`
     }
 
     .news-not-found h2 {
-        font-weight: 400 ;
+        font-weight: 400;
         font-size: 2.4rem;
     }
 `;
@@ -60,62 +60,94 @@ const StyledSelector = styled.button`
     }
 `;
 const StyledBlogBlock = styled.article`
-  display: inline-block;
-  width: 100%;
-  @media ${device.laptop} { width: calc(50% - 2rem); }
-  padding: 1.5rem;
-  margin: 1rem;
-  border-top: 2px dotted ${colors.main};
-  h2 { font-size: 1.6rem; letter-spacing: 0.02em; word-spacing: 0.065em; line-height: 1.2em;}
-  span { font-size: 15px;}
-  p {word-spacing: 0.064em; line-spacing: 0.048em; font-size: 17px;}
-
-  &:nth-of-type(1) {
-    width: 100%;
-    border-top: none;
-      h2 { font-size: 2.5rem; letter-spacing: 0.01em; word-spacing: 0.065em; line-height: 1.2em;}
-
-  }
-
-  &:nth-child(n+5) {
-    width: 100%;
-    padding-top: 0;
-    padding-bottom: 0;
-    .featured-image, .excerpt { display: none }
-    .title { order: 2; }
-    .meta { order: 1; }
-    .post-preview-content { width: 100%; }
-    h2 { font-size: 1.6rem;word-spacing: 0.065em; line-height: 1.2em;}
-  }
-
-  .post-link {
-    text-decoration: none;
-  }
-  .meta {
-    svg { margin-right: 0.4em; }
-    span {
-      margin-right: 0.3em;
-      text-transform: capitalize;
-    }
-    .divider {
-      display: inline-block;
-      transform: translateY(-0.2em);
-     }
-  }
-  .featured-image {
     display: inline-block;
-    width: 30%;
-  }
-  .post-preview-content {
-    display: inline-flex;
-    flex-direction: column;
-    width: 70%;
-    padding: 1rem 10% 1rem 0;
-    vertical-align: top;
-    h2 {
-      font-weight: 400;
+    width: 100%;
+    @media ${device.laptop} {
+        width: calc(50% - 2rem);
     }
-  }
+    padding: 1.5rem;
+    margin: 1rem;
+    border-top: 2px dotted ${colors.main};
+    h2 {
+        font-size: 1.6rem;
+        letter-spacing: 0.02em;
+        word-spacing: 0.065em;
+        line-height: 1.2em;
+    }
+    span {
+        font-size: 15px;
+    }
+    p {
+        word-spacing: 0.064em;
+        line-spacing: 0.048em;
+        font-size: 17px;
+    }
+
+    &:nth-of-type(1) {
+        width: 100%;
+        border-top: none;
+        h2 {
+            font-size: 2.5rem;
+            letter-spacing: 0.01em;
+            word-spacing: 0.065em;
+            line-height: 1.2em;
+        }
+    }
+
+    &:nth-child(n + 5) {
+        width: 100%;
+        padding-top: 0;
+        padding-bottom: 0;
+        .featured-image,
+        .excerpt {
+            display: none;
+        }
+        .title {
+            order: 2;
+        }
+        .meta {
+            order: 1;
+        }
+        .post-preview-content {
+            width: 100%;
+        }
+        h2 {
+            font-size: 1.6rem;
+            word-spacing: 0.065em;
+            line-height: 1.2em;
+        }
+    }
+
+    .post-link {
+        text-decoration: none;
+    }
+    .meta {
+        svg {
+            margin-right: 0.4em;
+        }
+        span {
+            margin-right: 0.3em;
+            text-transform: capitalize;
+        }
+        .divider {
+            display: inline-block;
+            transform: translateY(-0.2em);
+        }
+    }
+    .featured-image {
+        display: inline-block;
+        width: 30%;
+    }
+    .post-preview-content {
+        display: inline-flex;
+        flex-direction: column;
+        width: 70%;
+        padding: 1rem 10% 1rem 0;
+        vertical-align: top;
+        h2 {
+            font-weight: 400;
+        }
+    }
 `;
 const StyledHexImage = styled.div`
     width: 85%;
@@ -342,13 +374,18 @@ export default class NewsList extends React.Component {
                                 </div>
                             </div>
                             <div className="row">
-                                {posts
-                                    .filter(post =>
-                                        filters.includes(
-                                            post.node.frontmatter.subtype
-                                        )
-                                    ).length === 0 && <div className="col-12 news-not-found"><h2>Sorry, nothing here for now. See the other filters.</h2></div>
-                                }
+                                {posts.filter(post =>
+                                    filters.includes(
+                                        post.node.frontmatter.subtype
+                                    )
+                                ).length === 0 && (
+                                    <div className="col-12 news-not-found">
+                                        <h2>
+                                            Sorry, nothing here for now. See the
+                                            other filters.
+                                        </h2>
+                                    </div>
+                                )}
                                 {posts
                                     .filter(post =>
                                         filters.includes(
@@ -374,22 +411,8 @@ export default class NewsList extends React.Component {
                                                         <StyledHexImage>
                                                             {/* <CustomImage filename={post.frontmatter.pic} alt={post.frontmatter.title} /> */}
                                                             <HexImage
-                                                                pic={require(`../pages${
-                                                                    post
-                                                                        .frontmatter
-                                                                        .path
-                                                                }-${
-                                                                    post
-                                                                        .frontmatter
-                                                                        .subtype
-                                                                }/${
-                                                                    post
-                                                                        .frontmatter
-                                                                        .pic
-                                                                }`)}
-                                                                hexId={`NewHex-${
-                                                                    post.id
-                                                                }`}
+                                                                pic={require(`../pages${post.frontmatter.path}-${post.frontmatter.subtype}/${post.frontmatter.pic}`)}
+                                                                hexId={`NewHex-${post.id}`}
                                                                 rotate={true}
                                                             />
                                                         </StyledHexImage>
@@ -561,7 +584,8 @@ export default class NewsList extends React.Component {
 
 const SocialPreviewData = {
     title: 'Platform Of Trust | News',
-    description: 'Platform of Trust news, blog posts, press releases, and articles. Topics: platform economy, data, sustainability, data-based ecosystems, and smart city.'
+    description:
+        'Platform of Trust news, blog posts, press releases, and articles. Topics: platform economy, data, sustainability, data-based ecosystems, and smart city.'
 };
 
 export const newsListQuery = graphql`

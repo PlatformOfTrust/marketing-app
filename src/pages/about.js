@@ -137,7 +137,8 @@ const About = ({ data }) => (
 
 const SocialPreviewData = {
     title: 'Platform Of Trust | About',
-    description: 'Platform of Trust is a data linking platform that promises to cut your integration costs and helps turn your data into revenue.'
+    description:
+        'Platform of Trust is a data linking platform that promises to cut your integration costs and helps turn your data into revenue.'
 };
 
 export default About;

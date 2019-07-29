@@ -59,7 +59,7 @@ const ToolsSection = styled.div`
         cursor: not-allowed !important;
     }
 
-    @media screen and (min-width: 768px) and (max-width: 991px){
+    @media screen and (min-width: 768px) and (max-width: 991px) {
         .hexBlurbWrapper {
             max-height: 26vw;
         }

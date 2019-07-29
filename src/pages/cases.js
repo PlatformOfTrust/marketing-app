@@ -55,7 +55,8 @@ const StyledBlogBlock = styled.article`
     padding: 1.5rem;
     margin: 1rem;
     border-top: 2px dotted ${colors.main};
-    h2 { font-size: 1.6rem;
+    h2 {
+        font-size: 1.6rem;
         letter-spacing: 0.01em;
         word-spacing: 0.065em;
         line-height: 1.2em;
@@ -150,14 +151,14 @@ export default class Events extends React.Component {
     handleFiltering = filter => {
         filter === 'all'
             ? this.setState({
-                filters: [
-                    'blog',
-                    'article',
-                    'pressRelease',
-                    'business',
-                    'technical'
-                ]
-            })
+                  filters: [
+                      'blog',
+                      'article',
+                      'pressRelease',
+                      'business',
+                      'technical'
+                  ]
+              })
             : this.setState({ filters: [filter] });
         this.setState({ selected: [filter] });
     };
@@ -266,16 +267,8 @@ export default class Events extends React.Component {
                                                     <StyledHexImage>
                                                         {/* <CustomImage filename={post.frontmatter.pic} alt={post.frontmatter.title} /> */}
                                                         <HexImage
-                                                            pic={require(`.${
-                                                                post.frontmatter
-                                                                    .path
-                                                            }/${
-                                                                post.frontmatter
-                                                                    .pic
-                                                            }`)}
-                                                            hexId={`EventHex-${
-                                                                post.id
-                                                            }`}
+                                                            pic={require(`.${post.frontmatter.path}/${post.frontmatter.pic}`)}
+                                                            hexId={`EventHex-${post.id}`}
                                                             rotate={true}
                                                         />
                                                     </StyledHexImage>
@@ -362,7 +355,8 @@ export default class Events extends React.Component {
 
 const SocialPreviewData = {
     title: 'Platform Of Trust | Cases',
-    description: 'Platform of Trust use cases, examples of how the platform works in practice and how it helps create business ecosystems.'
+    description:
+        'Platform of Trust use cases, examples of how the platform works in practice and how it helps create business ecosystems.'
 };
 
 export const pageQuery = graphql`
