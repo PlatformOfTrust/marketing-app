@@ -474,11 +474,14 @@ export default class NewsList extends React.Component {
                                                                 .subtype && (
                                                                 <>
                                                                     <span>
-                                                                        {
-                                                                            post
-                                                                                .frontmatter
-                                                                                .subtype
-                                                                        }
+                                                                        {post
+                                                                            .frontmatter
+                                                                            .subtype ===
+                                                                        'pressRelease'
+                                                                            ? 'Press Release'
+                                                                            : post
+                                                                                  .frontmatter
+                                                                                  .subtype}
                                                                     </span>
                                                                     <span className="divider">
                                                                         .
