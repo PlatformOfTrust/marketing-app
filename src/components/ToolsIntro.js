@@ -4,6 +4,8 @@ import LocalizedLink from './LocalizedLink';
 import HexBlurb from './HexBlurb';
 import CustomRoundedButton from './CustomRoundedButton';
 
+import { injectIntl } from 'react-intl';
+
 import { variables, colors, device } from '../Theme.js';
 
 const ToolsSection = styled.div`
@@ -66,60 +68,58 @@ const ToolsSection = styled.div`
 `;
 
 const ToolsIntro = props => {
+    const { intl: { messages } } = props;
     return (
         <ToolsSection className="container" bgColor={props.bgColor}>
             <div className="row">
                 <div className="col-12 col-md-10 offset-md-1 mb-5 mb-lg-0">
-                    <h2>Here are the tools we offer</h2>
+                    <h2>{`${messages.toolsOffer}`}</h2>
                 </div>
             </div>
 
             <div className="row mb-5 mb-md-3 mb-lg-0">
-                <div className="hex-col col-8 col-sm-6 col-md-3 col-lg-2 offset-md-1 hexBlurbWrapper">
+                <div
+                    className="hex-col col-8 col-sm-6 col-md-3 col-lg-2 offset-md-1 hexBlurbWrapper">
                     <HexBlurb
-                        title="Developer portal"
+                        title="developerPortal"
                         icon="terminal"
                         textColor="white"
                         bgColor="dark"
                     />
                 </div>
                 <div className="col-md-4 col-lg-4">
-                    <h3>Hack data</h3>
+                    <h3>{`${messages.hackData}`}</h3>
                     <p>
-                        Our developer portal has all the tools and data you need
-                        in order to create new solutions and services. This
-                        portal has been built from the point of view of a
-                        developer in order to create the best possible DX.
+                        {`${messages.hackDataContent}`}
                     </p>
                 </div>
                 <div className="button-col col-md-3 col-lg-2">
                     <a href="https://developers.oftrust.net">
-                        <CustomRoundedButton label="Join the party" />
+                        <CustomRoundedButton label="joinTheParty"/>
                     </a>
                 </div>
             </div>
 
             <div className="row mb-5 mb-md-3 mb-lg-0">
-                <div className="hex-col col-8 col-sm-6 col-md-3 col-lg-2 offset-lg-2 offset-md-1 hexBlurbWrapper">
+                <div
+                    className="hex-col col-8 col-sm-6 col-md-3 col-lg-2 offset-lg-2 offset-md-1 hexBlurbWrapper">
                     <HexBlurb
-                        title="MyWorld"
+                        title="myWorld"
                         icon="globe-stand"
                         textColor="white"
                         bgColor="mainDark"
                     />
                 </div>
                 <div className="col-md-4 col-lg-4">
-                    <h3>Rule data</h3>
+                    <h3>{`${messages.ruleData}`}</h3>
                     <p>
-                        My world is a visualisation tool where you can manage
-                        your data in a digital twin, see where it comes from and
-                        where it links to.
+                        {`${messages.ruleDataContent}`}
                     </p>
                 </div>
                 <div className="disabled button-col col-md-3 col-lg-2 ">
                     <LocalizedLink to="/">
                         <CustomRoundedButton
-                            label="Coming soon"
+                            label="comingSoon"
                             primary
                             disabled
                         />
@@ -128,28 +128,25 @@ const ToolsIntro = props => {
             </div>
 
             <div className="row mb-5 mb-md-3 mb-lg-0">
-                <div className="hex-col col-8 col-sm-6 col-md-3 col-lg-2 offset-lg-3 offset-md-1 hexBlurbWrapper">
+                <div
+                    className="hex-col col-8 col-sm-6 col-md-3 col-lg-2 offset-lg-3 offset-md-1 hexBlurbWrapper">
                     <HexBlurb
-                        title="Market place"
+                        title="marketPlace"
                         icon="shopping-bag"
                         textColor={colors.main}
                         bgColor="light"
                     />
                 </div>
                 <div className="col-md-4 col-lg-4">
-                    <h3>Sell &amp; Buy</h3>
+                    <h3>{`${messages.sellAndBuy}`}</h3>
                     <p>
-                        Make your data earn. We are creating a marketplace for
-                        data products and applications where you can offer your
-                        data for others to utilise or a ready-made service or
-                        application for others to buy. You define the pricing,
-                        we take care of contracts and licensing. Automatically.
+                        {`${messages.sellAndBuyContent}`}
                     </p>
                 </div>
                 <div className="disabled button-col col-md-3 col-lg-2">
                     <LocalizedLink to="/">
                         <CustomRoundedButton
-                            label="Future feature"
+                            label="futureFeature"
                             primary
                             disabled
                             className="disabled"
@@ -161,4 +158,4 @@ const ToolsIntro = props => {
     );
 };
 
-export default ToolsIntro;
+export default injectIntl(ToolsIntro);

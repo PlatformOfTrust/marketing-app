@@ -226,8 +226,7 @@ exports.onCreatePage = ({ page, actions }) => {
             if (url.indexOf('dev-404') === -1) {
                 if (Object.keys(page.context).length === 0) {
                     const localizedPath = locales[lang].path + url;
-                    console.log('Creating page', url, localizedPath);
-
+                    console.log('Creating page', url, localizedPath, lang);
                     createPage({
                         ...page,
                         path: localizedPath,

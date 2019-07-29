@@ -10,5 +10,25 @@
         "companyName": "Platform of Trust Oy",
         "VAT": "Y-tunnus 2980005-2",
         "privacyPolicy": "Tietosuojaseloste"
-    }
+    },
+    "latestNews": "Uusimmat",
+    "goToNews": "Lisää ajankohtaisia",
+    "case": "Käyttötapaus",
+    "readMore": "Lue lisää",
+    "event": "Tapahtuma",
+    "signUpForNews": "Tilaa Platform of Trust -uutisia",
+    "joinTheParty": "Tästä peremmälle",
+    "comingSoon": "Tulossa",
+    "toolsOffer": "Näitä työkaluja tarjoamme",
+    "developerPortal": "Kehittäjäportaali",
+    "myWorld": "MyWorld",
+    "hackData": "Kehitä",
+    "hackDataContent": "Kehittäjäportaalistamme löytyvät kaikki työkalut ja data, joita tarvitset uusien ratkaisujen ja palveluiden luomiseen. Portaali on rakennettu devaajien näkökulmasta ja tavoitteena luoda paras mahdollinen kehittäjäkokemus.",
+    "ruleData": "Hallitse",
+    "ruleDataContent": "MyWorld on visualisointityökalu, joka näyttää digitaalisessa kaksosessa mihin datasi linkittyy ja miten se virtaa.",
+    "marketPlace": "Markkinapaikka",
+    "sellAndBuy": "Myy ja osta",
+    "sellAndBuyContent": "Laita datasi tuottamaan. Luomme parhaillaan Platform of Trust -markkinapaikkaa, jossa voit ostaa ja myydä dataa, datatuotteita ja valmiita sovelluksia. Sinä päätät hinnan, me hoidamme sopimukset ja luvitukset. Automaattisesti.",
+    "futureFeature": "Tulossa",
+    "partnersHeaderText": "Tässä kumppaneitamme ja ensimmäisiä käyttäjiämme"
 }

@@ -3,6 +3,6 @@ page: 'index'
 section: 'hex-blurbs'
 icon: 'piggy-bank'
 order: 4
-locale: 'en'
+locale: 'fi'
 ---
-Save on time, energy and material costs
+Säästä aikaa, energiaa ja materiaaleja

@@ -4,6 +4,8 @@ import LocalizedLink from './LocalizedLink';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styled from 'styled-components';
 
+import { injectIntl } from 'react-intl';
+
 import HexSvg from '../images/hex.svg';
 import { device, colors } from '../Theme.js';
 
@@ -82,7 +84,7 @@ const StyledContent = styled.div`
         }
     }
 `;
-const FeaturedNews = ({ data }) => (
+const FeaturedNews = ({intl: { messages }}) => (
     <StaticQuery
         query={graphql`
             query {
@@ -123,7 +125,7 @@ const FeaturedNews = ({ data }) => (
         render={data => (
             <StyledNews>
                 <StyledContent>
-                    <h2>Latest News</h2>
+                    <h2>{`${messages.latestNews}`}</h2>
 
                     {data.news.edges.map(({ node }) => (
                         <LocalizedLink to={node.frontmatter.path} key={node.id}>
@@ -156,7 +158,7 @@ const FeaturedNews = ({ data }) => (
                     ))}
 
                     <LocalizedLink to="/news" className="go-to-link">
-                        Go to news
+                        {`${messages.goToNews}`}
                     </LocalizedLink>
                 </StyledContent>
             </StyledNews>
@@ -164,4 +166,4 @@ const FeaturedNews = ({ data }) => (
     />
 );
 
-export default FeaturedNews;
+export default injectIntl(FeaturedNews);

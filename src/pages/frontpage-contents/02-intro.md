@@ -1,6 +1,7 @@
 ---
 page: 'index'
 section: 'intro'
+locale: 'en'
 ---
 ## What if you **used** your data?
 

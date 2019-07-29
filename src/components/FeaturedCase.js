@@ -3,6 +3,8 @@ import { StaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
 import LocalizedLink from './LocalizedLink';
 
+import { injectIntl } from 'react-intl';
+
 import { device, colors } from '../Theme.js';
 
 const StyledFeaturedCase = styled.div`
@@ -62,7 +64,7 @@ const StyledFeaturedCase = styled.div`
     }
 `;
 
-const FeaturedCase = ({ data }) => (
+const FeaturedCase = ({ intl: { messages } }) => (
     <StaticQuery
         query={graphql`
             query featuredCaseQuery {
@@ -95,15 +97,15 @@ const FeaturedCase = ({ data }) => (
                     <LocalizedLink
                         to={data.allMdx.edges[0].node.frontmatter.path}
                     >
-                        <h3>{data.allMdx.edges[0].node.frontmatter.type}</h3>
+                        <h3>{`${messages.case}`}</h3>
                         <p>
                             {data.allMdx.edges[0].node.frontmatter.shorttitle}
                         </p>
-                        <span className="read-more">Read more</span>
+                        <span className="read-more">{`${messages.readMore}`}</span>
                     </LocalizedLink>
                 </div>
             </StyledFeaturedCase>
         )}
     />
 );
-export default FeaturedCase;
+export default injectIntl(FeaturedCase);

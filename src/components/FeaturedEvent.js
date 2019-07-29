@@ -3,6 +3,8 @@ import { StaticQuery, graphql } from 'gatsby';
 import LocalizedLink from './LocalizedLink';
 import styled from 'styled-components';
 
+import { injectIntl } from 'react-intl';
+
 import { device } from '../Theme.js';
 
 const StyledFeaturedEvent = styled.div`
@@ -59,7 +61,7 @@ const StyledFeaturedEvent = styled.div`
     }
 `;
 
-const FeaturedEvent = ({ data }) => (
+const FeaturedEvent = ({intl: { messages }}) => (
     <StaticQuery
         query={graphql`
             query featuredEventQuery {
@@ -116,10 +118,7 @@ const FeaturedEvent = ({ data }) => (
                                         }
                                     >
                                         <h3>
-                                            {
-                                                ownUpcomingEvents[0].node
-                                                    .frontmatter.type
-                                            }
+                                            {`${messages.event}`}
                                         </h3>
                                         <p>
                                             {
@@ -128,17 +127,14 @@ const FeaturedEvent = ({ data }) => (
                                             }
                                         </p>
                                         <span className="read-more">
-                                            Read more
+                                            {`${messages.readMore}`}
                                         </span>
                                     </LocalizedLink>
                                 )}
                                 {!hasOwnUpgomingEvents && (
                                     <LocalizedLink to="/events">
                                         <h3>
-                                            {
-                                                friendsUpcomingEvents[0].node
-                                                    .frontmatter.type
-                                            }
+                                            {`${messages.event}`}
                                         </h3>
                                         <p>
                                             {
@@ -147,7 +143,7 @@ const FeaturedEvent = ({ data }) => (
                                             }
                                         </p>
                                         <span className="read-more">
-                                            Read more
+                                            {`${messages.readMore}`}
                                         </span>
                                     </LocalizedLink>
                                 )}
@@ -159,4 +155,4 @@ const FeaturedEvent = ({ data }) => (
         }}
     />
 );
-export default FeaturedEvent;
+export default injectIntl(FeaturedEvent);
