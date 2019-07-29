@@ -42,6 +42,7 @@ const StyledWrapper = styled.section`
     margin: '0 auto';
     padding-top: 0;
 `;
+const socialPreviewImageFullUri = window.location.origin + SocialPreviewImage;
 
 const Layout = ({ pathname, children }) => (
     <StaticQuery
@@ -65,10 +66,13 @@ const Layout = ({ pathname, children }) => (
                         content={SocialPreviewData.title}
                     />
                     <meta
-                        name="description"
+                        property="og:description"
                         content={SocialPreviewData.description}
                     />
-                    <meta property="og:image" content={SocialPreviewImage} />
+                    <meta
+                        property="og:image"
+                        content={socialPreviewImageFullUri}
+                    />
                     <meta name="twitter:card" content="summary_large_image" />
                     <meta
                         name="twitter:title"
@@ -78,7 +82,10 @@ const Layout = ({ pathname, children }) => (
                         name="twitter:description"
                         content={SocialPreviewData.description}
                     />
-                    <meta name="twitter:image" content={SocialPreviewImage} />
+                    <meta
+                        name="twitter:image"
+                        content={socialPreviewImageFullUri}
+                    />
                 </MetaTags>
 
                 <Header siteTitle={data.site.siteMetadata.title} />
