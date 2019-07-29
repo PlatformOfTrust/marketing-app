@@ -219,7 +219,7 @@ exports.createPages = ({ actions, graphql }) => {
 
 
 exports.onCreatePage = ({ page, actions }) => {
-    const { createPage, deletePage } = actions;
+    const { createPage, deletePage, createRedirect } = actions;
     return new Promise(resolve => {
         Object.keys(locales).map(lang => {
             const url = (page.context && page.context.frontmatter && page.context.frontmatter.path) || page.path;
@@ -236,8 +236,24 @@ exports.onCreatePage = ({ page, actions }) => {
                         }
                     });
 
-                    console.log('Delete', url);
-                    return deletePage(page);
+                    /* Set /en by default */
+                    if (url === '/') {
+                        if (locales[lang].default) {
+                            // '/' + localizedPath.replace('/', '') otherwise gatsby creates a chain of redirections
+                            console.log('Creating redirect from', url, 'to', '/' + localizedPath.replace('/', ''));
+                            createRedirect({
+                                fromPath: url,
+                                toPath: '/' + localizedPath.replace('/', ''),
+                                isPermanent: false,
+                                redirectInBrowser: true
+                            });
+                        }
+                        console.log('Delete', url);
+                        return deletePage(page);
+                    } else {
+                        console.log('Delete', url);
+                        return deletePage(page);
+                    }
                 } else {
                     console.log('Delete', url);
                     return deletePage(page);
