@@ -14,9 +14,18 @@ p {
 html {
   font-size: 100%;
 }
+
+:root {
+  --horizontal-line-color : #FFFFFF;
+}
+
 body {
   font-family: 'Fira Sans', sans-serif;
   line-height: 1.125em;
+}
+
+body hr {
+  background: var(--horizontal-line-color); /*probably should make a var for this */
 }
 
 body .page-content {
