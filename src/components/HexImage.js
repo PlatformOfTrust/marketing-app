@@ -10,7 +10,7 @@ const StyledHexImage = styled.div`
   width: auto;
   // svg: { height: 50%; }
   // background: ${props =>
-        props.color ? colors[props.color] : 'transparent'};
+      props.color ? colors[props.color] : 'transparent'};
 `;
 
 const HexImage = props => {
@@ -31,11 +31,13 @@ const HexImage = props => {
                     >
                         <image
                             xlinkHref={props.pic}
-                            x="0.05"
-                            y={(props.isContactImage) ? '0.05' : '-0.17'}
+                            x={props.isContactImage ? '0' : '0.05'}
+                            y={props.isContactImage ? '0.05' : '-0.17'}
                             width="1"
                             height="1"
-                            transform={`scale(1.1)
+                            transform={`scale(${
+                                props.isContactImage ? '1.2 1.1' : '1.3'
+                            })
               rotate(${props.rotate ? -10 : 0})
               translate(-0.15 0)`}
                         />

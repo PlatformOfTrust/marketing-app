@@ -24,6 +24,11 @@ body blockquote {
   padding-left: 15px;
 }
 
+
+body .page-content {
+  margin-top: 50px;
+}
+
 /* body p, */
 body h1,
 body h2,

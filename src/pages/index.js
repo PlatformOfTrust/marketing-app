@@ -11,11 +11,6 @@ import Featured from '../components/Featured';
 import HexBlurb from '../components/HexBlurb';
 import CustomRoundedButton from '../components/CustomRoundedButton';
 import ToolsIntro from '../components/ToolsIntro';
-// import PricingCards from '../components/PricingCards'
-// import SavedVizs from '../components/SavedVizs'
-// import NewsletterCTA from '../components/NewsletterCTA'
-// import CustomImage from '../components/CustomImage'
-// import HexImage from '../components/HexImage'
 import FeaturedNews from '../components/FeaturedNews';
 
 import 'bootstrap/dist/css/bootstrap.css';
@@ -61,11 +56,17 @@ const IndexPage = ({ data }) => {
         <Layout>
             <MetaTags>
                 <meta property="og:title" content={SocialPreviewData.title} />
-                <meta name="description" content={SocialPreviewData.description} />
+                <meta
+                    name="description"
+                    content={SocialPreviewData.description}
+                />
                 <meta property="og:image" content={SocialPreviewImage} />
                 <meta name="twitter:card" content="summary_large_image" />
                 <meta name="twitter:title" content={SocialPreviewData.title} />
-                <meta name="twitter:description" content={SocialPreviewData.description} />
+                <meta
+                    name="twitter:description"
+                    content={SocialPreviewData.description}
+                />
                 <meta name="twitter:image" content={SocialPreviewImage} />
             </MetaTags>
             <SEO title="Home" keywords={[`Platform of Trust`]} />
@@ -264,7 +265,8 @@ const IndexPage = ({ data }) => {
 
 const SocialPreviewData = {
     title: 'Platform Of Trust | Home',
-    description: 'Platform of Trust harmonizes incompatible data and makes it flow to enable automated business ecosystems and knowledge-based decision making.'
+    description:
+        'Platform of Trust harmonizes incompatible data and makes it flow to enable automated business ecosystems and knowledge-based decision making.'
 };
 
 export const query = graphql`

@@ -93,13 +93,6 @@ const SiteNav = props => {
             >
                 Contact
             </Link>
-            <Link
-                className="site-nav-link"
-                to="/faq"
-                activeStyle={activeStyles}
-            >
-                FAQ
-            </Link>
         </StyledSiteNav>
     );
 };

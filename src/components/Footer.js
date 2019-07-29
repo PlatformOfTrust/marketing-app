@@ -91,18 +91,23 @@ const StyledFooter = styled.footer`
         }
     }
     .some-links {
-      flex-wrap: wrap;
+        flex-wrap: wrap;
         width: 100px;
         margin-top: 20px;
 
         @media ${device.laptop} {
-          flex-wrap: wrap;
-          width: 140px;
-          margin-top: 10px;
-         }
+            flex-wrap: wrap;
+            width: 140px;
+            margin-top: 10px;
+        }
     }
     .footer-elements-opacity {
         opacity: 0.8;
+    }
+    .data-flow-tag {
+        top: 50px;
+        position: absolute;
+        left: 145px;
     }
 `;
 
@@ -142,18 +147,28 @@ const Footer = () => (
 
                 <div className="sitemap col-md-1">
                     {/* <Link to="/pricing">Pricing</Link><br /> */}
-                    <Link to="/cases" className="footer-elements-opacity">Cases</Link>
+                    <Link to="/cases" className="footer-elements-opacity">
+                        Cases
+                    </Link>
                     <br />
-                    <Link to="/news" className="footer-elements-opacity">News</Link>
+                    <Link to="/news" className="footer-elements-opacity">
+                        News
+                    </Link>
                     <br />
                 </div>
 
                 <div className="sitemap col-md-1">
-                    <Link to="/events" className="footer-elements-opacity">Events</Link>
+                    <Link to="/events" className="footer-elements-opacity">
+                        Events
+                    </Link>
                     <br />
-                    <Link to="/about" className="footer-elements-opacity">About</Link>
+                    <Link to="/about" className="footer-elements-opacity">
+                        About
+                    </Link>
                     <br />
-                    <Link to="/contact" className="footer-elements-opacity">Contact</Link>
+                    <Link to="/contact" className="footer-elements-opacity">
+                        Contact
+                    </Link>
                     <br />
                 </div>
 
@@ -169,11 +184,7 @@ const Footer = () => (
                 <div className="footer-somelinks col-4 col-lg-2 col-xl-2 text-right">
                     <SomeIcons className="footer-someicons" color="lightUsed" />
 
-                    <span style={{paddingTop: '50px',
-                        position: 'absolute',
-                        left: '145px'}}>
-                                  #dataflows
-                    </span>
+                    <span className="data-flow-tag">#dataflows</span>
                     {/* <nav className="some-links">
             <span className="keep-together">
               <a href="https://www.facebook.com/platformoftrust" className="some-link facebook"><img src={Facebook} className="some-icon" alt="Facebook" /></a>

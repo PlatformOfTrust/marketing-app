@@ -60,7 +60,10 @@ const Contact = () => (
             <meta property="og:image" content={SocialPreviewImage} />
             <meta name="twitter:card" content="summary_large_image" />
             <meta name="twitter:title" content={SocialPreviewData.title} />
-            <meta name="twitter:description" content={SocialPreviewData.description} />
+            <meta
+                name="twitter:description"
+                content={SocialPreviewData.description}
+            />
             <meta name="twitter:image" content={SocialPreviewImage} />
         </MetaTags>
         <StyledPage className="container">
@@ -99,7 +102,8 @@ const Contact = () => (
 
 const SocialPreviewData = {
     title: 'Platform Of Trust | Contact',
-    description: 'Contact us, request a meeting, meet the team, check office locations, and see billing information.'
+    description:
+        'Contact us, request a meeting, meet the team, check office locations, and see billing information.'
 };
 
 export default Contact;
