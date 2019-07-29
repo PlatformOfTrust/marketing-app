@@ -23,9 +23,9 @@ SignSpace is a service provided by Suomen Tilaajavastuu Oy and Platform of Trust
 
 ### More information
 
-<br/><br/>
+<br/><br/><br/><br/>
 
-#### Henri Svensson
+### **Henri Svensson**
 
 <br/>
 
@@ -33,9 +33,9 @@ SignSpace is a service provided by Suomen Tilaajavastuu Oy and Platform of Trust
 
 henri.svensson@tilaajavastuu.fi
 
-<br/><br/>
+<br/><br/><br/><br/>
 
-#### Jani Syvähuoko
+### **Jani Syvähuoko**
 
 <br/>
 

@@ -189,9 +189,7 @@ export default function Template({ data, location, pageContext }) {
                                     size="1x"
                                 />
                                 <a
-                                    href={`https://www.facebook.com/sharer/sharer.php?u=https://www.platformoftrust.net${
-                                        post.frontmatter.path
-                                    }`}
+                                    href={`https://www.facebook.com/sharer/sharer.php?u=https://www.platformoftrust.net${post.frontmatter.path}`}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
@@ -202,11 +200,7 @@ export default function Template({ data, location, pageContext }) {
                                     />
                                 </a>
                                 <a
-                                    href={`https://twitter.com/intent/tweet/?text=${
-                                        post.frontmatter.title
-                                    }&url=https://www.platformoftrust.net${
-                                        post.frontmatter.path
-                                    }%2F&via=PlatformOfTrust`}
+                                    href={`https://twitter.com/intent/tweet/?text=${post.frontmatter.title}&url=https://www.platformoftrust.net${post.frontmatter.path}%2F&via=PlatformOfTrust`}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
@@ -217,11 +211,7 @@ export default function Template({ data, location, pageContext }) {
                                     />
                                 </a>
                                 <a
-                                    href={`https://www.linkedin.com/shareArticle?mini=true&url=https://www.platformoftrust.net${
-                                        post.frontmatter.path
-                                    }&title=${post.frontmatter.title}&source=${
-                                        post.frontmatter.title
-                                    }`}
+                                    href={`https://www.linkedin.com/shareArticle?mini=true&url=https://www.platformoftrust.net${post.frontmatter.path}&title=${post.frontmatter.title}&source=${post.frontmatter.title}`}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >

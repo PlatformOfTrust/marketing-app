@@ -45,7 +45,10 @@ const About = ({ data }) => (
             <meta property="og:image" content={SocialPreviewImage} />
             <meta name="twitter:card" content="summary_large_image" />
             <meta name="twitter:title" content={SocialPreviewData.title} />
-            <meta name="twitter:description" content={SocialPreviewData.description} />
+            <meta
+                name="twitter:description"
+                content={SocialPreviewData.description}
+            />
             <meta name="twitter:image" content={SocialPreviewImage} />
         </MetaTags>
         <StyledPage>
@@ -136,7 +139,8 @@ const About = ({ data }) => (
 
 const SocialPreviewData = {
     title: 'Platform Of Trust | About',
-    description: 'Platform of Trust is a data linking platform that promises to cut your integration costs and helps turn your data into revenue.'
+    description:
+        'Platform of Trust is a data linking platform that promises to cut your integration costs and helps turn your data into revenue.'
 };
 
 export default About;
