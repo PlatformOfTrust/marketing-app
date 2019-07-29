@@ -868,7 +868,7 @@ export const pageQuery = graphql`
                         potevent
                         type
                         subtype
-                        time
+                        time(formatString: "MMMM DD, YYYY")
                         place
                         eventlink
                         pic
