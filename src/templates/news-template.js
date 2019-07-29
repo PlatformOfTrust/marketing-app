@@ -192,7 +192,11 @@ export default function Template({ data, location, pageContext }) {
                                 icon={['fa', 'hexagon']}
                                 color={colors[post.frontmatter.subtype]}
                             />
-                            <span>{post.frontmatter.subtype}</span>
+                            <span>
+                                {post.frontmatter.subtype === 'pressRelease'
+                                    ? 'Press Release'
+                                    : post.frontmatter.subtype}
+                            </span>
                             {post.frontmatter.subtype === 'blog' && (
                                 <span>{post.frontmatter.author}</span>
                             )}

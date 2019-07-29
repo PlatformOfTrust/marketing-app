@@ -74,7 +74,7 @@ const FeaturedEvent = ({ data }) => (
                             frontmatter {
                                 title
                                 shorttitle
-                                time
+                                time(formatString: "MMMM DD, YYYY")
                                 path
                                 eventlink
                                 type

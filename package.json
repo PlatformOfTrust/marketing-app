@@ -58,8 +58,8 @@
         "develop": "gatsby develop",
         "start": "npm run develop",
         "format": "prettier --write \"src/**/*.js\"",
-        "check": "prettier --check 'src/**/*.js'",
         "clean": "gatsby clean",
+        "check": "prettier --check \"src/**/*.js\"",
         "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
     },
     "devDependencies": {

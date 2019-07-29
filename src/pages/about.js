@@ -35,21 +35,25 @@ const StyledVideo = styled.section`
     }
     margin: 5rem auto;
 `;
+const socialPreviewImageFullUri = window.location.origin + SocialPreviewImage;
 
 const About = ({ data, pathContext }) => (
     <Layout locale={pathContext.locale}>
         <SEO title="About Platform of Trust" />
         <MetaTags>
             <meta property="og:title" content={SocialPreviewData.title} />
-            <meta name="description" content={SocialPreviewData.description} />
-            <meta property="og:image" content={SocialPreviewImage} />
+            <meta
+                property="og:description"
+                content={SocialPreviewData.description}
+            />
+            <meta property="og:image" content={socialPreviewImageFullUri} />
             <meta name="twitter:card" content="summary_large_image" />
             <meta name="twitter:title" content={SocialPreviewData.title} />
             <meta
                 name="twitter:description"
                 content={SocialPreviewData.description}
             />
-            <meta name="twitter:image" content={SocialPreviewImage} />
+            <meta name="twitter:image" content={socialPreviewImageFullUri} />
         </MetaTags>
         <StyledPage>
             <StyledSection className="container">

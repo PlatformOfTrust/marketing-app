@@ -180,6 +180,8 @@ export default class Events extends React.Component {
         const pastEvents = posts.filter(
             post => Date.now() - Date.parse(post.node.frontmatter.time) >= 0
         );
+        const socialPreviewImageFullUri =
+            window.location.origin + SocialPreviewImage;
 
         return (
             <Layout
@@ -192,10 +194,13 @@ export default class Events extends React.Component {
                         content={SocialPreviewData.title}
                     />
                     <meta
-                        name="description"
+                        property="og:description"
                         content={SocialPreviewData.description}
                     />
-                    <meta property="og:image" content={SocialPreviewImage} />
+                    <meta
+                        property="og:image"
+                        content={socialPreviewImageFullUri}
+                    />
                     <meta name="twitter:card" content="summary_large_image" />
                     <meta
                         name="twitter:title"
@@ -205,7 +210,10 @@ export default class Events extends React.Component {
                         name="twitter:description"
                         content={SocialPreviewData.description}
                     />
-                    <meta name="twitter:image" content={SocialPreviewImage} />
+                    <meta
+                        name="twitter:image"
+                        content={socialPreviewImageFullUri}
+                    />
                 </MetaTags>
                 <StyledPad>
                     <StyledSection className="posts-listing">
@@ -871,7 +879,7 @@ export const pageQuery = graphql`
                         potevent
                         type
                         subtype
-                        time
+                        time(formatString: "MMMM DD, YYYY")
                         place
                         eventlink
                         pic

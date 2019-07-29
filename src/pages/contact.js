@@ -50,21 +50,25 @@ const StyledBilling = styled.article`
 const StyledPad = styled.div`
     // margin: 1rem;
 `;
+const socialPreviewImageFullUri = window.location.origin + SocialPreviewImage;
 
 const Contact = ({ pathContext }) => (
     <Layout locale={pathContext.locale}>
         <SEO title="Platform of Trust Contact information" />
         <MetaTags>
             <meta property="og:title" content={SocialPreviewData.title} />
-            <meta name="description" content={SocialPreviewData.description} />
-            <meta property="og:image" content={SocialPreviewImage} />
+            <meta
+                property="og:description"
+                content={SocialPreviewData.description}
+            />
+            <meta property="og:image" content={socialPreviewImageFullUri} />
             <meta name="twitter:card" content="summary_large_image" />
             <meta name="twitter:title" content={SocialPreviewData.title} />
             <meta
                 name="twitter:description"
                 content={SocialPreviewData.description}
             />
-            <meta name="twitter:image" content={SocialPreviewImage} />
+            <meta name="twitter:image" content={socialPreviewImageFullUri} />
         </MetaTags>
         <StyledPage className="container">
             <StyledPad>

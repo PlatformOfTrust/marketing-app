@@ -28,6 +28,16 @@ const StyledSection = styled.article`
 `;
 const StyledBlogs = styled.article`
     padding: 5%;
+    .news-not-found {
+        text-align: center;
+        padding-top: 15.6vh;
+        padding-bottom: 15.7vh;
+    }
+
+    .news-not-found h2 {
+        font-weight: 400;
+        font-size: 2.4rem;
+    }
 `;
 const StyledTools = styled.nav`
   // background: ${colors.mainDarkest};
@@ -63,16 +73,30 @@ const StyledBlogBlock = styled.article`
         line-height: 1.2em;
     }
 
+    span {
+        font-size: 15px;
+    }
+    p {
+        word-spacing: 0.064em;
+        line-spacing: 0.048em;
+        font-size: 17px;
+    }
+
     &:nth-of-type(1) {
         width: 100%;
         border-top: none;
         h2 {
-            font-size: 2.4rem;
+            font-size: 2.5rem;
+            letter-spacing: 0.01em;
+            word-spacing: 0.065em;
+            line-height: 1.2em;
         }
     }
 
     &:nth-child(n + 5) {
         width: 100%;
+        padding-top: 0;
+        padding-bottom: 0;
         .featured-image,
         .excerpt {
             display: none;
@@ -87,7 +111,9 @@ const StyledBlogBlock = styled.article`
             width: 100%;
         }
         h2 {
-            font-size: 2.4rem;
+            font-size: 1.6rem;
+            word-spacing: 0.065em;
+            line-height: 1.2em;
         }
     }
 
@@ -152,14 +178,14 @@ export default class Events extends React.Component {
     handleFiltering = filter => {
         filter === 'all'
             ? this.setState({
-                  filters: [
-                      'blog',
-                      'article',
-                      'pressRelease',
-                      'business',
-                      'technical'
-                  ]
-              })
+                filters: [
+                    'blog',
+                    'article',
+                    'pressRelease',
+                    'business',
+                    'technical'
+                ]
+            })
             : this.setState({ filters: [filter] });
         this.setState({ selected: [filter] });
     };
@@ -167,6 +193,9 @@ export default class Events extends React.Component {
     render() {
         const { filters, selected } = this.state;
         const { edges: posts } = this.props.data.allMdx;
+        const socialPreviewImageFullUri =
+            window.location.origin + SocialPreviewImage;
+
         return (
             <Layout
                 locale={this.props.pathContext.locale}
@@ -178,11 +207,14 @@ export default class Events extends React.Component {
                         content={SocialPreviewData.title}
                     />
                     <meta
-                        name="description"
+                        property="og:description"
                         content={SocialPreviewData.description}
                     />
-                    <meta property="og:image" content={SocialPreviewImage} />
-                    <meta name="twitter:card" content="summary_large_image" />
+                    <meta
+                        property="og:image"
+                        content={socialPreviewImageFullUri}
+                    />
+                    <meta name="twitter:card" content="summary_large_image"/>
                     <meta
                         name="twitter:title"
                         content={SocialPreviewData.title}
@@ -191,7 +223,10 @@ export default class Events extends React.Component {
                         name="twitter:description"
                         content={SocialPreviewData.description}
                     />
-                    <meta name="twitter:image" content={SocialPreviewImage} />
+                    <meta
+                        name="twitter:image"
+                        content={socialPreviewImageFullUri}
+                    />
                 </MetaTags>
                 <StyledPad>
                     <StyledSection className="posts-listing">
@@ -201,7 +236,7 @@ export default class Events extends React.Component {
                                     selected[0] === 'all'
                                         ? 'selected-filter'
                                         : ''
-                                }`}
+                                    }`}
                             >
                                 <span
                                     onClick={() => this.handleFiltering('all')}
@@ -222,7 +257,7 @@ export default class Events extends React.Component {
                                     selected[0] === 'business'
                                         ? 'selected-filter'
                                         : ''
-                                }`}
+                                    }`}
                             >
                                 <FontAwesomeIcon
                                     icon={['fa', 'hexagon']}
@@ -242,7 +277,7 @@ export default class Events extends React.Component {
                                     selected[0] === 'technical'
                                         ? 'selected-filter'
                                         : ''
-                                }`}
+                                    }`}
                             >
                                 <FontAwesomeIcon
                                     icon={['fa', 'hexagon']}
@@ -260,7 +295,16 @@ export default class Events extends React.Component {
                         </StyledTools>
                         <StyledBlogs className="posts">
                             <h1>Cases</h1>
-
+                            {posts.filter(post =>
+                                filters.includes(post.node.frontmatter.subtype)
+                            ).length === 0 && (
+                                <div className="col-12 news-not-found">
+                                    <h2>
+                                        Sorry, nothing here for now. See the
+                                        other filters.
+                                    </h2>
+                                </div>
+                            )}
                             {posts
                                 .filter(post =>
                                     filters.includes(
@@ -288,7 +332,8 @@ export default class Events extends React.Component {
                                                     </StyledHexImage>
                                                 </LocalizedLink>
                                             </div>
-                                            <div className="post-preview-content">
+                                            <div
+                                                className="post-preview-content">
                                                 <div className="title">
                                                     <LocalizedLink
                                                         to={
@@ -317,7 +362,7 @@ export default class Events extends React.Component {
                                                                     post
                                                                         .frontmatter
                                                                         .subtype
-                                                                ]
+                                                                    ]
                                                             }
                                                         />
                                                         {post.frontmatter
@@ -330,7 +375,8 @@ export default class Events extends React.Component {
                                                                             .subtype
                                                                     }
                                                                 </span>
-                                                                <span className="divider">
+                                                                <span
+                                                                    className="divider">
                                                                     .
                                                                 </span>
                                                             </>
@@ -352,7 +398,8 @@ export default class Events extends React.Component {
                                                         className="post-link"
                                                     >
                                                         <p>{post.excerpt}</p>
-                                                        <CustomSquareButton label="Read" />
+                                                        <CustomSquareButton
+                                                            label="Read"/>
                                                     </LocalizedLink>
                                                 </div>
                                             </div>

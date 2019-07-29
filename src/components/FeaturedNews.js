@@ -104,7 +104,7 @@ const FeaturedNews = ({ data }) => (
                             frontmatter {
                                 title
                                 path
-                                date(formatString: "DD MMMM YYYY")
+                                date(formatString: "MMMM DD, YYYY")
                                 tags
                                 status
                                 type
@@ -139,7 +139,10 @@ const FeaturedNews = ({ data }) => (
                                         {/* <FontAwesomeIcon icon={['fas', 'hexagon']} size="1x" /> */}
                                     </span>
                                     <span className="type">
-                                        {node.frontmatter.subtype}
+                                        {node.frontmatter.subtype ===
+                                        'pressRelease'
+                                            ? 'Press Release'
+                                            : node.frontmatter.subtype}
                                     </span>
                                     <span className="date">
                                         {node.frontmatter.date}

@@ -106,8 +106,7 @@ const StyledFooter = styled.footer`
         opacity: 0.8;
     }
     .data-flow-tag {
-        top: 50px;
-        position: absolute;
+        top: 70px;
         left: 145px;
     }
 `;
