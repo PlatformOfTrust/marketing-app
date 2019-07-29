@@ -72,66 +72,80 @@ const StyledBlogBlock = styled.article`
         line-height: 1.2em;
     }
 
-  span { 
-      font-size: 15px;
-    }
-  p {
-      word-spacing: 0.064em; 
-      line-spacing: 0.048em; 
-      font-size: 17px;
-    }
-
-  &:nth-of-type(1) {
-    width: 100%;
-    border-top: none;
-      h2 { 
-          font-size: 2.5rem; 
-          letter-spacing: 0.01em; 
-          word-spacing: 0.065em; 
-          line-height: 1.2em;
-        }
-
-  }
-
-  &:nth-child(n+5) {
-    width: 100%;
-    padding-top: 0;
-    padding-bottom: 0;
-    .featured-image, .excerpt { display: none }
-    .title { order: 2; }
-    .meta { order: 1; }
-    .post-preview-content { width: 100%; }
-    h2 { font-size: 1.6rem;word-spacing: 0.065em; line-height: 1.2em;}
-  }
-
-  .post-link {
-    text-decoration: none;
-  }
-  .meta {
-    svg { margin-right: 0.4em; }
     span {
-      margin-right: 0.3em;
-      text-transform: capitalize;
+        font-size: 15px;
     }
-    .divider {
-      display: inline-block;
-      transform: translateY(-0.2em);
-     }
-  }
-  .featured-image {
-    display: inline-block;
-    width: 30%;
-  }
-  .post-preview-content {
-    display: inline-flex;
-    flex-direction: column;
-    width: 70%;
-    padding: 1rem 10% 1rem 0;
-    vertical-align: top;
-    h2 {
-      font-weight: 400;
+    p {
+        word-spacing: 0.064em;
+        line-spacing: 0.048em;
+        font-size: 17px;
     }
-  }
+
+    &:nth-of-type(1) {
+        width: 100%;
+        border-top: none;
+        h2 {
+            font-size: 2.5rem;
+            letter-spacing: 0.01em;
+            word-spacing: 0.065em;
+            line-height: 1.2em;
+        }
+    }
+
+    &:nth-child(n + 5) {
+        width: 100%;
+        padding-top: 0;
+        padding-bottom: 0;
+        .featured-image,
+        .excerpt {
+            display: none;
+        }
+        .title {
+            order: 2;
+        }
+        .meta {
+            order: 1;
+        }
+        .post-preview-content {
+            width: 100%;
+        }
+        h2 {
+            font-size: 1.6rem;
+            word-spacing: 0.065em;
+            line-height: 1.2em;
+        }
+    }
+
+    .post-link {
+        text-decoration: none;
+    }
+    .meta {
+        svg {
+            margin-right: 0.4em;
+        }
+        span {
+            margin-right: 0.3em;
+            text-transform: capitalize;
+        }
+        .divider {
+            display: inline-block;
+            transform: translateY(-0.2em);
+        }
+    }
+    .featured-image {
+        display: inline-block;
+        width: 30%;
+    }
+    .post-preview-content {
+        display: inline-flex;
+        flex-direction: column;
+        width: 70%;
+        padding: 1rem 10% 1rem 0;
+        vertical-align: top;
+        h2 {
+            font-weight: 400;
+        }
+    }
 `;
 const StyledHexImage = styled.div`
     width: 85%;
