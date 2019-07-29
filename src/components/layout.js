@@ -61,13 +61,31 @@ const Layout = ({ pathname, children }) => (
                 <GlobalStyle />
                 <Helmet title={data.site.siteMetadata.title} />
                 <MetaTags>
-                    <meta property="og:title" content={SocialPreviewData.title} />
-                    <meta property="og:description" content={SocialPreviewData.description} />
-                    <meta property="og:image" content={socialPreviewImageFullUri} />
+                    <meta
+                        property="og:title"
+                        content={SocialPreviewData.title}
+                    />
+                    <meta
+                        property="og:description"
+                        content={SocialPreviewData.description}
+                    />
+                    <meta
+                        property="og:image"
+                        content={socialPreviewImageFullUri}
+                    />
                     <meta name="twitter:card" content="summary_large_image" />
-                    <meta name="twitter:title" content={SocialPreviewData.title} />
-                    <meta name="twitter:description" content={SocialPreviewData.description} />
-                    <meta name="twitter:image" content={socialPreviewImageFullUri} />
+                    <meta
+                        name="twitter:title"
+                        content={SocialPreviewData.title}
+                    />
+                    <meta
+                        name="twitter:description"
+                        content={SocialPreviewData.description}
+                    />
+                    <meta
+                        name="twitter:image"
+                        content={socialPreviewImageFullUri}
+                    />
                 </MetaTags>
 
                 <Header siteTitle={data.site.siteMetadata.title} />

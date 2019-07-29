@@ -52,17 +52,27 @@ const StyledPartners = styled.div`
 const IndexPage = ({ data }) => {
     const testContent = data.allContent.edges[0].node;
     const contents = data.allContent.edges;
-    const socialPreviewImageFullUri = window.location.origin + SocialPreviewImage;
+    const socialPreviewImageFullUri =
+        window.location.origin + SocialPreviewImage;
     return (
         <Layout>
             <MetaTags>
                 <meta property="og:title" content={SocialPreviewData.title} />
-                <meta property="og:description" content={SocialPreviewData.description} />
+                <meta
+                    property="og:description"
+                    content={SocialPreviewData.description}
+                />
                 <meta property="og:image" content={socialPreviewImageFullUri} />
                 <meta name="twitter:card" content="summary_large_image" />
                 <meta name="twitter:title" content={SocialPreviewData.title} />
-                <meta name="twitter:description" content={SocialPreviewData.description} />
-                <meta name="twitter:image" content={socialPreviewImageFullUri} />
+                <meta
+                    name="twitter:description"
+                    content={SocialPreviewData.description}
+                />
+                <meta
+                    name="twitter:image"
+                    content={socialPreviewImageFullUri}
+                />
             </MetaTags>
             <SEO title="Home" keywords={[`Platform of Trust`]} />
             <StyledMain className="home page-content container">

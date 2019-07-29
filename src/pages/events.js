@@ -180,18 +180,37 @@ export default class Events extends React.Component {
         const pastEvents = posts.filter(
             post => Date.now() - Date.parse(post.node.frontmatter.time) >= 0
         );
-        const socialPreviewImageFullUri = window.location.origin + SocialPreviewImage;
+        const socialPreviewImageFullUri =
+            window.location.origin + SocialPreviewImage;
 
         return (
             <Layout className="blog-posts">
                 <MetaTags>
-                    <meta property="og:title" content={SocialPreviewData.title} />
-                    <meta property="og:description" content={SocialPreviewData.description} />
-                    <meta property="og:image" content={socialPreviewImageFullUri} />
+                    <meta
+                        property="og:title"
+                        content={SocialPreviewData.title}
+                    />
+                    <meta
+                        property="og:description"
+                        content={SocialPreviewData.description}
+                    />
+                    <meta
+                        property="og:image"
+                        content={socialPreviewImageFullUri}
+                    />
                     <meta name="twitter:card" content="summary_large_image" />
-                    <meta name="twitter:title" content={SocialPreviewData.title} />
-                    <meta name="twitter:description" content={SocialPreviewData.description} />
-                    <meta name="twitter:image" content={socialPreviewImageFullUri} />
+                    <meta
+                        name="twitter:title"
+                        content={SocialPreviewData.title}
+                    />
+                    <meta
+                        name="twitter:description"
+                        content={SocialPreviewData.description}
+                    />
+                    <meta
+                        name="twitter:image"
+                        content={socialPreviewImageFullUri}
+                    />
                 </MetaTags>
                 <StyledPad>
                     <StyledSection className="posts-listing">
