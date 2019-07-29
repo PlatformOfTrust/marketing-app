@@ -34,7 +34,7 @@ const StyledBlogs = styled.article`
     }
 
     .news-not-found h2 {
-        font-weight: 400 ;
+        font-weight: 400;
         font-size: 2.4rem;
     }
 `;
@@ -66,14 +66,31 @@ const StyledBlogBlock = styled.article`
   padding: 1.5rem;
   margin: 1rem;
   border-top: 2px dotted ${colors.main};
-  h2 { font-size: 1.6rem; letter-spacing: 0.02em; word-spacing: 0.065em; line-height: 1.2em;}
-  span { font-size: 15px;}
-  p {word-spacing: 0.064em; line-spacing: 0.048em; font-size: 17px;}
+  h2 { 
+      font-size: 1.6rem; 
+      letter-spacing: 0.02em; 
+      word-spacing: 0.065em; 
+      line-height: 1.2em;
+    }
+
+  span { 
+      font-size: 15px;
+    }
+  p {
+      word-spacing: 0.064em; 
+      line-spacing: 0.048em; 
+      font-size: 17px;
+    }
 
   &:nth-of-type(1) {
     width: 100%;
     border-top: none;
-      h2 { font-size: 2.5rem; letter-spacing: 0.01em; word-spacing: 0.065em; line-height: 1.2em;}
+      h2 { 
+          font-size: 2.5rem; 
+          letter-spacing: 0.01em; 
+          word-spacing: 0.065em; 
+          line-height: 1.2em;
+        }
 
   }
 
@@ -165,12 +182,24 @@ export default class Events extends React.Component {
         return (
             <Layout className="blog-posts">
                 <MetaTags>
-                    <meta property="og:title" content={SocialPreviewData.title} />
-                    <meta name="description" content={SocialPreviewData.description} />
+                    <meta
+                        property="og:title"
+                        content={SocialPreviewData.title}
+                    />
+                    <meta
+                        name="description"
+                        content={SocialPreviewData.description}
+                    />
                     <meta property="og:image" content={SocialPreviewImage} />
                     <meta name="twitter:card" content="summary_large_image" />
-                    <meta name="twitter:title" content={SocialPreviewData.title} />
-                    <meta name="twitter:description" content={SocialPreviewData.description} />
+                    <meta
+                        name="twitter:title"
+                        content={SocialPreviewData.title}
+                    />
+                    <meta
+                        name="twitter:description"
+                        content={SocialPreviewData.description}
+                    />
                     <meta name="twitter:image" content={SocialPreviewImage} />
                 </MetaTags>
                 <StyledPad>
@@ -240,13 +269,16 @@ export default class Events extends React.Component {
                         </StyledTools>
                         <StyledBlogs className="posts">
                             <h1>Cases</h1>
-                            {posts
-                                .filter(post =>
-                                    filters.includes(
-                                        post.node.frontmatter.subtype
-                                    )
-                                ).length === 0 && <div className="col-12 news-not-found"><h2>Sorry, nothing here for now. See the other filters.</h2></div>
-                              }
+                            {posts.filter(post =>
+                                filters.includes(post.node.frontmatter.subtype)
+                            ).length === 0 && (
+                                <div className="col-12 news-not-found">
+                                    <h2>
+                                        Sorry, nothing here for now. See the
+                                        other filters.
+                                    </h2>
+                                </div>
+                            )}
                             {posts
                                 .filter(post =>
                                     filters.includes(
@@ -254,8 +286,6 @@ export default class Events extends React.Component {
                                     )
                                 )
                                 .map(({ node: post }) => {
-                              
-
                                     return (
                                         <StyledBlogBlock
                                             className="post-preview"
@@ -355,7 +385,6 @@ export default class Events extends React.Component {
                                         </StyledBlogBlock>
                                     );
                                 })}
-
                         </StyledBlogs>
                     </StyledSection>
                 </StyledPad>
@@ -366,7 +395,8 @@ export default class Events extends React.Component {
 
 const SocialPreviewData = {
     title: 'Platform Of Trust | Cases',
-    description: 'Platform of Trust use cases, examples of how the platform works in practice and how it helps create business ecosystems.'
+    description:
+        'Platform of Trust use cases, examples of how the platform works in practice and how it helps create business ecosystems.'
 };
 
 export const pageQuery = graphql`
