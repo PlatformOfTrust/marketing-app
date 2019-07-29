@@ -2,12 +2,14 @@ import React from 'react';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 import styled from 'styled-components';
+import MetaTags from 'react-meta-tags';
 
 import ContactBlurbs from '../components/ContactBlurbs';
 import Locations from '../components/Locations';
 import ContactForm from '../components/ContactForm';
 
 import { colors, device, variables } from '../Theme.js';
+import SocialPreviewImage from '../images/preview_social_share/contact.jpg';
 
 const StyledPage = styled.div`
     width: auto;
@@ -52,6 +54,18 @@ const StyledPad = styled.div`
 const Contact = () => (
     <Layout>
         <SEO title="Platform of Trust Contact information" />
+        <MetaTags>
+            <meta property="og:title" content={SocialPreviewData.title} />
+            <meta name="description" content={SocialPreviewData.description} />
+            <meta property="og:image" content={SocialPreviewImage} />
+            <meta name="twitter:card" content="summary_large_image" />
+            <meta name="twitter:title" content={SocialPreviewData.title} />
+            <meta
+                name="twitter:description"
+                content={SocialPreviewData.description}
+            />
+            <meta name="twitter:image" content={SocialPreviewImage} />
+        </MetaTags>
         <StyledPage className="container">
             <StyledPad>
                 <StyledSection className="contacts container">
@@ -85,5 +99,11 @@ const Contact = () => (
         </StyledPage>
     </Layout>
 );
+
+const SocialPreviewData = {
+    title: 'Platform Of Trust | Contact',
+    description:
+        'Contact us, request a meeting, meet the team, check office locations, and see billing information.'
+};
 
 export default Contact;

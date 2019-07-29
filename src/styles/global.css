@@ -27,6 +27,11 @@ body {
 body hr {
   background: var(--horizontal-line-color); /*probably should make a var for this */
 }
+
+body .page-content {
+  margin-top: 50px;
+}
+
 /* body p, */
 body h1,
 body h2,

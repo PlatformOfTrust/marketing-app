@@ -35,6 +35,9 @@ yarn run build
 cd /src/marketing-app/public/
 cp -r . /var/www/marketing-app
 
+# Copy cms admin
+cp -r /src/marketing-app/cmsadmin /var/www/marketing-app
+
 #
 # Finishing up
 #
@@ -43,12 +46,4 @@ cp -r . /var/www/marketing-app
 chown -R www:www /var/www /var/log/nginx /var/lib/nginx/logs
 
 # Clean up files not needed in final container
-rm -rf /src/marketing-app
-ls /src
-
-# Show in logs what we're publishing
-set +x
-
-cd /var/www
-echo "Ready to publish the following:"
-find .
+find . -type f ! -name 'Dockerfile' -delete

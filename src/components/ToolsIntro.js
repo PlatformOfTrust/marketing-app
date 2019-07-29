@@ -58,6 +58,12 @@ const ToolsSection = styled.div`
     .disabled a:link {
         cursor: not-allowed !important;
     }
+
+    @media screen and (min-width: 768px) and (max-width: 991px) {
+        .hexBlurbWrapper {
+            max-height: 26vw;
+        }
+    }
 `;
 
 const ToolsIntro = props => {
@@ -70,7 +76,7 @@ const ToolsIntro = props => {
             </div>
 
             <div className="row mb-5 mb-md-3 mb-lg-0">
-                <div className="hex-col col-8 col-sm-6 col-md-3 col-lg-2 offset-md-1">
+                <div className="hex-col col-8 col-sm-6 col-md-3 col-lg-2 offset-md-1 hexBlurbWrapper">
                     <HexBlurb
                         title="Developer portal"
                         icon="terminal"
@@ -95,7 +101,7 @@ const ToolsIntro = props => {
             </div>
 
             <div className="row mb-5 mb-md-3 mb-lg-0">
-                <div className="hex-col col-8 col-sm-6 col-md-3 col-lg-2 offset-lg-2 offset-md-1">
+                <div className="hex-col col-8 col-sm-6 col-md-3 col-lg-2 offset-lg-2 offset-md-1 hexBlurbWrapper">
                     <HexBlurb
                         title="MyWorld"
                         icon="globe-stand"
@@ -123,7 +129,7 @@ const ToolsIntro = props => {
             </div>
 
             <div className="row mb-5 mb-md-3 mb-lg-0">
-                <div className="hex-col col-8 col-sm-6 col-md-3 col-lg-2 offset-lg-3 offset-md-1">
+                <div className="hex-col col-8 col-sm-6 col-md-3 col-lg-2 offset-lg-3 offset-md-1 hexBlurbWrapper">
                     <HexBlurb
                         title="Market place"
                         icon="shopping-bag"

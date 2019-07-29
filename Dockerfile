@@ -26,25 +26,5 @@ RUN set -exu && apt-get clean && apt-get -y update \
  && apt-get -y clean
 
 
-#RUN apk update \
-# && apk upgrade \
-# && apk add --virtual build-dependencies \
-#    nodejs \
-#    npm \
-#    build-base \
-#    gcc \
-#    git \
-#    autoconf \
-#    automake \
-#    libtool \
-#    nasm \
-#    util-linux \
-# && apk add nginx \
-#    openssl \
-# && chmod +x docker-*.sh \
-# && ./docker-setup.sh \
-# && apk del build-dependencies \
-# && rm -rf /var/cache/apk/*
-
 EXPOSE 8080
 ENTRYPOINT ["./docker-entrypoint.sh"]

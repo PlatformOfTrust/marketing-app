@@ -2,6 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import styled from 'styled-components';
+import MetaTags from 'react-meta-tags';
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';
@@ -9,6 +10,7 @@ import Video from '../components/Video';
 import Logos from '../components/Logos';
 import HexIcon from '../components/HexIcon';
 import { variables } from '../Theme.js';
+import SocialPreviewImage from '../images/preview_social_share/about.jpg';
 
 const StyledPage = styled.div`
     width: auto;
@@ -37,6 +39,18 @@ const StyledVideo = styled.section`
 const About = ({ data }) => (
     <Layout>
         <SEO title="About Platform of Trust" />
+        <MetaTags>
+            <meta property="og:title" content={SocialPreviewData.title} />
+            <meta name="description" content={SocialPreviewData.description} />
+            <meta property="og:image" content={SocialPreviewImage} />
+            <meta name="twitter:card" content="summary_large_image" />
+            <meta name="twitter:title" content={SocialPreviewData.title} />
+            <meta
+                name="twitter:description"
+                content={SocialPreviewData.description}
+            />
+            <meta name="twitter:image" content={SocialPreviewImage} />
+        </MetaTags>
         <StyledPage>
             <StyledSection className="container">
                 <div className="row mb-5">
@@ -122,6 +136,12 @@ const About = ({ data }) => (
         </StyledPage>
     </Layout>
 );
+
+const SocialPreviewData = {
+    title: 'Platform Of Trust | About',
+    description:
+        'Platform of Trust is a data linking platform that promises to cut your integration costs and helps turn your data into revenue.'
+};
 
 export default About;
 
