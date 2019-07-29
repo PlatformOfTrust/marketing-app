@@ -18,6 +18,10 @@ body {
   font-family: 'Fira Sans', sans-serif;
   line-height: 1.125em;
 }
+body blockquote {
+  border-left: 10px solid rgb(255, 250, 250, 0.2);
+  padding-left: 15px;
+}
 /* body p, */
 body h1,
 body h2,
