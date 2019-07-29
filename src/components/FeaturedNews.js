@@ -103,7 +103,7 @@ const FeaturedNews = ({ data }) => (
                             frontmatter {
                                 title
                                 path
-                                date(formatString: "DD MMMM YYYY")
+                                date(formatString: "MMMM DD, YYYY")
                                 tags
                                 status
                                 type
