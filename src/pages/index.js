@@ -247,7 +247,7 @@ const IndexPage = ({ data, pathContext }) => {
                 <div className="row mt-5">
                     <div className="col-md-10 offset-md-1 mb-3">
                        {/* TODO: Only for translation purposes, must be refactored */}
-                        <HederElement content={"partnersHeaderText"}/>
+                        <HederElement tag="h5" content={"partnersHeaderText"}/>
                     </div>
                     <StyledPartners id="partners" className="col-10 offset-1">
                         {contents

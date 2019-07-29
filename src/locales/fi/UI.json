@@ -30,5 +30,14 @@
     "sellAndBuy": "Myy ja osta",
     "sellAndBuyContent": "Laita datasi tuottamaan. Luomme parhaillaan Platform of Trust -markkinapaikkaa, jossa voit ostaa ja myydä dataa, datatuotteita ja valmiita sovelluksia. Sinä päätät hinnan, me hoidamme sopimukset ja luvitukset. Automaattisesti.",
     "futureFeature": "Tulossa",
-    "partnersHeaderText": "Tässä kumppaneitamme ja ensimmäisiä käyttäjiämme"
+    "partnersHeaderText": "Tässä kumppaneitamme ja ensimmäisiä käyttäjiämme",
+    "all": "Kaikki",
+    "cases": "Käyttötapaukset",
+    "business": "Business",
+    "technical": "Tekninen",
+    "read": "Lue lisää",
+    "blogs": "Blogit",
+    "articles": "Artikkelit",
+    "pressReleases": "Tiedotteet",
+    "news": "Ajankohtaiset"
 }

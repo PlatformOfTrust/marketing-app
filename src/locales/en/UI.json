@@ -30,5 +30,14 @@
     "sellAndBuy": "Sell & Buy",
     "sellAndBuyContent": "Make your data earn. We are creating a marketplace for data products and applications where you can offer your data for others to utilise or a ready-made service or application for others to buy. You define the pricing, we take care of contracts and licensing. Automatically.",
     "futureFeature": "Future feature",
-    "partnersHeaderText": "Here are some of our partners and first users"
+    "partnersHeaderText": "Here are some of our partners and first users",
+    "all": "All",
+    "cases": "Cases",
+    "business": "Business",
+    "technical": "Technical",
+    "read": "Read",
+    "blogs": "Blogs",
+    "articles": "Articles",
+    "pressReleases": "Press releases",
+    "news": "News"
 }

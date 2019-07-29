@@ -4,7 +4,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styled from 'styled-components';
 import MetaTags from 'react-meta-tags';
 
+
 import LocalizedLink from './../components/LocalizedLink';
+import SpanElement from './../components/SpanElement';
 
 // import CustomImage from "../components/CustomImage"
 import HexImage from '../components/HexImage';
@@ -12,6 +14,7 @@ import CustomSquareButton from '../components/CustomSquareButton';
 import Layout from '../components/Layout';
 import { colors, variables } from '../Theme.js';
 import SocialPreviewImage from '../images/preview_social_share/cases.jpg';
+import HeaderElement from '../components/HeaderElement';
 
 export const subtypeColors = {
     blog: `${colors.ok}`,
@@ -159,7 +162,7 @@ const StyledPad = styled.div`
     margin: 1rem;
 `;
 
-export default class Events extends React.Component {
+class Events extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -178,14 +181,14 @@ export default class Events extends React.Component {
     handleFiltering = filter => {
         filter === 'all'
             ? this.setState({
-                  filters: [
-                      'blog',
-                      'article',
-                      'pressRelease',
-                      'business',
-                      'technical'
-                  ]
-              })
+                filters: [
+                    'blog',
+                    'article',
+                    'pressRelease',
+                    'business',
+                    'technical'
+                ]
+            })
             : this.setState({ filters: [filter] });
         this.setState({ selected: [filter] });
     };
@@ -214,7 +217,7 @@ export default class Events extends React.Component {
                         property="og:image"
                         content={socialPreviewImageFullUri}
                     />
-                    <meta name="twitter:card" content="summary_large_image" />
+                    <meta name="twitter:card" content="summary_large_image"/>
                     <meta
                         name="twitter:title"
                         content={SocialPreviewData.title}
@@ -236,13 +239,13 @@ export default class Events extends React.Component {
                                     selected[0] === 'all'
                                         ? 'selected-filter'
                                         : ''
-                                }`}
+                                    }`}
                             >
-                                <span
+                                <SpanElement
+                                    text="all"
                                     onClick={() => this.handleFiltering('all')}
-                                >
-                                    All
-                                </span>
+                                />
+
                             </StyledSelector>
                             {/* <StyledSelector className={`tool-block blog ${ selected[0] === "blog" ? "selected-filter" : "" }`}>
                 <FontAwesomeIcon icon={['fa', 'hexagon']} color={ colors.ok } />
@@ -257,7 +260,7 @@ export default class Events extends React.Component {
                                     selected[0] === 'business'
                                         ? 'selected-filter'
                                         : ''
-                                }`}
+                                    }`}
                             >
                                 <FontAwesomeIcon
                                     icon={['fa', 'hexagon']}
@@ -277,24 +280,23 @@ export default class Events extends React.Component {
                                     selected[0] === 'technical'
                                         ? 'selected-filter'
                                         : ''
-                                }`}
+                                    }`}
                             >
                                 <FontAwesomeIcon
                                     icon={['fa', 'hexagon']}
                                     color={colors.mainLightest}
                                     size="1x"
                                 />
-                                <span
+                                <SpanElement
+                                    text="technical"
                                     onClick={() =>
                                         this.handleFiltering('technical')
                                     }
-                                >
-                                    Technical
-                                </span>
+                                />
                             </StyledSelector>
                         </StyledTools>
                         <StyledBlogs className="posts">
-                            <h1>Cases</h1>
+                            <HeaderElement tag="h1" content="cases"/>
                             {posts.filter(post =>
                                 filters.includes(post.node.frontmatter.subtype)
                             ).length === 0 && (
@@ -332,7 +334,8 @@ export default class Events extends React.Component {
                                                     </StyledHexImage>
                                                 </LocalizedLink>
                                             </div>
-                                            <div className="post-preview-content">
+                                            <div
+                                                className="post-preview-content">
                                                 <div className="title">
                                                     <LocalizedLink
                                                         to={
@@ -361,7 +364,7 @@ export default class Events extends React.Component {
                                                                     post
                                                                         .frontmatter
                                                                         .subtype
-                                                                ]
+                                                                    ]
                                                             }
                                                         />
                                                         {post.frontmatter
@@ -374,7 +377,8 @@ export default class Events extends React.Component {
                                                                             .subtype
                                                                     }
                                                                 </span>
-                                                                <span className="divider">
+                                                                <span
+                                                                    className="divider">
                                                                     .
                                                                 </span>
                                                             </>
@@ -396,7 +400,8 @@ export default class Events extends React.Component {
                                                         className="post-link"
                                                     >
                                                         <p>{post.excerpt}</p>
-                                                        <CustomSquareButton label="Read" />
+                                                        <CustomSquareButton
+                                                            label="read"/>
                                                     </LocalizedLink>
                                                 </div>
                                             </div>
@@ -441,3 +446,5 @@ export const pageQuery = graphql`
         }
     }
 `;
+
+export default Events;
