@@ -1,5 +1,5 @@
 ---
-path: "/news/kojamo" # path to where you want blog to be published aka https://www.platformoftrust.net//blogs/sport-venue
+path: "/news/collaboration-can-help-effectively-utilise-fragmented-data-in-the-property-sector" # path to where you want blog to be published aka https://www.platformoftrust.net//blogs/sport-venue
 date: "2019-05-03T13:45:33.962Z"
 title: "Kokeilu todisti – kiinteistöalan hajanainen data pystytään muuttamaan asukkaan hyödyksi yhteistyöllä"
 image: "./Collaboration smart home pic.jpg" # Featured image shown on page and listings. Save in same folder. Don't use svg.

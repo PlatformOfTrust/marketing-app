@@ -1,5 +1,5 @@
 ---
-path: "/news/sport-venue" # path to where you want blog to be published aka https://www.platformoftrust.net//blogs/sport-venue
+path: "/news/towards-smoother-and-simpler-knowledge-management" # path to where you want blog to be published aka https://www.platformoftrust.net//blogs/towards-smoother-and-simpler-knowledge-management
 date: "2019-04-08T13:45:33.962Z"
 title: "Kohti helpompaa ja nopeampaa tiedolla johtamista"
 image: "./smoother knowledge management.jpg" # Featured image shown on page and listings. Save in same folder. Don't use svg.
