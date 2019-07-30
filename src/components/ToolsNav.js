@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
 
-import { colors } from '../Theme.js';
+import { device, colors } from '../Theme.js';
 
 const StyledToolsNav = styled.nav`
     position: absolute;
@@ -15,27 +15,28 @@ const StyledToolsNav = styled.nav`
     @media only screen and (max-width: 1367px) {
         flex-direction: column;
     }
+    @media ${device.tablet} {
+        a {
+            display: block; // Change when tools released
+            font-weight: 300;
+            color: ${colors.dark};
+        }
+    }
     a {
         display: block; // Change when tools released
         font-weight: 300;
-        color: ${colors.mainDarkest};
+        color: ${colors.light};
     }
 `;
 
 const ToolsNav = props => {
     return (
         <StyledToolsNav className="apps">
-            <Link className="nav-link" to="/search">
-                Search
-            </Link>
             <Link className="nav-link" to="/faq">
                 FAQ
             </Link>
             <Link className="nav-link" to="/language">
                 En/Fi
-            </Link>
-            <Link className="nav-link" to="/login">
-                Login
             </Link>
         </StyledToolsNav>
     );
