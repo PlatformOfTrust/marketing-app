@@ -27,7 +27,7 @@ Check file `.npmrc` and replace token placeholder with a valid one
 
 ```
 @fortawesome:registry=https://npm.fontawesome.com/
-//npm.fontawesome.com/:_authToken=YOUR_TOKEN_HERE`
+//npm.fontawesome.com/:_authToken=YOUR_TOKEN_HERE
 ```
 
 (fort awesome isn't mistyped...)
