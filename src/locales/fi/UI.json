@@ -37,7 +37,22 @@
     "technical": "Tekninen",
     "read": "Lue lisää",
     "blogs": "Blogit",
+    "blog": "Blogi",
     "articles": "Artikkelit",
     "pressReleases": "Tiedotteet",
-    "news": "Ajankohtaiset"
+    "pressRelease": "Tiedote",
+    "news": "Ajankohtaiset",
+    "previousPage": "Edellinen sivu",
+    "previous": "Edellinen",
+    "next": "Seuraava",
+    "backToNews": "Takaisin uutislistaukseen",
+    "author": "Kirjoittaja",
+    "article": "Artikkeli",
+    "sharePiece": "Anna mennä, jaa tämä kirjoitus.",
+    "events": "Tapahtumat",
+    "comeMeetUsText": "Tule tapaamaan meitä seuraaviin tapahtumiin",
+    "eventsByUsText": "Meidän järjestämät tapahtumat",
+    "eventsByFriendsText": "Kavereiden järjestämät tapahtumat",
+    "noUpcomingEventsText": "Ei tulevia tapahtumia tällä hetkellä. Tapahtumainfoa varten, tilaa uutisemme ja seuraa meitä somessa",
+    "visitButtonText": "Tapahtumasivulle"
 }

@@ -37,7 +37,19 @@
     "technical": "Technical",
     "read": "Read",
     "blogs": "Blogs",
+    "blog": "Blog",
     "articles": "Articles",
     "pressReleases": "Press releases",
-    "news": "News"
+    "pressRelease": "Press release",
+    "news": "News",
+    "previousPage": "Previous page",
+    "previous": "Previous",
+    "next": "Next",
+    "backToNews": "Back to news",
+    "author": "Author",
+    "article": "Article",
+    "sharePiece": "Come on, share this piece. You know you want to.",
+    "events": "Events",
+    "comeMeetUsText": "Come meet us at following events",
+    "visitButtonText": "Visit event page"
 }

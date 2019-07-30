@@ -84,53 +84,15 @@ const StyledContent = styled.div`
         }
     }
 `;
-const FeaturedNews = ({ intl: { messages } }) => (
-    <StaticQuery
-        query={graphql`
-            query {
-                news: allMarkdownRemark(
-                    limit: 3
-                    filter: {
-                        frontmatter: {
-                            type: { eq: "news" }
-                            status: { eq: "published" }
-                        }
-                    }
-                    sort: { fields: [frontmatter___date], order: DESC }
-                ) {
-                    totalCount
-                    edges {
-                        node {
-                            id
-                            html
-                            frontmatter {
-                                title
-                                path
-                                date(formatString: "MMMM DD, YYYY")
-                                tags
-                                status
-                                type
-                                subtype
-                            }
-                            excerpt(
-                                format: PLAIN
-                                pruneLength: 20
-                                truncate: true
-                            )
-                        }
-                    }
-                }
-            }
-        `}
-        render={data => (
-            <StyledNews>
-                <StyledContent>
-                    <h2>{`${messages.latestNews}`}</h2>
+const FeaturedNews = ({ intl: { messages }, data }) => {
+    return <StyledNews>
+        <StyledContent>
+            <h2>{`${messages.latestNews}`}</h2>
 
-                    {data.news.edges.map(({ node }) => (
-                        <LocalizedLink to={node.frontmatter.path} key={node.id}>
-                            <div>
-                                <p className="meta">
+            {data.edges.map(({ node }) => (
+                <LocalizedLink to={node.frontmatter.path} key={node.id}>
+                    <div>
+                        <p className="meta">
                                     <span className="icon icon-blog">
                                         <FontAwesomeIcon
                                             icon="hexagon"
@@ -140,30 +102,28 @@ const FeaturedNews = ({ intl: { messages } }) => (
                                         />
                                         {/* <FontAwesomeIcon icon={['fas', 'hexagon']} size="1x" /> */}
                                     </span>
-                                    <span className="type">
+                            <span className="type">
                                         {node.frontmatter.subtype ===
                                         'pressRelease'
                                             ? 'Press Release'
                                             : node.frontmatter.subtype}
                                     </span>
-                                    <span className="date">
+                            <span className="date">
                                         {node.frontmatter.date}
                                     </span>
-                                </p>
-                                <p className="title-excerpt">
-                                    {node.frontmatter.title}
-                                </p>
-                            </div>
-                        </LocalizedLink>
-                    ))}
+                        </p>
+                        <p className="title-excerpt">
+                            {node.frontmatter.title}
+                        </p>
+                    </div>
+                </LocalizedLink>
+            ))}
 
-                    <LocalizedLink to="/news" className="go-to-link">
-                        {`${messages.goToNews}`}
-                    </LocalizedLink>
-                </StyledContent>
-            </StyledNews>
-        )}
-    />
-);
+            <LocalizedLink to="/news" className="go-to-link">
+                {`${messages.goToNews}`}
+            </LocalizedLink>
+        </StyledContent>
+    </StyledNews>;
+};
 
 export default injectIntl(FeaturedNews);

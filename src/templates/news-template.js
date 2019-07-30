@@ -8,6 +8,9 @@ import Disqus from 'gatsby-plugin-disqus';
 import styled from 'styled-components';
 import LocalizedLink from './../components/LocalizedLink';
 
+import HeaderElement from '../components/HeaderElement';
+import SpanElement from './../components/SpanElement';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import CustomImage from '../components/CustomImage';
@@ -184,7 +187,7 @@ export default function Template({ data, location, pageContext }) {
                     <div style={{ marginTop: '50px' }} className="row">
                         <LocalizedLink to="/news">
                             <FontAwesomeIcon icon={['fal', 'arrow-left']} />{' '}
-                            Back to news
+                            <SpanElement text="backToNews"/>
                         </LocalizedLink>
                         <h1>{post.frontmatter.title}</h1>
                         <StyledMeta>
@@ -192,11 +195,8 @@ export default function Template({ data, location, pageContext }) {
                                 icon={['fa', 'hexagon']}
                                 color={colors[post.frontmatter.subtype]}
                             />
-                            <span>
-                                {post.frontmatter.subtype === 'pressRelease'
-                                    ? 'Press Release'
-                                    : post.frontmatter.subtype}
-                            </span>
+                            <SpanElement text={post.frontmatter.subtype}>
+                            </SpanElement>
                             {post.frontmatter.subtype === 'blog' && (
                                 <span>{post.frontmatter.author}</span>
                             )}
@@ -248,7 +248,7 @@ export default function Template({ data, location, pageContext }) {
                             >
                                 <p className="pt-md-5">
                                     {/* <FontAwesomeIcon icon={['fa', 'hexagon']} color="white" size="4x" /> */}
-                                    Author {post.frontmatter.author}
+                                    <SpanElement text="author"/> {post.frontmatter.author}
                                 </p>
                             </div>
                         </div>
@@ -261,7 +261,7 @@ export default function Template({ data, location, pageContext }) {
                                     color="white"
                                     size="1x"
                                 />
-                                Come on, share this piece. You know you want to.
+                                <SpanElement text="sharePiece" />
                                 <FontAwesomeIcon
                                     icon={['fal', 'arrow-right']}
                                     color="white"
@@ -324,7 +324,7 @@ export default function Template({ data, location, pageContext }) {
                                             color="white"
                                             size="1x"
                                         />
-                                        Previous
+                                        <SpanElement text="previous"/>
                                         {/* {prev.frontmatter.title} */}
                                     </LocalizedLink>
                                 )}
@@ -334,7 +334,7 @@ export default function Template({ data, location, pageContext }) {
                         <div className="col col-4">
                             <p>
                                 <LocalizedLink to="/news">
-                                    Back to news
+                                    <SpanElement text="backToNews"/>
                                 </LocalizedLink>
                             </p>
                         </div>
@@ -343,7 +343,7 @@ export default function Template({ data, location, pageContext }) {
                             <p>
                                 {next && (
                                     <LocalizedLink to={next.frontmatter.path}>
-                                        Next
+                                        <SpanElement text="next"/>
                                         {/* {next.frontmatter.title} */}
                                         <FontAwesomeIcon
                                             icon={['fal', 'arrow-right']}

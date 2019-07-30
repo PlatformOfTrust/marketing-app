@@ -8,20 +8,19 @@ pictext: ""
 type: "news" # All "News" are blogs to separate them from real pages made with MarkDown, so that they appear in blog listings etc.
 subtype: "article" # "blog" / "news" / "pressRelease" etc.
 tags: ['SignSpace'] # Any string, can be used in search / "related content"
-locale: "en"
+locale: "fi"
 author: "Henri Svensson"
 status: "published" # "published" / "draft" / "pending" / "archived"
 ---
-Processing confidential information and agreements is an integral part of today’s data-generating society in which information plays an increasingly important role in decision-making, both in the public and private sectors.
-SignSpace is a service that allows you to sign, distribute, polish and archive documents electronically between various parties while ensuring high information security. SignSpace eliminates the need to send signed documents via email, and it makes them available to all concerned parties for long periods.
+Luottamuksellinen tietojen ja sopimusten käsittely on keskeinen osa nykyaikaista yhteiskuntaa, jossa dataa tuotetaan paljon ja tiedon perusteella tehdään yhä enemmän päätöksiä niin valtion kuin yksityisellä tasolla. SignSpace-palvelu mahdollistaa dokumenttien sähköisen allekirjoittamisen, jakelun, jalostamisen ja arkistoinnin tietoturvallisesti eri osapuolten välillä. Käytännössä SignSpacen avulla allekirjoitetut dokumentit saadaan pois sähköposteista ja kaikkien osapuolten saataville pitkäaikaisesti.
 
-Read more about SignSpace at [signspace.fi](https://www.signspace.fi/index.html)
+Tutustu SignSpaceen osoitteessa [signspace.fi](https://www.signspace.fi/index.html)
 
-SignSpace is a service provided by Suomen Tilaajavastuu Oy and Platform of Trust Oy. It makes business operations smoother and more secure.
+SignSpace on Suomen Tilaajavastuu Oy:n ja Platform of Trust Oy:n tuottama palvelu sujuvampaan ja turvallisempaan liiketoimintaan.
 
 <br/><br/><br/><br/>
 
-### More information
+### Lisätietoja
 
 <br/><br/><br/><br/>
 

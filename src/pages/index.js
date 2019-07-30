@@ -13,14 +13,12 @@ import HexBlurb from '../components/HexBlurb';
 import CustomRoundedButton from '../components/CustomRoundedButton';
 import ToolsIntro from '../components/ToolsIntro';
 import FeaturedNews from '../components/FeaturedNews';
-import HederElement from '../components/HeaderElement';
+import HeaderElement from '../components/HeaderElement';
 
 import 'bootstrap/dist/css/bootstrap.css';
 import '../styles/global.css';
 import { colors, variables } from '../Theme.js';
 import SocialPreviewImage from '../images/preview_social_share/home.jpg';
-
-import { injectIntl } from 'react-intl';
 
 const StyledMain = styled.main`
     &&& {
@@ -113,7 +111,7 @@ const IndexPage = ({ data, pathContext }) => {
                                 const { node } = data;
                                 return <Hero key={node.id} data={node} />;
                             })}
-                        <FeaturedNews />
+                        <FeaturedNews data={data.featuredNews} />
                     </div>
                     <div className="col-9 offset-3 col-sm-6 offset-sm-3 col-lg-3 offset-lg-0">
                         <Featured />
@@ -252,7 +250,7 @@ const IndexPage = ({ data, pathContext }) => {
                 <div className="row mt-5">
                     <div className="col-md-10 offset-md-1 mb-3">
                         {/* TODO: Only for translation purposes, must be refactored */}
-                        <HederElement tag="h5" content={'partnersHeaderText'} />
+                        <HeaderElement tag="h5" content={'partnersHeaderText'} />
                     </div>
                     <StyledPartners id="partners" className="col-10 offset-1">
                         {contents
@@ -307,6 +305,39 @@ export const query = graphql`
                 }
             }
         }
+         featuredNews: allMarkdownRemark(
+                    limit: 3
+                    filter: {
+                        frontmatter: {
+                            type: { eq: "news" },
+                            status: { eq: "published" },
+                            locale: { eq: $locale }
+                        }
+                    }
+                    sort: { fields: [frontmatter___date], order: DESC }
+                ) {
+                    totalCount
+                    edges {
+                        node {
+                            id
+                            html
+                            frontmatter {
+                                title
+                                path
+                                date(formatString: "MMMM DD, YYYY")
+                                tags
+                                status
+                                type
+                                subtype
+                            }
+                            excerpt(
+                                format: PLAIN
+                                pruneLength: 20
+                                truncate: true
+                            )
+                        }
+                    }
+                }
     }
 `;
 

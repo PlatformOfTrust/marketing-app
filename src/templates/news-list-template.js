@@ -13,6 +13,9 @@ import CustomSquareButton from '../components/CustomSquareButton';
 import { colors, device, variables } from '../Theme.js';
 import SocialPreviewImage from '../images/preview_social_share/news.jpg';
 
+import HeaderElement from '../components/HeaderElement';
+import SpanElement from './../components/SpanElement';
+
 export const subtypeColors = {
     blog: `${colors.ok}`,
     news: `${colors.notice}`,
@@ -280,11 +283,11 @@ export default class NewsList extends React.Component {
                                         : ''
                                 }`}
                             >
-                                <span
+                                <SpanElement
+                                    text="all"
                                     onClick={() => this.handleFiltering('all')}
                                 >
-                                    All
-                                </span>
+                                </SpanElement>
                             </StyledSelector>
 
                             <StyledSelector
@@ -298,11 +301,10 @@ export default class NewsList extends React.Component {
                                     icon={['fa', 'hexagon']}
                                     color={colors.blog}
                                 />
-                                <span
+                                <SpanElement
+                                    text="blogs"
                                     onClick={() => this.handleFiltering('blog')}
-                                >
-                                    Blogs
-                                </span>
+                                />
                             </StyledSelector>
 
                             <StyledSelector
@@ -316,13 +318,13 @@ export default class NewsList extends React.Component {
                                     icon={['fa', 'hexagon']}
                                     color={colors.article}
                                 />
-                                <span
+                                <SpanElement
+                                    text="articles"
                                     onClick={() =>
                                         this.handleFiltering('article')
                                     }
                                 >
-                                    Articles
-                                </span>
+                                </SpanElement>
                             </StyledSelector>
 
                             <StyledSelector
@@ -336,13 +338,13 @@ export default class NewsList extends React.Component {
                                     icon={['fa', 'hexagon']}
                                     color={colors.press}
                                 />
-                                <span
+                                <SpanElement
+                                    text="pressReleases"
                                     onClick={() =>
                                         this.handleFiltering('pressRelease')
                                     }
                                 >
-                                    Press releases
-                                </span>
+                                </SpanElement>
                             </StyledSelector>
 
                             <StyledSelector
@@ -356,13 +358,13 @@ export default class NewsList extends React.Component {
                                     icon={['fa', 'hexagon']}
                                     color={colors.business}
                                 />
-                                <span
+                                <SpanElement
+                                    text="business"
                                     onClick={() =>
                                         this.handleFiltering('business')
                                     }
                                 >
-                                    Business
-                                </span>
+                                </SpanElement>
                             </StyledSelector>
 
                             <StyledSelector
@@ -376,23 +378,23 @@ export default class NewsList extends React.Component {
                                     icon={['fa', 'hexagon']}
                                     color={colors.technical}
                                 />
-                                <span
+                                <SpanElement
+                                    text="technical"
                                     onClick={() =>
                                         this.handleFiltering('technical')
                                     }
                                 >
-                                    Technical
-                                </span>
+                                </SpanElement>
                             </StyledSelector>
                         </StyledTools>
                         <StyledBlogs className="posts container">
                             <div className="row">
                                 <div className="col-6">
-                                    <h1>News</h1>
+                                    <HeaderElement tag="h1" content="news"/>
                                 </div>
                                 <div className="col-6 text-right">
                                     <LocalizedLink to="/newsletter">
-                                        <CustomRoundedButton label="Sign up for news" />
+                                        <CustomRoundedButton label="signUpForNews" />
                                     </LocalizedLink>
                                 </div>
                             </div>
@@ -477,16 +479,8 @@ export default class NewsList extends React.Component {
                                                             {post.frontmatter
                                                                 .subtype && (
                                                                 <>
-                                                                    <span>
-                                                                        {post
-                                                                            .frontmatter
-                                                                            .subtype ===
-                                                                        'pressRelease'
-                                                                            ? 'Press Release'
-                                                                            : post
-                                                                                  .frontmatter
-                                                                                  .subtype}
-                                                                    </span>
+                                                                    <SpanElement text={post.frontmatter
+                                                                .subtype}/>
                                                                     <span className="divider">
                                                                         .
                                                                     </span>
@@ -528,7 +522,7 @@ export default class NewsList extends React.Component {
                                                             <p>
                                                                 {post.excerpt}
                                                             </p>
-                                                            <CustomSquareButton label="Read" />
+                                                            <CustomSquareButton label="read" />
                                                         </LocalizedLink>
                                                     </div>
                                                 </div>
@@ -553,7 +547,7 @@ export default class NewsList extends React.Component {
                                                         color="white"
                                                         size="1x"
                                                     />
-                                                    Previous page
+                                                    <SpanElement text="previousPage"/>
                                                 </LocalizedLink>
                                             </p>
                                         )}
@@ -615,9 +609,9 @@ const SocialPreviewData = {
 };
 
 export const newsListQuery = graphql`
-    query newsListQuery($skip: Int!, $limit: Int!) {
+    query newsListQuery($skip: Int!, $limit: Int!, $locale: String!) {
         allMdx(
-            filter: { frontmatter: { type: { eq: "news" } } }
+            filter: { frontmatter: { type: { eq: "news" }, locale : {eq: $locale} } }
             sort: { fields: [frontmatter___date], order: DESC }
             limit: $limit
             skip: $skip
