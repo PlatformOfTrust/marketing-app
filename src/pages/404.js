@@ -21,6 +21,9 @@ const StyledSection = styled.article`
     margin: 5rem auto;
     padding: 10%;
     background: ${colors.mainDarker};
+    .decoration-dotted {
+        text-decoration: underline dotted;
+    }
 `;
 const StyledPad = styled.div`
     margin: 1rem;
@@ -41,13 +44,21 @@ const NotFoundPage = () => (
                         If you found this link on the internet (and didn't just
                         type it wrong) we would very much appreciate if you'd
                         report it to us.{' '}
-                        <a href="mailto:email@oftrust.net">email@oftrust.net</a>{' '}
+                        <a
+                            class="decoration-dotted"
+                            href="mailto:support@oftrust.net"
+                        >
+                            support@oftrust.net
+                        </a>{' '}
                         Thanks!
                     </p>
 
                     <p>
                         You can also go to the{' '}
-                        <a href="https://www.platformoftrust.net/">
+                        <a
+                            class="decoration-dotted"
+                            href="https://www.platformoftrust.net/"
+                        >
                             front page
                         </a>{' '}
                         to find what you were looking for.

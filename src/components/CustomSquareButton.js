@@ -5,9 +5,9 @@ import { colors } from '../Theme.js';
 
 const StyledButton = styled.button`
   &&& { background: ${props =>
-        props.bgColor ? colors[props.bgColor] : 'transparent'}; }
+      props.bgColor ? colors[props.bgColor] : 'transparent'}; }
   &&& { color: ${props =>
-        props.textColor ? colors[props.textColor] : colors.light}; }
+      props.textColor ? colors[props.textColor] : colors.light}; }
   &&& { border: 2px solid ${colors.light}; }
   &&& { border-radius: 1px; font-size: 18px; letter-spacing: 0.04em}
   padding: 0.25em 1em;
@@ -40,7 +40,7 @@ const StyledButton = styled.button`
   }
 
   ${props =>
-        props.primary &&
+      props.primary &&
       css`
           &&& {
               background: ${colors.main};
@@ -50,7 +50,7 @@ const StyledButton = styled.button`
       `}
 
   ${props =>
-        props.disabled &&
+      props.disabled &&
       css`
           // &&& { background: transparent; }
           &&& {

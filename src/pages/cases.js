@@ -9,7 +9,7 @@ import MetaTags from 'react-meta-tags';
 import HexImage from '../components/HexImage';
 import CustomSquareButton from '../components/CustomSquareButton';
 import Layout from '../components/layout';
-import { colors, variables } from '../Theme.js';
+import { colors, device, variables } from '../Theme.js';
 import SocialPreviewImage from '../images/preview_social_share/cases.jpg';
 
 export const subtypeColors = {
@@ -27,6 +27,16 @@ const StyledSection = styled.article`
 `;
 const StyledBlogs = styled.article`
     padding: 5%;
+    .news-not-found {
+        text-align: center;
+        padding-top: 15.6vh;
+        padding-bottom: 15.7vh;
+    }
+
+    .news-not-found h2 {
+        font-weight: 400;
+        font-size: 2.4rem;
+    }
 `;
 const StyledTools = styled.nav`
   // background: ${colors.mainDarkest};
@@ -55,22 +65,37 @@ const StyledBlogBlock = styled.article`
     padding: 1.5rem;
     margin: 1rem;
     border-top: 2px dotted ${colors.main};
-    h2 { font-size: 1.6rem;
+    h2 {
+        font-size: 1.6rem;
         letter-spacing: 0.01em;
         word-spacing: 0.065em;
         line-height: 1.2em;
+    }
+
+    span {
+        font-size: 15px;
+    }
+    p {
+        word-spacing: 0.064em;
+        line-spacing: 0.048em;
+        font-size: 17px;
     }
 
     &:nth-of-type(1) {
         width: 100%;
         border-top: none;
         h2 {
-            font-size: 2.4rem;
+            font-size: 2.5rem;
+            letter-spacing: 0.01em;
+            word-spacing: 0.065em;
+            line-height: 1.2em;
         }
     }
 
     &:nth-child(n + 5) {
         width: 100%;
+        padding-top: 0;
+        padding-bottom: 0;
         .featured-image,
         .excerpt {
             display: none;
@@ -85,7 +110,9 @@ const StyledBlogBlock = styled.article`
             width: 100%;
         }
         h2 {
-            font-size: 2.4rem;
+            font-size: 1.6rem;
+            word-spacing: 0.065em;
+            line-height: 1.2em;
         }
     }
 
@@ -150,14 +177,14 @@ export default class Events extends React.Component {
     handleFiltering = filter => {
         filter === 'all'
             ? this.setState({
-                filters: [
-                    'blog',
-                    'article',
-                    'pressRelease',
-                    'business',
-                    'technical'
-                ]
-            })
+                  filters: [
+                      'blog',
+                      'article',
+                      'pressRelease',
+                      'business',
+                      'technical'
+                  ]
+              })
             : this.setState({ filters: [filter] });
         this.setState({ selected: [filter] });
     };
@@ -165,16 +192,37 @@ export default class Events extends React.Component {
     render() {
         const { filters, selected } = this.state;
         const { edges: posts } = this.props.data.allMdx;
+        const socialPreviewImageFullUri =
+            window.location.origin + SocialPreviewImage;
+
         return (
             <Layout className="blog-posts">
                 <MetaTags>
-                    <meta property="og:title" content={SocialPreviewData.title} />
-                    <meta name="description" content={SocialPreviewData.description} />
-                    <meta property="og:image" content={SocialPreviewImage} />
+                    <meta
+                        property="og:title"
+                        content={SocialPreviewData.title}
+                    />
+                    <meta
+                        property="og:description"
+                        content={SocialPreviewData.description}
+                    />
+                    <meta
+                        property="og:image"
+                        content={socialPreviewImageFullUri}
+                    />
                     <meta name="twitter:card" content="summary_large_image" />
-                    <meta name="twitter:title" content={SocialPreviewData.title} />
-                    <meta name="twitter:description" content={SocialPreviewData.description} />
-                    <meta name="twitter:image" content={SocialPreviewImage} />
+                    <meta
+                        name="twitter:title"
+                        content={SocialPreviewData.title}
+                    />
+                    <meta
+                        name="twitter:description"
+                        content={SocialPreviewData.description}
+                    />
+                    <meta
+                        name="twitter:image"
+                        content={socialPreviewImageFullUri}
+                    />
                 </MetaTags>
                 <StyledPad>
                     <StyledSection className="posts-listing">
@@ -243,7 +291,16 @@ export default class Events extends React.Component {
                         </StyledTools>
                         <StyledBlogs className="posts">
                             <h1>Cases</h1>
-
+                            {posts.filter(post =>
+                                filters.includes(post.node.frontmatter.subtype)
+                            ).length === 0 && (
+                                <div className="col-12 news-not-found">
+                                    <h2>
+                                        Sorry, nothing here for now. See the
+                                        other filters.
+                                    </h2>
+                                </div>
+                            )}
                             {posts
                                 .filter(post =>
                                     filters.includes(
@@ -264,16 +321,8 @@ export default class Events extends React.Component {
                                                     <StyledHexImage>
                                                         {/* <CustomImage filename={post.frontmatter.pic} alt={post.frontmatter.title} /> */}
                                                         <HexImage
-                                                            pic={require(`.${
-                                                                post.frontmatter
-                                                                    .path
-                                                            }/${
-                                                                post.frontmatter
-                                                                    .pic
-                                                            }`)}
-                                                            hexId={`EventHex-${
-                                                                post.id
-                                                            }`}
+                                                            pic={require(`.${post.frontmatter.path}/${post.frontmatter.pic}`)}
+                                                            hexId={`EventHex-${post.id}`}
                                                             rotate={true}
                                                         />
                                                     </StyledHexImage>
@@ -360,7 +409,8 @@ export default class Events extends React.Component {
 
 const SocialPreviewData = {
     title: 'Platform Of Trust | Cases',
-    description: 'Platform of Trust use cases, examples of how the platform works in practice and how it helps create business ecosystems.'
+    description:
+        'Platform of Trust use cases, examples of how the platform works in practice and how it helps create business ecosystems.'
 };
 
 export const pageQuery = graphql`

@@ -66,9 +66,7 @@ const StyledCaption = styled.div`
   width: 100%
   position: absolute;
   transform: translateY(-100%);
-  background: linear-gradient(to bottom, rgba(0,0,0,0), ${
-    colors.mainDarker
-} 100%);
+  background: linear-gradient(to bottom, rgba(0,0,0,0), ${colors.mainDarker} 100%);
   padding: 4rem 10% 0;
   justify-content: flex-end;
   p {
@@ -102,6 +100,15 @@ const StyledPostFooter = styled.div`
 const StyledBlogFooter = styled.div`
     &&& {
         max-width: ${variables.pageWidth};
+    }
+    @media only screen and (max-width: 640px) {
+        p a {
+            display: flex;
+        }
+
+        p a svg {
+            margin-top: 3px;
+        }
     }
     margin: 0 auto;
     padding: 2rem 0;
@@ -140,30 +147,20 @@ const StyledCustomImage = styled.div`
     .gatsby-image-wrapper {
         transform: rotate(-10deg);
     }
-    @media only screen and (max-width:983px) {
-
+    @media only screen and (max-width: 983px) {
         transform: translateY(1.7rem) rotate(10deg) scale(1.5);
-
     }
 
-    @media only screen and (min-width:640px) and (max-width: 760px) {
-
+    @media only screen and (min-width: 640px) and (max-width: 760px) {
         transform: translateY(0.2rem) rotate(10deg) scale(2.3);
-
     }
 
-
-
-    @media only screen and (min-width:501px) and (max-width: 600px) {
-
+    @media only screen and (min-width: 501px) and (max-width: 600px) {
         transform: translateY(0.2rem) rotate(10deg) scale(3.3);
-
     }
 
-    @media only screen and (max-width:500px) {
-
+    @media only screen and (max-width: 500px) {
         transform: translateY(0rem) rotate(10deg) scale(5);
-
     }
 `;
 const StyledDisqus = styled.div`
@@ -183,7 +180,7 @@ export default function Template({ data, location, pageContext }) {
             <Helmet title={`Platform of Trust - ${post.frontmatter.title}`} />
             <StyledBlog>
                 <StyledHeader className="container">
-                    <div style={{marginTop: '50px'}} className="row">
+                    <div style={{ marginTop: '50px' }} className="row">
                         <Link to="/news">
                             <FontAwesomeIcon icon={['fal', 'arrow-left']} />{' '}
                             Back to news
@@ -194,7 +191,11 @@ export default function Template({ data, location, pageContext }) {
                                 icon={['fa', 'hexagon']}
                                 color={colors[post.frontmatter.subtype]}
                             />
-                            <span>{post.frontmatter.subtype}</span>
+                            <span>
+                                {post.frontmatter.subtype === 'pressRelease'
+                                    ? 'Press Release'
+                                    : post.frontmatter.subtype}
+                            </span>
                             {post.frontmatter.subtype === 'blog' && (
                                 <span>{post.frontmatter.author}</span>
                             )}
@@ -266,9 +267,7 @@ export default function Template({ data, location, pageContext }) {
                                     size="1x"
                                 />
                                 <a
-                                    href={`https://www.facebook.com/sharer/sharer.php?u=https://www.platformoftrust.net${
-                                        post.frontmatter.path
-                                    }`}
+                                    href={`https://www.facebook.com/sharer/sharer.php?u=https://www.platformoftrust.net${post.frontmatter.path}`}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
@@ -279,11 +278,7 @@ export default function Template({ data, location, pageContext }) {
                                     />
                                 </a>
                                 <a
-                                    href={`https://twitter.com/intent/tweet/?text=${
-                                        post.frontmatter.title
-                                    }&url=https://www.platformoftrust.net${
-                                        post.frontmatter.path
-                                    }%2F&via=PlatformOfTrust`}
+                                    href={`https://twitter.com/intent/tweet/?text=${post.frontmatter.title}&url=https://www.platformoftrust.net${post.frontmatter.path}%2F&via=PlatformOfTrust`}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
@@ -294,11 +289,7 @@ export default function Template({ data, location, pageContext }) {
                                     />
                                 </a>
                                 <a
-                                    href={`https://www.linkedin.com/shareArticle?mini=true&url=https://www.platformoftrust.net${
-                                        post.frontmatter.path
-                                    }&title=${post.frontmatter.title}&source=${
-                                        post.frontmatter.title
-                                    }`}
+                                    href={`https://www.linkedin.com/shareArticle?mini=true&url=https://www.platformoftrust.net${post.frontmatter.path}&title=${post.frontmatter.title}&source=${post.frontmatter.title}`}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >

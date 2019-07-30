@@ -151,14 +151,14 @@ export default class Events extends React.Component {
     handleFiltering = filter => {
         filter === 'all'
             ? this.setState({
-                filters: [
-                    'blog',
-                    'article',
-                    'pressRelease',
-                    'business',
-                    'technical'
-                ]
-            })
+                  filters: [
+                      'blog',
+                      'article',
+                      'pressRelease',
+                      'business',
+                      'technical'
+                  ]
+              })
             : this.setState({ filters: [filter] });
         this.setState({ selected: [filter] });
     };
@@ -180,17 +180,37 @@ export default class Events extends React.Component {
         const pastEvents = posts.filter(
             post => Date.now() - Date.parse(post.node.frontmatter.time) >= 0
         );
+        const socialPreviewImageFullUri =
+            window.location.origin + SocialPreviewImage;
 
         return (
             <Layout className="blog-posts">
                 <MetaTags>
-                    <meta property="og:title" content={SocialPreviewData.title} />
-                    <meta name="description" content={SocialPreviewData.description} />
-                    <meta property="og:image" content={SocialPreviewImage} />
+                    <meta
+                        property="og:title"
+                        content={SocialPreviewData.title}
+                    />
+                    <meta
+                        property="og:description"
+                        content={SocialPreviewData.description}
+                    />
+                    <meta
+                        property="og:image"
+                        content={socialPreviewImageFullUri}
+                    />
                     <meta name="twitter:card" content="summary_large_image" />
-                    <meta name="twitter:title" content={SocialPreviewData.title} />
-                    <meta name="twitter:description" content={SocialPreviewData.description} />
-                    <meta name="twitter:image" content={SocialPreviewImage} />
+                    <meta
+                        name="twitter:title"
+                        content={SocialPreviewData.title}
+                    />
+                    <meta
+                        name="twitter:description"
+                        content={SocialPreviewData.description}
+                    />
+                    <meta
+                        name="twitter:image"
+                        content={socialPreviewImageFullUri}
+                    />
                 </MetaTags>
                 <StyledPad>
                     <StyledSection className="posts-listing">
@@ -314,18 +334,8 @@ export default class Events extends React.Component {
                                                                 <StyledHexImage>
                                                                     {/* <CustomImage filename={post.frontmatter.pic} alt={post.frontmatter.title} /> */}
                                                                     <HexImage
-                                                                        pic={require(`.${
-                                                                            post
-                                                                                .frontmatter
-                                                                                .path
-                                                                        }/${
-                                                                            post
-                                                                                .frontmatter
-                                                                                .pic
-                                                                        }`)}
-                                                                        hexId={`EventHex-${
-                                                                            post.id
-                                                                        }`}
+                                                                        pic={require(`.${post.frontmatter.path}/${post.frontmatter.pic}`)}
+                                                                        hexId={`EventHex-${post.id}`}
                                                                         rotate={
                                                                             true
                                                                         }
@@ -347,18 +357,8 @@ export default class Events extends React.Component {
                                                                 >
                                                                     {/* <CustomImage filename={post.frontmatter.pic} alt={post.frontmatter.title} /> */}
                                                                     <HexImage
-                                                                        pic={require(`.${
-                                                                            post
-                                                                                .frontmatter
-                                                                                .path
-                                                                        }/${
-                                                                            post
-                                                                                .frontmatter
-                                                                                .pic
-                                                                        }`)}
-                                                                        hexId={`EventHex-${
-                                                                            post.id
-                                                                        }`}
+                                                                        pic={require(`.${post.frontmatter.path}/${post.frontmatter.pic}`)}
+                                                                        hexId={`EventHex-${post.id}`}
                                                                         rotate={
                                                                             true
                                                                         }
@@ -539,18 +539,8 @@ export default class Events extends React.Component {
                                                                 <StyledHexImage>
                                                                     {/* <CustomImage filename={post.frontmatter.pic} alt={post.frontmatter.title} /> */}
                                                                     <HexImage
-                                                                        pic={require(`.${
-                                                                            post
-                                                                                .frontmatter
-                                                                                .path
-                                                                        }/${
-                                                                            post
-                                                                                .frontmatter
-                                                                                .pic
-                                                                        }`)}
-                                                                        hexId={`EventHex-${
-                                                                            post.id
-                                                                        }`}
+                                                                        pic={require(`.${post.frontmatter.path}/${post.frontmatter.pic}`)}
+                                                                        hexId={`EventHex-${post.id}`}
                                                                         rotate={
                                                                             true
                                                                         }
@@ -572,18 +562,8 @@ export default class Events extends React.Component {
                                                                 >
                                                                     {/* <CustomImage filename={post.frontmatter.pic} alt={post.frontmatter.title} /> */}
                                                                     <HexImage
-                                                                        pic={require(`.${
-                                                                            post
-                                                                                .frontmatter
-                                                                                .path
-                                                                        }/${
-                                                                            post
-                                                                                .frontmatter
-                                                                                .pic
-                                                                        }`)}
-                                                                        hexId={`EventHex-${
-                                                                            post.id
-                                                                        }`}
+                                                                        pic={require(`.${post.frontmatter.path}/${post.frontmatter.pic}`)}
+                                                                        hexId={`EventHex-${post.id}`}
                                                                         rotate={
                                                                             true
                                                                         }
@@ -875,7 +855,8 @@ export default class Events extends React.Component {
 
 const SocialPreviewData = {
     title: 'Platform Of Trust | Events',
-    description: 'Events organized by Platform of Trust and events that Platform of Trust is attending or a team member is speaking at.'
+    description:
+        'Events organized by Platform of Trust and events that Platform of Trust is attending or a team member is speaking at.'
 };
 
 export const pageQuery = graphql`
@@ -895,7 +876,7 @@ export const pageQuery = graphql`
                         potevent
                         type
                         subtype
-                        time
+                        time(formatString: "MMMM DD, YYYY")
                         place
                         eventlink
                         pic
