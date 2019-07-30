@@ -7,6 +7,9 @@ import LogoSymbol from '../images/logo-symbol.svg';
 import SomeIcons from './SomeIcons';
 import { colors, device, variables } from '../Theme.js';
 
+import HeaderElement from '../components/HeaderElement';
+import SpanElement from './../components/SpanElement';
+
 import { injectIntl } from 'react-intl';
 
 const StyledFooter = styled.footer`
@@ -146,20 +149,20 @@ const Footer = () => {
                         {/* <p><a href="https://www.tilaajavastuu.fi/en/data-protection/">Data protection statement</a></p>*/}
                     </div>
 
-                    <div className="sitemap col-md-1">
+                    <div className="sitemap">
                         {/* <Link to="/pricing">Pricing</Link><br /> */}
                         <LocalizedLink
                             to="/cases"
                             className="footer-elements-opacity"
                         >
-                            Cases
+                            <SpanElement text="cases"/>
                         </LocalizedLink>
                         <br />
                         <LocalizedLink
                             to="/news"
                             className="footer-elements-opacity"
                         >
-                            News
+                            <SpanElement text="news"/>
                         </LocalizedLink>
                         <br />
                     </div>
@@ -169,21 +172,21 @@ const Footer = () => {
                             to="/events"
                             className="footer-elements-opacity"
                         >
-                            Events
+                            <SpanElement text="events"/>
                         </LocalizedLink>
                         <br />
                         <LocalizedLink
                             to="/about"
                             className="footer-elements-opacity"
                         >
-                            About
+                            <SpanElement text="about"/>
                         </LocalizedLink>
                         <br />
                         <LocalizedLink
                             to="/contact"
                             className="footer-elements-opacity"
                         >
-                            Contact
+                            <SpanElement text="contact"/>
                         </LocalizedLink>
                         <br />
                     </div>
