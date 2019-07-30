@@ -118,7 +118,6 @@ const StyledFooter = styled.footer`
 `;
 
 const Footer = ({ intl }) => {
-    console.log(intl);
     return (
         <StyledFooter className="page-footer footer">
             <svg className="clippath-svg" width="0" height="0">
