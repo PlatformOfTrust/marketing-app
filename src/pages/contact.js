@@ -53,7 +53,9 @@ const StyledBilling = styled.article`
 const StyledPad = styled.div`
     // margin: 1rem;
 `;
-const socialPreviewImageFullUri = window.location.origin + SocialPreviewImage;
+const socialPreviewImageFullUri =
+    typeof window !== 'undefined' &&
+    window.location.origin + SocialPreviewImage;
 
 const Contact = ({ pathContext, data }) => {
     return (

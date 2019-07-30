@@ -184,6 +184,7 @@ export default class Events extends React.Component {
             post => Date.now() - Date.parse(post.node.frontmatter.time) >= 0
         );
         const socialPreviewImageFullUri =
+            typeof window !== 'undefined' &&
             window.location.origin + SocialPreviewImage;
 
         return (

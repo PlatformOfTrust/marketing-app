@@ -55,6 +55,7 @@ const IndexPage = ({ data, pathContext }) => {
     const testContent = data.allContent.edges[0].node;
     const contents = data.allContent.edges;
     const socialPreviewImageFullUri =
+        typeof window !== 'undefined' &&
         window.location.origin + SocialPreviewImage;
     return (
         <Layout locale={pathContext.locale}>

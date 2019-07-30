@@ -239,6 +239,7 @@ export default class NewsList extends React.Component {
                 : `/news/${(currentPage - 1).toString()}`;
         const nextPage = `/news/${(currentPage + 1).toString()}`;
         const socialPreviewImageFullUri =
+            typeof window !== 'undefined' &&
             window.location.origin + SocialPreviewImage;
 
         return (
@@ -286,7 +287,7 @@ export default class NewsList extends React.Component {
                                 <SpanElement
                                     text="all"
                                     onClick={() => this.handleFiltering('all')}
-                                ></SpanElement>
+                                />
                             </StyledSelector>
 
                             <StyledSelector
@@ -322,7 +323,7 @@ export default class NewsList extends React.Component {
                                     onClick={() =>
                                         this.handleFiltering('article')
                                     }
-                                ></SpanElement>
+                                />
                             </StyledSelector>
 
                             <StyledSelector
@@ -341,7 +342,7 @@ export default class NewsList extends React.Component {
                                     onClick={() =>
                                         this.handleFiltering('pressRelease')
                                     }
-                                ></SpanElement>
+                                />
                             </StyledSelector>
 
                             <StyledSelector
@@ -360,7 +361,7 @@ export default class NewsList extends React.Component {
                                     onClick={() =>
                                         this.handleFiltering('business')
                                     }
-                                ></SpanElement>
+                                />
                             </StyledSelector>
 
                             <StyledSelector
@@ -379,7 +380,7 @@ export default class NewsList extends React.Component {
                                     onClick={() =>
                                         this.handleFiltering('technical')
                                     }
-                                ></SpanElement>
+                                />
                             </StyledSelector>
                         </StyledTools>
                         <StyledBlogs className="posts container">

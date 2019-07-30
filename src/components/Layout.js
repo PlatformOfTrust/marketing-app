@@ -68,7 +68,10 @@ const StyledWrapper = styled.section`
     margin: '0 auto';
     padding-top: 0;
 `;
-const socialPreviewImageFullUri = window.location.origin + SocialPreviewImage;
+
+const socialPreviewImageFullUri =
+    typeof window !== 'undefined' &&
+    window.location.origin + SocialPreviewImage;
 
 const Layout = ({ locale, children }) => {
     return (

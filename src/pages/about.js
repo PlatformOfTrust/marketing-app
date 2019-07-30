@@ -38,7 +38,9 @@ const StyledVideo = styled.section`
     }
     margin: 5rem auto;
 `;
-const socialPreviewImageFullUri = window.location.origin + SocialPreviewImage;
+const socialPreviewImageFullUri =
+    typeof window !== 'undefined' &&
+    window.location.origin + SocialPreviewImage;
 
 const About = ({ data, pathContext }) => (
     <Layout locale={pathContext.locale}>
