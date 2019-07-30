@@ -1,13 +1,9 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import Img from 'gatsby-image';
 import styled from 'styled-components';
 
 import Layout from '../components/Layout';
 import SEO from '../components/seo';
-import Video from '../components/Video';
-import Logos from '../components/Logos';
-import HexIcon from '../components/HexIcon';
 import { variables, colors } from '../Theme.js';
 
 const StyledPage = styled.div`
@@ -132,10 +128,11 @@ class Faq extends React.Component {
     };
 
     render() {
+        console.log(this);
         const { edges: posts } = this.props.data.allMdx;
-
+        const { locale } = this.props.pageContext;
         return (
-            <Layout>
+            <Layout locale={locale}>
                 <SEO title="FAQ Platform of Trust" />
                 <StyledPage>
                     <h1>Frequently Asked Questions</h1>
@@ -165,6 +162,7 @@ class Faq extends React.Component {
 
 export default Faq;
 
+/* Add locale when available */
 export const query = graphql`
     query faqQuery {
         allMdx(filter: { frontmatter: { type: { eq: "faq" } } }) {

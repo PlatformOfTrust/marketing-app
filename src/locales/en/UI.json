@@ -71,5 +71,6 @@
     "contactBillingInformation": "Billing information",
     "contactBillingEInvoicingAddress": "E-invoicing address: 003729800052",
     "contactBillingEInvoicingOperatorName": "Operator: OpusCapita Solutions Oy",
-    "contactBillingEInvoicingOperatorId": "Operator ID: E204503"
+    "contactBillingEInvoicingOperatorId": "Operator ID: E204503",
+    "changeLanguageText": "Suomeksi"
 }

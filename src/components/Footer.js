@@ -7,7 +7,6 @@ import LogoSymbol from '../images/logo-symbol.svg';
 import SomeIcons from './SomeIcons';
 import { colors, device, variables } from '../Theme.js';
 
-import HeaderElement from '../components/HeaderElement';
 import SpanElement from './../components/SpanElement';
 
 import { injectIntl } from 'react-intl';
@@ -63,6 +62,10 @@ const StyledFooter = styled.footer`
     }
     .sitemap {
         display: none;
+
+        &.right-side {
+            margin-left: 1.2rem;
+        }
     }
     .sitemap {
         @media ${device.laptop} {
@@ -114,7 +117,8 @@ const StyledFooter = styled.footer`
     }
 `;
 
-const Footer = () => {
+const Footer = ({ intl }) => {
+    console.log(intl);
     return (
         <StyledFooter className="page-footer footer">
             <svg className="clippath-svg" width="0" height="0">
@@ -167,7 +171,7 @@ const Footer = () => {
                         <br />
                     </div>
 
-                    <div className="sitemap col-md-1">
+                    <div className="sitemap right-side">
                         <LocalizedLink
                             to="/events"
                             className="footer-elements-opacity"
@@ -188,6 +192,26 @@ const Footer = () => {
                         >
                             <SpanElement text="contact" />
                         </LocalizedLink>
+                        <br />
+                        <SpanElement
+                            className="footer-elements-opacity"
+                            style={{ cursor: 'pointer' }}
+                            onClick={() => {
+                                /* TODO: This part can be improved */
+                                if (intl.locale === 'en') {
+                                    window.location.pathname = window.location.pathname.replace(
+                                        '/en',
+                                        '/fi'
+                                    );
+                                } else if (intl.locale === 'fi') {
+                                    window.location.pathname = window.location.pathname.replace(
+                                        '/fi',
+                                        '/en'
+                                    );
+                                }
+                            }}
+                            text="changeLanguageText"
+                        />
                         <br />
                     </div>
 
