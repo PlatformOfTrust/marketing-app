@@ -154,14 +154,14 @@ export default class Events extends React.Component {
     handleFiltering = filter => {
         filter === 'all'
             ? this.setState({
-                  filters: [
-                      'blog',
-                      'article',
-                      'pressRelease',
-                      'business',
-                      'technical'
-                  ]
-              })
+                filters: [
+                    'blog',
+                    'article',
+                    'pressRelease',
+                    'business',
+                    'technical'
+                ]
+            })
             : this.setState({ filters: [filter] });
         this.setState({ selected: [filter] });
     };
@@ -183,8 +183,8 @@ export default class Events extends React.Component {
         const pastEvents = posts.filter(
             post => Date.now() - Date.parse(post.node.frontmatter.time) >= 0
         );
-        const socialPreviewImageFullUri =
-            window.location.origin + SocialPreviewImage;
+        const socialPreviewImageFullUri = typeof window !== 'undefined' &&
+            (window.location.origin + SocialPreviewImage);
 
         return (
             <Layout
@@ -204,7 +204,7 @@ export default class Events extends React.Component {
                         property="og:image"
                         content={socialPreviewImageFullUri}
                     />
-                    <meta name="twitter:card" content="summary_large_image" />
+                    <meta name="twitter:card" content="summary_large_image"/>
                     <meta
                         name="twitter:title"
                         content={SocialPreviewData.title}
@@ -226,7 +226,7 @@ export default class Events extends React.Component {
                                     selected[0] === 'all'
                                         ? 'selected-filter'
                                         : ''
-                                }`}
+                                    }`}
                             >
                                 <SpanElement
                                     text="all"
@@ -238,7 +238,7 @@ export default class Events extends React.Component {
                                     selected[0] === 'business'
                                         ? 'selected-filter'
                                         : ''
-                                }`}
+                                    }`}
                             >
                                 <FontAwesomeIcon
                                     icon={['fa', 'hexagon']}
@@ -256,7 +256,7 @@ export default class Events extends React.Component {
                                     selected[0] === 'technical'
                                         ? 'selected-filter'
                                         : ''
-                                }`}
+                                    }`}
                             >
                                 <FontAwesomeIcon
                                     icon={['fa', 'hexagon']}
@@ -273,7 +273,7 @@ export default class Events extends React.Component {
                         <StyledHeader className="container">
                             <div className="row">
                                 <div className="col">
-                                    <HeaderElement tag="h1" content="events" />
+                                    <HeaderElement tag="h1" content="events"/>
                                 </div>
                             </div>
                             <div className="row">
@@ -310,9 +310,10 @@ export default class Events extends React.Component {
                                                 content="noUpcomingEventsText"
                                             />
                                             <LocalizedLink to="/newsletter">
-                                                <CustomRoundedButton label="signUpForNews" />
+                                                <CustomRoundedButton
+                                                    label="signUpForNews"/>
                                             </LocalizedLink>
-                                            <SomeIcons color="light" />
+                                            <SomeIcons color="light"/>
                                         </StyledDefault>
                                     )}
 
@@ -328,7 +329,8 @@ export default class Events extends React.Component {
                                                     className="post-preview"
                                                     key={post.id}
                                                 >
-                                                    <div className="featured-image">
+                                                    <div
+                                                        className="featured-image">
                                                         {post.frontmatter
                                                             .potevent && (
                                                             <LocalizedLink
@@ -375,7 +377,8 @@ export default class Events extends React.Component {
                                                             </StyledHexImage>
                                                         )}
                                                     </div>
-                                                    <div className="post-preview-content">
+                                                    <div
+                                                        className="post-preview-content">
                                                         <div className="title">
                                                             {post.frontmatter
                                                                 .potevent && (
@@ -429,7 +432,7 @@ export default class Events extends React.Component {
                                                                             post
                                                                                 .frontmatter
                                                                                 .subtype
-                                                                        ]
+                                                                            ]
                                                                     }
                                                                 />
                                                                 {post
@@ -443,7 +446,8 @@ export default class Events extends React.Component {
                                                                                     .subtype
                                                                             }
                                                                         />
-                                                                        <span className="divider">
+                                                                        <span
+                                                                            className="divider">
                                                                             .
                                                                         </span>
                                                                     </>
@@ -459,7 +463,8 @@ export default class Events extends React.Component {
                                                                                     .time
                                                                             }
                                                                         </span>
-                                                                        <span className="divider">
+                                                                        <span
+                                                                            className="divider">
                                                                             .
                                                                         </span>
                                                                     </>
@@ -477,7 +482,8 @@ export default class Events extends React.Component {
                                                                 )}
                                                             </p>
                                                         </div>
-                                                        <div className="event-link">
+                                                        <div
+                                                            className="event-link">
                                                             {post.frontmatter
                                                                 .potevent && (
                                                                 <LocalizedLink
@@ -487,7 +493,8 @@ export default class Events extends React.Component {
                                                                             .path
                                                                     }
                                                                 >
-                                                                    <CustomSquareButton label="readMore" />
+                                                                    <CustomSquareButton
+                                                                        label="readMore"/>
                                                                 </LocalizedLink>
                                                             )}
                                                             {!post.frontmatter
@@ -509,7 +516,8 @@ export default class Events extends React.Component {
                                                                         target="_blank"
                                                                         rel="noopener noreferrer"
                                                                     >
-                                                                        <CustomSquareButton label="visitButtonText" />
+                                                                        <CustomSquareButton
+                                                                            label="visitButtonText"/>
                                                                     </a>
                                                                 </>
                                                             )}
@@ -536,7 +544,8 @@ export default class Events extends React.Component {
                                                     className="post-preview"
                                                     key={post.id}
                                                 >
-                                                    <div className="featured-image">
+                                                    <div
+                                                        className="featured-image">
                                                         {post.frontmatter
                                                             .potevent && (
                                                             <LocalizedLink
@@ -583,7 +592,8 @@ export default class Events extends React.Component {
                                                             </StyledHexImage>
                                                         )}
                                                     </div>
-                                                    <div className="post-preview-content">
+                                                    <div
+                                                        className="post-preview-content">
                                                         <div className="title">
                                                             {post.frontmatter
                                                                 .potevent && (
@@ -637,7 +647,7 @@ export default class Events extends React.Component {
                                                                             post
                                                                                 .frontmatter
                                                                                 .subtype
-                                                                        ]
+                                                                            ]
                                                                     }
                                                                 />
                                                                 {post
@@ -651,7 +661,8 @@ export default class Events extends React.Component {
                                                                                     .subtype
                                                                             }
                                                                         />
-                                                                        <span className="divider">
+                                                                        <span
+                                                                            className="divider">
                                                                             .
                                                                         </span>
                                                                     </>
@@ -667,7 +678,8 @@ export default class Events extends React.Component {
                                                                                     .time
                                                                             }
                                                                         </span>
-                                                                        <span className="divider">
+                                                                        <span
+                                                                            className="divider">
                                                                             .
                                                                         </span>
                                                                     </>
@@ -685,7 +697,8 @@ export default class Events extends React.Component {
                                                                 )}
                                                             </p>
                                                         </div>
-                                                        <div className="event-link">
+                                                        <div
+                                                            className="event-link">
                                                             {post.frontmatter
                                                                 .potevent && (
                                                                 <LocalizedLink
@@ -695,7 +708,8 @@ export default class Events extends React.Component {
                                                                             .path
                                                                     }
                                                                 >
-                                                                    <CustomSquareButton label="readMore" />
+                                                                    <CustomSquareButton
+                                                                        label="readMore"/>
                                                                 </LocalizedLink>
                                                             )}
                                                             {!post.frontmatter
@@ -717,7 +731,8 @@ export default class Events extends React.Component {
                                                                         target="_blank"
                                                                         rel="noopener noreferrer"
                                                                     >
-                                                                        <CustomSquareButton label="visitButtonText" />
+                                                                        <CustomSquareButton
+                                                                            label="visitButtonText"/>
                                                                     </a>
                                                                 </>
                                                             )}
@@ -745,8 +760,10 @@ export default class Events extends React.Component {
                                                         className="post-preview"
                                                         key={post.id}
                                                     >
-                                                        <div className="post-preview-content">
-                                                            <div className="meta">
+                                                        <div
+                                                            className="post-preview-content">
+                                                            <div
+                                                                className="meta">
                                                                 <p>
                                                                     <FontAwesomeIcon
                                                                         icon={[
@@ -758,7 +775,7 @@ export default class Events extends React.Component {
                                                                                 post
                                                                                     .frontmatter
                                                                                     .subtype
-                                                                            ]
+                                                                                ]
                                                                         }
                                                                     />
                                                                     {post
@@ -772,7 +789,8 @@ export default class Events extends React.Component {
                                                                                         .subtype
                                                                                 }
                                                                             />
-                                                                            <span className="divider">
+                                                                            <span
+                                                                                className="divider">
                                                                                 .
                                                                             </span>
                                                                         </>
@@ -788,7 +806,8 @@ export default class Events extends React.Component {
                                                                                         .time
                                                                                 }
                                                                             </span>
-                                                                            <span className="divider">
+                                                                            <span
+                                                                                className="divider">
                                                                                 .
                                                                             </span>
                                                                         </>
@@ -806,7 +825,8 @@ export default class Events extends React.Component {
                                                                     )}
                                                                 </p>
                                                             </div>
-                                                            <div className="title">
+                                                            <div
+                                                                className="title">
                                                                 {post
                                                                     .frontmatter
                                                                     .potevent && (

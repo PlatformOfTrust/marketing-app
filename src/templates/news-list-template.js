@@ -238,8 +238,8 @@ export default class NewsList extends React.Component {
                 ? '/news'
                 : `/news/${(currentPage - 1).toString()}`;
         const nextPage = `/news/${(currentPage + 1).toString()}`;
-        const socialPreviewImageFullUri =
-            window.location.origin + SocialPreviewImage;
+        const socialPreviewImageFullUri = typeof window !== 'undefined' && (
+            window.location.origin + SocialPreviewImage);
 
         return (
             <Layout
@@ -259,7 +259,7 @@ export default class NewsList extends React.Component {
                         property="og:image"
                         content={socialPreviewImageFullUri}
                     />
-                    <meta name="twitter:card" content="summary_large_image" />
+                    <meta name="twitter:card" content="summary_large_image"/>
                     <meta
                         name="twitter:title"
                         content={SocialPreviewData.title}
@@ -281,12 +281,12 @@ export default class NewsList extends React.Component {
                                     selected[0] === 'all'
                                         ? 'selected-filter'
                                         : ''
-                                }`}
+                                    }`}
                             >
                                 <SpanElement
                                     text="all"
                                     onClick={() => this.handleFiltering('all')}
-                                ></SpanElement>
+                                />
                             </StyledSelector>
 
                             <StyledSelector
@@ -294,7 +294,7 @@ export default class NewsList extends React.Component {
                                     selected[0] === 'blog'
                                         ? 'selected-filter'
                                         : ''
-                                }`}
+                                    }`}
                             >
                                 <FontAwesomeIcon
                                     icon={['fa', 'hexagon']}
@@ -311,7 +311,7 @@ export default class NewsList extends React.Component {
                                     selected[0] === 'article'
                                         ? 'selected-filter'
                                         : ''
-                                }`}
+                                    }`}
                             >
                                 <FontAwesomeIcon
                                     icon={['fa', 'hexagon']}
@@ -322,7 +322,7 @@ export default class NewsList extends React.Component {
                                     onClick={() =>
                                         this.handleFiltering('article')
                                     }
-                                ></SpanElement>
+                                />
                             </StyledSelector>
 
                             <StyledSelector
@@ -330,7 +330,7 @@ export default class NewsList extends React.Component {
                                     selected[0] === 'pressRelease'
                                         ? 'selected-filter'
                                         : ''
-                                }`}
+                                    }`}
                             >
                                 <FontAwesomeIcon
                                     icon={['fa', 'hexagon']}
@@ -341,7 +341,7 @@ export default class NewsList extends React.Component {
                                     onClick={() =>
                                         this.handleFiltering('pressRelease')
                                     }
-                                ></SpanElement>
+                                />
                             </StyledSelector>
 
                             <StyledSelector
@@ -349,7 +349,7 @@ export default class NewsList extends React.Component {
                                     selected[0] === 'business'
                                         ? 'selected-filter'
                                         : ''
-                                }`}
+                                    }`}
                             >
                                 <FontAwesomeIcon
                                     icon={['fa', 'hexagon']}
@@ -360,7 +360,7 @@ export default class NewsList extends React.Component {
                                     onClick={() =>
                                         this.handleFiltering('business')
                                     }
-                                ></SpanElement>
+                                />
                             </StyledSelector>
 
                             <StyledSelector
@@ -368,7 +368,7 @@ export default class NewsList extends React.Component {
                                     selected[0] === 'technical'
                                         ? 'selected-filter'
                                         : ''
-                                }`}
+                                    }`}
                             >
                                 <FontAwesomeIcon
                                     icon={['fa', 'hexagon']}
@@ -379,17 +379,18 @@ export default class NewsList extends React.Component {
                                     onClick={() =>
                                         this.handleFiltering('technical')
                                     }
-                                ></SpanElement>
+                                />
                             </StyledSelector>
                         </StyledTools>
                         <StyledBlogs className="posts container">
                             <div className="row">
                                 <div className="col-6">
-                                    <HeaderElement tag="h1" content="news" />
+                                    <HeaderElement tag="h1" content="news"/>
                                 </div>
                                 <div className="col-6 text-right">
                                     <LocalizedLink to="/newsletter">
-                                        <CustomRoundedButton label="signUpForNews" />
+                                        <CustomRoundedButton
+                                            label="signUpForNews"/>
                                     </LocalizedLink>
                                 </div>
                             </div>
@@ -438,7 +439,8 @@ export default class NewsList extends React.Component {
                                                         </StyledHexImage>
                                                     </LocalizedLink>
                                                 </div>
-                                                <div className="post-preview-content">
+                                                <div
+                                                    className="post-preview-content">
                                                     <div className="title">
                                                         <LocalizedLink
                                                             to={
@@ -468,7 +470,7 @@ export default class NewsList extends React.Component {
                                                                         post
                                                                             .frontmatter
                                                                             .subtype
-                                                                    ]
+                                                                        ]
                                                                 }
                                                             />
                                                             {post.frontmatter
@@ -481,14 +483,15 @@ export default class NewsList extends React.Component {
                                                                                 .subtype
                                                                         }
                                                                     />
-                                                                    <span className="divider">
+                                                                    <span
+                                                                        className="divider">
                                                                         .
                                                                     </span>
                                                                 </>
                                                             )}
                                                             {post.frontmatter
                                                                 .subtype ===
-                                                                'blog' && (
+                                                            'blog' && (
                                                                 <>
                                                                     <span>
                                                                         {
@@ -497,7 +500,8 @@ export default class NewsList extends React.Component {
                                                                                 .author
                                                                         }
                                                                     </span>
-                                                                    <span className="divider">
+                                                                    <span
+                                                                        className="divider">
                                                                         .
                                                                     </span>
                                                                 </>
@@ -522,7 +526,8 @@ export default class NewsList extends React.Component {
                                                             <p>
                                                                 {post.excerpt}
                                                             </p>
-                                                            <CustomSquareButton label="read" />
+                                                            <CustomSquareButton
+                                                                label="read"/>
                                                         </LocalizedLink>
                                                     </div>
                                                 </div>
@@ -547,7 +552,8 @@ export default class NewsList extends React.Component {
                                                         color="white"
                                                         size="1x"
                                                     />
-                                                    <SpanElement text="previousPage" />
+                                                    <SpanElement
+                                                        text="previousPage"/>
                                                 </LocalizedLink>
                                             </p>
                                         )}
@@ -562,12 +568,12 @@ export default class NewsList extends React.Component {
                                                         i + 1 === currentPage
                                                             ? 'current'
                                                             : ''
-                                                    }`}
+                                                        }`}
                                                     key={`pagination-number${i +
-                                                        1}`}
+                                                    1}`}
                                                     to={`/news/${
                                                         i === 0 ? '' : i + 1
-                                                    }`}
+                                                        }`}
                                                 >
                                                     {i + 1}
                                                 </LocalizedLink>

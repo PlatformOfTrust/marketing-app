@@ -54,7 +54,7 @@
     ],
     "license": "MIT",
     "scripts": {
-        "build": "node --stack-size=2048 --v8-pool-size=2048 node_modules/gatsby-cli/lib/index.js build -- --verbose",
+        "build": "node --stack-size=2048 --v8-pool-size=2048 node_modules/gatsby-cli/lib/index.js build",
         "develop": "gatsby develop",
         "start": "npm run develop",
         "format": "prettier --write \"src/**/*.js\"",

@@ -8,7 +8,7 @@ pictext: ''
 type: 'news' # All "News" are blogs to separate them from real pages made with MarkDown, so that they appear in blog listings etc.
 subtype: 'pressRelease' # "blog" / "news" / "pressRelease" etc.
 tags: ['ToniLuhti'] # Any string, can be used in search / "related content"
-locale: "en"
+locale: 'fi'
 author: 'Suomen Tilaajavastuu'
 authorpic: 'suomen-tilaajavastuu.jpg'
 status: 'published' # "published" / "draft" / "pending" / "archived"
