@@ -71,5 +71,6 @@
     "contactBillingInformation": "Laskutusosoite",
     "contactBillingEInvoicingAddress": "Osoite: FI3618003081609699",
     "contactBillingEInvoicingOperatorName": "Välittäjä: Nordea (NDEAFIHH)",
-    "contactBillingEInvoicingOperatorId": "OVT:003729800052"
+    "contactBillingEInvoicingOperatorId": "OVT:003729800052",
+    "changeLanguageText": "In English"
 }

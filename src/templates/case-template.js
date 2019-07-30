@@ -114,6 +114,7 @@ const StyledBlogFooter = styled.div`
 export default function Template({ data, location, pageContext }) {
     const post = data.mdx;
     const { next, prev, locale } = pageContext;
+    console.log(data);
 
     return (
         <Layout pathname={location.pathname} locale={locale}>
@@ -256,8 +257,8 @@ export default function Template({ data, location, pageContext }) {
 }
 
 export const pageQuery = graphql`
-    query casePostByPagePath($pagePath: String!) {
-        mdx(frontmatter: { path: { eq: $pagePath } }) {
+    query casePostByPagePath($pagePath: String!, $locale: String!) {
+        mdx(frontmatter: { path: { eq: $pagePath }, locale: { eq: $locale } }) {
             frontmatter {
                 date(formatString: "MMMM DD, YYYY")
                 path

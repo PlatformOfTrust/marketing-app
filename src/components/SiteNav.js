@@ -99,6 +99,13 @@ const SiteNav = ({
             >
                 {`${SiteNav.contact}`}
             </LocalizedLink>
+            <LocalizedLink
+                className="site-nav-link"
+                to="/faq"
+                activeStyle={activeStyles}
+            >
+                FAQ
+            </LocalizedLink>
         </StyledSiteNav>
     );
 };

@@ -8,7 +8,6 @@ import Disqus from 'gatsby-plugin-disqus';
 import styled from 'styled-components';
 import LocalizedLink from './../components/LocalizedLink';
 
-import HeaderElement from '../components/HeaderElement';
 import SpanElement from './../components/SpanElement';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -364,8 +363,8 @@ export default function Template({ data, location, pageContext }) {
 }
 
 export const pageQuery = graphql`
-    query newsPostByPath($pagePath: String!) {
-        mdx(frontmatter: { path: { eq: $pagePath } }) {
+    query newsPostByPath($pagePath: String!, $locale: String!) {
+        mdx(frontmatter: { path: { eq: $pagePath }, locale: { eq: $locale } }) {
             frontmatter {
                 date(formatString: "MMMM DD, YYYY")
                 path
