@@ -24,7 +24,7 @@ const StyledToolsNav = styled.nav`
     }
     a {
         display: block; // Change when tools released
-        font-weight: 300;
+        font-weight: 900;
         color: ${colors.light};
     }
 `;
