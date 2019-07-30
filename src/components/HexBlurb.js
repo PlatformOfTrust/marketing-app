@@ -64,7 +64,7 @@ const HexBlurb = props => {
         <StyledHexBlurb className="content-wrapper" bgColor={props.bgColor}>
             <StyledHexContent className="content" textColor={props.textColor}>
                 <FontAwesomeIcon icon={['fal', `${props.icon}`]} size="3x" />
-                <h5>{`${messages[props.title]}`}</h5>
+                <h5>{`${messages[props.title] || props.title}`}</h5>
                 <p>{props.content}</p>
             </StyledHexContent>
             <StyledHexBg>
