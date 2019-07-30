@@ -17,8 +17,6 @@ const StyledToolsNav = styled.nav`
     }
     @media ${device.tablet} {
         a {
-            display: block; // Change when tools released
-            font-weight: 300;
             color: ${colors.dark};
         }
     }
