@@ -8,7 +8,7 @@ pictext: ""
 type: "news"
 subtype: "article"
 tags: ['Stack Overfow']
-lang: "en-GB"
+locale: "en"
 author: "Jarkko Moilanen"
 authorpic: "jarkko-moilanen.jpg"
 status: "published"

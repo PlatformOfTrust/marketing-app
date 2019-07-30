@@ -13,6 +13,6 @@ twitter: ""
 linkedin: "https://www.linkedin.com/in/nokhrin"
 
 tags: ['Platform of Trust','contact', 'Director','Ivan', 'Nokhrin']
-lang: "en-GB"
+locale: "en"
 status: "published"
 ---

@@ -1,6 +1,8 @@
 import React from 'react';
-import { Link } from 'gatsby';
 import styled from 'styled-components';
+import LocalizedLink from './LocalizedLink';
+
+import { injectIntl } from 'react-intl';
 
 import { colors, device } from '../Theme.js';
 
@@ -54,47 +56,51 @@ const activeStyles = {
     borderRadius: '0%'
 };
 
-const SiteNav = props => {
+const SiteNav = ({
+    intl: {
+        messages: { SiteNav }
+    }
+}) => {
     return (
         <StyledSiteNav className="apps">
             {/* <Link className="site-nav-link" to="/pricing" activeStyle={activeStyles}>Pricing</Link> */}
-            <Link
+            <LocalizedLink
                 className="site-nav-link"
                 to="/cases"
                 activeStyle={activeStyles}
             >
-                Cases
-            </Link>
-            <Link
+                {`${SiteNav.cases}`}
+            </LocalizedLink>
+            <LocalizedLink
                 className="site-nav-link"
                 to="/news"
                 activeStyle={activeStyles}
             >
-                News
-            </Link>
-            <Link
+                {`${SiteNav.news}`}
+            </LocalizedLink>
+            <LocalizedLink
                 className="site-nav-link"
                 to="/events"
                 activeStyle={activeStyles}
             >
-                Events
-            </Link>
-            <Link
+                {`${SiteNav.events}`}
+            </LocalizedLink>
+            <LocalizedLink
                 className="site-nav-link"
                 to="/about"
                 activeStyle={activeStyles}
             >
-                About
-            </Link>
-            <Link
+                {`${SiteNav.about}`}
+            </LocalizedLink>
+            <LocalizedLink
                 className="site-nav-link"
                 to="/contact"
                 activeStyle={activeStyles}
             >
-                Contact
-            </Link>
+                {`${SiteNav.contact}`}
+            </LocalizedLink>
         </StyledSiteNav>
     );
 };
 
-export default SiteNav;
+export default injectIntl(SiteNav);

@@ -1,5 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
+import { injectIntl } from 'react-intl';
 
 import { colors } from '../Theme.js';
 
@@ -63,7 +64,9 @@ const StyledButton = styled.button`
 `;
 
 const CustomSquareButton = props => {
-    // console.log(props);
+    const {
+        intl: { messages }
+    } = props;
     return (
         <StyledButton
             type="button"
@@ -74,9 +77,9 @@ const CustomSquareButton = props => {
             bgColor={props.bgColor}
             href="/"
         >
-            {props.label}
+            {`${messages[props.label]}`}
         </StyledButton>
     );
 };
 
-export default CustomSquareButton;
+export default injectIntl(CustomSquareButton);

@@ -1,6 +1,7 @@
 ---
 page: 'index'
 section: 'partners'
+locale: 'en'
 ---
 Kojamo Oyj
 

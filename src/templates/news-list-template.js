@@ -1,16 +1,20 @@
 import React from 'react';
-import Link from 'gatsby-link';
 import { graphql } from 'gatsby';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styled from 'styled-components';
 import MetaTags from 'react-meta-tags';
 
+import LocalizedLink from './../components/LocalizedLink';
+
 import HexImage from '../components/HexImage';
-import Layout from '../components/layout';
+import Layout from '../components/Layout';
 import CustomRoundedButton from '../components/CustomRoundedButton';
 import CustomSquareButton from '../components/CustomSquareButton';
 import { colors, device, variables } from '../Theme.js';
 import SocialPreviewImage from '../images/preview_social_share/news.jpg';
+
+import HeaderElement from '../components/HeaderElement';
+import SpanElement from './../components/SpanElement';
 
 export const subtypeColors = {
     blog: `${colors.ok}`,
@@ -238,7 +242,10 @@ export default class NewsList extends React.Component {
             window.location.origin + SocialPreviewImage;
 
         return (
-            <Layout className="blog-posts">
+            <Layout
+                locale={this.props.pathContext.locale}
+                className="blog-posts"
+            >
                 <MetaTags>
                     <meta
                         property="og:title"
@@ -276,11 +283,10 @@ export default class NewsList extends React.Component {
                                         : ''
                                 }`}
                             >
-                                <span
+                                <SpanElement
+                                    text="all"
                                     onClick={() => this.handleFiltering('all')}
-                                >
-                                    All
-                                </span>
+                                ></SpanElement>
                             </StyledSelector>
 
                             <StyledSelector
@@ -294,11 +300,10 @@ export default class NewsList extends React.Component {
                                     icon={['fa', 'hexagon']}
                                     color={colors.blog}
                                 />
-                                <span
+                                <SpanElement
+                                    text="blogs"
                                     onClick={() => this.handleFiltering('blog')}
-                                >
-                                    Blogs
-                                </span>
+                                />
                             </StyledSelector>
 
                             <StyledSelector
@@ -312,13 +317,12 @@ export default class NewsList extends React.Component {
                                     icon={['fa', 'hexagon']}
                                     color={colors.article}
                                 />
-                                <span
+                                <SpanElement
+                                    text="articles"
                                     onClick={() =>
                                         this.handleFiltering('article')
                                     }
-                                >
-                                    Articles
-                                </span>
+                                ></SpanElement>
                             </StyledSelector>
 
                             <StyledSelector
@@ -332,13 +336,12 @@ export default class NewsList extends React.Component {
                                     icon={['fa', 'hexagon']}
                                     color={colors.press}
                                 />
-                                <span
+                                <SpanElement
+                                    text="pressReleases"
                                     onClick={() =>
                                         this.handleFiltering('pressRelease')
                                     }
-                                >
-                                    Press releases
-                                </span>
+                                ></SpanElement>
                             </StyledSelector>
 
                             <StyledSelector
@@ -352,13 +355,12 @@ export default class NewsList extends React.Component {
                                     icon={['fa', 'hexagon']}
                                     color={colors.business}
                                 />
-                                <span
+                                <SpanElement
+                                    text="business"
                                     onClick={() =>
                                         this.handleFiltering('business')
                                     }
-                                >
-                                    Business
-                                </span>
+                                ></SpanElement>
                             </StyledSelector>
 
                             <StyledSelector
@@ -372,24 +374,23 @@ export default class NewsList extends React.Component {
                                     icon={['fa', 'hexagon']}
                                     color={colors.technical}
                                 />
-                                <span
+                                <SpanElement
+                                    text="technical"
                                     onClick={() =>
                                         this.handleFiltering('technical')
                                     }
-                                >
-                                    Technical
-                                </span>
+                                ></SpanElement>
                             </StyledSelector>
                         </StyledTools>
                         <StyledBlogs className="posts container">
                             <div className="row">
                                 <div className="col-6">
-                                    <h1>News</h1>
+                                    <HeaderElement tag="h1" content="news" />
                                 </div>
                                 <div className="col-6 text-right">
-                                    <Link to="/newsletter">
-                                        <CustomRoundedButton label="Sign up for news" />
-                                    </Link>
+                                    <LocalizedLink to="/newsletter">
+                                        <CustomRoundedButton label="signUpForNews" />
+                                    </LocalizedLink>
                                 </div>
                             </div>
                             <div className="row">
@@ -420,7 +421,7 @@ export default class NewsList extends React.Component {
                                             >
                                                 {/* {items} */}
                                                 <div className="featured-image">
-                                                    <Link
+                                                    <LocalizedLink
                                                         to={
                                                             post.frontmatter
                                                                 .path
@@ -435,11 +436,11 @@ export default class NewsList extends React.Component {
                                                                 rotate={true}
                                                             />
                                                         </StyledHexImage>
-                                                    </Link>
+                                                    </LocalizedLink>
                                                 </div>
                                                 <div className="post-preview-content">
                                                     <div className="title">
-                                                        <Link
+                                                        <LocalizedLink
                                                             to={
                                                                 post.frontmatter
                                                                     .path
@@ -453,7 +454,7 @@ export default class NewsList extends React.Component {
                                                                         .title
                                                                 }
                                                             </h2>
-                                                        </Link>
+                                                        </LocalizedLink>
                                                     </div>
                                                     <div className="meta">
                                                         <p>
@@ -473,16 +474,13 @@ export default class NewsList extends React.Component {
                                                             {post.frontmatter
                                                                 .subtype && (
                                                                 <>
-                                                                    <span>
-                                                                        {post
-                                                                            .frontmatter
-                                                                            .subtype ===
-                                                                        'pressRelease'
-                                                                            ? 'Press Release'
-                                                                            : post
-                                                                                  .frontmatter
-                                                                                  .subtype}
-                                                                    </span>
+                                                                    <SpanElement
+                                                                        text={
+                                                                            post
+                                                                                .frontmatter
+                                                                                .subtype
+                                                                        }
+                                                                    />
                                                                     <span className="divider">
                                                                         .
                                                                     </span>
@@ -514,7 +512,7 @@ export default class NewsList extends React.Component {
                                                         </p>
                                                     </div>
                                                     <div className="excerpt">
-                                                        <Link
+                                                        <LocalizedLink
                                                             to={
                                                                 post.frontmatter
                                                                     .path
@@ -524,8 +522,8 @@ export default class NewsList extends React.Component {
                                                             <p>
                                                                 {post.excerpt}
                                                             </p>
-                                                            <CustomSquareButton label="Read" />
-                                                        </Link>
+                                                            <CustomSquareButton label="read" />
+                                                        </LocalizedLink>
                                                     </div>
                                                 </div>
                                             </StyledBlogBlock>
@@ -540,7 +538,7 @@ export default class NewsList extends React.Component {
                                     <div className="col col-3 offset-1">
                                         {!isFirst && (
                                             <p>
-                                                <Link to={prevPage}>
+                                                <LocalizedLink to={prevPage}>
                                                     <FontAwesomeIcon
                                                         icon={[
                                                             'fal',
@@ -549,8 +547,8 @@ export default class NewsList extends React.Component {
                                                         color="white"
                                                         size="1x"
                                                     />
-                                                    Previous page
-                                                </Link>
+                                                    <SpanElement text="previousPage" />
+                                                </LocalizedLink>
                                             </p>
                                         )}
                                     </div>
@@ -559,7 +557,7 @@ export default class NewsList extends React.Component {
                                         {Array.from(
                                             { length: numPages },
                                             (_, i) => (
-                                                <Link
+                                                <LocalizedLink
                                                     className={`pagination-number ${
                                                         i + 1 === currentPage
                                                             ? 'current'
@@ -572,7 +570,7 @@ export default class NewsList extends React.Component {
                                                     }`}
                                                 >
                                                     {i + 1}
-                                                </Link>
+                                                </LocalizedLink>
                                             )
                                         )}
                                     </div>
@@ -580,7 +578,7 @@ export default class NewsList extends React.Component {
                                     <div className="col col-3">
                                         {!isLast && (
                                             <p>
-                                                <Link to={nextPage}>
+                                                <LocalizedLink to={nextPage}>
                                                     More news
                                                     <FontAwesomeIcon
                                                         icon={[
@@ -590,7 +588,7 @@ export default class NewsList extends React.Component {
                                                         color="white"
                                                         size="1x"
                                                     />
-                                                </Link>
+                                                </LocalizedLink>
                                             </p>
                                         )}
                                     </div>
@@ -611,9 +609,11 @@ const SocialPreviewData = {
 };
 
 export const newsListQuery = graphql`
-    query newsListQuery($skip: Int!, $limit: Int!) {
+    query newsListQuery($skip: Int!, $limit: Int!, $locale: String!) {
         allMdx(
-            filter: { frontmatter: { type: { eq: "news" } } }
+            filter: {
+                frontmatter: { type: { eq: "news" }, locale: { eq: $locale } }
+            }
             sort: { fields: [frontmatter___date], order: DESC }
             limit: $limit
             skip: $skip

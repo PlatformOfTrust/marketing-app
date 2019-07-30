@@ -1,7 +1,8 @@
 import React from 'react';
-import Link from 'gatsby-link';
+import LocalizedLink from './LocalizedLink';
 import styled from 'styled-components';
 
+import { injectIntl } from 'react-intl';
 import { colors } from '../Theme.js';
 
 const StyledFooterInfo = styled.div`
@@ -20,20 +21,27 @@ const StyledFooterInfo = styled.div`
     }
 `;
 
-const FooterInfo = props => {
+const FooterInfo = ({
+    intl: {
+        messages: { FooterInfo }
+    }
+}) => {
     return (
         <StyledFooterInfo>
             <h5 className="mb-md-1 footer-elements-opacity">
-                Platform of Trust Oy
+                {`${FooterInfo.companyName}`}
             </h5>
-            <p className="footer-elements-opacity"> VAT-number FI29800052</p>
+            <p className="footer-elements-opacity">{`${FooterInfo.VAT}`}</p>
             <p>
-                <Link to="/privacy-policy" className="footer-elements-opacity">
-                    Privacy Policy
-                </Link>
+                <LocalizedLink
+                    to="/privacy-policy"
+                    className="footer-elements-opacity"
+                >
+                    {`${FooterInfo.privacyPolicy}`}
+                </LocalizedLink>
             </p>
         </StyledFooterInfo>
     );
 };
 
-export default FooterInfo;
+export default injectIntl(FooterInfo);

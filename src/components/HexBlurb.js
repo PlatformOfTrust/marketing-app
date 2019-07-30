@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+import { injectIntl } from 'react-intl';
+
 import Hex from './Hex';
 import { device } from '../Theme.js';
 
@@ -55,11 +57,14 @@ const StyledHexContent = styled.div`
 `;
 
 const HexBlurb = props => {
+    const {
+        intl: { messages }
+    } = props;
     return (
         <StyledHexBlurb className="content-wrapper" bgColor={props.bgColor}>
             <StyledHexContent className="content" textColor={props.textColor}>
                 <FontAwesomeIcon icon={['fal', `${props.icon}`]} size="3x" />
-                <h5>{props.title}</h5>
+                <h5>{`${messages[props.title]}`}</h5>
                 <p>{props.content}</p>
             </StyledHexContent>
             <StyledHexBg>
@@ -69,4 +74,4 @@ const HexBlurb = props => {
     );
 };
 
-export default HexBlurb;
+export default injectIntl(HexBlurb);

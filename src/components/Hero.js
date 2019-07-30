@@ -1,5 +1,4 @@
 import React from 'react';
-import { StaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
 
 import HexBg from '../images/new-bg-square-bigger5.jpg';
@@ -44,38 +43,19 @@ const StyledContent = styled.div`
     }
 `;
 
-const Hero = () => (
-    <StaticQuery
-        query={graphql`
-            query {
-                intro: allMarkdownRemark(
-                    filter: { frontmatter: { section: { eq: "herohex" } } }
-                    limit: 1
-                ) {
-                    edges {
-                        node {
-                            id
-                            html
-                        }
-                    }
-                }
-            }
-        `}
-        render={data => {
-            const content = data.intro.edges[0].node;
-            return (
-                <StyledHero>
-                    <StyledBg>
-                        <HexImage pic={HexBg} hexId="HeroHex" />
-                    </StyledBg>
-                    <StyledContent
-                        key={content.id}
-                        dangerouslySetInnerHTML={{ __html: content.html }}
-                    />
-                </StyledHero>
-            );
-        }}
-    />
-);
+const Hero = props => {
+    const content = props.data;
+    return (
+        <StyledHero>
+            <StyledBg>
+                <HexImage pic={HexBg} hexId="HeroHex" />
+            </StyledBg>
+            <StyledContent
+                key={content.id}
+                dangerouslySetInnerHTML={{ __html: content.html }}
+            />
+        </StyledHero>
+    );
+};
 
 export default Hero;

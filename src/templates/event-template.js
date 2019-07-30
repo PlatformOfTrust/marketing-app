@@ -1,12 +1,13 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import { graphql, Link } from 'gatsby';
+import { graphql } from 'gatsby';
 import MDXRenderer from 'gatsby-mdx/mdx-renderer';
 import styled from 'styled-components';
+import LocalizedLink from './../components/LocalizedLink';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import Layout from '../components/layout';
+import Layout from '../components/Layout';
 import CustomImage from '../components/CustomImage';
 import { colors, device, variables } from '../Theme.js';
 
@@ -129,19 +130,19 @@ const StyledCustomImage = styled.div`
 
 export default function Template({ data, location, pageContext }) {
     const post = data.mdx;
-    const { next, prev } = pageContext;
+    const { next, prev, locale } = pageContext;
 
     return (
-        <Layout pathname={location.pathname}>
+        <Layout pathname={location.pathname} locale={locale}>
             <Helmet title={`Platform of Trust - ${post.frontmatter.title}`} />
             <StyledBlog>
                 <StyledHeader className="container">
                     <div className="row">
                         <div className="col-12">
-                            <Link to="/events">
+                            <LocalizedLink to="/events">
                                 <FontAwesomeIcon icon={['fal', 'arrow-left']} />{' '}
                                 Back to events
-                            </Link>
+                            </LocalizedLink>
                         </div>
                     </div>
                 </StyledHeader>
@@ -230,7 +231,7 @@ export default function Template({ data, location, pageContext }) {
                         <div className="col col-3 offset-1">
                             <p>
                                 {prev && (
-                                    <Link to={prev.frontmatter.path}>
+                                    <LocalizedLink to={prev.frontmatter.path}>
                                         <FontAwesomeIcon
                                             icon={['fal', 'arrow-left']}
                                             color="white"
@@ -238,21 +239,23 @@ export default function Template({ data, location, pageContext }) {
                                         />
                                         Previous
                                         {/* {prev.frontmatter.title} */}
-                                    </Link>
+                                    </LocalizedLink>
                                 )}
                             </p>
                         </div>
 
                         <div className="col col-4">
                             <p>
-                                <Link to="/events">Back to events</Link>
+                                <LocalizedLink to="/events">
+                                    Back to events
+                                </LocalizedLink>
                             </p>
                         </div>
 
                         <div className="col col-3">
                             <p>
                                 {next && (
-                                    <Link to={next.frontmatter.path}>
+                                    <LocalizedLink to={next.frontmatter.path}>
                                         Next
                                         {/* {next.frontmatter.title} */}
                                         <FontAwesomeIcon
@@ -260,7 +263,7 @@ export default function Template({ data, location, pageContext }) {
                                             color="white"
                                             size="1x"
                                         />
-                                    </Link>
+                                    </LocalizedLink>
                                 )}
                             </p>
                         </div>
@@ -272,8 +275,8 @@ export default function Template({ data, location, pageContext }) {
 }
 
 export const pageQuery = graphql`
-    query eventPostByPath($path: String!) {
-        mdx(frontmatter: { path: { eq: $path } }) {
+    query eventPostByPagePath($pagePath: String!) {
+        mdx(frontmatter: { path: { eq: $pagePath } }) {
             frontmatter {
                 date(formatString: "MMMM DD, YYYY")
                 path

@@ -4,7 +4,10 @@ import Img from 'gatsby-image';
 import styled from 'styled-components';
 import MetaTags from 'react-meta-tags';
 
-import Layout from '../components/layout';
+import HeaderElement from '../components/HeaderElement';
+import SpanElement from './../components/SpanElement';
+
+import Layout from '../components/Layout';
 import SEO from '../components/seo';
 import Video from '../components/Video';
 import Logos from '../components/Logos';
@@ -37,8 +40,8 @@ const StyledVideo = styled.section`
 `;
 const socialPreviewImageFullUri = window.location.origin + SocialPreviewImage;
 
-const About = ({ data }) => (
-    <Layout>
+const About = ({ data, pathContext }) => (
+    <Layout locale={pathContext.locale}>
         <SEO title="About Platform of Trust" />
         <MetaTags>
             <meta property="og:title" content={SocialPreviewData.title} />
@@ -59,31 +62,25 @@ const About = ({ data }) => (
             <StyledSection className="container">
                 <div className="row mb-5">
                     <div className="col-12">
-                        <h1>About</h1>
+                        <HeaderElement tag="h1" content="about" />
                         <Img fluid={data.file.childImageSharp.fluid} />
                     </div>
                 </div>
                 <div className="row">
                     <div className="col-md-6">
                         <p>
-                            Communally built Platform of Trust is a platform
-                            that makes data move between systems and
-                            organisations. It makes knowledge-based decisions
-                            possible but also creates grounds for new business
-                            models with harmonised data.{' '}
+                            <SpanElement text="aboutText1" />
                         </p>
                     </div>
                     <div className="col-md-6">
                         <p>
-                            Platform of Trust differs from other platforms with
-                            a built-in trust engine that makes sure both the
-                            data producers and data users are trustworthy.{' '}
+                            <SpanElement text="aboutText2" />
                         </p>
                     </div>
                 </div>
             </StyledSection>
             <StyledSection className="container">
-                <h2>For whom</h2>
+                <HeaderElement tag="h2" content="forWhom" />
                 <div className="row">
                     <div className="col-4 col-md-2">
                         <HexIcon
@@ -94,8 +91,7 @@ const About = ({ data }) => (
                     </div>
                     <div className="col-7 col-md-4 d-flex align-items-center">
                         <p>
-                            Any business that is using or planning to use data
-                            for business development and new business models.
+                            <SpanElement text="aboutText3" />
                         </p>
                     </div>
                     <div className="col-4 col-md-2">
@@ -103,19 +99,14 @@ const About = ({ data }) => (
                     </div>
                     <div className="col-7 col-md-4 d-flex align-items-center">
                         <p>
-                            Developers that long for faster time-to-market and
-                            want to experience high-quality developer
-                            experience.
+                            <SpanElement text="aboutText4" />
                         </p>
                     </div>
                 </div>
             </StyledSection>
             <StyledSection className="container">
                 <StyledVideo>
-                    <h2>
-                        Platform of Trust benefits in one minute by CEO Toni
-                        Luhti
-                    </h2>
+                    <HeaderElement tag="h2" content="aboutVideoText" />
                     <Video
                         videoSrcURL="https://www.youtube.com/embed/sGgt88bkoOA"
                         videoTitle="Start using your data"
@@ -126,12 +117,12 @@ const About = ({ data }) => (
         </Link> */}
             </StyledSection>
             <StyledSection className="container">
-                <h2>Our partners and customers</h2>
+                <HeaderElement tag="h2" content="aboutPartnersText" />
                 <Logos />
             </StyledSection>
             <StyledSection className="container">
                 <h3>
-                    Platform of Trust is part of{' '}
+                    <SpanElement text="aboutPartText" />{' '}
                     <a href="https://www.tilaajavastuu.fi/en/">
                         Suomen Tilaajavastuu Group
                     </a>

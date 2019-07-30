@@ -13,6 +13,6 @@ twitter: ""
 linkedin: "https://www.linkedin.com/in/toni-luhti/"
 
 tags: ['Platform of Trust','contact', 'CEO','Toni', 'Luhti']
-lang: "en-GB"
+locale: "en"
 status: "published"
 ---

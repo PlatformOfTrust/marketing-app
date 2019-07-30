@@ -13,6 +13,6 @@ twitter: ""
 linkedin: "https://www.linkedin.com/in/markku-k%C3%B6ykk%C3%A4-4066231/"
 
 tags: ['Platform of Trust','contact', 'Director','Markku', 'Koykka']
-lang: "en-GB"
+locale: "en"
 status: "published"
 ---

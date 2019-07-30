@@ -1,10 +1,11 @@
 import React from 'react';
-import { graphql, Link } from 'gatsby';
+import { graphql } from 'gatsby';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import MetaTags from 'react-meta-tags';
+import LocalizedLink from './../components/LocalizedLink';
 
-import Layout from '../components/layout';
+import Layout from '../components/Layout';
 import SEO from '../components/seo';
 import Hero from '../components/Hero';
 import Featured from '../components/Featured';
@@ -12,6 +13,7 @@ import HexBlurb from '../components/HexBlurb';
 import CustomRoundedButton from '../components/CustomRoundedButton';
 import ToolsIntro from '../components/ToolsIntro';
 import FeaturedNews from '../components/FeaturedNews';
+import HeaderElement from '../components/HeaderElement';
 
 import 'bootstrap/dist/css/bootstrap.css';
 import '../styles/global.css';
@@ -49,13 +51,13 @@ const StyledPartners = styled.div`
     }
 `;
 
-const IndexPage = ({ data }) => {
+const IndexPage = ({ data, pathContext }) => {
     const testContent = data.allContent.edges[0].node;
     const contents = data.allContent.edges;
     const socialPreviewImageFullUri =
         window.location.origin + SocialPreviewImage;
     return (
-        <Layout>
+        <Layout locale={pathContext.locale}>
             <MetaTags>
                 <meta property="og:title" content={SocialPreviewData.title} />
                 <meta
@@ -74,7 +76,7 @@ const IndexPage = ({ data }) => {
                     content={socialPreviewImageFullUri}
                 />
             </MetaTags>
-            <SEO title="Home" keywords={[`Platform of Trust`]} />
+            <SEO title="Home" keywords={['Platform of Trust']} />
             <StyledMain className="home page-content container">
                 <div className="dev-test" style={{ display: 'none' }}>
                     <div
@@ -99,8 +101,17 @@ const IndexPage = ({ data }) => {
                 </div>
                 <div className="row">
                     <div className="col-12 col-sm-10 offset-sm-1 col-lg-7">
-                        <Hero />
-                        <FeaturedNews />
+                        {contents
+                            .filter(
+                                content =>
+                                    content.node.frontmatter.section ===
+                                    'herohex'
+                            )
+                            .map(data => {
+                                const { node } = data;
+                                return <Hero key={node.id} data={node} />;
+                            })}
+                        <FeaturedNews data={data.featuredNews} />
                     </div>
                     <div className="col-9 offset-3 col-sm-6 offset-sm-3 col-lg-3 offset-lg-0">
                         <Featured />
@@ -148,9 +159,9 @@ const IndexPage = ({ data }) => {
                         </StyledBenefits>
                     </div>
                     <div className="col-6 col-md-3">
-                        <Link to="/newsletter">
-                            <CustomRoundedButton label="Signup for news" />
-                        </Link>
+                        <LocalizedLink to="/newsletter">
+                            <CustomRoundedButton label="signUpForNews" />
+                        </LocalizedLink>
                     </div>
                 </div>
 
@@ -238,7 +249,11 @@ const IndexPage = ({ data }) => {
 
                 <div className="row mt-5">
                     <div className="col-md-10 offset-md-1 mb-3">
-                        <h2>Here are some of our partners and first users</h2>
+                        {/* TODO: Only for translation purposes, must be refactored */}
+                        <HeaderElement
+                            tag="h5"
+                            content={'partnersHeaderText'}
+                        />
                     </div>
                     <StyledPartners id="partners" className="col-10 offset-1">
                         {contents
@@ -275,9 +290,11 @@ const SocialPreviewData = {
 };
 
 export const query = graphql`
-    query {
+    query($locale: String!) {
         allContent: allMarkdownRemark(
-            filter: { frontmatter: { page: { eq: "index" } } }
+            filter: {
+                frontmatter: { page: { eq: "index" }, locale: { eq: $locale } }
+            }
             sort: { order: ASC, fields: [frontmatter___order] }
         ) {
             edges {
@@ -288,6 +305,35 @@ export const query = graphql`
                         section
                         icon
                     }
+                }
+            }
+        }
+        featuredNews: allMarkdownRemark(
+            limit: 3
+            filter: {
+                frontmatter: {
+                    type: { eq: "news" }
+                    status: { eq: "published" }
+                    locale: { eq: $locale }
+                }
+            }
+            sort: { fields: [frontmatter___date], order: DESC }
+        ) {
+            totalCount
+            edges {
+                node {
+                    id
+                    html
+                    frontmatter {
+                        title
+                        path
+                        date(formatString: "MMMM DD, YYYY")
+                        tags
+                        status
+                        type
+                        subtype
+                    }
+                    excerpt(format: PLAIN, pruneLength: 20, truncate: true)
                 }
             }
         }

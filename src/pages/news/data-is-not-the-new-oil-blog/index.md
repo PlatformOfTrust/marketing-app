@@ -8,7 +8,7 @@ pictext: ""
 type: "news" # All "News" are blogs to separate them from real pages made with MarkDown, so that they appear in blog listings etc.
 subtype: "blog" # "blog" / "news" / "press-realease" etc.
 tags: ['Data'] # Any string, can be used in search / "related content"
-lang: "en-GB" # ISO Lang attr
+locale: "en"
 author: "Vesa Ilmarinen"
 authorpic: "vesa-ilmarinen.jpg"
 status: "published" # "published" / "draft" / "pending" / "archived"

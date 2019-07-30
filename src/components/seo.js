@@ -25,39 +25,39 @@ function SEO({ description, lang, meta, keywords, title }) {
                         titleTemplate={`%s | ${data.site.siteMetadata.title}`}
                         meta={[
                             {
-                                name: `description`,
+                                name: 'description',
                                 content: metaDescription
                             },
                             {
-                                name: `msapplication-TileColor`,
+                                name: 'msapplication-TileColor',
                                 content: '#ffffff'
                             },
                             {
-                                name: `msapplication-TileImage`,
+                                name: 'msapplication-TileImage',
                                 content: `${mstile144}`
                             },
                             {
-                                name: `msapplication-square70x70logo`,
+                                name: 'msapplication-square70x70logo',
                                 content: `${mstile70}`
                             },
                             {
-                                name: `msapplication-square150x150logo`,
+                                name: 'msapplication-square150x150logo',
                                 content: `${mstile150}`
                             },
                             {
-                                name: `msapplication-wide310x150logo`,
+                                name: 'msapplication-wide310x150logo',
                                 content: `${mstile310x150}`
                             },
                             {
-                                name: `msapplication-square310x310logo`,
+                                name: 'msapplication-square310x310logo',
                                 content: `${mstile310}`
                             }
                         ]
                             .concat(
                                 keywords.length > 0
                                     ? {
-                                          name: `keywords`,
-                                          content: keywords.join(`, `)
+                                          name: 'keywords',
+                                          content: keywords.join(', ')
                                       }
                                     : []
                             )
@@ -70,7 +70,7 @@ function SEO({ description, lang, meta, keywords, title }) {
 }
 
 SEO.defaultProps = {
-    lang: `en`,
+    lang: 'en',
     meta: [],
     keywords: []
 };

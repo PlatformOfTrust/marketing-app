@@ -1,16 +1,19 @@
 import React from 'react';
-import Link from 'gatsby-link';
 import { graphql } from 'gatsby';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styled from 'styled-components';
 import MetaTags from 'react-meta-tags';
 
+import LocalizedLink from './../components/LocalizedLink';
+import SpanElement from './../components/SpanElement';
+
 // import CustomImage from "../components/CustomImage"
 import HexImage from '../components/HexImage';
 import CustomSquareButton from '../components/CustomSquareButton';
-import Layout from '../components/layout';
-import { colors, device, variables } from '../Theme.js';
+import Layout from '../components/Layout';
+import { colors, variables } from '../Theme.js';
 import SocialPreviewImage from '../images/preview_social_share/cases.jpg';
+import HeaderElement from '../components/HeaderElement';
 
 export const subtypeColors = {
     blog: `${colors.ok}`,
@@ -158,7 +161,7 @@ const StyledPad = styled.div`
     margin: 1rem;
 `;
 
-export default class Events extends React.Component {
+class Events extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -196,7 +199,10 @@ export default class Events extends React.Component {
             window.location.origin + SocialPreviewImage;
 
         return (
-            <Layout className="blog-posts">
+            <Layout
+                locale={this.props.pathContext.locale}
+                className="blog-posts"
+            >
                 <MetaTags>
                     <meta
                         property="og:title"
@@ -234,11 +240,10 @@ export default class Events extends React.Component {
                                         : ''
                                 }`}
                             >
-                                <span
+                                <SpanElement
+                                    text="all"
                                     onClick={() => this.handleFiltering('all')}
-                                >
-                                    All
-                                </span>
+                                />
                             </StyledSelector>
                             {/* <StyledSelector className={`tool-block blog ${ selected[0] === "blog" ? "selected-filter" : "" }`}>
                 <FontAwesomeIcon icon={['fa', 'hexagon']} color={ colors.ok } />
@@ -280,17 +285,16 @@ export default class Events extends React.Component {
                                     color={colors.mainLightest}
                                     size="1x"
                                 />
-                                <span
+                                <SpanElement
+                                    text="technical"
                                     onClick={() =>
                                         this.handleFiltering('technical')
                                     }
-                                >
-                                    Technical
-                                </span>
+                                />
                             </StyledSelector>
                         </StyledTools>
                         <StyledBlogs className="posts">
-                            <h1>Cases</h1>
+                            <HeaderElement tag="h1" content="cases" />
                             {posts.filter(post =>
                                 filters.includes(post.node.frontmatter.subtype)
                             ).length === 0 && (
@@ -314,7 +318,7 @@ export default class Events extends React.Component {
                                             key={post.id}
                                         >
                                             <div className="featured-image">
-                                                <Link
+                                                <LocalizedLink
                                                     to={post.frontmatter.path}
                                                     className="post-link"
                                                 >
@@ -326,11 +330,11 @@ export default class Events extends React.Component {
                                                             rotate={true}
                                                         />
                                                     </StyledHexImage>
-                                                </Link>
+                                                </LocalizedLink>
                                             </div>
                                             <div className="post-preview-content">
                                                 <div className="title">
-                                                    <Link
+                                                    <LocalizedLink
                                                         to={
                                                             post.frontmatter
                                                                 .path
@@ -343,7 +347,7 @@ export default class Events extends React.Component {
                                                                     .title
                                                             }
                                                         </h2>
-                                                    </Link>
+                                                    </LocalizedLink>
                                                 </div>
                                                 <div className="meta">
                                                     <p>
@@ -384,7 +388,7 @@ export default class Events extends React.Component {
                                                     </p>
                                                 </div>
                                                 <div className="excerpt">
-                                                    <Link
+                                                    <LocalizedLink
                                                         to={
                                                             post.frontmatter
                                                                 .path
@@ -392,8 +396,8 @@ export default class Events extends React.Component {
                                                         className="post-link"
                                                     >
                                                         <p>{post.excerpt}</p>
-                                                        <CustomSquareButton label="Read" />
-                                                    </Link>
+                                                        <CustomSquareButton label="read" />
+                                                    </LocalizedLink>
                                                 </div>
                                             </div>
                                         </StyledBlogBlock>
@@ -437,3 +441,5 @@ export const pageQuery = graphql`
         }
     }
 `;
+
+export default Events;

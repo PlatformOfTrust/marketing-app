@@ -1,5 +1,4 @@
 import React from 'react';
-import Link from 'gatsby-link';
 import { graphql } from 'gatsby';
 import MDXRenderer from 'gatsby-mdx/mdx-renderer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -9,9 +8,13 @@ import HexImage from '../components/HexImage';
 import CustomSquareButton from '../components/CustomSquareButton';
 import CustomRoundedButton from '../components/CustomRoundedButton';
 import SomeIcons from '../components/SomeIcons';
-import Layout from '../components/layout';
+import Layout from '../components/Layout';
 import { colors, device, variables } from '../Theme.js';
 import SocialPreviewImage from '../images/preview_social_share/events.jpg';
+import LocalizedLink from './../components/LocalizedLink';
+
+import HeaderElement from '../components/HeaderElement';
+import SpanElement from './../components/SpanElement';
 
 export const subtypeColors = {
     blog: `${colors.ok}`,
@@ -184,7 +187,10 @@ export default class Events extends React.Component {
             window.location.origin + SocialPreviewImage;
 
         return (
-            <Layout className="blog-posts">
+            <Layout
+                locale={this.props.pathContext.locale}
+                className="blog-posts"
+            >
                 <MetaTags>
                     <meta
                         property="og:title"
@@ -222,11 +228,10 @@ export default class Events extends React.Component {
                                         : ''
                                 }`}
                             >
-                                <span
+                                <SpanElement
+                                    text="all"
                                     onClick={() => this.handleFiltering('all')}
-                                >
-                                    All
-                                </span>
+                                ></SpanElement>
                             </StyledSelector>
                             <StyledSelector
                                 className={`tool-block business ${
@@ -239,13 +244,12 @@ export default class Events extends React.Component {
                                     icon={['fa', 'hexagon']}
                                     color={colors.success}
                                 />
-                                <span
+                                <SpanElement
+                                    text="business"
                                     onClick={() =>
                                         this.handleFiltering('business')
                                     }
-                                >
-                                    Business
-                                </span>
+                                ></SpanElement>
                             </StyledSelector>
                             <StyledSelector
                                 className={`tool-block article ${
@@ -258,19 +262,18 @@ export default class Events extends React.Component {
                                     icon={['fa', 'hexagon']}
                                     color={colors.mainLightest}
                                 />
-                                <span
+                                <SpanElement
+                                    text="technical"
                                     onClick={() =>
                                         this.handleFiltering('technical')
                                     }
-                                >
-                                    Technical
-                                </span>
+                                ></SpanElement>
                             </StyledSelector>
                         </StyledTools>
                         <StyledHeader className="container">
                             <div className="row">
                                 <div className="col">
-                                    <h1>Events</h1>
+                                    <HeaderElement tag="h1" content="events" />
                                 </div>
                             </div>
                             <div className="row">
@@ -285,25 +288,30 @@ export default class Events extends React.Component {
                                     </StyledHexImage>
                                 </div>
                                 <div className="col-12 col-md-8">
-                                    <h2>Come meet us at following events</h2>
+                                    <HeaderElement
+                                        tag="h2"
+                                        content="comeMeetUsText"
+                                    />
                                 </div>
                             </div>
                         </StyledHeader>
                         <StyledBlogs className="posts">
                             <div className="row">
                                 <div className="potevents col-md-6">
-                                    <h3>Events organised by us</h3>
+                                    <HeaderElement
+                                        tag="h3"
+                                        content="eventsByUsText"
+                                    />
 
                                     {ownEventsNow.length === 0 && (
                                         <StyledDefault>
-                                            <h2>
-                                                No upcoming events for now. Sign
-                                                up for news to receive events
-                                                info and follow us
-                                            </h2>
-                                            <Link to="/newsletter">
-                                                <CustomRoundedButton label="Sign up for news" />
-                                            </Link>
+                                            <HeaderElement
+                                                tag="h2"
+                                                content="noUpcomingEventsText"
+                                            />
+                                            <LocalizedLink to="/newsletter">
+                                                <CustomRoundedButton label="signUpForNews" />
+                                            </LocalizedLink>
                                             <SomeIcons color="light" />
                                         </StyledDefault>
                                     )}
@@ -323,7 +331,7 @@ export default class Events extends React.Component {
                                                     <div className="featured-image">
                                                         {post.frontmatter
                                                             .potevent && (
-                                                            <Link
+                                                            <LocalizedLink
                                                                 to={
                                                                     post
                                                                         .frontmatter
@@ -341,7 +349,7 @@ export default class Events extends React.Component {
                                                                         }
                                                                     />
                                                                 </StyledHexImage>
-                                                            </Link>
+                                                            </LocalizedLink>
                                                         )}
                                                         {!post.frontmatter
                                                             .potevent && (
@@ -371,7 +379,7 @@ export default class Events extends React.Component {
                                                         <div className="title">
                                                             {post.frontmatter
                                                                 .potevent && (
-                                                                <Link
+                                                                <LocalizedLink
                                                                     to={
                                                                         post
                                                                             .frontmatter
@@ -386,7 +394,7 @@ export default class Events extends React.Component {
                                                                                 .title
                                                                         }
                                                                     </h2>
-                                                                </Link>
+                                                                </LocalizedLink>
                                                             )}
                                                             {!post.frontmatter
                                                                 .potevent && (
@@ -428,13 +436,13 @@ export default class Events extends React.Component {
                                                                     .frontmatter
                                                                     .subtype && (
                                                                     <>
-                                                                        <span>
-                                                                            {
+                                                                        <SpanElement
+                                                                            text={
                                                                                 post
                                                                                     .frontmatter
                                                                                     .subtype
                                                                             }
-                                                                        </span>
+                                                                        />
                                                                         <span className="divider">
                                                                             .
                                                                         </span>
@@ -472,15 +480,15 @@ export default class Events extends React.Component {
                                                         <div className="event-link">
                                                             {post.frontmatter
                                                                 .potevent && (
-                                                                <Link
+                                                                <LocalizedLink
                                                                     to={
                                                                         post
                                                                             .frontmatter
                                                                             .path
                                                                     }
                                                                 >
-                                                                    <CustomSquareButton label="Read more" />
-                                                                </Link>
+                                                                    <CustomSquareButton label="readMore" />
+                                                                </LocalizedLink>
                                                             )}
                                                             {!post.frontmatter
                                                                 .potevent && (
@@ -501,7 +509,7 @@ export default class Events extends React.Component {
                                                                         target="_blank"
                                                                         rel="noopener noreferrer"
                                                                     >
-                                                                        <CustomSquareButton label="Visit event page" />
+                                                                        <CustomSquareButton label="visitButtonText" />
                                                                     </a>
                                                                 </>
                                                             )}
@@ -512,7 +520,10 @@ export default class Events extends React.Component {
                                         })}
                                 </div>
                                 <div className="nonpotevents col-md-6">
-                                    <h3>Events organised by friends</h3>
+                                    <HeaderElement
+                                        tag="h3"
+                                        content="eventsByFriendsText"
+                                    />
                                     {friendsEventsNow
                                         .filter(post =>
                                             filters.includes(
@@ -528,7 +539,7 @@ export default class Events extends React.Component {
                                                     <div className="featured-image">
                                                         {post.frontmatter
                                                             .potevent && (
-                                                            <Link
+                                                            <LocalizedLink
                                                                 to={
                                                                     post
                                                                         .frontmatter
@@ -546,7 +557,7 @@ export default class Events extends React.Component {
                                                                         }
                                                                     />
                                                                 </StyledHexImage>
-                                                            </Link>
+                                                            </LocalizedLink>
                                                         )}
                                                         {!post.frontmatter
                                                             .potevent && (
@@ -576,7 +587,7 @@ export default class Events extends React.Component {
                                                         <div className="title">
                                                             {post.frontmatter
                                                                 .potevent && (
-                                                                <Link
+                                                                <LocalizedLink
                                                                     to={
                                                                         post
                                                                             .frontmatter
@@ -591,7 +602,7 @@ export default class Events extends React.Component {
                                                                                 .title
                                                                         }
                                                                     </h2>
-                                                                </Link>
+                                                                </LocalizedLink>
                                                             )}
                                                             {!post.frontmatter
                                                                 .potevent && (
@@ -633,13 +644,13 @@ export default class Events extends React.Component {
                                                                     .frontmatter
                                                                     .subtype && (
                                                                     <>
-                                                                        <span>
-                                                                            {
+                                                                        <SpanElement
+                                                                            text={
                                                                                 post
                                                                                     .frontmatter
                                                                                     .subtype
                                                                             }
-                                                                        </span>
+                                                                        />
                                                                         <span className="divider">
                                                                             .
                                                                         </span>
@@ -677,15 +688,15 @@ export default class Events extends React.Component {
                                                         <div className="event-link">
                                                             {post.frontmatter
                                                                 .potevent && (
-                                                                <Link
+                                                                <LocalizedLink
                                                                     to={
                                                                         post
                                                                             .frontmatter
                                                                             .path
                                                                     }
                                                                 >
-                                                                    <CustomSquareButton label="Read more" />
-                                                                </Link>
+                                                                    <CustomSquareButton label="readMore" />
+                                                                </LocalizedLink>
                                                             )}
                                                             {!post.frontmatter
                                                                 .potevent && (
@@ -706,7 +717,7 @@ export default class Events extends React.Component {
                                                                         target="_blank"
                                                                         rel="noopener noreferrer"
                                                                     >
-                                                                        <CustomSquareButton label="Visit event page" />
+                                                                        <CustomSquareButton label="visitButtonText" />
                                                                     </a>
                                                                 </>
                                                             )}
@@ -754,13 +765,13 @@ export default class Events extends React.Component {
                                                                         .frontmatter
                                                                         .subtype && (
                                                                         <>
-                                                                            <span>
-                                                                                {
+                                                                            <SpanElement
+                                                                                text={
                                                                                     post
                                                                                         .frontmatter
                                                                                         .subtype
                                                                                 }
-                                                                            </span>
+                                                                            />
                                                                             <span className="divider">
                                                                                 .
                                                                             </span>
@@ -799,7 +810,7 @@ export default class Events extends React.Component {
                                                                 {post
                                                                     .frontmatter
                                                                     .potevent && (
-                                                                    <Link
+                                                                    <LocalizedLink
                                                                         to={
                                                                             post
                                                                                 .frontmatter
@@ -814,7 +825,7 @@ export default class Events extends React.Component {
                                                                                     .title
                                                                             }
                                                                         </h2>
-                                                                    </Link>
+                                                                    </LocalizedLink>
                                                                 )}
                                                                 {!post
                                                                     .frontmatter
@@ -860,9 +871,11 @@ const SocialPreviewData = {
 };
 
 export const pageQuery = graphql`
-    query eventsQuery {
+    query eventsQuery($locale: String!) {
         allMdx(
-            filter: { frontmatter: { type: { eq: "event" } } }
+            filter: {
+                frontmatter: { type: { eq: "event" }, locale: { eq: $locale } }
+            }
             sort: { order: ASC, fields: [frontmatter___time] }
         ) {
             edges {

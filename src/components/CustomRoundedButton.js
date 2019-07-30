@@ -1,5 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
+import { injectIntl } from 'react-intl';
 
 import { colors } from '../Theme.js';
 
@@ -62,7 +63,9 @@ const StyledButton = styled.button`
 `;
 
 const CustomRoundedButton = props => {
-    // console.log(props);
+    const {
+        intl: { messages }
+    } = props;
     return (
         <StyledButton
             type="button"
@@ -73,9 +76,9 @@ const CustomRoundedButton = props => {
             bgColor={props.bgColor}
             href="/"
         >
-            {props.label}
+            {`${messages[props.label]}`}
         </StyledButton>
     );
 };
 
-export default CustomRoundedButton;
+export default injectIntl(CustomRoundedButton);
