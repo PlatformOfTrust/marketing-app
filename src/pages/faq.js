@@ -141,9 +141,12 @@ class Faq extends React.Component {
                     <h1>Frequently Asked Questions</h1>
 
                     <StyledSection className="container">
-                        {posts.map(post => {
+                        {posts.map((post, key) => {
                             return (
-                                <StyledQuestion onClick={this.handleTest}>
+                                <StyledQuestion
+                                    key={key}
+                                    onClick={this.handleTest}
+                                >
                                     {post.node.frontmatter.question}
                                     <StyledAnswer>
                                         <StyledHr />
