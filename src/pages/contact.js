@@ -4,6 +4,9 @@ import SEO from '../components/seo';
 import styled from 'styled-components';
 import MetaTags from 'react-meta-tags';
 
+import HeaderElement from '../components/HeaderElement';
+import SpanElement from './../components/SpanElement';
+
 import ContactBlurbs from '../components/ContactBlurbs';
 import Locations from '../components/Locations';
 import ContactForm from '../components/ContactForm';
@@ -52,62 +55,97 @@ const StyledPad = styled.div`
 `;
 const socialPreviewImageFullUri = window.location.origin + SocialPreviewImage;
 
-const Contact = ({ pathContext }) => (
-    <Layout locale={pathContext.locale}>
-        <SEO title="Platform of Trust Contact information" />
+const Contact = ({ pathContext, data }) => {
+    return (<Layout locale={pathContext.locale}>
+        <SEO title="Platform of Trust Contact information"/>
         <MetaTags>
-            <meta property="og:title" content={SocialPreviewData.title} />
+            <meta property="og:title" content={SocialPreviewData.title}/>
             <meta
                 property="og:description"
                 content={SocialPreviewData.description}
             />
-            <meta property="og:image" content={socialPreviewImageFullUri} />
-            <meta name="twitter:card" content="summary_large_image" />
-            <meta name="twitter:title" content={SocialPreviewData.title} />
+            <meta property="og:image" content={socialPreviewImageFullUri}/>
+            <meta name="twitter:card" content="summary_large_image"/>
+            <meta name="twitter:title" content={SocialPreviewData.title}/>
             <meta
                 name="twitter:description"
                 content={SocialPreviewData.description}
             />
-            <meta name="twitter:image" content={socialPreviewImageFullUri} />
+            <meta name="twitter:image" content={socialPreviewImageFullUri}/>
         </MetaTags>
         <StyledPage className="container">
             <StyledPad>
                 <StyledSection className="contacts container">
-                    <h1>Contact</h1>
-                    <h2>
-                        Interested in turning your data in revenue? Let us tell
-                        you how.
-                    </h2>
+                    <HeaderElement tag="h1" content="contact"/>
+                    <HeaderElement tag="h2" content="contactHeader"/>
                     <StyledGraph>
-                        <ContactForm />
+                        <ContactForm/>
                     </StyledGraph>
                 </StyledSection>
                 <StyledSection className="contacts container">
-                    <h2>Meet the team</h2>
-                    <ContactBlurbs />
+                    <HeaderElement tag="h2" content="contactMeetText"/>
+                    <ContactBlurbs contacts={data.contacts}/>
                 </StyledSection>
                 <StyledSection className="locations container">
-                    <h2>Office locations</h2>
-                    <Locations />
+                    <HeaderElement tag="h2" content="contactOfficeLocations"/>
+                    <Locations/>
                 </StyledSection>
                 <StyledSection className="billing container">
-                    <h2>Billing information</h2>
+                    <HeaderElement tag="h2"
+                                   content="contactBillingInformation"/>
                     <StyledBilling>
                         <p>Platform of Trust Oy</p>
-                        <p>E-invoicing address: 003729800052</p>
-                        <p>Operator: OpusCapita Solutions Oy</p>
-                        <p>Operator ID: E204503</p>
+                        <p><SpanElement text="contactBillingEInvoicingAddress"/>
+                        </p>
+                        <p><SpanElement
+                            text="contactBillingEInvoicingOperatorName"/></p>
+                        <p><SpanElement
+                            text="contactBillingEInvoicingOperatorId"/></p>
                     </StyledBilling>
                 </StyledSection>
             </StyledPad>
         </StyledPage>
-    </Layout>
-);
+    </Layout>);
+};
 
 const SocialPreviewData = {
     title: 'Platform Of Trust | Contact',
     description:
         'Contact us, request a meeting, meet the team, check office locations, and see billing information.'
 };
+
+export const pageQuery = graphql`
+     query getContacts($locale: String!){
+                contacts: allMarkdownRemark(
+                    filter: { frontmatter: { subtype: { eq: "contact" }, locale: {eq: $locale} } }
+                    sort: { order: ASC, fields: [frontmatter___order] }
+                ) {
+                    edges {
+                        node {
+                            html
+                            id
+                            frontmatter {
+                                subtype
+                                order
+                                name
+                                pic
+                                title
+                                phone
+                                email
+                                twitter
+                                linkedin
+                                image {
+                                    childImageSharp {
+                                        fluid(maxWidth: 1440) {
+                                            ...GatsbyImageSharpFluid
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+`;
 
 export default Contact;

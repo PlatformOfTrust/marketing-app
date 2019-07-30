@@ -5,7 +5,7 @@ subtype: "contact"
 order: 3
 
 name: "Pirkko Laitinen"
-title: "Chief Marketing Officer"
+title: "Markkinointijohtaja"
 pic: "pirkko-laitinen.jpg"
 phone: "+358456764842"
 email: "pirkko.laitinen@oftrust.net"
@@ -13,6 +13,6 @@ twitter: " https://twitter.com/pirkkolaitinen"
 linkedin: "https://www.linkedin.com/in/pirkkolaitinen/"
 
 tags: ['Platform of Trust','contact', 'CMO','Pirkko', 'Laitinen']
-locale: "en"
+locale: "fi"
 status: "published"
 ---
