@@ -195,8 +195,9 @@ class Events extends React.Component {
     render() {
         const { filters, selected } = this.state;
         const { edges: posts } = this.props.data.allMdx;
-        const socialPreviewImageFullUri = typeof window !== 'undefined' &&
-            (window.location.origin + SocialPreviewImage);
+        const socialPreviewImageFullUri =
+            typeof window !== 'undefined' &&
+            window.location.origin + SocialPreviewImage;
 
         return (
             <Layout

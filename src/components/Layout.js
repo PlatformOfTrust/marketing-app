@@ -69,7 +69,9 @@ const StyledWrapper = styled.section`
     padding-top: 0;
 `;
 
-const socialPreviewImageFullUri = typeof window !== 'undefined' && (window.location.origin + SocialPreviewImage);
+const socialPreviewImageFullUri =
+    typeof window !== 'undefined' &&
+    window.location.origin + SocialPreviewImage;
 
 const Layout = ({ locale, children }) => {
     return (
@@ -87,7 +89,7 @@ const Layout = ({ locale, children }) => {
                 `}
                 render={data => (
                     <StyledSite>
-                        <GlobalStyle/>
+                        <GlobalStyle />
                         <Helmet
                             title={data.site.siteMetadata.title}
                             link={[
@@ -203,9 +205,9 @@ const Layout = ({ locale, children }) => {
                             />
                         </MetaTags>
 
-                        <Header siteTitle={data.site.siteMetadata.title}/>
+                        <Header siteTitle={data.site.siteMetadata.title} />
                         <StyledWrapper>{children}</StyledWrapper>
-                        <Footer/>
+                        <Footer />
                         <CookieConsent>
                             This website uses cookies to enhance the user
                             experience.
