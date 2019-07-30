@@ -4,6 +4,7 @@ import styled from 'styled-components';
 // import ToolsNav from './ToolsNav';
 import SiteNav from './SiteNav';
 import AppsNav from './AppsNav';
+import ToolsNav from './ToolsNav';
 import { device } from '../Theme.js';
 
 const StyledDeskMenu = styled.div`
@@ -16,9 +17,9 @@ const StyledDeskMenu = styled.div`
 `;
 const DeskMenu = () => (
     <StyledDeskMenu>
-        {/* <ToolsNav></ToolsNav> */}
         <AppsNav />
         <SiteNav />
+        <ToolsNav />
     </StyledDeskMenu>
 );
 

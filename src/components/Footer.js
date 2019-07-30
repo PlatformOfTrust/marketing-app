@@ -169,6 +169,9 @@ const Footer = () => (
                         Contact
                     </Link>
                     <br />
+                    <Link to="/faq" className="footer-elements-opacity">
+                        FAQ
+                    </Link>
                 </div>
 
                 {/* <div className="sitemap col-md-1">

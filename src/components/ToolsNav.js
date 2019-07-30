@@ -5,15 +5,20 @@ import styled from 'styled-components';
 import { colors } from '../Theme.js';
 
 const StyledToolsNav = styled.nav`
-    color: ${colors.mainDark};
+    position: absolute;
+
+    display: flex;
+    flex-wrap: wrap;
+    top: 2px;
+    right: 10px;
     text-align: right;
-    a {
-        display: none; // Change when tools released
-        font-weight: 300;
-        color: ${colors.mainDark};
+    @media only screen and (max-width: 1367px) {
+        flex-direction: column;
     }
-    a:visited {
-        color: ${colors.mainDarker};
+    a {
+        display: block; // Change when tools released
+        font-weight: 300;
+        color: ${colors.mainDarkest};
     }
 `;
 
