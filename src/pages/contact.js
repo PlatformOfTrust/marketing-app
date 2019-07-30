@@ -56,56 +56,69 @@ const StyledPad = styled.div`
 const socialPreviewImageFullUri = window.location.origin + SocialPreviewImage;
 
 const Contact = ({ pathContext, data }) => {
-    return (<Layout locale={pathContext.locale}>
-        <SEO title="Platform of Trust Contact information"/>
-        <MetaTags>
-            <meta property="og:title" content={SocialPreviewData.title}/>
-            <meta
-                property="og:description"
-                content={SocialPreviewData.description}
-            />
-            <meta property="og:image" content={socialPreviewImageFullUri}/>
-            <meta name="twitter:card" content="summary_large_image"/>
-            <meta name="twitter:title" content={SocialPreviewData.title}/>
-            <meta
-                name="twitter:description"
-                content={SocialPreviewData.description}
-            />
-            <meta name="twitter:image" content={socialPreviewImageFullUri}/>
-        </MetaTags>
-        <StyledPage className="container">
-            <StyledPad>
-                <StyledSection className="contacts container">
-                    <HeaderElement tag="h1" content="contact"/>
-                    <HeaderElement tag="h2" content="contactHeader"/>
-                    <StyledGraph>
-                        <ContactForm/>
-                    </StyledGraph>
-                </StyledSection>
-                <StyledSection className="contacts container">
-                    <HeaderElement tag="h2" content="contactMeetText"/>
-                    <ContactBlurbs contacts={data.contacts}/>
-                </StyledSection>
-                <StyledSection className="locations container">
-                    <HeaderElement tag="h2" content="contactOfficeLocations"/>
-                    <Locations/>
-                </StyledSection>
-                <StyledSection className="billing container">
-                    <HeaderElement tag="h2"
-                                   content="contactBillingInformation"/>
-                    <StyledBilling>
-                        <p>Platform of Trust Oy</p>
-                        <p><SpanElement text="contactBillingEInvoicingAddress"/>
-                        </p>
-                        <p><SpanElement
-                            text="contactBillingEInvoicingOperatorName"/></p>
-                        <p><SpanElement
-                            text="contactBillingEInvoicingOperatorId"/></p>
-                    </StyledBilling>
-                </StyledSection>
-            </StyledPad>
-        </StyledPage>
-    </Layout>);
+    return (
+        <Layout locale={pathContext.locale}>
+            <SEO title="Platform of Trust Contact information" />
+            <MetaTags>
+                <meta property="og:title" content={SocialPreviewData.title} />
+                <meta
+                    property="og:description"
+                    content={SocialPreviewData.description}
+                />
+                <meta property="og:image" content={socialPreviewImageFullUri} />
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content={SocialPreviewData.title} />
+                <meta
+                    name="twitter:description"
+                    content={SocialPreviewData.description}
+                />
+                <meta
+                    name="twitter:image"
+                    content={socialPreviewImageFullUri}
+                />
+            </MetaTags>
+            <StyledPage className="container">
+                <StyledPad>
+                    <StyledSection className="contacts container">
+                        <HeaderElement tag="h1" content="contact" />
+                        <HeaderElement tag="h2" content="contactHeader" />
+                        <StyledGraph>
+                            <ContactForm />
+                        </StyledGraph>
+                    </StyledSection>
+                    <StyledSection className="contacts container">
+                        <HeaderElement tag="h2" content="contactMeetText" />
+                        <ContactBlurbs contacts={data.contacts} />
+                    </StyledSection>
+                    <StyledSection className="locations container">
+                        <HeaderElement
+                            tag="h2"
+                            content="contactOfficeLocations"
+                        />
+                        <Locations />
+                    </StyledSection>
+                    <StyledSection className="billing container">
+                        <HeaderElement
+                            tag="h2"
+                            content="contactBillingInformation"
+                        />
+                        <StyledBilling>
+                            <p>Platform of Trust Oy</p>
+                            <p>
+                                <SpanElement text="contactBillingEInvoicingAddress" />
+                            </p>
+                            <p>
+                                <SpanElement text="contactBillingEInvoicingOperatorName" />
+                            </p>
+                            <p>
+                                <SpanElement text="contactBillingEInvoicingOperatorId" />
+                            </p>
+                        </StyledBilling>
+                    </StyledSection>
+                </StyledPad>
+            </StyledPage>
+        </Layout>
+    );
 };
 
 const SocialPreviewData = {
@@ -115,37 +128,42 @@ const SocialPreviewData = {
 };
 
 export const pageQuery = graphql`
-     query getContacts($locale: String!){
-                contacts: allMarkdownRemark(
-                    filter: { frontmatter: { subtype: { eq: "contact" }, locale: {eq: $locale} } }
-                    sort: { order: ASC, fields: [frontmatter___order] }
-                ) {
-                    edges {
-                        node {
-                            html
-                            id
-                            frontmatter {
-                                subtype
-                                order
-                                name
-                                pic
-                                title
-                                phone
-                                email
-                                twitter
-                                linkedin
-                                image {
-                                    childImageSharp {
-                                        fluid(maxWidth: 1440) {
-                                            ...GatsbyImageSharpFluid
-                                        }
-                                    }
+    query getContacts($locale: String!) {
+        contacts: allMarkdownRemark(
+            filter: {
+                frontmatter: {
+                    subtype: { eq: "contact" }
+                    locale: { eq: $locale }
+                }
+            }
+            sort: { order: ASC, fields: [frontmatter___order] }
+        ) {
+            edges {
+                node {
+                    html
+                    id
+                    frontmatter {
+                        subtype
+                        order
+                        name
+                        pic
+                        title
+                        phone
+                        email
+                        twitter
+                        linkedin
+                        image {
+                            childImageSharp {
+                                fluid(maxWidth: 1440) {
+                                    ...GatsbyImageSharpFluid
                                 }
                             }
                         }
                     }
                 }
             }
+        }
+    }
 `;
 
 export default Contact;

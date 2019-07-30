@@ -250,7 +250,10 @@ const IndexPage = ({ data, pathContext }) => {
                 <div className="row mt-5">
                     <div className="col-md-10 offset-md-1 mb-3">
                         {/* TODO: Only for translation purposes, must be refactored */}
-                        <HeaderElement tag="h5" content={'partnersHeaderText'} />
+                        <HeaderElement
+                            tag="h5"
+                            content={'partnersHeaderText'}
+                        />
                     </div>
                     <StyledPartners id="partners" className="col-10 offset-1">
                         {contents
@@ -305,39 +308,35 @@ export const query = graphql`
                 }
             }
         }
-         featuredNews: allMarkdownRemark(
-                    limit: 3
-                    filter: {
-                        frontmatter: {
-                            type: { eq: "news" },
-                            status: { eq: "published" },
-                            locale: { eq: $locale }
-                        }
-                    }
-                    sort: { fields: [frontmatter___date], order: DESC }
-                ) {
-                    totalCount
-                    edges {
-                        node {
-                            id
-                            html
-                            frontmatter {
-                                title
-                                path
-                                date(formatString: "MMMM DD, YYYY")
-                                tags
-                                status
-                                type
-                                subtype
-                            }
-                            excerpt(
-                                format: PLAIN
-                                pruneLength: 20
-                                truncate: true
-                            )
-                        }
-                    }
+        featuredNews: allMarkdownRemark(
+            limit: 3
+            filter: {
+                frontmatter: {
+                    type: { eq: "news" }
+                    status: { eq: "published" }
+                    locale: { eq: $locale }
                 }
+            }
+            sort: { fields: [frontmatter___date], order: DESC }
+        ) {
+            totalCount
+            edges {
+                node {
+                    id
+                    html
+                    frontmatter {
+                        title
+                        path
+                        date(formatString: "MMMM DD, YYYY")
+                        tags
+                        status
+                        type
+                        subtype
+                    }
+                    excerpt(format: PLAIN, pruneLength: 20, truncate: true)
+                }
+            }
+        }
     }
 `;
 

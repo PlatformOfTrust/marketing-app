@@ -231,8 +231,7 @@ export default class Events extends React.Component {
                                 <SpanElement
                                     text="all"
                                     onClick={() => this.handleFiltering('all')}
-                                >
-                                </SpanElement>
+                                ></SpanElement>
                             </StyledSelector>
                             <StyledSelector
                                 className={`tool-block business ${
@@ -250,8 +249,7 @@ export default class Events extends React.Component {
                                     onClick={() =>
                                         this.handleFiltering('business')
                                     }
-                                >
-                                </SpanElement>
+                                ></SpanElement>
                             </StyledSelector>
                             <StyledSelector
                                 className={`tool-block article ${
@@ -269,14 +267,13 @@ export default class Events extends React.Component {
                                     onClick={() =>
                                         this.handleFiltering('technical')
                                     }
-                                >
-                                </SpanElement>
+                                ></SpanElement>
                             </StyledSelector>
                         </StyledTools>
                         <StyledHeader className="container">
                             <div className="row">
                                 <div className="col">
-                                    <HeaderElement tag="h1" content="events"/>
+                                    <HeaderElement tag="h1" content="events" />
                                 </div>
                             </div>
                             <div className="row">
@@ -291,18 +288,27 @@ export default class Events extends React.Component {
                                     </StyledHexImage>
                                 </div>
                                 <div className="col-12 col-md-8">
-                                    <HeaderElement tag="h2" content="comeMeetUsText"/>
+                                    <HeaderElement
+                                        tag="h2"
+                                        content="comeMeetUsText"
+                                    />
                                 </div>
                             </div>
                         </StyledHeader>
                         <StyledBlogs className="posts">
                             <div className="row">
                                 <div className="potevents col-md-6">
-                                    <HeaderElement tag="h3" content="eventsByUsText"/>
+                                    <HeaderElement
+                                        tag="h3"
+                                        content="eventsByUsText"
+                                    />
 
                                     {ownEventsNow.length === 0 && (
                                         <StyledDefault>
-                                            <HeaderElement tag="h2" content="noUpcomingEventsText"/>
+                                            <HeaderElement
+                                                tag="h2"
+                                                content="noUpcomingEventsText"
+                                            />
                                             <LocalizedLink to="/newsletter">
                                                 <CustomRoundedButton label="signUpForNews" />
                                             </LocalizedLink>
@@ -430,9 +436,13 @@ export default class Events extends React.Component {
                                                                     .frontmatter
                                                                     .subtype && (
                                                                     <>
-                                                                       <SpanElement text={post
-                                                                                        .frontmatter
-                                                                                        .subtype}/>
+                                                                        <SpanElement
+                                                                            text={
+                                                                                post
+                                                                                    .frontmatter
+                                                                                    .subtype
+                                                                            }
+                                                                        />
                                                                         <span className="divider">
                                                                             .
                                                                         </span>
@@ -510,7 +520,10 @@ export default class Events extends React.Component {
                                         })}
                                 </div>
                                 <div className="nonpotevents col-md-6">
-                                    <HeaderElement tag="h3" content="eventsByFriendsText"/>
+                                    <HeaderElement
+                                        tag="h3"
+                                        content="eventsByFriendsText"
+                                    />
                                     {friendsEventsNow
                                         .filter(post =>
                                             filters.includes(
@@ -631,9 +644,13 @@ export default class Events extends React.Component {
                                                                     .frontmatter
                                                                     .subtype && (
                                                                     <>
-                                                                       <SpanElement text={post
-                                                                                        .frontmatter
-                                                                                        .subtype}/>
+                                                                        <SpanElement
+                                                                            text={
+                                                                                post
+                                                                                    .frontmatter
+                                                                                    .subtype
+                                                                            }
+                                                                        />
                                                                         <span className="divider">
                                                                             .
                                                                         </span>
@@ -748,9 +765,13 @@ export default class Events extends React.Component {
                                                                         .frontmatter
                                                                         .subtype && (
                                                                         <>
-                                                                            <SpanElement text={post
+                                                                            <SpanElement
+                                                                                text={
+                                                                                    post
                                                                                         .frontmatter
-                                                                                        .subtype}/>
+                                                                                        .subtype
+                                                                                }
+                                                                            />
                                                                             <span className="divider">
                                                                                 .
                                                                             </span>
@@ -852,7 +873,9 @@ const SocialPreviewData = {
 export const pageQuery = graphql`
     query eventsQuery($locale: String!) {
         allMdx(
-            filter: { frontmatter: { type: { eq: "event" }, locale: {eq: $locale } } }
+            filter: {
+                frontmatter: { type: { eq: "event" }, locale: { eq: $locale } }
+            }
             sort: { order: ASC, fields: [frontmatter___time] }
         ) {
             edges {

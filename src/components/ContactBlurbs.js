@@ -6,7 +6,7 @@ import ContactBlurb from './ContactBlurb';
 
 const StyledContactBlurbs = styled.section``;
 
-const ContactBlurbs = (props) => (
+const ContactBlurbs = props => (
     <StyledContactBlurbs className="contact-blurbs row">
         {props.contacts.edges.map(({ node }) => (
             <ContactBlurb

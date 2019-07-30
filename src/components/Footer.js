@@ -155,14 +155,14 @@ const Footer = () => {
                             to="/cases"
                             className="footer-elements-opacity"
                         >
-                            <SpanElement text="cases"/>
+                            <SpanElement text="cases" />
                         </LocalizedLink>
                         <br />
                         <LocalizedLink
                             to="/news"
                             className="footer-elements-opacity"
                         >
-                            <SpanElement text="news"/>
+                            <SpanElement text="news" />
                         </LocalizedLink>
                         <br />
                     </div>
@@ -172,21 +172,21 @@ const Footer = () => {
                             to="/events"
                             className="footer-elements-opacity"
                         >
-                            <SpanElement text="events"/>
+                            <SpanElement text="events" />
                         </LocalizedLink>
                         <br />
                         <LocalizedLink
                             to="/about"
                             className="footer-elements-opacity"
                         >
-                            <SpanElement text="about"/>
+                            <SpanElement text="about" />
                         </LocalizedLink>
                         <br />
                         <LocalizedLink
                             to="/contact"
                             className="footer-elements-opacity"
                         >
-                            <SpanElement text="contact"/>
+                            <SpanElement text="contact" />
                         </LocalizedLink>
                         <br />
                     </div>

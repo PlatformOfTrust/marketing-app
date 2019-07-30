@@ -286,8 +286,7 @@ export default class NewsList extends React.Component {
                                 <SpanElement
                                     text="all"
                                     onClick={() => this.handleFiltering('all')}
-                                >
-                                </SpanElement>
+                                ></SpanElement>
                             </StyledSelector>
 
                             <StyledSelector
@@ -323,8 +322,7 @@ export default class NewsList extends React.Component {
                                     onClick={() =>
                                         this.handleFiltering('article')
                                     }
-                                >
-                                </SpanElement>
+                                ></SpanElement>
                             </StyledSelector>
 
                             <StyledSelector
@@ -343,8 +341,7 @@ export default class NewsList extends React.Component {
                                     onClick={() =>
                                         this.handleFiltering('pressRelease')
                                     }
-                                >
-                                </SpanElement>
+                                ></SpanElement>
                             </StyledSelector>
 
                             <StyledSelector
@@ -363,8 +360,7 @@ export default class NewsList extends React.Component {
                                     onClick={() =>
                                         this.handleFiltering('business')
                                     }
-                                >
-                                </SpanElement>
+                                ></SpanElement>
                             </StyledSelector>
 
                             <StyledSelector
@@ -383,14 +379,13 @@ export default class NewsList extends React.Component {
                                     onClick={() =>
                                         this.handleFiltering('technical')
                                     }
-                                >
-                                </SpanElement>
+                                ></SpanElement>
                             </StyledSelector>
                         </StyledTools>
                         <StyledBlogs className="posts container">
                             <div className="row">
                                 <div className="col-6">
-                                    <HeaderElement tag="h1" content="news"/>
+                                    <HeaderElement tag="h1" content="news" />
                                 </div>
                                 <div className="col-6 text-right">
                                     <LocalizedLink to="/newsletter">
@@ -479,8 +474,13 @@ export default class NewsList extends React.Component {
                                                             {post.frontmatter
                                                                 .subtype && (
                                                                 <>
-                                                                    <SpanElement text={post.frontmatter
-                                                                .subtype}/>
+                                                                    <SpanElement
+                                                                        text={
+                                                                            post
+                                                                                .frontmatter
+                                                                                .subtype
+                                                                        }
+                                                                    />
                                                                     <span className="divider">
                                                                         .
                                                                     </span>
@@ -547,7 +547,7 @@ export default class NewsList extends React.Component {
                                                         color="white"
                                                         size="1x"
                                                     />
-                                                    <SpanElement text="previousPage"/>
+                                                    <SpanElement text="previousPage" />
                                                 </LocalizedLink>
                                             </p>
                                         )}
@@ -611,7 +611,9 @@ const SocialPreviewData = {
 export const newsListQuery = graphql`
     query newsListQuery($skip: Int!, $limit: Int!, $locale: String!) {
         allMdx(
-            filter: { frontmatter: { type: { eq: "news" }, locale : {eq: $locale} } }
+            filter: {
+                frontmatter: { type: { eq: "news" }, locale: { eq: $locale } }
+            }
             sort: { fields: [frontmatter___date], order: DESC }
             limit: $limit
             skip: $skip

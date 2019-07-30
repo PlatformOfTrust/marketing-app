@@ -85,45 +85,44 @@ const StyledContent = styled.div`
     }
 `;
 const FeaturedNews = ({ intl: { messages }, data }) => {
-    return <StyledNews>
-        <StyledContent>
-            <h2>{`${messages.latestNews}`}</h2>
+    return (
+        <StyledNews>
+            <StyledContent>
+                <h2>{`${messages.latestNews}`}</h2>
 
-            {data.edges.map(({ node }) => (
-                <LocalizedLink to={node.frontmatter.path} key={node.id}>
-                    <div>
-                        <p className="meta">
-                                    <span className="icon icon-blog">
-                                        <FontAwesomeIcon
-                                            icon="hexagon"
-                                            color={
-                                                colors[node.frontmatter.subtype]
-                                            }
-                                        />
-                                        {/* <FontAwesomeIcon icon={['fas', 'hexagon']} size="1x" /> */}
-                                    </span>
-                            <span className="type">
-                                        {node.frontmatter.subtype ===
-                                        'pressRelease'
-                                            ? 'Press Release'
-                                            : node.frontmatter.subtype}
-                                    </span>
-                            <span className="date">
-                                        {node.frontmatter.date}
-                                    </span>
-                        </p>
-                        <p className="title-excerpt">
-                            {node.frontmatter.title}
-                        </p>
-                    </div>
+                {data.edges.map(({ node }) => (
+                    <LocalizedLink to={node.frontmatter.path} key={node.id}>
+                        <div>
+                            <p className="meta">
+                                <span className="icon icon-blog">
+                                    <FontAwesomeIcon
+                                        icon="hexagon"
+                                        color={colors[node.frontmatter.subtype]}
+                                    />
+                                    {/* <FontAwesomeIcon icon={['fas', 'hexagon']} size="1x" /> */}
+                                </span>
+                                <span className="type">
+                                    {node.frontmatter.subtype === 'pressRelease'
+                                        ? 'Press Release'
+                                        : node.frontmatter.subtype}
+                                </span>
+                                <span className="date">
+                                    {node.frontmatter.date}
+                                </span>
+                            </p>
+                            <p className="title-excerpt">
+                                {node.frontmatter.title}
+                            </p>
+                        </div>
+                    </LocalizedLink>
+                ))}
+
+                <LocalizedLink to="/news" className="go-to-link">
+                    {`${messages.goToNews}`}
                 </LocalizedLink>
-            ))}
-
-            <LocalizedLink to="/news" className="go-to-link">
-                {`${messages.goToNews}`}
-            </LocalizedLink>
-        </StyledContent>
-    </StyledNews>;
+            </StyledContent>
+        </StyledNews>
+    );
 };
 
 export default injectIntl(FeaturedNews);

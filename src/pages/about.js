@@ -62,19 +62,19 @@ const About = ({ data, pathContext }) => (
             <StyledSection className="container">
                 <div className="row mb-5">
                     <div className="col-12">
-                        <HeaderElement tag="h1" content="about"/>
+                        <HeaderElement tag="h1" content="about" />
                         <Img fluid={data.file.childImageSharp.fluid} />
                     </div>
                 </div>
                 <div className="row">
                     <div className="col-md-6">
                         <p>
-                            <SpanElement text="aboutText1"/>
+                            <SpanElement text="aboutText1" />
                         </p>
                     </div>
                     <div className="col-md-6">
                         <p>
-                            <SpanElement text="aboutText2"/>
+                            <SpanElement text="aboutText2" />
                         </p>
                     </div>
                 </div>
@@ -91,7 +91,7 @@ const About = ({ data, pathContext }) => (
                     </div>
                     <div className="col-7 col-md-4 d-flex align-items-center">
                         <p>
-                            <SpanElement text="aboutText3"/>
+                            <SpanElement text="aboutText3" />
                         </p>
                     </div>
                     <div className="col-4 col-md-2">
@@ -99,14 +99,14 @@ const About = ({ data, pathContext }) => (
                     </div>
                     <div className="col-7 col-md-4 d-flex align-items-center">
                         <p>
-                            <SpanElement text="aboutText4"/>
+                            <SpanElement text="aboutText4" />
                         </p>
                     </div>
                 </div>
             </StyledSection>
             <StyledSection className="container">
                 <StyledVideo>
-                   <HeaderElement tag="h2" content="aboutVideoText" />
+                    <HeaderElement tag="h2" content="aboutVideoText" />
                     <Video
                         videoSrcURL="https://www.youtube.com/embed/sGgt88bkoOA"
                         videoTitle="Start using your data"
@@ -122,7 +122,7 @@ const About = ({ data, pathContext }) => (
             </StyledSection>
             <StyledSection className="container">
                 <h3>
-                    <SpanElement text="aboutPartText"/>{' '}
+                    <SpanElement text="aboutPartText" />{' '}
                     <a href="https://www.tilaajavastuu.fi/en/">
                         Suomen Tilaajavastuu Group
                     </a>
