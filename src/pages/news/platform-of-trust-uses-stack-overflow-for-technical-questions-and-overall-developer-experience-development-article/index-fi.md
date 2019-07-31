@@ -1,8 +1,8 @@
 ---
-path: "/news/platform-of-trust-uses-stack-overflow-for-technical-questions-and-overall-developer-experience-development"
+path: "/fi/ajankohtaista/platform-of-trust-ratkoo-teknisiä-kysymyksiä-ja-parantaa-tarjoamaansa-kehittäjäkokemusta-stack-overflow-avulla"
 date: "2019-04-03T13:45:33.962Z"
 title: "Platform of Trust ratkoo teknisiä kysymyksiä ja parantaa tarjoamaansa kehittäjäkokemusta Stack Overflow’n avulla"
-image: "./stack overflow.jpg"
+image: "./../../static/stack overflow.jpg"
 pic: "stack overflow2.jpg"
 pictext: ""
 type: "news"

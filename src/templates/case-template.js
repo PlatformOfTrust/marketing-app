@@ -10,6 +10,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import Layout from '../components/Layout';
 import { colors, device, variables } from '../Theme.js';
+import SomeIcons from '../components/SomeIcons';
+import SpanElement from '../components/SpanElement';
 
 const StyledBlog = styled.article`
     &&& {
@@ -219,7 +221,7 @@ export default function Template({ data, location, pageContext }) {
                                             color="white"
                                             size="1x"
                                         />
-                                        Previous
+                                        <SpanElement text="previous" />
                                         {/* {prev.frontmatter.title} */}
                                     </LocalizedLink>
                                 )}
@@ -238,7 +240,7 @@ export default function Template({ data, location, pageContext }) {
                             <p>
                                 {next && (
                                     <LocalizedLink to={next.frontmatter.path}>
-                                        Next
+                                        <SpanElement text="next" />
                                         {/* {next.frontmatter.title} */}
                                         <FontAwesomeIcon
                                             icon={['fal', 'arrow-right']}

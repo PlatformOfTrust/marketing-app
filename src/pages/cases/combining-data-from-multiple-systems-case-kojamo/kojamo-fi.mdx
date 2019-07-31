@@ -1,41 +1,36 @@
 ---
-path: "/cases/combining-data-from-multiple-systems-case-kojamo"
-title: "Combining data from multiple systems – Case Kojamo"
+path: "/fi/kayttotapaukset/datan-yhdistäminen-useista-eri-järjestelmistä-case-kojamo"
+title: "Datan yhdistäminen useista eri järjestelmistä - Case Kojamo"
 date: "2019-05-03T13:45:33.962Z"
 shorttitle: "Case Kojamo" # max two lines 12 char each
-image: "./kojamo.jpg" 
+image: "./../../static/kojamo.jpg"
 pic: "kojamo-square.jpg" # for hex-image Needs to be square for now!
 pictext: ""
-type: "case" 
-subtype: "business" 
-tags: [ "case", "Kojamo", "Platform of Trust", "dataflows"] 
+type: "case"
+subtype: "business"
+tags: [ "case", "Kojamo", "Platform of Trust", "dataflows"]
 locale: "fi"
 author: "Pirkko Laitinen"
 authorpic: "pirkko-laitinen.jpg"
 status: "published" # "published" / "draft" / "pending" / "archived"
 ---
-## Starting situation
+## Lähtötilanne
 
-Expectations for housing services are increasing though development is 
-hindered by the fragmentation and incompatibility of data. With 
-digitalization, the citizens can be offered more services to ease the everyday 
-life. Before that can happen, it is first required to create a digital base throughout the housing facilities and parties building, hosting and maintaining them. 
+Odotukset asumisen palveluita kohtaan ovat kasvussa, mutta kehityksen esteenä on tiedon hajanaisuus ja yhteensopimattomuus. Digitalisaation myötä asukkaalle voidaan tarjota parempia palveluita osana asumista ja arjen sujuvuuteen. Tämä edellyttää asuntoihin liittyvän digitaalisen perustan luomista.
 
-## Task
+## Tavoite
 
-In the autunm 2018, Platform of Trust, Kojamo, Visma Tampuuri and Lassila & 
-Tikanoja (L&T) implemented an experiment together to make all parties´data 
-move between systems in both directions and real-time. This was done without having to link all data providers together but with using Platform of Trust as a common platform for harmonizing and moving the data. The platform also pairs the data with real-world objects, like apartments, rooms and devices so that they are readable and understandable for machines to read. In practice, achieving this would result in more efficient service processes and customer (tenant) experience. 
+Syksyllä 2018 Platform of Trust, Kojamo, Visma Tampuuri ja Lassila & Tikanoja toteuttivat yhdessä kokeilun, jonka tavoitteena oli saada osapuolten data liikkumaan osapuolten järjestelmien välillä kaksisuuntaisesti niin, ettei kaikkien tarvitse rakentaa erillistä yhteyttä toisiinsa vaan yhteisenä alustana ja digitaalisena perustana toimii Platform of Trust. Alustan tehtävä on välittää ja harmonisoida dataa sekä linkittää se reaalimaailman kohteisiin, jolloin eri järjestelmät voivat koneluettavasti viitata yhtenäisellä tavalla huoneistoihin, huoneisiin ja laitteisiin. Käytännössä tavoitteen onnistuminen näkyisi palveluprosessien tehostumisessa ja asukaskokemuksen parantumisessa.
 
-## Action
+## Toiminta
 
-The pilot was executed in a housing building in Karavaanikuja 2, Helsinki. The pilot was based on a construction-phase information model of a building that contained building and system data. In the first phase a digital twin frame was created of the building, apartments and systems. On the second phase a demo app was created for the tenants to use through which they could, for example, notify if something was broken or not functioning right. This information would then go to L&T ERP system and to the maintenance list. Once the task has been finished the information is communicated back to the tenant through the app. 
+Kokeilun kohteena toimi Helsingin Karavaanikujalla sijaitseva asuinrakennus ja kokeilun pohjaksi otettiin rakennusaikainen tietomalli rakennuksesta ja sen järjestelmistä. Kokeilun ensimmäisessä vaiheessa luotiin digitaalisen kaksosen runko rakennuksista, huoneistosta ja järjestelmistä. Toisessa vaiheessa luotiin asukkaille suunnattu demosovellus, jonka kautta he pystyivät esimerkiksi tekemään vikailmoituksia. Ilmoitus kulkeutui Visman Tampuuri-huoltokirjajärjestelmän kautta Lassila & Tikanojan toiminnanohjausjärjestelmään ja huoltomiehen tehtävälistalle.  Tieto korjauksen eri vaiheista välittyi takaisin asiakkaalle.
 
-## Result
+## Lopputulos
 
-The pilot proved that linking data through Platform of Trust enables separate systems to function together. In this case, with the co-operation of different parties from the real-estate industry, the data was flowing after only a couple months of work. In addition, the capabilities build in this project are now available for other users without modifications. 
+Kokeilu todisti, että datan linkitys Platform of Trust -alustan kautta mahdollistaa erillään olleiden tietojärjestelmien toimimisen yhdessä. Tässä tapauksessa rakennus- ja kiinteistöalan toimijoiden yhteistyöllä tieto saatiin liikkumaan eri toimijoiden kesken tehokkaasti jo pari kuukautta kestäneen kokeilun aikana. Nykyisissä järjestelmissä olevat tiedot saadaan käyttöön ilman, että niitä tarvitsee muuttaa.
 
-In the future this model enables more applications and digital services that speed up maintenance projects and make possible to anticipate and prepare for future maintenance needs. 
+Jatkossa mallin päälle voidaan kehittää lisää sovelluksia ja palveluita, jotka nopeuttavat korjausprosesseja ja mahdollistavat ennakoivan kunnossapidon hyödyntämisen.
 
 
 export default ({ children }) => (

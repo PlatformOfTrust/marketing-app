@@ -1,9 +1,8 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import MDXRenderer from 'gatsby-mdx/mdx-renderer';
 import styled from 'styled-components';
-import LocalizedLink from './../components/LocalizedLink';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -231,7 +230,7 @@ export default function Template({ data, location, pageContext }) {
                         <div className="col col-3 offset-1">
                             <p>
                                 {prev && (
-                                    <LocalizedLink to={prev.frontmatter.path}>
+                                    <Link to={prev.frontmatter.path}>
                                         <FontAwesomeIcon
                                             icon={['fal', 'arrow-left']}
                                             color="white"
@@ -239,23 +238,21 @@ export default function Template({ data, location, pageContext }) {
                                         />
                                         Previous
                                         {/* {prev.frontmatter.title} */}
-                                    </LocalizedLink>
+                                    </Link>
                                 )}
                             </p>
                         </div>
 
                         <div className="col col-4">
                             <p>
-                                <LocalizedLink to="/events">
-                                    Back to events
-                                </LocalizedLink>
+                                <Link to="/events">Back to events</Link>
                             </p>
                         </div>
 
                         <div className="col col-3">
                             <p>
                                 {next && (
-                                    <LocalizedLink to={next.frontmatter.path}>
+                                    <Link to={next.frontmatter.path}>
                                         Next
                                         {/* {next.frontmatter.title} */}
                                         <FontAwesomeIcon
@@ -263,7 +260,7 @@ export default function Template({ data, location, pageContext }) {
                                             color="white"
                                             size="1x"
                                         />
-                                    </LocalizedLink>
+                                    </Link>
                                 )}
                             </p>
                         </div>

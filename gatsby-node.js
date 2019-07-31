@@ -7,6 +7,14 @@
 const path = require('path');
 const locales = require('./src/locales/index');
 
+const pathMap = {
+    'cases': 'kayttotapaukset',
+    'news': 'ajankohtaiset',
+    'events': 'tapahtumat',
+    'about': 'tietoameista',
+    'contact': 'yhteystiedot'
+};
+
 exports.createPages = ({ actions, graphql }) => {
     const { createPage } = actions;
     // const blogTemplate = path.resolve(`src/templates/blog-template.js`);
@@ -39,6 +47,7 @@ exports.createPages = ({ actions, graphql }) => {
                         pic
                         lang
                         status
+                        locale
                     }
                 }
             }
@@ -61,6 +70,7 @@ exports.createPages = ({ actions, graphql }) => {
                         pic
                         pictext
                         subtype
+                        locale
                     }
                 }
             }
@@ -82,6 +92,7 @@ exports.createPages = ({ actions, graphql }) => {
                         pic
                         pictext
                         subtype
+                        locale
                     }
                 }
             }
@@ -118,7 +129,7 @@ exports.createPages = ({ actions, graphql }) => {
             Object.keys(locales).map(lang => {
                 const pagePath = node.frontmatter.path;
                 const localizedPath = locales[lang].default ? pagePath : `${locales[lang].path}${pagePath}`;
-                console.log('creating path', localizedPath);
+                console.log('creating path for events', localizedPath);
                 createPage({
                     path: localizedPath,
                     component: eventTemplate,
@@ -137,10 +148,19 @@ exports.createPages = ({ actions, graphql }) => {
         const postsPerPage = 10;
         const numPages = Math.ceil(posts.length / postsPerPage);
         Array.from({ length: numPages }).forEach((_, i) => {
-            const pagePath = (i === 0 ? `/news` : `/news/${i + 1}`);
             Object.keys(locales).map(lang => {
-                const localizedPath = locales[lang].default ? pagePath : `${locales[lang].path}${pagePath}`;
-                console.log('creating path', localizedPath);
+                const pagePath = (i === 0 ? `/news` : `/news/${i + 1}`);
+                let localizedPath = pagePath;
+
+                if (!locales[lang].default) {
+                    Object.keys(pathMap).map((key) => {
+                        localizedPath = localizedPath.replace(key, pathMap[key]);
+                    });
+
+                    localizedPath = '/fi' + localizedPath;
+                }
+
+                console.log('creating path for news root', localizedPath);
                 createPage({
                     path: localizedPath,
                     component: path.resolve(newsListTemplate),
@@ -156,46 +176,107 @@ exports.createPages = ({ actions, graphql }) => {
             });
         });
 
+
         result.data.news.edges.forEach(({ node }, index) => {
-            const prev = index === 0 ? null : posts[index - 1].node;
-            const next = index === posts.length - 1 ? null : posts[index + 1].node;
-            Object.keys(locales).map(lang => {
-                const pagePath = node.frontmatter.path;
-                const localizedPath = locales[lang].default ? pagePath : `${locales[lang].path}${pagePath}`;
-                console.log('creating path', localizedPath);
-                createPage({
-                    path: localizedPath,
-                    component: newsTemplate,
-                    context: {
-                        prev,
-                        next,
-                        pagePath,
-                        locale: lang
+            const getPrevious = (index) => {
+                const prev = index === 0 ? null : posts[index - 1].node;
+
+                if (prev) {
+
+                    if (prev.frontmatter.locale === node.frontmatter.locale) {
+                        return prev;
+                    } else {
+                        return getPrevious(index - 1);
                     }
-                });
+
+                } else {
+                    return null;
+                }
+            };
+
+            const getNext = (index) => {
+                const next = index === posts.length - 1 ? null : posts[index + 1].node;
+
+                if (next) {
+
+                    if (next.frontmatter.locale === node.frontmatter.locale) {
+                        return next;
+                    } else {
+                        return getNext(index + 1);
+                    }
+
+                } else {
+                    return null;
+                }
+
+            };
+
+            const next = getNext(index);
+            const prev = getPrevious(index);
+
+            const pagePath = node.frontmatter.path;
+            console.log('creating path for news', pagePath, node.frontmatter.locale);
+            createPage({
+                path: pagePath,
+                component: newsTemplate,
+                context: {
+                    prev,
+                    next,
+                    pagePath,
+                    locale: node.frontmatter.locale
+                }
             });
         });
 
 
         const cases = result.data.cases.edges;
         cases.forEach(({ node }, index) => {
-            const prev = index === 0 ? null : cases[index - 1].node;
-            const next = index === cases.length - 1 ? null : cases[index + 1].node;
+            const getPrevious = (index) => {
+                const prev = index === 0 ? null : cases[index - 1].node;
 
-            Object.keys(locales).map(lang => {
-                const pagePath = node.frontmatter.path;
-                const localizedPath = locales[lang].default ? pagePath : `${locales[lang].path}${pagePath}`;
-                console.log('creating path', localizedPath);
-                createPage({
-                    path: localizedPath,
-                    component: caseTemplate,
-                    context: {
-                        prev,
-                        next,
-                        pagePath,
-                        locale: lang
+                if (prev) {
+
+                    if (prev.frontmatter.locale === node.frontmatter.locale) {
+                        return prev;
+                    } else {
+                        return getPrevious(index - 1);
                     }
-                });
+
+                } else {
+                    return null;
+                }
+            };
+
+            const getNext = (index) => {
+                const next = index === cases.length - 1 ? null : cases[index + 1].node;
+
+                if (next) {
+
+                    if (next.frontmatter.locale === node.frontmatter.locale) {
+                        return next;
+                    } else {
+                        return getNext(index + 1);
+                    }
+
+                } else {
+                    return null;
+                }
+
+            };
+
+            const next = getNext(index);
+            const prev = getPrevious(index);
+
+            const pagePath = node.frontmatter.path;
+            createPage({
+                path: pagePath,
+                component: caseTemplate,
+                context: {
+                    prev,
+                    next,
+                    pagePath,
+                    locale: node.frontmatter.locale
+                }
             });
         });
 
@@ -203,7 +284,7 @@ exports.createPages = ({ actions, graphql }) => {
             Object.keys(locales).map(lang => {
                 const pagePath = node.frontmatter.path;
                 const localizedPath = locales[lang].default ? pagePath : `${locales[lang].path}${pagePath}`;
-                console.log('creating path', localizedPath);
+                console.log('creating path for pricing', localizedPath);
                 createPage({
                     path: localizedPath,
                     component: pricingTemplate,
@@ -220,12 +301,23 @@ exports.createPages = ({ actions, graphql }) => {
 
 exports.onCreatePage = ({ page, actions }) => {
     const { createPage, deletePage } = actions;
+
     return new Promise(resolve => {
         Object.keys(locales).map(lang => {
             const url = (page.context && page.context.frontmatter && page.context.frontmatter.path) || page.path;
             if (url.indexOf('dev-404') === -1) {
                 if (Object.keys(page.context).length === 0) {
-                    const localizedPath = locales[lang].default ? url : locales[lang].path + url;
+
+                    let localizedPath = locales[lang].default ? url : locales[lang].path + url;
+
+                    if (!locales[lang].default) {
+                        Object.keys(pathMap).map((key) => {
+                            localizedPath = localizedPath.replace(key, pathMap[key]);
+                        });
+                    }
+
+                    console.log('onCreatePage', 'creating page', localizedPath);
+
                     createPage({
                         ...page,
                         path: localizedPath,

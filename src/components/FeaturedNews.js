@@ -1,5 +1,5 @@
 import React from 'react';
-import { StaticQuery, graphql } from 'gatsby';
+import { Link } from 'gatsby';
 import LocalizedLink from './LocalizedLink';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styled from 'styled-components';
@@ -85,13 +85,14 @@ const StyledContent = styled.div`
     }
 `;
 const FeaturedNews = ({ intl: { messages }, data }) => {
+    console.log(data);
     return (
         <StyledNews>
             <StyledContent>
                 <h2>{`${messages.latestNews}`}</h2>
 
                 {data.edges.map(({ node }) => (
-                    <LocalizedLink to={node.frontmatter.path} key={node.id}>
+                    <Link to={node.frontmatter.path} key={node.id}>
                         <div>
                             <p className="meta">
                                 <span className="icon icon-blog">
@@ -114,7 +115,7 @@ const FeaturedNews = ({ intl: { messages }, data }) => {
                                 {node.frontmatter.title}
                             </p>
                         </div>
-                    </LocalizedLink>
+                    </Link>
                 ))}
 
                 <LocalizedLink to="/news" className="go-to-link">
