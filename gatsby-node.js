@@ -117,7 +117,7 @@ exports.createPages = ({ actions, graphql }) => {
             const next = index === events.length - 1 ? null : events[index + 1].node;
             Object.keys(locales).map(lang => {
                 const pagePath = node.frontmatter.path;
-                const localizedPath = `${locales[lang].path}${pagePath}`;
+                const localizedPath = locales[lang].default ? pagePath : `${locales[lang].path}${pagePath}`;
                 console.log('creating path', localizedPath);
                 createPage({
                     path: localizedPath,
@@ -139,7 +139,7 @@ exports.createPages = ({ actions, graphql }) => {
         Array.from({ length: numPages }).forEach((_, i) => {
             const pagePath = (i === 0 ? `/news` : `/news/${i + 1}`);
             Object.keys(locales).map(lang => {
-                const localizedPath = `${locales[lang].path}${pagePath}`;
+                const localizedPath = locales[lang].default ? pagePath : `${locales[lang].path}${pagePath}`;
                 console.log('creating path', localizedPath);
                 createPage({
                     path: localizedPath,
@@ -161,7 +161,7 @@ exports.createPages = ({ actions, graphql }) => {
             const next = index === posts.length - 1 ? null : posts[index + 1].node;
             Object.keys(locales).map(lang => {
                 const pagePath = node.frontmatter.path;
-                const localizedPath = `${locales[lang].path}${pagePath}`;
+                const localizedPath = locales[lang].default ? pagePath : `${locales[lang].path}${pagePath}`;
                 console.log('creating path', localizedPath);
                 createPage({
                     path: localizedPath,
@@ -184,7 +184,7 @@ exports.createPages = ({ actions, graphql }) => {
 
             Object.keys(locales).map(lang => {
                 const pagePath = node.frontmatter.path;
-                const localizedPath = `${locales[lang].path}${pagePath}`;
+                const localizedPath = locales[lang].default ? pagePath : `${locales[lang].path}${pagePath}`;
                 console.log('creating path', localizedPath);
                 createPage({
                     path: localizedPath,
@@ -202,7 +202,7 @@ exports.createPages = ({ actions, graphql }) => {
         result.data.pricing.edges.forEach(({ node }) => {
             Object.keys(locales).map(lang => {
                 const pagePath = node.frontmatter.path;
-                const localizedPath = `${locales[lang].path}${pagePath}`;
+                const localizedPath = locales[lang].default ? pagePath : `${locales[lang].path}${pagePath}`;
                 console.log('creating path', localizedPath);
                 createPage({
                     path: localizedPath,
@@ -219,14 +219,13 @@ exports.createPages = ({ actions, graphql }) => {
 
 
 exports.onCreatePage = ({ page, actions }) => {
-    const { createPage, deletePage, createRedirect } = actions;
+    const { createPage, deletePage } = actions;
     return new Promise(resolve => {
         Object.keys(locales).map(lang => {
             const url = (page.context && page.context.frontmatter && page.context.frontmatter.path) || page.path;
             if (url.indexOf('dev-404') === -1) {
                 if (Object.keys(page.context).length === 0) {
-                    const localizedPath = locales[lang].path + url;
-                    console.log('Creating page', url, localizedPath, lang);
+                    const localizedPath = locales[lang].default ? url : locales[lang].path + url;
                     createPage({
                         ...page,
                         path: localizedPath,
@@ -234,27 +233,7 @@ exports.onCreatePage = ({ page, actions }) => {
                             locale: lang
                         }
                     });
-
-                    /* Set /en by default */
-                    if (url === '/') {
-                        if (locales[lang].default) {
-                            // '/' + localizedPath.replace('/', '') otherwise gatsby creates a chain of redirections
-                            console.log('Creating redirect from', url, 'to', '/' + localizedPath.replace('/', ''));
-                            createRedirect({
-                                fromPath: url,
-                                toPath: '/' + localizedPath.replace('/', ''),
-                                isPermanent: false,
-                                redirectInBrowser: true
-                            });
-                        }
-                        console.log('Delete', url);
-                        return deletePage(page);
-                    } else {
-                        console.log('Delete', url);
-                        return deletePage(page);
-                    }
                 } else {
-                    console.log('Delete', url);
                     return deletePage(page);
                 }
             }
