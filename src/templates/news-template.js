@@ -38,6 +38,9 @@ const StyledHeader = styled.header`
         font-size: 1.2rem;
         text-decoration: none;
     }
+    &&& .row {
+        margin-top: 50px;
+    }
     h1 {
         margin-top: 0.4em;
         color: white;
@@ -183,7 +186,7 @@ export default function Template({ data, location, pageContext }) {
             <Helmet title={`Platform of Trust - ${post.frontmatter.title}`} />
             <StyledBlog>
                 <StyledHeader className="container">
-                    <div style={{ marginTop: '50px' }} className="row">
+                    <div className="row">
                         <LocalizedLink to="/news">
                             <FontAwesomeIcon icon={['fal', 'arrow-left']} />{' '}
                             <SpanElement text="backToNews" />

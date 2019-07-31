@@ -115,6 +115,10 @@ const StyledFooter = styled.footer`
         top: 70px;
         left: 145px;
     }
+
+    .pointer {
+        cursor: pointer;
+    }
 `;
 
 const Footer = ({ intl }) => {
@@ -193,8 +197,7 @@ const Footer = ({ intl }) => {
                         </LocalizedLink>
                         <br />
                         <SpanElement
-                            className="footer-elements-opacity"
-                            style={{ cursor: 'pointer' }}
+                            className="footer-elements-opacity pointer"
                             onClick={() => {
                                 /* TODO: This part can be improved */
                                 if (intl.locale === 'en') {
