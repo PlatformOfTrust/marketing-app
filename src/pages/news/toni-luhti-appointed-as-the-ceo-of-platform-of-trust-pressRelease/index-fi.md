@@ -1,8 +1,8 @@
 ---
-path: "/news/toni-luhti-appointed-as-the-ceo-of-platform-of-trust" # path to where you want blog to be published aka https://www.platformoftrust.net//blogs/sport-venue
+path: "/fi/ajankohtaista/toni-luhti-platform-of-trustin-toimitusjohtajaksi" # path to where you want blog to be published aka https://www.platformoftrust.net//blogs/sport-venue
 date: '2019-07-23T13:45:33.962Z'
-title: 'Toni Luhti appointed as the CEO of Platform of Trust'
-image: './toni.jpg' # Featured image shown on page and listings. Save in same folder. Don't use svg.
+title: 'Toni Luhti Platform of Trustin toimitusjohtajaksi'
+image: './../../static/toni.jpg' # Featured image shown on page and listings. Save in same folder. Don't use svg.
 pic: 'toni2.jpg' # Hex image shown on page and listings. No path, just filename. Save in same folder. Don't use svg.
 pictext: ''
 type: 'news' # All "News" are blogs to separate them from real pages made with MarkDown, so that they appear in blog listings etc.
@@ -14,27 +14,29 @@ authorpic: 'suomen-tilaajavastuu.jpg'
 status: 'published' # "published" / "draft" / "pending" / "archived"
 ---
 
-M.Sc. (Econ.) Toni Luhti (b. 1982) has been appointed as the CEO of Platform of Trust. Luhti started in the position officially on 1 July 2019. Luhti has previously held a leading position in several international business technology companies, including Elisa Corporation and ALSO Group. Luhti has extensive experience in the platform business and in turning technological solutions into profit-generating and successful business operations.
+Platform of Trustin toimitusjohtajaksi on nimitetty kauppatieteiden maisteri Toni Luhti (s. 1982). Luhti aloittaa toimitusjohtajana virallisesti 1.7.2019. Luhti on aiemmin toiminut johtavissa tehtävissä useassa kansainvälisen liiketoiminnan teknologiayrityksessä, kuten Elisa Oyj ja ALSO Group. Luhdilla on laaja-alainen kokemus alustaliiketoiminnasta ja teknologisten ratkaisujen muuttamisessa arvoa tuottavaksi ja tulokselliseksi liiketoiminnaksi.
 
 <br/><br/>
 
-> _“One of the current global megatrends is to manage and develop business operations, innovations, and services increasingly based on information and data. Unfortunately, many companies lose their competitiveness and in-depth understanding because they fail to utilise existing data and do not collect new data comprehensively. This offers a very significant opportunity for generating value and success, and we want to be part of enabling it.”_
+> _”Yksi globaaleista megatrendeistä on johtaa ja kehittää liiketoimintaa, innovaatiota sekä palveluita entistä enemmän tietoon ja dataan perustuen. Valitettavan moni yritys menettää kilpailukykyä ja syvällistä ymmärrystä, koska ne eivät hyödynnä olemassa olevaa dataa ja kerää monitahoisesti uutta dataa itsellensä. Tässä on todella suuri arvontuoton mahdollisuus ja menestystekijä, mitä haluamme olla mahdollistamassa”, Luhti toteaa._
 
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- says **Luhti**.
 
 <br/><br/>
 
-Platform of Trust has excellent growth prospects, as it enables the transfer and compatibility of data of e.g. the various functions and business sectors of cities. By strengthening expertise in platforms and business, the company aims to achieve strong growth and internationalisation.
+Platform of Trustilla on erinomaiset kasvunäkymät mahdollistaessaan esimerkiksi kaupunkien eri toimintojen sekä eri liiketoiminta-alojen datan liikkumisen ja yhteensopivuuden. Vahvistamalla alusta- ja liiketoimintaosaamista yhtiö tavoittelee voimakasta kasvua ja kansainvälistymistä.
 
 <br/><br/>
 
-> _“We are very excited to gain a leader who has previous experience of platform business operations. We believe that Toni is the right person to lead Platform of Trust towards international success.”_
+ 
 
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- says the CEO of Suomen Tilaajavastuu **Lars Albäck**.
+> _”Olemme todella innoissamme saadessamme vetäjän, jolla on ennestään kokemusta alustaliiketoiminnasta. Uskomme, että Toni on juuri oikea henkilö johtamaan Platform of Trustin kansainväliseen menestykseen”_
+
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;, kertoo Suomen Tilaajavastuun toimitusjohtaja **Lars Albäck**.
 
 <br/><br/>
 
-Platform of Trust is a data linking platform that harmonises data coming from different sources into a form that enables shared use and the creation of data-based ecosystems. In November 2018, it received EUR 10 million in funding, of which half was internationalisation funding granted by Business Finland and the second half was granted by the owners of Suomen Tilaajavastuu and organisations in the real estate and construction sector. The development of the platform originated from the needs of the real estate and construction sector, although the platform can be utilised in any sector. Platform of Trust Oy is affiliated company of Tilaajavastuu Oy. Starting on 1 July 2019, Platform of Trust Oy will be responsible for the Platform of Trust and SignSpace business areas.
+Platform of Trust on datan linkitysalusta, joka harmonisoi eri lähteistä tulevan datan yhteisesti käytettävään muotoon mahdollistaen näin dataan perustuvien ekosysteemien syntymisen. Se sai marraskuussa 2018 yhteensä 10 M€ rahoituksen, josta 5 M€ on Business Finlandin kansainvälistymisrahoitusta ja toiset 5 M€ rahoittivat Suomen Tilaajavastuun omistajat ja kiinteistö- ja rakennusalan järjestöt. Alustan kehitys on alkanut kiinteistö- ja rakennusalan tarpeista, mutta sitä voi hyödyntää millä tahansa alalla. Platform of Trust Oy on Suomen Tilaajavastuu Oy:n 100-prosenttisesti omistama oleva tytäryhtiö, johon siirrettään 1.7.2019 alkaen Platform of Trust- ja SignSpace-liiketoiminnot.
 
 <br/><br/>
 
@@ -42,13 +44,13 @@ Platform of Trust is a data linking platform that harmonises data coming from di
 
 <br/><br/>
 
-### Further information
+### Lisätietoja:
 
 <br/><br/><br/>
 
 ### **Toni Luhti**
 
-Chief Executive Officer, Platform of Trust Oy
+Toimitusjohtaja, Platform of Trust Oy
 
 +358 50 506 6327
 
@@ -58,7 +60,7 @@ toni.luhti@oftrust.net
 
 ### **Lars Albäck**
 
-Chief Executive Officer, Suomen Tilaajavastuu Oy
+Toimitusjohtaja, Suomen Tilaajavastuu Oy
 
 +358 40 503 3672
 

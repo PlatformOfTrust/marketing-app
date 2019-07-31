@@ -2,7 +2,7 @@
 path: "/news/platform-of-trust-uses-stack-overflow-for-technical-questions-and-overall-developer-experience-development"
 date: "2019-04-03T13:45:33.962Z"
 title: "Platform of Trust uses Stack Overflow for technical questions and overall developer experience development"
-image: "./stack overflow.jpg"
+image: "./../../static/stack overflow.jpg"
 pic: "stack overflow2.jpg"
 pictext: ""
 type: "news"

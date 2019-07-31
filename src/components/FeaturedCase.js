@@ -1,5 +1,5 @@
 import React from 'react';
-import { StaticQuery, graphql } from 'gatsby';
+import { StaticQuery, graphql, Link } from 'gatsby';
 import styled from 'styled-components';
 import LocalizedLink from './LocalizedLink';
 
@@ -94,15 +94,13 @@ const FeaturedCase = ({ intl: { messages } }) => (
         render={data => (
             <StyledFeaturedCase className="hex-content">
                 <div className="content-wrapper">
-                    <LocalizedLink
-                        to={data.allMdx.edges[0].node.frontmatter.path}
-                    >
+                    <Link to={data.allMdx.edges[0].node.frontmatter.path}>
                         <h3>{`${messages.case}`}</h3>
                         <p>
                             {data.allMdx.edges[0].node.frontmatter.shorttitle}
                         </p>
                         <span className="read-more">{`${messages.readMore}`}</span>
-                    </LocalizedLink>
+                    </Link>
                 </div>
             </StyledFeaturedCase>
         )}

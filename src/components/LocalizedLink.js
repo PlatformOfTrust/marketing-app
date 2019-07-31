@@ -3,8 +3,24 @@ import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
 import { injectIntl, intlShape } from 'react-intl';
 
+const pathMap = {
+    cases: 'kayttotapaukset',
+    news: 'ajankohtaiset',
+    events: 'tapahtumat',
+    about: 'tietoameista',
+    contact: 'yhteystiedot'
+};
+
 const LocalizedLink = ({ to, intl: { locale, defaultLocale }, ...props }) => {
-    const path = locale === defaultLocale ? to : `/${locale}${to}`;
+    let path = to;
+
+    if (locale !== defaultLocale) {
+        path = `/${locale}${to}`;
+        Object.keys(pathMap).map(key => {
+            path = path.replace(key, pathMap[key]);
+        });
+    }
+
     return <Link {...props} to={path} />;
 };
 

@@ -2,7 +2,7 @@
 path: "/news/toni-luhti-appointed-as-the-ceo-of-platform-of-trust" # path to where you want blog to be published aka https://www.platformoftrust.net//blogs/sport-venue
 date: '2019-07-23T13:45:33.962Z'
 title: 'Toni Luhti appointed as the CEO of Platform of Trust'
-image: './toni.jpg' # Featured image shown on page and listings. Save in same folder. Don't use svg.
+image: './../../static/toni.jpg' # Featured image shown on page and listings. Save in same folder. Don't use svg.
 pic: 'toni2.jpg' # Hex image shown on page and listings. No path, just filename. Save in same folder. Don't use svg.
 pictext: ''
 type: 'news' # All "News" are blogs to separate them from real pages made with MarkDown, so that they appear in blog listings etc.

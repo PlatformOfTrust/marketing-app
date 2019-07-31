@@ -1,10 +1,9 @@
 import React from 'react';
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styled from 'styled-components';
 import MetaTags from 'react-meta-tags';
 
-import LocalizedLink from './../components/LocalizedLink';
 import SpanElement from './../components/SpanElement';
 
 // import CustomImage from "../components/CustomImage"
@@ -319,23 +318,23 @@ class Events extends React.Component {
                                             key={post.id}
                                         >
                                             <div className="featured-image">
-                                                <LocalizedLink
+                                                <Link
                                                     to={post.frontmatter.path}
                                                     className="post-link"
                                                 >
                                                     <StyledHexImage>
                                                         {/* <CustomImage filename={post.frontmatter.pic} alt={post.frontmatter.title} /> */}
                                                         <HexImage
-                                                            pic={require(`.${post.frontmatter.path}/${post.frontmatter.pic}`)}
+                                                            pic={require(`./static/${post.frontmatter.pic}`)}
                                                             hexId={`EventHex-${post.id}`}
                                                             rotate={true}
                                                         />
                                                     </StyledHexImage>
-                                                </LocalizedLink>
+                                                </Link>
                                             </div>
                                             <div className="post-preview-content">
                                                 <div className="title">
-                                                    <LocalizedLink
+                                                    <Link
                                                         to={
                                                             post.frontmatter
                                                                 .path
@@ -348,7 +347,7 @@ class Events extends React.Component {
                                                                     .title
                                                             }
                                                         </h2>
-                                                    </LocalizedLink>
+                                                    </Link>
                                                 </div>
                                                 <div className="meta">
                                                     <p>
@@ -389,7 +388,7 @@ class Events extends React.Component {
                                                     </p>
                                                 </div>
                                                 <div className="excerpt">
-                                                    <LocalizedLink
+                                                    <Link
                                                         to={
                                                             post.frontmatter
                                                                 .path
@@ -398,7 +397,7 @@ class Events extends React.Component {
                                                     >
                                                         <p>{post.excerpt}</p>
                                                         <CustomSquareButton label="read" />
-                                                    </LocalizedLink>
+                                                    </Link>
                                                 </div>
                                             </div>
                                         </StyledBlogBlock>
@@ -419,9 +418,11 @@ const SocialPreviewData = {
 };
 
 export const pageQuery = graphql`
-    query caseQuery {
+    query caseQuery($locale: String!) {
         allMdx(
-            filter: { frontmatter: { type: { eq: "case" } } }
+            filter: {
+                frontmatter: { type: { eq: "case" }, locale: { eq: $locale } }
+            }
             sort: { order: DESC, fields: [frontmatter___date] }
         ) {
             edges {

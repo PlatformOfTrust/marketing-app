@@ -57,6 +57,7 @@ const IndexPage = ({ data, pathContext }) => {
     const socialPreviewImageFullUri =
         typeof window !== 'undefined' &&
         window.location.origin + SocialPreviewImage;
+    console.log(data);
     return (
         <Layout locale={pathContext.locale}>
             <MetaTags>

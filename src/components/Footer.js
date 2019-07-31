@@ -198,13 +198,9 @@ const Footer = ({ intl }) => {
                             onClick={() => {
                                 /* TODO: This part can be improved */
                                 if (intl.locale === 'en') {
-                                    window.location.pathname =
-                                        '/fi' + window.location.pathname;
+                                    window.location.pathname = '/fi';
                                 } else if (intl.locale === 'fi') {
-                                    window.location.pathname = window.location.pathname.replace(
-                                        '/fi',
-                                        ''
-                                    );
+                                    window.location.pathname = '/';
                                 }
                             }}
                             text="changeLanguageText"

@@ -1,8 +1,8 @@
 ---
-path: "/news/collaboration-can-help-effectively-utilise-fragmented-data-in-the-property-sector" # path to where you want blog to be published aka https://www.platformoftrust.net//blogs/sport-venue
+path: "/fi/ajankohtaista/kokeilu-todisti" # path to where you want blog to be published aka https://www.platformoftrust.net//blogs/sport-venue
 date: "2019-05-03T13:45:33.962Z"
 title: "Kokeilu todisti – kiinteistöalan hajanainen data pystytään muuttamaan asukkaan hyödyksi yhteistyöllä"
-image: "./Collaboration smart home pic.jpg" # Featured image shown on page and listings. Save in same folder. Don't use svg.
+image: "./../../static/Collaboration smart home pic.jpg" # Featured image shown on page and listings. Save in same folder. Don't use svg.
 pic: "Collaboration smart home pic2.jpg" # Hex image shown on page and listings. No path, just filename. Save in same folder. Don't use svg.
 pictext: ""
 type: "news" # All "News" are blogs to separate them from real pages made with MarkDown, so that they appear in blog listings etc.

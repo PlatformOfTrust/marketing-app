@@ -2,7 +2,7 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import Img from 'gatsby-image';
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import MDXRenderer from 'gatsby-mdx/mdx-renderer';
 import Disqus from 'gatsby-plugin-disqus';
 import styled from 'styled-components';
@@ -178,6 +178,7 @@ export default function Template({ data, location, pageContext }) {
     const post = data.mdx;
     const { next, prev, locale } = pageContext;
 
+    console.log(next, prev);
     return (
         <Layout pathname={location.pathname} locale={locale}>
             <Helmet title={`Platform of Trust - ${post.frontmatter.title}`} />
@@ -194,9 +195,7 @@ export default function Template({ data, location, pageContext }) {
                                 icon={['fa', 'hexagon']}
                                 color={colors[post.frontmatter.subtype]}
                             />
-                            <SpanElement
-                                text={post.frontmatter.subtype}
-                            ></SpanElement>
+                            <SpanElement text={post.frontmatter.subtype} />
                             {post.frontmatter.subtype === 'blog' && (
                                 <span>{post.frontmatter.author}</span>
                             )}
@@ -319,7 +318,7 @@ export default function Template({ data, location, pageContext }) {
                         <div className="col col-3 offset-1">
                             <p>
                                 {prev && (
-                                    <LocalizedLink to={prev.frontmatter.path}>
+                                    <Link to={prev.frontmatter.path}>
                                         <FontAwesomeIcon
                                             icon={['fal', 'arrow-left']}
                                             color="white"
@@ -327,7 +326,7 @@ export default function Template({ data, location, pageContext }) {
                                         />
                                         <SpanElement text="previous" />
                                         {/* {prev.frontmatter.title} */}
-                                    </LocalizedLink>
+                                    </Link>
                                 )}
                             </p>
                         </div>
@@ -343,7 +342,7 @@ export default function Template({ data, location, pageContext }) {
                         <div className="col col-3">
                             <p>
                                 {next && (
-                                    <LocalizedLink to={next.frontmatter.path}>
+                                    <Link to={next.frontmatter.path}>
                                         <SpanElement text="next" />
                                         {/* {next.frontmatter.title} */}
                                         <FontAwesomeIcon
@@ -351,7 +350,7 @@ export default function Template({ data, location, pageContext }) {
                                             color="white"
                                             size="1x"
                                         />
-                                    </LocalizedLink>
+                                    </Link>
                                 )}
                             </p>
                         </div>

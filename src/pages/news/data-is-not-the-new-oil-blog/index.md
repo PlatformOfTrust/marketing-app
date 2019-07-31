@@ -2,7 +2,7 @@
 path: "/news/data-is-not-the-new-oil" # path to where you want blog to be published aka https://www.platformoftrust.net//blogs/sport-venue
 date: "2019-06-25T13:45:33.962Z"
 title: "Data is not the new oil"
-image: "./drop-of-water-3671613_1920.jpg" # Featured image shown on page and listings. Save in same folder. Don't use svg.
+image: "./../../static/drop-of-water-3671613_1920.jpg" # Featured image shown on page and listings. Save in same folder. Don't use svg.
 pic: "drop-of-water-square.jpg" # Hex image shown on page and listings. No path, just filename. Save in same folder. Don't use svg.
 pictext: ""
 type: "news" # All "News" are blogs to separate them from real pages made with MarkDown, so that they appear in blog listings etc.
