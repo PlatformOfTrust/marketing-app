@@ -435,7 +435,9 @@ export default class NewsList extends React.Component {
                                                                 pic={require(`./../pages/static/${post.frontmatter.pic}`)}
                                                                 hexId={`NewHex-${post.id}`}
                                                                 rotate={true}
-                                                                isNewsImage={true}
+                                                                isNewsImage={
+                                                                    true
+                                                                }
                                                             />
                                                         </StyledHexImage>
                                                     </Link>
