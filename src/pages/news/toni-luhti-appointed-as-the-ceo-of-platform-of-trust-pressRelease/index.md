@@ -14,13 +14,13 @@ authorpic: 'suomen-tilaajavastuu.jpg'
 status: 'published' # "published" / "draft" / "pending" / "archived"
 ---
 
-M.Sc. (Econ.) Toni Luhti (b. 1982) has been appointed as the CEO of Platform of Trust. Luhti started in the position officially on 1 July 2019. Luhti has previously held a leading position in several international business technology companies, including Elisa Corporation and ALSO Group. Luhti has extensive experience in the platform business and in turning technological solutions into profit-generating and successful business operations.
+M.Sc. (Econ.) **Toni Luhti** (b. 1982) has been appointed as the CEO of Platform of Trust. Luhti started in the position officially on 1 July 2019. Luhti has previously held a leading position in several international business technology companies, including Elisa Corporation and ALSO Group. Luhti has extensive experience in the platform business and in turning technological solutions into profit-generating and successful business operations.
 
 <br/><br/>
 
 > _“One of the current global megatrends is to manage and develop business operations, innovations, and services increasingly based on information and data. Unfortunately, many companies lose their competitiveness and in-depth understanding because they fail to utilise existing data and do not collect new data comprehensively. This offers a very significant opportunity for generating value and success, and we want to be part of enabling it.”_
 
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- says **Luhti**.
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- says *Luhti.
 
 <br/><br/>
 
