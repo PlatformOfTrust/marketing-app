@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import MetaTags from 'react-meta-tags';
+import { Helmet } from 'react-helmet';
 import LocalizedLink from './../components/LocalizedLink';
 
 import Layout from '../components/Layout';
@@ -60,24 +60,38 @@ const IndexPage = ({ data, pathContext }) => {
     console.log(data);
     return (
         <Layout locale={pathContext.locale}>
-            <MetaTags>
-                <meta property="og:title" content={SocialPreviewData.title} />
-                <meta
-                    property="og:description"
-                    content={SocialPreviewData.description}
-                />
-                <meta property="og:image" content={socialPreviewImageFullUri} />
-                <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content={SocialPreviewData.title} />
-                <meta
-                    name="twitter:description"
-                    content={SocialPreviewData.description}
-                />
-                <meta
-                    name="twitter:image"
-                    content={socialPreviewImageFullUri}
-                />
-            </MetaTags>
+            <Helmet
+                meta={[
+                    {
+                        property: 'og:title',
+                        content: `${SocialPreviewData.title}`
+                    },
+                    {
+                        property: 'og:description',
+                        content: `${SocialPreviewData.description}`
+                    },
+                    {
+                        property: 'og:image',
+                        content: `${socialPreviewImageFullUri}`
+                    },
+                    {
+                        property: 'twitter:card',
+                        content: 'summary_large_image'
+                    },
+                    {
+                        property: 'twitter:title',
+                        content: `${SocialPreviewData.title}`
+                    },
+                    {
+                        property: 'twitter:description',
+                        content: `${SocialPreviewData.description}`
+                    },
+                    {
+                        property: 'twitter:image',
+                        content: `${socialPreviewImageFullUri}`
+                    }
+                ]}
+            />
             <SEO title="Home" keywords={['Platform of Trust']} />
             <StyledMain className="home page-content container">
                 <div className="dev-test" style={{ display: 'none' }}>

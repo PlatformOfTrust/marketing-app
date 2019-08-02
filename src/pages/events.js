@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import MDXRenderer from 'gatsby-mdx/mdx-renderer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import MetaTags from 'react-meta-tags';
+import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
 import HexImage from '../components/HexImage';
 import CustomSquareButton from '../components/CustomSquareButton';
@@ -192,33 +192,38 @@ export default class Events extends React.Component {
                 locale={this.props.pathContext.locale}
                 className="blog-posts"
             >
-                <MetaTags>
-                    <meta
-                        property="og:title"
-                        content={SocialPreviewData.title}
-                    />
-                    <meta
-                        property="og:description"
-                        content={SocialPreviewData.description}
-                    />
-                    <meta
-                        property="og:image"
-                        content={socialPreviewImageFullUri}
-                    />
-                    <meta name="twitter:card" content="summary_large_image" />
-                    <meta
-                        name="twitter:title"
-                        content={SocialPreviewData.title}
-                    />
-                    <meta
-                        name="twitter:description"
-                        content={SocialPreviewData.description}
-                    />
-                    <meta
-                        name="twitter:image"
-                        content={socialPreviewImageFullUri}
-                    />
-                </MetaTags>
+                <Helmet
+                    meta={[
+                        {
+                            property: 'og:title',
+                            content: `${SocialPreviewData.title}`
+                        },
+                        {
+                            property: 'og:description',
+                            content: `${SocialPreviewData.description}`
+                        },
+                        {
+                            property: 'og:image',
+                            content: `${socialPreviewImageFullUri}`
+                        },
+                        {
+                            property: 'twitter:card',
+                            content: 'summary_large_image'
+                        },
+                        {
+                            property: 'twitter:title',
+                            content: `${SocialPreviewData.title}`
+                        },
+                        {
+                            property: 'twitter:description',
+                            content: `${SocialPreviewData.description}`
+                        },
+                        {
+                            property: 'twitter:image',
+                            content: `${socialPreviewImageFullUri}`
+                        }
+                    ]}
+                />
                 <StyledPad>
                     <StyledSection className="posts-listing">
                         <StyledTools className="filters">
