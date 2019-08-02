@@ -2,7 +2,7 @@ import React from 'react';
 import Layout from '../components/Layout';
 import SEO from '../components/seo';
 import styled from 'styled-components';
-import MetaTags from 'react-meta-tags';
+import { Helmet } from 'react-helmet';
 
 import HeaderElement from '../components/HeaderElement';
 import SpanElement from './../components/SpanElement';
@@ -61,24 +61,38 @@ const Contact = ({ pathContext, data }) => {
     return (
         <Layout locale={pathContext.locale}>
             <SEO title="Platform of Trust Contact information" />
-            <MetaTags>
-                <meta property="og:title" content={SocialPreviewData.title} />
-                <meta
-                    property="og:description"
-                    content={SocialPreviewData.description}
-                />
-                <meta property="og:image" content={socialPreviewImageFullUri} />
-                <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content={SocialPreviewData.title} />
-                <meta
-                    name="twitter:description"
-                    content={SocialPreviewData.description}
-                />
-                <meta
-                    name="twitter:image"
-                    content={socialPreviewImageFullUri}
-                />
-            </MetaTags>
+            <Helmet
+                meta={[
+                    {
+                        property: 'og:title',
+                        content: `${SocialPreviewData.title}`
+                    },
+                    {
+                        property: 'og:description',
+                        content: `${SocialPreviewData.description}`
+                    },
+                    {
+                        property: 'og:image',
+                        content: `${socialPreviewImageFullUri}`
+                    },
+                    {
+                        property: 'twitter:card',
+                        content: 'summary_large_image'
+                    },
+                    {
+                        property: 'twitter:title',
+                        content: `${SocialPreviewData.title}`
+                    },
+                    {
+                        property: 'twitter:description',
+                        content: `${SocialPreviewData.description}`
+                    },
+                    {
+                        property: 'twitter:image',
+                        content: `${socialPreviewImageFullUri}`
+                    }
+                ]}
+            />
             <StyledPage className="container">
                 <StyledPad>
                     <StyledSection className="contacts container">

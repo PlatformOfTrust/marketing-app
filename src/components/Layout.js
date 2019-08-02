@@ -6,7 +6,6 @@ import styled from 'styled-components';
 import { createGlobalStyle } from 'styled-components';
 import Helmet from 'react-helmet';
 import CookieConsent from 'react-cookie-consent';
-import MetaTags from 'react-meta-tags';
 
 import { IntlProvider, addLocaleData } from 'react-intl';
 
@@ -173,38 +172,41 @@ const Layout = ({ locale, children }) => {
                                     href: `${appleTouch152}`
                                 }
                             ]}
+                            meta={[
+                                {
+                                    property: 'og:title',
+                                    content: `${SocialPreviewData.title}`
+                                },
+                                {
+                                    property: 'og:description',
+                                    content: `${SocialPreviewData.description}`
+                                },
+                                {
+                                    property: 'og:image',
+                                    content: `${socialPreviewImageFullUri}`
+                                },
+                                {
+                                    property: 'og:type',
+                                    content: 'website'
+                                },
+                                {
+                                    property: 'twitter:card',
+                                    content: 'summary_large_image'
+                                },
+                                {
+                                    property: 'twitter:title',
+                                    content: `${SocialPreviewData.title}`
+                                },
+                                {
+                                    property: 'twitter:description',
+                                    content: `${SocialPreviewData.description}`
+                                },
+                                {
+                                    property: 'twitter:image',
+                                    content: `${socialPreviewImageFullUri}`
+                                }
+                            ]}
                         />
-                        <MetaTags>
-                            <meta
-                                property="og:title"
-                                content={SocialPreviewData.title}
-                            />
-                            <meta
-                                property="og:description"
-                                content={SocialPreviewData.description}
-                            />
-                            <meta
-                                property="og:image"
-                                content={socialPreviewImageFullUri}
-                            />
-                            <meta
-                                name="twitter:card"
-                                content="summary_large_image"
-                            />
-                            <meta
-                                name="twitter:title"
-                                content={SocialPreviewData.title}
-                            />
-                            <meta
-                                name="twitter:description"
-                                content={SocialPreviewData.description}
-                            />
-                            <meta
-                                name="twitter:image"
-                                content={socialPreviewImageFullUri}
-                            />
-                        </MetaTags>
-
                         <Header siteTitle={data.site.siteMetadata.title} />
                         <StyledWrapper>{children}</StyledWrapper>
                         <Footer />
