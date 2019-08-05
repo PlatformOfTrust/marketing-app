@@ -1,12 +1,15 @@
 import React from 'react';
-import Link from 'gatsby-link';
 import styled from 'styled-components';
-
+import LocalizedLink from './LocalizedLink';
 import FooterInfo from './FooterInfo';
 import Logo from '../images/platformoftrust-wide-white-rgb.svg';
 import LogoSymbol from '../images/logo-symbol.svg';
 import SomeIcons from './SomeIcons';
 import { colors, device, variables } from '../Theme.js';
+
+import SpanElement from './../components/SpanElement';
+
+import { injectIntl } from 'react-intl';
 
 const StyledFooter = styled.footer`
     &&& {
@@ -59,6 +62,10 @@ const StyledFooter = styled.footer`
     }
     .sitemap {
         display: none;
+
+        &.right-side {
+            margin-left: 1.2rem;
+        }
     }
     .sitemap {
         @media ${device.laptop} {
@@ -91,91 +98,133 @@ const StyledFooter = styled.footer`
         }
     }
     .some-links {
-      flex-wrap: wrap;
+        flex-wrap: wrap;
         width: 100px;
         margin-top: 20px;
 
         @media ${device.laptop} {
-          flex-wrap: wrap;
-          width: 140px;
-          margin-top: 10px;
-         }
+            flex-wrap: wrap;
+            width: 140px;
+            margin-top: 10px;
+        }
     }
     .footer-elements-opacity {
         opacity: 0.8;
     }
     .data-flow-tag {
-        top: 50px;
-        position: absolute;
+        top: 70px;
         left: 145px;
     }
 `;
 
-const Footer = () => (
-    <StyledFooter className="page-footer footer">
-        <svg className="clippath-svg" width="0" height="0">
-            <clipPath id="footerPathSVG" clipPathUnits="objectBoundingBox">
-                <polygon points="0, 1, 0.1, 0, 0.90, 0, 1, 1" />
-            </clipPath>
-        </svg>
+const Footer = ({ intl }) => {
+    return (
+        <StyledFooter className="page-footer footer">
+            <svg className="clippath-svg" width="0" height="0">
+                <clipPath id="footerPathSVG" clipPathUnits="objectBoundingBox">
+                    <polygon points="0, 1, 0.1, 0, 0.90, 0, 1, 1" />
+                </clipPath>
+            </svg>
 
-        <div className="container-fluid text-center text-md-left">
-            <div className="row">
-                <div className="footer-logo col-2 offset-1 ">
-                    <Link to="/">
-                        <img
-                            src={Logo}
-                            className="logo-footer logo-desk footer-elements-opacity"
-                            alt="Logo"
-                        />
-                    </Link>
-                    <Link to="/">
-                        <img
-                            src={LogoSymbol}
-                            className="logo-footer logo-mobile footer-elements-opacity"
-                            alt="Logo"
-                        />
-                    </Link>
-                </div>
+            <div className="container-fluid text-center text-md-left">
+                <div className="row">
+                    <div className="footer-logo col-2 offset-1 ">
+                        <LocalizedLink to="/">
+                            <img
+                                src={Logo}
+                                className="logo-footer logo-desk footer-elements-opacity"
+                                alt="Logo"
+                            />
+                        </LocalizedLink>
+                        <LocalizedLink to="/">
+                            <img
+                                src={LogoSymbol}
+                                className="logo-footer logo-mobile footer-elements-opacity"
+                                alt="Logo"
+                            />
+                        </LocalizedLink>
+                    </div>
 
-                <div className="footer-contact col-4 col-lg-4 col-xl-4 mt-md-0 mt-1">
-                    <FooterInfo />
-                    {/* <h5 className="mb-md-1">Platform of Trust</h5>
+                    <div className="footer-contact col-4 col-lg-4 col-xl-4 mt-md-0 mt-1">
+                        <FooterInfo />
+                        {/* <h5 className="mb-md-1">Platform of Trust</h5>
           <p>VAT-number FI29800052</p> */}
-                    {/* <p><a href="https://www.tilaajavastuu.fi/en/data-protection/">Data protection statement</a></p>*/}
-                </div>
+                        {/* <p><a href="https://www.tilaajavastuu.fi/en/data-protection/">Data protection statement</a></p>*/}
+                    </div>
 
-                <div className="sitemap col-md-1">
-                    {/* <Link to="/pricing">Pricing</Link><br /> */}
-                    <Link to="/cases" className="footer-elements-opacity">Cases</Link>
-                    <br />
-                    <Link to="/news" className="footer-elements-opacity">News</Link>
-                    <br />
-                </div>
+                    <div className="sitemap">
+                        {/* <Link to="/pricing">Pricing</Link><br /> */}
+                        <LocalizedLink
+                            to="/cases"
+                            className="footer-elements-opacity"
+                        >
+                            <SpanElement text="cases" />
+                        </LocalizedLink>
+                        <br />
+                        <LocalizedLink
+                            to="/news"
+                            className="footer-elements-opacity"
+                        >
+                            <SpanElement text="news" />
+                        </LocalizedLink>
+                        <br />
+                    </div>
 
-                <div className="sitemap col-md-1">
-                    <Link to="/events" className="footer-elements-opacity">Events</Link>
-                    <br />
-                    <Link to="/about" className="footer-elements-opacity">About</Link>
-                    <br />
-                    <Link to="/contact" className="footer-elements-opacity">Contact</Link>
-                    <br />
-                </div>
+                    <div className="sitemap right-side">
+                        <LocalizedLink
+                            to="/events"
+                            className="footer-elements-opacity"
+                        >
+                            <SpanElement text="events" />
+                        </LocalizedLink>
+                        <br />
+                        <LocalizedLink
+                            to="/about"
+                            className="footer-elements-opacity"
+                        >
+                            <SpanElement text="about" />
+                        </LocalizedLink>
+                        <br />
+                        <LocalizedLink
+                            to="/contact"
+                            className="footer-elements-opacity"
+                        >
+                            <SpanElement text="contact" />
+                        </LocalizedLink>
+                        <br />
+                        <SpanElement
+                            className="footer-elements-opacity"
+                            style={{ cursor: 'pointer' }}
+                            onClick={() => {
+                                /* TODO: This part can be improved */
+                                if (intl.locale === 'en') {
+                                    window.location.pathname = '/fi';
+                                } else if (intl.locale === 'fi') {
+                                    window.location.pathname = '/';
+                                }
+                            }}
+                            text="changeLanguageText"
+                        />
+                        <br />
+                    </div>
 
-                {/* <div className="sitemap col-md-1">
+                    {/* <div className="sitemap col-md-1">
           <Link to="/faq">FAQ</Link><br />
           <Link to="/logos">Logos</Link><br />
         </div> */}
 
-                {/* <div className="sitemap col-md-1">
+                    {/* <div className="sitemap col-md-1">
           <Link to="/">Login</Link><br />
         </div> */}
 
-                <div className="footer-somelinks col-4 col-lg-2 col-xl-2 text-right">
-                    <SomeIcons className="footer-someicons" color="lightUsed" />
+                    <div className="footer-somelinks col-4 col-lg-2 col-xl-2 text-right">
+                        <SomeIcons
+                            className="footer-someicons"
+                            color="lightUsed"
+                        />
 
-                    <span className="data-flow-tag">#dataflows</span>
-                    {/* <nav className="some-links">
+                        <span className="data-flow-tag">#dataflows</span>
+                        {/* <nav className="some-links">
             <span className="keep-together">
               <a href="https://www.facebook.com/platformoftrust" className="some-link facebook"><img src={Facebook} className="some-icon" alt="Facebook" /></a>
               <a href="https://twitter.com/PlatformOfTrust" className="some-link twitter"><img src={Twitter} className="some-icon" alt="Twitter" /></a>
@@ -189,9 +238,9 @@ const Footer = () => (
               <a href="https://www.youtube.com/channel/UCSHXKYHxBCl_hXdBZU_A-gg" className="some-link youtube"><img src={Linkedin} className="some-icon" alt="Youtube" /></a>
             </span>
           </nav> */}
-                </div>
+                    </div>
 
-                {/* <nav className="sitemap col-md-2 mb-md-0 mb-3">
+                    {/* <nav className="sitemap col-md-2 mb-md-0 mb-3">
 
           <h5 className="text-uppercase">Pages</h5>
           <ul className="list-unstyled">
@@ -227,9 +276,10 @@ const Footer = () => (
             </li>
           </ul>
         </nav> */}
+                </div>
             </div>
-        </div>
-    </StyledFooter>
-);
+        </StyledFooter>
+    );
+};
 
-export default Footer;
+export default injectIntl(Footer);

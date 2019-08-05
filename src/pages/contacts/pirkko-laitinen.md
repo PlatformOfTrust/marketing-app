@@ -13,6 +13,6 @@ twitter: " https://twitter.com/pirkkolaitinen"
 linkedin: "https://www.linkedin.com/in/pirkkolaitinen/"
 
 tags: ['Platform of Trust','contact', 'CMO','Pirkko', 'Laitinen']
-lang: "en-GB"
+locale: "en"
 status: "published"
 ---

@@ -1,14 +1,14 @@
 ---
-path: "/news/sport-venue" # path to where you want blog to be published aka https://www.platformoftrust.net//blogs/sport-venue
+path: "/news/towards-smoother-and-simpler-knowledge-management" # path to where you want blog to be published aka https://www.platformoftrust.net//blogs/towards-smoother-and-simpler-knowledge-management
 date: "2019-04-08T13:45:33.962Z"
 title: "Towards smoother and simpler knowledge management"
-image: "./smoother knowledge management.jpg" # Featured image shown on page and listings. Save in same folder. Don't use svg.
+image: "./../../static/smoother knowledge management.jpg" # Featured image shown on page and listings. Save in same folder. Don't use svg.
 pic: "smoother knowledge management2.jpg" # Hex image shown on page and listings. No path, just filename. Save in same folder. Don't use svg.
 pictext: ""
 type: "news" # All "News" are blogs to separate them from real pages made with MarkDown, so that they appear in blog listings etc.
 subtype: "article" # "blog" / "news" / "press-realease" etc.
 tags: ['Sport Venue Oy','KnowUr.Biz®','Data'] # Any string, can be used in search / "related content"
-lang: "en-GB" # ISO Lang attr
+locale: "en"
 author: "Pirkko Laitinen"
 authorpic: "pirkko-laitinen.jpg"
 status: "published" # "published" / "draft" / "pending" / "archived"

@@ -1,6 +1,6 @@
 import React from 'react';
-import { Link } from 'gatsby';
 import styled from 'styled-components';
+import LocalizedLink from './LocalizedLink';
 
 import { colors, device } from '../Theme.js';
 
@@ -79,9 +79,9 @@ const StyledAppsNav = styled.nav`
 const AppsNav = props => {
     return (
         <StyledAppsNav className="apps">
-            <Link to="/" className="apps-nav-link active">
+            <LocalizedLink to="/" className="apps-nav-link active">
                 Platform of Trust
-            </Link>
+            </LocalizedLink>
             {/* <a href="https://world.oftrust.net/" className="apps-nav-link" >MyWorld</a> */}
             <a href="https://developer.oftrust.net/" className="apps-nav-link">
                 Developer portal

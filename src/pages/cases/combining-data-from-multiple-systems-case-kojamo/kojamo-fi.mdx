@@ -1,0 +1,40 @@
+---
+path: "/fi/kayttotapaukset/datan-yhdistäminen-useista-eri-järjestelmistä-case-kojamo"
+title: "Datan yhdistäminen useista eri järjestelmistä - Case Kojamo"
+date: "2019-05-03T13:45:33.962Z"
+shorttitle: "Case Kojamo" # max two lines 12 char each
+image: "./../../static/kojamo.jpg"
+pic: "kojamo-square.jpg" # for hex-image Needs to be square for now!
+pictext: ""
+type: "case"
+subtype: "business"
+tags: [ "case", "Kojamo", "Platform of Trust", "dataflows"]
+locale: "fi"
+author: "Pirkko Laitinen"
+authorpic: "pirkko-laitinen.jpg"
+status: "published" # "published" / "draft" / "pending" / "archived"
+---
+## Lähtötilanne
+
+Odotukset asumisen palveluita kohtaan ovat kasvussa, mutta kehityksen esteenä on tiedon hajanaisuus ja yhteensopimattomuus. Digitalisaation myötä asukkaalle voidaan tarjota parempia palveluita osana asumista ja arjen sujuvuuteen. Tämä edellyttää asuntoihin liittyvän digitaalisen perustan luomista.
+
+## Tavoite
+
+Syksyllä 2018 Platform of Trust, Kojamo, Visma Tampuuri ja Lassila & Tikanoja toteuttivat yhdessä kokeilun, jonka tavoitteena oli saada osapuolten data liikkumaan osapuolten järjestelmien välillä kaksisuuntaisesti niin, ettei kaikkien tarvitse rakentaa erillistä yhteyttä toisiinsa vaan yhteisenä alustana ja digitaalisena perustana toimii Platform of Trust. Alustan tehtävä on välittää ja harmonisoida dataa sekä linkittää se reaalimaailman kohteisiin, jolloin eri järjestelmät voivat koneluettavasti viitata yhtenäisellä tavalla huoneistoihin, huoneisiin ja laitteisiin. Käytännössä tavoitteen onnistuminen näkyisi palveluprosessien tehostumisessa ja asukaskokemuksen parantumisessa.
+
+## Toiminta
+
+Kokeilun kohteena toimi Helsingin Karavaanikujalla sijaitseva asuinrakennus ja kokeilun pohjaksi otettiin rakennusaikainen tietomalli rakennuksesta ja sen järjestelmistä. Kokeilun ensimmäisessä vaiheessa luotiin digitaalisen kaksosen runko rakennuksista, huoneistosta ja järjestelmistä. Toisessa vaiheessa luotiin asukkaille suunnattu demosovellus, jonka kautta he pystyivät esimerkiksi tekemään vikailmoituksia. Ilmoitus kulkeutui Visman Tampuuri-huoltokirjajärjestelmän kautta Lassila & Tikanojan toiminnanohjausjärjestelmään ja huoltomiehen tehtävälistalle.  Tieto korjauksen eri vaiheista välittyi takaisin asiakkaalle.
+
+## Lopputulos
+
+Kokeilu todisti, että datan linkitys Platform of Trust -alustan kautta mahdollistaa erillään olleiden tietojärjestelmien toimimisen yhdessä. Tässä tapauksessa rakennus- ja kiinteistöalan toimijoiden yhteistyöllä tieto saatiin liikkumaan eri toimijoiden kesken tehokkaasti jo pari kuukautta kestäneen kokeilun aikana. Nykyisissä järjestelmissä olevat tiedot saadaan käyttöön ilman, että niitä tarvitsee muuttaa.
+
+Jatkossa mallin päälle voidaan kehittää lisää sovelluksia ja palveluita, jotka nopeuttavat korjausprosesseja ja mahdollistavat ennakoivan kunnossapidon hyödyntämisen.
+
+
+export default ({ children }) => (
+  <article className="case">
+    { children }
+  </article>
+)

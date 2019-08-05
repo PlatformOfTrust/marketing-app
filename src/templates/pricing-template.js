@@ -3,12 +3,12 @@ import Helmet from 'react-helmet';
 import Img from 'gatsby-image';
 import { graphql } from 'gatsby';
 
-import Layout from '../components/layout';
+import Layout from '../components/Layout';
 
-export default function Template({ data }) {
+export default function Template({ data, pageContext }) {
     const post = data.markdownRemark;
     return (
-        <Layout>
+        <Layout locale={pageContext.locale}>
             <article className="pricing-container">
                 <Helmet title={`CodeStack - ${post.frontmatter.title}`} />
                 <div className="pricing">
@@ -29,8 +29,8 @@ export default function Template({ data }) {
 }
 
 export const pageQuery = graphql`
-    query pricingByPath($path: String!) {
-        markdownRemark(frontmatter: { path: { eq: $path } }) {
+    query pricingByPagePath($pagePath: String!) {
+        markdownRemark(frontmatter: { path: { eq: $pagePath } }) {
             html
             frontmatter {
                 date(formatString: "MMMM DD, YYYY")

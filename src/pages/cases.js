@@ -1,16 +1,18 @@
 import React from 'react';
-import Link from 'gatsby-link';
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styled from 'styled-components';
-import MetaTags from 'react-meta-tags';
+import { Helmet } from 'react-helmet';
+
+import SpanElement from './../components/SpanElement';
 
 // import CustomImage from "../components/CustomImage"
 import HexImage from '../components/HexImage';
 import CustomSquareButton from '../components/CustomSquareButton';
-import Layout from '../components/layout';
+import Layout from '../components/Layout';
 import { colors, variables } from '../Theme.js';
 import SocialPreviewImage from '../images/preview_social_share/cases.jpg';
+import HeaderElement from '../components/HeaderElement';
 
 export const subtypeColors = {
     blog: `${colors.ok}`,
@@ -27,6 +29,16 @@ const StyledSection = styled.article`
 `;
 const StyledBlogs = styled.article`
     padding: 5%;
+    .news-not-found {
+        text-align: center;
+        padding-top: 15.6vh;
+        padding-bottom: 15.7vh;
+    }
+
+    .news-not-found h2 {
+        font-weight: 400;
+        font-size: 2.4rem;
+    }
 `;
 const StyledTools = styled.nav`
   // background: ${colors.mainDarkest};
@@ -55,22 +67,37 @@ const StyledBlogBlock = styled.article`
     padding: 1.5rem;
     margin: 1rem;
     border-top: 2px dotted ${colors.main};
-    h2 { font-size: 1.6rem;
+    h2 {
+        font-size: 1.6rem;
         letter-spacing: 0.01em;
         word-spacing: 0.065em;
         line-height: 1.2em;
+    }
+
+    span {
+        font-size: 15px;
+    }
+    p {
+        word-spacing: 0.064em;
+        line-spacing: 0.048em;
+        font-size: 17px;
     }
 
     &:nth-of-type(1) {
         width: 100%;
         border-top: none;
         h2 {
-            font-size: 2.4rem;
+            font-size: 2.5rem;
+            letter-spacing: 0.01em;
+            word-spacing: 0.065em;
+            line-height: 1.2em;
         }
     }
 
     &:nth-child(n + 5) {
         width: 100%;
+        padding-top: 0;
+        padding-bottom: 0;
         .featured-image,
         .excerpt {
             display: none;
@@ -85,7 +112,9 @@ const StyledBlogBlock = styled.article`
             width: 100%;
         }
         h2 {
-            font-size: 2.4rem;
+            font-size: 1.6rem;
+            word-spacing: 0.065em;
+            line-height: 1.2em;
         }
     }
 
@@ -131,7 +160,7 @@ const StyledPad = styled.div`
     margin: 1rem;
 `;
 
-export default class Events extends React.Component {
+class Events extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -150,14 +179,14 @@ export default class Events extends React.Component {
     handleFiltering = filter => {
         filter === 'all'
             ? this.setState({
-                filters: [
-                    'blog',
-                    'article',
-                    'pressRelease',
-                    'business',
-                    'technical'
-                ]
-            })
+                  filters: [
+                      'blog',
+                      'article',
+                      'pressRelease',
+                      'business',
+                      'technical'
+                  ]
+              })
             : this.setState({ filters: [filter] });
         this.setState({ selected: [filter] });
     };
@@ -165,17 +194,47 @@ export default class Events extends React.Component {
     render() {
         const { filters, selected } = this.state;
         const { edges: posts } = this.props.data.allMdx;
+        const socialPreviewImageFullUri =
+            typeof window !== 'undefined' &&
+            window.location.origin + SocialPreviewImage;
+
         return (
-            <Layout className="blog-posts">
-                <MetaTags>
-                    <meta property="og:title" content={SocialPreviewData.title} />
-                    <meta name="description" content={SocialPreviewData.description} />
-                    <meta property="og:image" content={SocialPreviewImage} />
-                    <meta name="twitter:card" content="summary_large_image" />
-                    <meta name="twitter:title" content={SocialPreviewData.title} />
-                    <meta name="twitter:description" content={SocialPreviewData.description} />
-                    <meta name="twitter:image" content={SocialPreviewImage} />
-                </MetaTags>
+            <Layout
+                locale={this.props.pathContext.locale}
+                className="blog-posts"
+            >
+                <Helmet
+                    meta={[
+                        {
+                            property: 'og:title',
+                            content: `${SocialPreviewData.title}`
+                        },
+                        {
+                            property: 'og:description',
+                            content: `${SocialPreviewData.description}`
+                        },
+                        {
+                            property: 'og:image',
+                            content: `${socialPreviewImageFullUri}`
+                        },
+                        {
+                            property: 'twitter:card',
+                            content: 'summary_large_image'
+                        },
+                        {
+                            property: 'twitter:title',
+                            content: `${SocialPreviewData.title}`
+                        },
+                        {
+                            property: 'twitter:description',
+                            content: `${SocialPreviewData.description}`
+                        },
+                        {
+                            property: 'twitter:image',
+                            content: `${socialPreviewImageFullUri}`
+                        }
+                    ]}
+                />
                 <StyledPad>
                     <StyledSection className="posts-listing">
                         <StyledTools className="filters">
@@ -186,11 +245,10 @@ export default class Events extends React.Component {
                                         : ''
                                 }`}
                             >
-                                <span
+                                <SpanElement
+                                    text="all"
                                     onClick={() => this.handleFiltering('all')}
-                                >
-                                    All
-                                </span>
+                                />
                             </StyledSelector>
                             {/* <StyledSelector className={`tool-block blog ${ selected[0] === "blog" ? "selected-filter" : "" }`}>
                 <FontAwesomeIcon icon={['fa', 'hexagon']} color={ colors.ok } />
@@ -232,18 +290,26 @@ export default class Events extends React.Component {
                                     color={colors.mainLightest}
                                     size="1x"
                                 />
-                                <span
+                                <SpanElement
+                                    text="technical"
                                     onClick={() =>
                                         this.handleFiltering('technical')
                                     }
-                                >
-                                    Technical
-                                </span>
+                                />
                             </StyledSelector>
                         </StyledTools>
                         <StyledBlogs className="posts">
-                            <h1>Cases</h1>
-
+                            <HeaderElement tag="h1" content="cases" />
+                            {posts.filter(post =>
+                                filters.includes(post.node.frontmatter.subtype)
+                            ).length === 0 && (
+                                <div className="col-12 news-not-found">
+                                    <h2>
+                                        Sorry, nothing here for now. See the
+                                        other filters.
+                                    </h2>
+                                </div>
+                            )}
                             {posts
                                 .filter(post =>
                                     filters.includes(
@@ -264,16 +330,8 @@ export default class Events extends React.Component {
                                                     <StyledHexImage>
                                                         {/* <CustomImage filename={post.frontmatter.pic} alt={post.frontmatter.title} /> */}
                                                         <HexImage
-                                                            pic={require(`.${
-                                                                post.frontmatter
-                                                                    .path
-                                                            }/${
-                                                                post.frontmatter
-                                                                    .pic
-                                                            }`)}
-                                                            hexId={`EventHex-${
-                                                                post.id
-                                                            }`}
+                                                            pic={require(`./static/${post.frontmatter.pic}`)}
+                                                            hexId={`EventHex-${post.id}`}
                                                             rotate={true}
                                                         />
                                                     </StyledHexImage>
@@ -343,7 +401,7 @@ export default class Events extends React.Component {
                                                         className="post-link"
                                                     >
                                                         <p>{post.excerpt}</p>
-                                                        <CustomSquareButton label="Read" />
+                                                        <CustomSquareButton label="read" />
                                                     </Link>
                                                 </div>
                                             </div>
@@ -360,13 +418,16 @@ export default class Events extends React.Component {
 
 const SocialPreviewData = {
     title: 'Platform Of Trust | Cases',
-    description: 'Platform of Trust use cases, examples of how the platform works in practice and how it helps create business ecosystems.'
+    description:
+        'Platform of Trust use cases, examples of how the platform works in practice and how it helps create business ecosystems.'
 };
 
 export const pageQuery = graphql`
-    query caseQuery {
+    query caseQuery($locale: String!) {
         allMdx(
-            filter: { frontmatter: { type: { eq: "case" } } }
+            filter: {
+                frontmatter: { type: { eq: "case" }, locale: { eq: $locale } }
+            }
             sort: { order: DESC, fields: [frontmatter___date] }
         ) {
             edges {
@@ -387,3 +448,5 @@ export const pageQuery = graphql`
         }
     }
 `;
+
+export default Events;

@@ -1,14 +1,14 @@
 ---
-path: "/news/signspace" # path to where you want blog to be published aka https://www.platformoftrust.net//blogs/sport-venue
+path: "/news/with-signspace-youll-never-need-a-pen-again" # path to where you want blog to be published aka https://www.platformoftrust.net//blogs/sport-venue
 date: "2019-03-08T13:45:33.962Z"
 title: "With SignSpace, you’ll never need a pen again"
-image: "./SignSpace.jpg" # Featured image shown on page and listings. Save in same folder. Don't use svg.
+image: "./../../static/SignSpace.jpg" # Featured image shown on page and listings. Save in same folder. Don't use svg.
 pic: "SignSpace2.jpg" # Hex image shown on page and listings. No path, just filename. Save in same folder. Don't use svg.
 pictext: ""
 type: "news" # All "News" are blogs to separate them from real pages made with MarkDown, so that they appear in blog listings etc.
 subtype: "article" # "blog" / "news" / "pressRelease" etc.
 tags: ['SignSpace'] # Any string, can be used in search / "related content"
-lang: "en-GB" # ISO Lang attr
+locale: "en"
 author: "Henri Svensson"
 status: "published" # "published" / "draft" / "pending" / "archived"
 ---

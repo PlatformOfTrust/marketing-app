@@ -1,14 +1,17 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import Img from 'gatsby-image';
-import { graphql, Link } from 'gatsby';
+import { graphql } from 'gatsby';
 import MDXRenderer from 'gatsby-mdx/mdx-renderer';
 import styled from 'styled-components';
+import LocalizedLink from './../components/LocalizedLink';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import Layout from '../components/layout';
+import Layout from '../components/Layout';
 import { colors, device, variables } from '../Theme.js';
+import SomeIcons from '../components/SomeIcons';
+import SpanElement from '../components/SpanElement';
 
 const StyledBlog = styled.article`
     &&& {
@@ -53,9 +56,7 @@ const StyledCaption = styled.div`
   width: 100%
   position: absolute;
   transform: translateY(-100%);
-  background: linear-gradient(to bottom, rgba(0,0,0,0), ${
-    colors.mainDarker
-} 100%);
+  background: linear-gradient(to bottom, rgba(0,0,0,0), ${colors.mainDarker} 100%);
   padding: 4rem 10% 0;
   justify-content: flex-end;
   p {
@@ -114,18 +115,19 @@ const StyledBlogFooter = styled.div`
 
 export default function Template({ data, location, pageContext }) {
     const post = data.mdx;
-    const { next, prev } = pageContext;
+    const { next, prev, locale } = pageContext;
+    console.log(data);
 
     return (
-        <Layout pathname={location.pathname}>
+        <Layout pathname={location.pathname} locale={locale}>
             <Helmet title={`Platform of Trust - ${post.frontmatter.title}`} />
             <StyledBlog>
                 <StyledHeader className="container">
-                    <div style={{marginTop: '50px'}} className="row">
-                        <Link to="/cases">
+                    <div style={{ marginTop: '50px' }} className="row">
+                        <LocalizedLink to="/cases">
                             <FontAwesomeIcon icon={['fal', 'arrow-left']} />{' '}
                             Back to cases
-                        </Link>
+                        </LocalizedLink>
                         <h1>{post.frontmatter.title}</h1>
                         <StyledMeta>
                             <FontAwesomeIcon
@@ -172,9 +174,7 @@ export default function Template({ data, location, pageContext }) {
                                     size="1x"
                                 />
                                 <a
-                                    href={`https://www.facebook.com/sharer/sharer.php?u=https://www.platformoftrust.net${
-                                        post.frontmatter.path
-                                    }`}
+                                    href={`https://www.facebook.com/sharer/sharer.php?u=https://www.platformoftrust.net${post.frontmatter.path}`}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
@@ -185,11 +185,7 @@ export default function Template({ data, location, pageContext }) {
                                     />
                                 </a>
                                 <a
-                                    href={`https://twitter.com/intent/tweet/?text=${
-                                        post.frontmatter.title
-                                    }&url=https://www.platformoftrust.net${
-                                        post.frontmatter.path
-                                    }%2F&via=PlatformOfTrust`}
+                                    href={`https://twitter.com/intent/tweet/?text=${post.frontmatter.title}&url=https://www.platformoftrust.net${post.frontmatter.path}%2F&via=PlatformOfTrust`}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
@@ -200,11 +196,7 @@ export default function Template({ data, location, pageContext }) {
                                     />
                                 </a>
                                 <a
-                                    href={`https://www.linkedin.com/shareArticle?mini=true&url=https://www.platformoftrust.net${
-                                        post.frontmatter.path
-                                    }&title=${post.frontmatter.title}&source=${
-                                        post.frontmatter.title
-                                    }`}
+                                    href={`https://www.linkedin.com/shareArticle?mini=true&url=https://www.platformoftrust.net${post.frontmatter.path}&title=${post.frontmatter.title}&source=${post.frontmatter.title}`}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
@@ -223,37 +215,39 @@ export default function Template({ data, location, pageContext }) {
                         <div className="col col-3 offset-1">
                             <p>
                                 {prev && (
-                                    <Link to={prev.frontmatter.path}>
+                                    <LocalizedLink to={prev.frontmatter.path}>
                                         <FontAwesomeIcon
                                             icon={['fal', 'arrow-left']}
                                             color="white"
                                             size="1x"
                                         />
-                                        Previous
+                                        <SpanElement text="previous" />
                                         {/* {prev.frontmatter.title} */}
-                                    </Link>
+                                    </LocalizedLink>
                                 )}
                             </p>
                         </div>
 
                         <div className="col col-4">
                             <p>
-                                <Link to="/cases">Back to cases</Link>
+                                <LocalizedLink to="/cases">
+                                    Back to cases
+                                </LocalizedLink>
                             </p>
                         </div>
 
                         <div className="col col-3">
                             <p>
                                 {next && (
-                                    <Link to={next.frontmatter.path}>
-                                        Next
+                                    <LocalizedLink to={next.frontmatter.path}>
+                                        <SpanElement text="next" />
                                         {/* {next.frontmatter.title} */}
                                         <FontAwesomeIcon
                                             icon={['fal', 'arrow-right']}
                                             color="white"
                                             size="1x"
                                         />
-                                    </Link>
+                                    </LocalizedLink>
                                 )}
                             </p>
                         </div>
@@ -265,8 +259,8 @@ export default function Template({ data, location, pageContext }) {
 }
 
 export const pageQuery = graphql`
-    query casePostByPath($path: String!) {
-        mdx(frontmatter: { path: { eq: $path } }) {
+    query casePostByPagePath($pagePath: String!, $locale: String!) {
+        mdx(frontmatter: { path: { eq: $pagePath }, locale: { eq: $locale } }) {
             frontmatter {
                 date(formatString: "MMMM DD, YYYY")
                 path

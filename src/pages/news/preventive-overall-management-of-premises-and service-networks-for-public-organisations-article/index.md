@@ -1,14 +1,14 @@
 ---
-path: "/news/locia" # path to where you want blog to be published aka https://www.platformoftrust.net//blogs/sport-venue
+path: "/news/preventive-overall-management-of-premises-and service-networks-for-public-organisations" # path to where you want blog to be published aka https://www.platformoftrust.net//blogs/sport-venue
 date: "2019-04-09T13:45:33.962Z"
 title: "Preventive overall management of premises and service networks for public organisations"
-image: "./Preventive management for cities.jpg" # Featured image shown on page and listings. Save in same folder. Don't use svg.
+image: "./../../static/Preventive management for cities.jpg" # Featured image shown on page and listings. Save in same folder. Don't use svg.
 pic: "Preventive management for cities2.jpg" # Hex image shown on page and listings. No path, just filename. Save in same folder. Don't use svg.
 pictext: ""
 type: "news" # All "News" are blogs to separate them from real pages made with MarkDown, so that they appear in blog listings etc.
 subtype: "article" # "blog" / "news" / "press-realease" etc.
 tags: ['Locia'] # Any string, can be used in search / "related content"
-lang: "en-GB" # ISO Lang attr
+locale: "en"
 author: "Pirkko Laitinen"
 authorpic: "pirkko-laitinen.jpg"
 status: "published" # "published" / "draft" / "pending" / "archived"

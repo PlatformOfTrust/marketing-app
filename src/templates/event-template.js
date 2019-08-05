@@ -6,7 +6,7 @@ import styled from 'styled-components';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import Layout from '../components/layout';
+import Layout from '../components/Layout';
 import CustomImage from '../components/CustomImage';
 import { colors, device, variables } from '../Theme.js';
 
@@ -129,19 +129,19 @@ const StyledCustomImage = styled.div`
 
 export default function Template({ data, location, pageContext }) {
     const post = data.mdx;
-    const { next, prev } = pageContext;
+    const { next, prev, locale } = pageContext;
 
     return (
-        <Layout pathname={location.pathname}>
+        <Layout pathname={location.pathname} locale={locale}>
             <Helmet title={`Platform of Trust - ${post.frontmatter.title}`} />
             <StyledBlog>
                 <StyledHeader className="container">
                     <div className="row">
                         <div className="col-12">
-                            <Link to="/events">
+                            <LocalizedLink to="/events">
                                 <FontAwesomeIcon icon={['fal', 'arrow-left']} />{' '}
                                 Back to events
-                            </Link>
+                            </LocalizedLink>
                         </div>
                     </div>
                 </StyledHeader>
@@ -189,9 +189,7 @@ export default function Template({ data, location, pageContext }) {
                                     size="1x"
                                 />
                                 <a
-                                    href={`https://www.facebook.com/sharer/sharer.php?u=https://www.platformoftrust.net${
-                                        post.frontmatter.path
-                                    }`}
+                                    href={`https://www.facebook.com/sharer/sharer.php?u=https://www.platformoftrust.net${post.frontmatter.path}`}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
@@ -202,11 +200,7 @@ export default function Template({ data, location, pageContext }) {
                                     />
                                 </a>
                                 <a
-                                    href={`https://twitter.com/intent/tweet/?text=${
-                                        post.frontmatter.title
-                                    }&url=https://www.platformoftrust.net${
-                                        post.frontmatter.path
-                                    }%2F&via=PlatformOfTrust`}
+                                    href={`https://twitter.com/intent/tweet/?text=${post.frontmatter.title}&url=https://www.platformoftrust.net${post.frontmatter.path}%2F&via=PlatformOfTrust`}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
@@ -217,11 +211,7 @@ export default function Template({ data, location, pageContext }) {
                                     />
                                 </a>
                                 <a
-                                    href={`https://www.linkedin.com/shareArticle?mini=true&url=https://www.platformoftrust.net${
-                                        post.frontmatter.path
-                                    }&title=${post.frontmatter.title}&source=${
-                                        post.frontmatter.title
-                                    }`}
+                                    href={`https://www.linkedin.com/shareArticle?mini=true&url=https://www.platformoftrust.net${post.frontmatter.path}&title=${post.frontmatter.title}&source=${post.frontmatter.title}`}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
@@ -282,8 +272,8 @@ export default function Template({ data, location, pageContext }) {
 }
 
 export const pageQuery = graphql`
-    query eventPostByPath($path: String!) {
-        mdx(frontmatter: { path: { eq: $path } }) {
+    query eventPostByPagePath($pagePath: String!) {
+        mdx(frontmatter: { path: { eq: $pagePath } }) {
             frontmatter {
                 date(formatString: "MMMM DD, YYYY")
                 path

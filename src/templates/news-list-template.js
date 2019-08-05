@@ -1,16 +1,20 @@
 import React from 'react';
-import Link from 'gatsby-link';
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styled from 'styled-components';
-import MetaTags from 'react-meta-tags';
+import { Helmet } from 'react-helmet';
+
+import LocalizedLink from './../components/LocalizedLink';
 
 import HexImage from '../components/HexImage';
-import Layout from '../components/layout';
+import Layout from '../components/Layout';
 import CustomRoundedButton from '../components/CustomRoundedButton';
 import CustomSquareButton from '../components/CustomSquareButton';
 import { colors, device, variables } from '../Theme.js';
 import SocialPreviewImage from '../images/preview_social_share/news.jpg';
+
+import HeaderElement from '../components/HeaderElement';
+import SpanElement from './../components/SpanElement';
 
 export const subtypeColors = {
     blog: `${colors.ok}`,
@@ -34,7 +38,7 @@ const StyledBlogs = styled.article`
     }
 
     .news-not-found h2 {
-        font-weight: 400 ;
+        font-weight: 400;
         font-size: 2.4rem;
     }
 `;
@@ -60,62 +64,94 @@ const StyledSelector = styled.button`
     }
 `;
 const StyledBlogBlock = styled.article`
-  display: inline-block;
-  width: 100%;
-  @media ${device.laptop} { width: calc(50% - 2rem); }
-  padding: 1.5rem;
-  margin: 1rem;
-  border-top: 2px dotted ${colors.main};
-  h2 { font-size: 1.6rem; letter-spacing: 0.02em; word-spacing: 0.065em; line-height: 1.2em;}
-  span { font-size: 15px;}
-  p {word-spacing: 0.064em; line-spacing: 0.048em; font-size: 17px;}
-
-  &:nth-of-type(1) {
-    width: 100%;
-    border-top: none;
-      h2 { font-size: 2.5rem; letter-spacing: 0.01em; word-spacing: 0.065em; line-height: 1.2em;}
-
-  }
-
-  &:nth-child(n+5) {
-    width: 100%;
-    padding-top: 0;
-    padding-bottom: 0;
-    .featured-image, .excerpt { display: none }
-    .title { order: 2; }
-    .meta { order: 1; }
-    .post-preview-content { width: 100%; }
-    h2 { font-size: 1.6rem;word-spacing: 0.065em; line-height: 1.2em;}
-  }
-
-  .post-link {
-    text-decoration: none;
-  }
-  .meta {
-    svg { margin-right: 0.4em; }
-    span {
-      margin-right: 0.3em;
-      text-transform: capitalize;
-    }
-    .divider {
-      display: inline-block;
-      transform: translateY(-0.2em);
-     }
-  }
-  .featured-image {
     display: inline-block;
-    width: 30%;
-  }
-  .post-preview-content {
-    display: inline-flex;
-    flex-direction: column;
-    width: 70%;
-    padding: 1rem 10% 1rem 0;
-    vertical-align: top;
-    h2 {
-      font-weight: 400;
+    width: 100%;
+    @media ${device.laptop} {
+        width: calc(50% - 2rem);
     }
-  }
+    padding: 1.5rem;
+    margin: 1rem;
+    border-top: 2px dotted ${colors.main};
+    h2 {
+        font-size: 1.6rem;
+        letter-spacing: 0.02em;
+        word-spacing: 0.065em;
+        line-height: 1.2em;
+    }
+    span {
+        font-size: 15px;
+    }
+    p {
+        word-spacing: 0.064em;
+        line-spacing: 0.048em;
+        font-size: 17px;
+    }
+
+    &:nth-of-type(1) {
+        width: 100%;
+        border-top: none;
+        h2 {
+            font-size: 2.5rem;
+            letter-spacing: 0.01em;
+            word-spacing: 0.065em;
+            line-height: 1.2em;
+        }
+    }
+
+    &:nth-child(n + 5) {
+        width: 100%;
+        padding-top: 0;
+        padding-bottom: 0;
+        .featured-image,
+        .excerpt {
+            display: none;
+        }
+        .title {
+            order: 2;
+        }
+        .meta {
+            order: 1;
+        }
+        .post-preview-content {
+            width: 100%;
+        }
+        h2 {
+            font-size: 1.6rem;
+            word-spacing: 0.065em;
+            line-height: 1.2em;
+        }
+    }
+
+    .post-link {
+        text-decoration: none;
+    }
+    .meta {
+        svg {
+            margin-right: 0.4em;
+        }
+        span {
+            margin-right: 0.3em;
+            text-transform: capitalize;
+        }
+        .divider {
+            display: inline-block;
+            transform: translateY(-0.2em);
+        }
+    }
+    .featured-image {
+        display: inline-block;
+        width: 30%;
+    }
+    .post-preview-content {
+        display: inline-flex;
+        flex-direction: column;
+        width: 70%;
+        padding: 1rem 10% 1rem 0;
+        vertical-align: top;
+        h2 {
+            font-weight: 400;
+        }
+    }
 `;
 const StyledHexImage = styled.div`
     width: 85%;
@@ -202,18 +238,47 @@ export default class NewsList extends React.Component {
                 ? '/news'
                 : `/news/${(currentPage - 1).toString()}`;
         const nextPage = `/news/${(currentPage + 1).toString()}`;
+        const socialPreviewImageFullUri =
+            typeof window !== 'undefined' &&
+            window.location.origin + SocialPreviewImage;
 
         return (
-            <Layout className="blog-posts">
-                <MetaTags>
-                    <meta property="og:title" content={SocialPreviewData.title} />
-                    <meta name="description" content={SocialPreviewData.description} />
-                    <meta property="og:image" content={SocialPreviewImage} />
-                    <meta name="twitter:card" content="summary_large_image" />
-                    <meta name="twitter:title" content={SocialPreviewData.title} />
-                    <meta name="twitter:description" content={SocialPreviewData.description} />
-                    <meta name="twitter:image" content={SocialPreviewImage} />
-                </MetaTags>
+            <Layout
+                locale={this.props.pathContext.locale}
+                className="blog-posts"
+            >
+                <Helmet
+                    meta={[
+                        {
+                            property: 'og:title',
+                            content: `${SocialPreviewData.title}`
+                        },
+                        {
+                            property: 'og:description',
+                            content: `${SocialPreviewData.description}`
+                        },
+                        {
+                            property: 'og:image',
+                            content: `${socialPreviewImageFullUri}`
+                        },
+                        {
+                            property: 'twitter:card',
+                            content: 'summary_large_image'
+                        },
+                        {
+                            property: 'twitter:title',
+                            content: `${SocialPreviewData.title}`
+                        },
+                        {
+                            property: 'twitter:description',
+                            content: `${SocialPreviewData.description}`
+                        },
+                        {
+                            property: 'twitter:image',
+                            content: `${socialPreviewImageFullUri}`
+                        }
+                    ]}
+                />
                 <StyledPad>
                     <StyledSection className="posts-listing">
                         <StyledTools className="filters">
@@ -224,11 +289,10 @@ export default class NewsList extends React.Component {
                                         : ''
                                 }`}
                             >
-                                <span
+                                <SpanElement
+                                    text="all"
                                     onClick={() => this.handleFiltering('all')}
-                                >
-                                    All
-                                </span>
+                                />
                             </StyledSelector>
 
                             <StyledSelector
@@ -242,11 +306,10 @@ export default class NewsList extends React.Component {
                                     icon={['fa', 'hexagon']}
                                     color={colors.blog}
                                 />
-                                <span
+                                <SpanElement
+                                    text="blogs"
                                     onClick={() => this.handleFiltering('blog')}
-                                >
-                                    Blogs
-                                </span>
+                                />
                             </StyledSelector>
 
                             <StyledSelector
@@ -260,13 +323,12 @@ export default class NewsList extends React.Component {
                                     icon={['fa', 'hexagon']}
                                     color={colors.article}
                                 />
-                                <span
+                                <SpanElement
+                                    text="articles"
                                     onClick={() =>
                                         this.handleFiltering('article')
                                     }
-                                >
-                                    Articles
-                                </span>
+                                />
                             </StyledSelector>
 
                             <StyledSelector
@@ -280,13 +342,12 @@ export default class NewsList extends React.Component {
                                     icon={['fa', 'hexagon']}
                                     color={colors.press}
                                 />
-                                <span
+                                <SpanElement
+                                    text="pressReleases"
                                     onClick={() =>
                                         this.handleFiltering('pressRelease')
                                     }
-                                >
-                                    Press releases
-                                </span>
+                                />
                             </StyledSelector>
 
                             <StyledSelector
@@ -300,13 +361,12 @@ export default class NewsList extends React.Component {
                                     icon={['fa', 'hexagon']}
                                     color={colors.business}
                                 />
-                                <span
+                                <SpanElement
+                                    text="business"
                                     onClick={() =>
                                         this.handleFiltering('business')
                                     }
-                                >
-                                    Business
-                                </span>
+                                />
                             </StyledSelector>
 
                             <StyledSelector
@@ -320,34 +380,38 @@ export default class NewsList extends React.Component {
                                     icon={['fa', 'hexagon']}
                                     color={colors.technical}
                                 />
-                                <span
+                                <SpanElement
+                                    text="technical"
                                     onClick={() =>
                                         this.handleFiltering('technical')
                                     }
-                                >
-                                    Technical
-                                </span>
+                                />
                             </StyledSelector>
                         </StyledTools>
                         <StyledBlogs className="posts container">
                             <div className="row">
                                 <div className="col-6">
-                                    <h1>News</h1>
+                                    <HeaderElement tag="h1" content="news" />
                                 </div>
                                 <div className="col-6 text-right">
-                                    <Link to="/newsletter">
-                                        <CustomRoundedButton label="Sign up for news" />
-                                    </Link>
+                                    <LocalizedLink to="/newsletter">
+                                        <CustomRoundedButton label="signUpForNews" />
+                                    </LocalizedLink>
                                 </div>
                             </div>
                             <div className="row">
-                                {posts
-                                    .filter(post =>
-                                        filters.includes(
-                                            post.node.frontmatter.subtype
-                                        )
-                                    ).length === 0 && <div className="col-12 news-not-found"><h2>Sorry, nothing here for now. See the other filters.</h2></div>
-                                }
+                                {posts.filter(post =>
+                                    filters.includes(
+                                        post.node.frontmatter.subtype
+                                    )
+                                ).length === 0 && (
+                                    <div className="col-12 news-not-found">
+                                        <h2>
+                                            Sorry, nothing here for now. See the
+                                            other filters.
+                                        </h2>
+                                    </div>
+                                )}
                                 {posts
                                     .filter(post =>
                                         filters.includes(
@@ -373,23 +437,12 @@ export default class NewsList extends React.Component {
                                                         <StyledHexImage>
                                                             {/* <CustomImage filename={post.frontmatter.pic} alt={post.frontmatter.title} /> */}
                                                             <HexImage
-                                                                pic={require(`../pages${
-                                                                    post
-                                                                        .frontmatter
-                                                                        .path
-                                                                }-${
-                                                                    post
-                                                                        .frontmatter
-                                                                        .subtype
-                                                                }/${
-                                                                    post
-                                                                        .frontmatter
-                                                                        .pic
-                                                                }`)}
-                                                                hexId={`NewHex-${
-                                                                    post.id
-                                                                }`}
+                                                                pic={require(`./../pages/static/${post.frontmatter.pic}`)}
+                                                                hexId={`NewHex-${post.id}`}
                                                                 rotate={true}
+                                                                isNewsImage={
+                                                                    true
+                                                                }
                                                             />
                                                         </StyledHexImage>
                                                     </Link>
@@ -430,13 +483,13 @@ export default class NewsList extends React.Component {
                                                             {post.frontmatter
                                                                 .subtype && (
                                                                 <>
-                                                                    <span>
-                                                                        {
+                                                                    <SpanElement
+                                                                        text={
                                                                             post
                                                                                 .frontmatter
                                                                                 .subtype
                                                                         }
-                                                                    </span>
+                                                                    />
                                                                     <span className="divider">
                                                                         .
                                                                     </span>
@@ -478,7 +531,7 @@ export default class NewsList extends React.Component {
                                                             <p>
                                                                 {post.excerpt}
                                                             </p>
-                                                            <CustomSquareButton label="Read" />
+                                                            <CustomSquareButton label="read" />
                                                         </Link>
                                                     </div>
                                                 </div>
@@ -494,7 +547,7 @@ export default class NewsList extends React.Component {
                                     <div className="col col-3 offset-1">
                                         {!isFirst && (
                                             <p>
-                                                <Link to={prevPage}>
+                                                <LocalizedLink to={prevPage}>
                                                     <FontAwesomeIcon
                                                         icon={[
                                                             'fal',
@@ -503,8 +556,8 @@ export default class NewsList extends React.Component {
                                                         color="white"
                                                         size="1x"
                                                     />
-                                                    Previous page
-                                                </Link>
+                                                    <SpanElement text="previousPage" />
+                                                </LocalizedLink>
                                             </p>
                                         )}
                                     </div>
@@ -513,7 +566,7 @@ export default class NewsList extends React.Component {
                                         {Array.from(
                                             { length: numPages },
                                             (_, i) => (
-                                                <Link
+                                                <LocalizedLink
                                                     className={`pagination-number ${
                                                         i + 1 === currentPage
                                                             ? 'current'
@@ -526,7 +579,7 @@ export default class NewsList extends React.Component {
                                                     }`}
                                                 >
                                                     {i + 1}
-                                                </Link>
+                                                </LocalizedLink>
                                             )
                                         )}
                                     </div>
@@ -534,7 +587,7 @@ export default class NewsList extends React.Component {
                                     <div className="col col-3">
                                         {!isLast && (
                                             <p>
-                                                <Link to={nextPage}>
+                                                <LocalizedLink to={nextPage}>
                                                     More news
                                                     <FontAwesomeIcon
                                                         icon={[
@@ -544,7 +597,7 @@ export default class NewsList extends React.Component {
                                                         color="white"
                                                         size="1x"
                                                     />
-                                                </Link>
+                                                </LocalizedLink>
                                             </p>
                                         )}
                                     </div>
@@ -560,13 +613,16 @@ export default class NewsList extends React.Component {
 
 const SocialPreviewData = {
     title: 'Platform Of Trust | News',
-    description: 'Platform of Trust news, blog posts, press releases, and articles. Topics: platform economy, data, sustainability, data-based ecosystems, and smart city.'
+    description:
+        'Platform of Trust news, blog posts, press releases, and articles. Topics: platform economy, data, sustainability, data-based ecosystems, and smart city.'
 };
 
 export const newsListQuery = graphql`
-    query newsListQuery($skip: Int!, $limit: Int!) {
+    query newsListQuery($skip: Int!, $limit: Int!, $locale: String!) {
         allMdx(
-            filter: { frontmatter: { type: { eq: "news" } } }
+            filter: {
+                frontmatter: { type: { eq: "news" }, locale: { eq: $locale } }
+            }
             sort: { fields: [frontmatter___date], order: DESC }
             limit: $limit
             skip: $skip

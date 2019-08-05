@@ -39,7 +39,7 @@ const SomeIcons = props => {
                 target="_blank"
                 rel="noopener noreferrer"
             >
-                <FontAwesomeIcon icon={['fab', `facebook-square`]} size="8x" />
+                <FontAwesomeIcon icon={['fab', 'facebook-square']} size="8x" />
             </a>
 
             <a
@@ -48,7 +48,7 @@ const SomeIcons = props => {
                 target="_blank"
                 rel="noopener noreferrer"
             >
-                <FontAwesomeIcon icon={['fab', `twitter-square`]} size="8x" />
+                <FontAwesomeIcon icon={['fab', 'twitter-square']} size="8x" />
             </a>
 
             <a
@@ -57,7 +57,7 @@ const SomeIcons = props => {
                 target="_blank"
                 rel="noopener noreferrer"
             >
-                <FontAwesomeIcon icon={['fab', `github-square`]} size="8x" />
+                <FontAwesomeIcon icon={['fab', 'github-square']} size="8x" />
             </a>
 
             <a
@@ -66,7 +66,7 @@ const SomeIcons = props => {
                 target="_blank"
                 rel="noopener noreferrer"
             >
-                <FontAwesomeIcon icon={['fab', `linkedin`]} size="8x" />
+                <FontAwesomeIcon icon={['fab', 'linkedin']} size="8x" />
             </a>
 
             <a
@@ -75,7 +75,7 @@ const SomeIcons = props => {
                 target="_blank"
                 rel="noopener noreferrer"
             >
-                <FontAwesomeIcon icon={['fab', `youtube-square`]} size="8x" />
+                <FontAwesomeIcon icon={['fab', 'youtube-square']} size="8x" />
             </a>
         </StyledSomeIcons>
     );

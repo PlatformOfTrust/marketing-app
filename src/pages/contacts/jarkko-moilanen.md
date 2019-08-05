@@ -13,6 +13,6 @@ twitter: "https://twitter.com/Jarkko_Moilanen"
 linkedin: "https://www.linkedin.com/in/jarkkomoilanen/"
 
 tags: ['Platform of Trust','contact', 'developer','Jarkko', 'Moilanen']
-lang: "en-GB"
+locale: "en"
 status: "published"
 ---

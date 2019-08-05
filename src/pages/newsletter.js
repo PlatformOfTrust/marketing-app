@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Layout from '../components/layout';
+import Layout from '../components/Layout';
 import SEO from '../components/seo';
 import NewsletterForm from '../components/NewsletterForm';
 
@@ -28,17 +28,19 @@ const StyledPad = styled.div`
     margin: 1rem;
 `;
 
-const Newsletter = () => (
-    <Layout>
-        <SEO title="Platform of Trust Contact information" />
-        <StyledPage>
-            <StyledPad>
-                <StyledSection>
-                    <NewsletterForm />
-                </StyledSection>
-            </StyledPad>
-        </StyledPage>
-    </Layout>
-);
+const Newsletter = ({ pathContext }) => {
+    return (
+        <Layout locale={pathContext.locale}>
+            <SEO title="Platform of Trust Contact information" />
+            <StyledPage>
+                <StyledPad>
+                    <StyledSection>
+                        <NewsletterForm />
+                    </StyledSection>
+                </StyledPad>
+            </StyledPage>
+        </Layout>
+    );
+};
 
 export default Newsletter;

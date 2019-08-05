@@ -14,10 +14,34 @@ p {
 html {
   font-size: 100%;
 }
+
+:root {
+  --horizontal-line-color : #FFFFFF;
+}
+
 body {
   font-family: 'Fira Sans', sans-serif;
   line-height: 1.125em;
 }
+body blockquote {
+  border-left: 10px solid rgb(255, 250, 250, 0.2);
+  padding-left: 15px;
+}
+
+body blockquote {
+  border-left: 10px solid rgb(255, 250, 250, 0.2);
+  padding-left: 15px;
+}
+
+
+body hr {
+  background: var(--horizontal-line-color); /*probably should make a var for this */
+}
+
+body .page-content {
+  margin-top: 50px;
+}
+
 /* body p, */
 body h1,
 body h2,

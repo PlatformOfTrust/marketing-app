@@ -1,7 +1,6 @@
 import React from 'react';
-import { Link } from 'gatsby';
 import styled from 'styled-components';
-
+import LocalizedLink from './LocalizedLink';
 import MobileMenu from './MobileMenu';
 import DeskMenu from './DeskMenu';
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
@@ -95,13 +94,13 @@ export default class HeaderFoo extends React.Component {
 
                 <header className="wrapper">
                     <StyledBranding className="XXXlogo">
-                        <Link className="XXXnavbar-brand" to="/">
+                        <LocalizedLink className="XXXnavbar-brand" to="/">
                             <img
                                 src={Logo}
                                 className="header-logo"
                                 alt="Logo"
                             />
-                        </Link>
+                        </LocalizedLink>
                     </StyledBranding>
                     <StyledToggler
                         className={`${right ? 'open' : 'closed'}`}

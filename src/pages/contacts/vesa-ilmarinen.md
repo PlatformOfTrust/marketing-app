@@ -13,6 +13,6 @@ twitter: "https://twitter.com/vesailmarinen"
 linkedin: "https://www.linkedin.com/in/vesailmarinen/"
 
 tags: ['Platform of Trust','contact', 'CIO','Vesa', 'Ilmarinen']
-lang: "en-GB"
+locale: "en"
 status: "published"
 ---

@@ -6,11 +6,14 @@ import { graphql, Link } from 'gatsby';
 import MDXRenderer from 'gatsby-mdx/mdx-renderer';
 import Disqus from 'gatsby-plugin-disqus';
 import styled from 'styled-components';
+import LocalizedLink from './../components/LocalizedLink';
+
+import SpanElement from './../components/SpanElement';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import CustomImage from '../components/CustomImage';
-import Layout from '../components/layout';
+import Layout from '../components/Layout';
 import { colors, device, variables } from '../Theme.js';
 
 const StyledBlog = styled.article`
@@ -66,9 +69,7 @@ const StyledCaption = styled.div`
   width: 100%
   position: absolute;
   transform: translateY(-100%);
-  background: linear-gradient(to bottom, rgba(0,0,0,0), ${
-    colors.mainDarker
-} 100%);
+  background: linear-gradient(to bottom, rgba(0,0,0,0), ${colors.mainDarker} 100%);
   padding: 4rem 10% 0;
   justify-content: flex-end;
   p {
@@ -102,6 +103,15 @@ const StyledPostFooter = styled.div`
 const StyledBlogFooter = styled.div`
     &&& {
         max-width: ${variables.pageWidth};
+    }
+    @media only screen and (max-width: 640px) {
+        p a {
+            display: flex;
+        }
+
+        p a svg {
+            margin-top: 3px;
+        }
     }
     margin: 0 auto;
     padding: 2rem 0;
@@ -140,30 +150,20 @@ const StyledCustomImage = styled.div`
     .gatsby-image-wrapper {
         transform: rotate(-10deg);
     }
-    @media only screen and (max-width:983px) {
-
+    @media only screen and (max-width: 983px) {
         transform: translateY(1.7rem) rotate(10deg) scale(1.5);
-
     }
 
-    @media only screen and (min-width:640px) and (max-width: 760px) {
-
+    @media only screen and (min-width: 640px) and (max-width: 760px) {
         transform: translateY(0.2rem) rotate(10deg) scale(2.3);
-
     }
 
-
-
-    @media only screen and (min-width:501px) and (max-width: 600px) {
-
+    @media only screen and (min-width: 501px) and (max-width: 600px) {
         transform: translateY(0.2rem) rotate(10deg) scale(3.3);
-
     }
 
-    @media only screen and (max-width:500px) {
-
+    @media only screen and (max-width: 500px) {
         transform: translateY(0rem) rotate(10deg) scale(5);
-
     }
 `;
 const StyledDisqus = styled.div`
@@ -176,25 +176,26 @@ const StyledDisqus = styled.div`
 
 export default function Template({ data, location, pageContext }) {
     const post = data.mdx;
-    const { next, prev } = pageContext;
+    const { next, prev, locale } = pageContext;
 
+    console.log(next, prev);
     return (
-        <Layout pathname={location.pathname}>
+        <Layout pathname={location.pathname} locale={locale}>
             <Helmet title={`Platform of Trust - ${post.frontmatter.title}`} />
             <StyledBlog>
                 <StyledHeader className="container">
-                    <div style={{marginTop: '50px'}} className="row">
-                        <Link to="/news">
+                    <div style={{ marginTop: '50px' }} className="row">
+                        <LocalizedLink to="/news">
                             <FontAwesomeIcon icon={['fal', 'arrow-left']} />{' '}
-                            Back to news
-                        </Link>
+                            <SpanElement text="backToNews" />
+                        </LocalizedLink>
                         <h1>{post.frontmatter.title}</h1>
                         <StyledMeta>
                             <FontAwesomeIcon
                                 icon={['fa', 'hexagon']}
                                 color={colors[post.frontmatter.subtype]}
                             />
-                            <span>{post.frontmatter.subtype}</span>
+                            <SpanElement text={post.frontmatter.subtype} />
                             {post.frontmatter.subtype === 'blog' && (
                                 <span>{post.frontmatter.author}</span>
                             )}
@@ -246,7 +247,8 @@ export default function Template({ data, location, pageContext }) {
                             >
                                 <p className="pt-md-5">
                                     {/* <FontAwesomeIcon icon={['fa', 'hexagon']} color="white" size="4x" /> */}
-                                    Author {post.frontmatter.author}
+                                    <SpanElement text="author" />{' '}
+                                    {post.frontmatter.author}
                                 </p>
                             </div>
                         </div>
@@ -259,16 +261,14 @@ export default function Template({ data, location, pageContext }) {
                                     color="white"
                                     size="1x"
                                 />
-                                Come on, share this piece. You know you want to.
+                                <SpanElement text="sharePiece" />
                                 <FontAwesomeIcon
                                     icon={['fal', 'arrow-right']}
                                     color="white"
                                     size="1x"
                                 />
                                 <a
-                                    href={`https://www.facebook.com/sharer/sharer.php?u=https://www.platformoftrust.net${
-                                        post.frontmatter.path
-                                    }`}
+                                    href={`https://www.facebook.com/sharer/sharer.php?u=https://www.platformoftrust.net${post.frontmatter.path}`}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
@@ -279,11 +279,7 @@ export default function Template({ data, location, pageContext }) {
                                     />
                                 </a>
                                 <a
-                                    href={`https://twitter.com/intent/tweet/?text=${
-                                        post.frontmatter.title
-                                    }&url=https://www.platformoftrust.net${
-                                        post.frontmatter.path
-                                    }%2F&via=PlatformOfTrust`}
+                                    href={`https://twitter.com/intent/tweet/?text=${post.frontmatter.title}&url=https://www.platformoftrust.net${post.frontmatter.path}%2F&via=PlatformOfTrust`}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
@@ -294,11 +290,7 @@ export default function Template({ data, location, pageContext }) {
                                     />
                                 </a>
                                 <a
-                                    href={`https://www.linkedin.com/shareArticle?mini=true&url=https://www.platformoftrust.net${
-                                        post.frontmatter.path
-                                    }&title=${post.frontmatter.title}&source=${
-                                        post.frontmatter.title
-                                    }`}
+                                    href={`https://www.linkedin.com/shareArticle?mini=true&url=https://www.platformoftrust.net${post.frontmatter.path}&title=${post.frontmatter.title}&source=${post.frontmatter.title}`}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
@@ -332,7 +324,7 @@ export default function Template({ data, location, pageContext }) {
                                             color="white"
                                             size="1x"
                                         />
-                                        Previous
+                                        <SpanElement text="previous" />
                                         {/* {prev.frontmatter.title} */}
                                     </Link>
                                 )}
@@ -341,7 +333,9 @@ export default function Template({ data, location, pageContext }) {
 
                         <div className="col col-4">
                             <p>
-                                <Link to="/news">Back to news</Link>
+                                <LocalizedLink to="/news">
+                                    <SpanElement text="backToNews" />
+                                </LocalizedLink>
                             </p>
                         </div>
 
@@ -349,7 +343,7 @@ export default function Template({ data, location, pageContext }) {
                             <p>
                                 {next && (
                                     <Link to={next.frontmatter.path}>
-                                        Next
+                                        <SpanElement text="next" />
                                         {/* {next.frontmatter.title} */}
                                         <FontAwesomeIcon
                                             icon={['fal', 'arrow-right']}
@@ -368,8 +362,8 @@ export default function Template({ data, location, pageContext }) {
 }
 
 export const pageQuery = graphql`
-    query newsPostByPath($path: String!) {
-        mdx(frontmatter: { path: { eq: $path } }) {
+    query newsPostByPath($pagePath: String!, $locale: String!) {
+        mdx(frontmatter: { path: { eq: $pagePath }, locale: { eq: $locale } }) {
             frontmatter {
                 date(formatString: "MMMM DD, YYYY")
                 path

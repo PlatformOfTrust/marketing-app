@@ -3,7 +3,7 @@ import { graphql } from 'gatsby';
 import styled from 'styled-components';
 
 import PricingCard from '../components/PricingCard';
-import Layout from '../components/layout';
+import Layout from '../components/Layout';
 import CustomRoundedButton from '../components/CustomRoundedButton';
 
 import { device } from '../Theme.js';
@@ -32,9 +32,9 @@ const StyledPricingTable = styled.section`
     }
 `;
 
-export default function Pricing({ data }) {
+export default function Pricing({ data, pathContext }) {
     return (
-        <Layout>
+        <Layout locale={pathContext.locale}>
             <StyledMain>
                 <h1>Pricing</h1>
                 <p>Pick a plan that suites your business needs</p>

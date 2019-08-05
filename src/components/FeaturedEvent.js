@@ -1,6 +1,9 @@
 import React from 'react';
-import { StaticQuery, graphql, Link } from 'gatsby';
+import { StaticQuery, graphql } from 'gatsby';
+import LocalizedLink from './LocalizedLink';
 import styled from 'styled-components';
+
+import { injectIntl } from 'react-intl';
 
 import { device } from '../Theme.js';
 
@@ -58,7 +61,7 @@ const StyledFeaturedEvent = styled.div`
     }
 `;
 
-const FeaturedEvent = ({ data }) => (
+const FeaturedEvent = ({ intl: { messages } }) => (
     <StaticQuery
         query={graphql`
             query featuredEventQuery {
@@ -73,7 +76,7 @@ const FeaturedEvent = ({ data }) => (
                             frontmatter {
                                 title
                                 shorttitle
-                                time
+                                time(formatString: "MMMM DD, YYYY")
                                 path
                                 eventlink
                                 type
@@ -108,18 +111,13 @@ const FeaturedEvent = ({ data }) => (
                         <StyledFeaturedEvent className="hex-content">
                             <div className="content-wrapper">
                                 {hasOwnUpgomingEvents && (
-                                    <Link
+                                    <LocalizedLink
                                         to={
                                             ownUpcomingEvents[0].node
                                                 .frontmatter.path
                                         }
                                     >
-                                        <h3>
-                                            {
-                                                ownUpcomingEvents[0].node
-                                                    .frontmatter.type
-                                            }
-                                        </h3>
+                                        <h3>{`${messages.event}`}</h3>
                                         <p>
                                             {
                                                 ownUpcomingEvents[0].node
@@ -127,18 +125,13 @@ const FeaturedEvent = ({ data }) => (
                                             }
                                         </p>
                                         <span className="read-more">
-                                            Read more
+                                            {`${messages.readMore}`}
                                         </span>
-                                    </Link>
+                                    </LocalizedLink>
                                 )}
                                 {!hasOwnUpgomingEvents && (
-                                    <Link to="/events">
-                                        <h3>
-                                            {
-                                                friendsUpcomingEvents[0].node
-                                                    .frontmatter.type
-                                            }
-                                        </h3>
+                                    <LocalizedLink to="/events">
+                                        <h3>{`${messages.event}`}</h3>
                                         <p>
                                             {
                                                 friendsUpcomingEvents[0].node
@@ -146,9 +139,9 @@ const FeaturedEvent = ({ data }) => (
                                             }
                                         </p>
                                         <span className="read-more">
-                                            Read more
+                                            {`${messages.readMore}`}
                                         </span>
-                                    </Link>
+                                    </LocalizedLink>
                                 )}
                             </div>
                         </StyledFeaturedEvent>
@@ -158,4 +151,4 @@ const FeaturedEvent = ({ data }) => (
         }}
     />
 );
-export default FeaturedEvent;
+export default injectIntl(FeaturedEvent);
