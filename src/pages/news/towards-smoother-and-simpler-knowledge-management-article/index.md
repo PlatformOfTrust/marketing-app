@@ -1,20 +1,20 @@
 ---
-path: "/news/towards-smoother-and-simpler-knowledge-management" # path to where you want blog to be published aka https://www.platformoftrust.net//blogs/towards-smoother-and-simpler-knowledge-management
-date: "2019-04-08T13:45:33.962Z"
-title: "Towards smoother and simpler knowledge management"
-image: "./../../static/smoother knowledge management.jpg" # Featured image shown on page and listings. Save in same folder. Don't use svg.
-pic: "smoother knowledge management2.jpg" # Hex image shown on page and listings. No path, just filename. Save in same folder. Don't use svg.
-pictext: ""
-type: "news" # All "News" are blogs to separate them from real pages made with MarkDown, so that they appear in blog listings etc.
-subtype: "article" # "blog" / "news" / "press-realease" etc.
-tags: ['Sport Venue Oy','KnowUr.Biz®','Data'] # Any string, can be used in search / "related content"
-locale: "en"
-author: "Pirkko Laitinen"
-authorpic: "pirkko-laitinen.jpg"
-status: "published" # "published" / "draft" / "pending" / "archived"
+path: '/news/towards-smoother-and-simpler-knowledge-management' # path to where you want blog to be published aka https://www.platformoftrust.net//blogs/towards-smoother-and-simpler-knowledge-management
+date: '2019-04-08T13:45:33.962Z'
+title: 'Towards smoother and simpler knowledge management'
+image: './../../static/smoother knowledge management.jpg' # Featured image shown on page and listings. Save in same folder. Don't use svg.
+pic: 'smoother knowledge management2.jpg' # Hex image shown on page and listings. No path, just filename. Save in same folder. Don't use svg.
+pictext: ''
+type: 'news' # All "News" are blogs to separate them from real pages made with MarkDown, so that they appear in blog listings etc.
+subtype: 'article' # "blog" / "news" / "press-realease" etc.
+tags: ['Sport Venue Oy', 'KnowUr.Biz®', 'Data'] # Any string, can be used in search / "related content"
+locale: 'en'
+author: 'Pirkko Laitinen'
+authorpic: 'pirkko-laitinen.jpg'
+status: 'published' # "published" / "draft" / "pending" / "archived"
 ---
 
-Knowledge management, or making data-based business decisions, is a hot topic, and now services are starting to emerge that make it easy to exploit data quickly. The collaboration between Platform of Trust and Sport Venue is a step towards more efficient processes and improved services for end users.
+##### Knowledge management, or making data-based business decisions, is a hot topic, and now services are starting to emerge that make it easy to exploit data quickly. The collaboration between Platform of Trust and Sport Venue is a step towards more efficient processes and improved services for end users.
 
 Platform of Trust is a platform that harmonises data from a range of sources into a format that can be used by many operators. Data source validation and the use of automated authorisation and agreement tools will ensure data reliability. The development of the platform was begun to address the needs of the construction and property sectors. While the majority of the data on the platform in its initial phase is related to these sectors, in the future, the platform will be available for the needs of any sector.
 
@@ -26,15 +26,17 @@ The more data you have, the easier it is to manage operations. Platform of Trust
 
 Read more about Sport Venue´s [KnowUr.Biz](http://www.sportvenue.fi/en/analytics/)
 
-<br/><br/><br/><br/>
+<br/><br/>
+
+<hr/>
+
+<br/><br/>
 
 ### More information
 
-<br/><br/><br/><br/>
+<br/><br/><br/>
 
 ### **Toni Luhti**
-
-<br/>
 
 Platform of Trust Oy
 
@@ -42,11 +44,9 @@ Platform of Trust Oy
 
 toni.luhti@oftrust.net
 
-<br/><br/><br/><br/>
+<br/><br/><br/>
 
 ### **Karri Kylliö**
-
-<br/>
 
 CEO, Sport Venue Oy
 
