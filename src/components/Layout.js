@@ -31,20 +31,7 @@ import Footer from './Footer';
 import BgImage from '../images/bg-image.svg';
 import SocialPreviewImage from '../images/preview_social_share/home.jpg';
 
-import favicon16 from '../images/favicon-16x16.png';
-import favicon32 from '../images/favicon-32x32.png';
-import favicon96 from '../images/favicon-96x96.png';
-import favicon128 from '../images/favicon-128.png';
-import favicon196 from '../images/favicon-196x196.png';
-
-import appleTouch57 from '../images/apple-touch-icon-57x57.png';
-import appleTouch60 from '../images/apple-touch-icon-60x60.png';
-import appleTouch72 from '../images/apple-touch-icon-72x72.png';
-import appleTouch76 from '../images/apple-touch-icon-76x76.png';
-import appleTouch114 from '../images/apple-touch-icon-114x114.png';
-import appleTouch120 from '../images/apple-touch-icon-120x120.png';
-import appleTouch144 from '../images/apple-touch-icon-144x144.png';
-import appleTouch152 from '../images/apple-touch-icon-152x152.png';
+import favicon128 from '../images/favicon-128x128.png';
 
 import { colors } from '../Theme.js';
 
@@ -95,81 +82,8 @@ const Layout = ({ locale, children }) => {
                                 {
                                     rel: 'icon',
                                     type: 'image/png',
-                                    sizes: '16x16',
-                                    href: `${favicon16}`
-                                },
-                                {
-                                    rel: 'icon',
-                                    type: 'image/png',
-                                    sizes: '32x32',
-                                    href: `${favicon32}`
-                                },
-                                {
-                                    rel: 'icon',
-                                    type: 'image/png',
-                                    sizes: '96x96',
-                                    href: `${favicon96}`
-                                },
-                                {
-                                    rel: 'icon',
-                                    type: 'image/png',
                                     sizes: '128x128',
                                     href: `${favicon128}`
-                                },
-                                {
-                                    rel: 'shortcut icon',
-                                    type: 'image/png',
-                                    sizes: '196x196',
-                                    href: `${favicon196}`
-                                },
-
-                                {
-                                    rel: 'apple-touch-icon-precomposed',
-                                    type: 'image/png',
-                                    sizes: '57x57',
-                                    href: `${appleTouch57}`
-                                },
-                                {
-                                    rel: 'apple-touch-icon-precomposed',
-                                    type: 'image/png',
-                                    sizes: '60x60',
-                                    href: `${appleTouch60}`
-                                },
-                                {
-                                    rel: 'apple-touch-icon-precomposed',
-                                    type: 'image/png',
-                                    sizes: '72x72',
-                                    href: `${appleTouch72}`
-                                },
-                                {
-                                    rel: 'apple-touch-icon-precomposed',
-                                    type: 'image/png',
-                                    sizes: '76x76',
-                                    href: `${appleTouch76}`
-                                },
-                                {
-                                    rel: 'apple-touch-icon-precomposed',
-                                    type: 'image/png',
-                                    sizes: '114x114',
-                                    href: `${appleTouch114}`
-                                },
-                                {
-                                    rel: 'apple-touch-icon-precomposed',
-                                    type: 'image/png',
-                                    sizes: '120x120',
-                                    href: `${appleTouch120}`
-                                },
-                                {
-                                    rel: 'apple-touch-icon-precomposed',
-                                    type: 'image/png',
-                                    sizes: '144x144',
-                                    href: `${appleTouch144}`
-                                },
-                                {
-                                    rel: 'apple-touch-icon-precomposed',
-                                    type: 'image/png',
-                                    sizes: '152x152',
-                                    href: `${appleTouch152}`
                                 }
                             ]}
                             meta={[
