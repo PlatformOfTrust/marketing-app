@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import styled from 'styled-components';
-import MetaTags from 'react-meta-tags';
+import { Helmet } from 'react-helmet';
 
 import HeaderElement from '../components/HeaderElement';
 import SpanElement from './../components/SpanElement';
@@ -45,21 +45,38 @@ const socialPreviewImageFullUri =
 const About = ({ data, pathContext }) => (
     <Layout locale={pathContext.locale}>
         <SEO title="About Platform of Trust" />
-        <MetaTags>
-            <meta property="og:title" content={SocialPreviewData.title} />
-            <meta
-                property="og:description"
-                content={SocialPreviewData.description}
-            />
-            <meta property="og:image" content={socialPreviewImageFullUri} />
-            <meta name="twitter:card" content="summary_large_image" />
-            <meta name="twitter:title" content={SocialPreviewData.title} />
-            <meta
-                name="twitter:description"
-                content={SocialPreviewData.description}
-            />
-            <meta name="twitter:image" content={socialPreviewImageFullUri} />
-        </MetaTags>
+        <Helmet
+            meta={[
+                {
+                    property: 'og:title',
+                    content: `${SocialPreviewData.title}`
+                },
+                {
+                    property: 'og:description',
+                    content: `${SocialPreviewData.description}`
+                },
+                {
+                    property: 'og:image',
+                    content: `${socialPreviewImageFullUri}`
+                },
+                {
+                    property: 'twitter:card',
+                    content: 'summary_large_image'
+                },
+                {
+                    property: 'twitter:title',
+                    content: `${SocialPreviewData.title}`
+                },
+                {
+                    property: 'twitter:description',
+                    content: `${SocialPreviewData.description}`
+                },
+                {
+                    property: 'twitter:image',
+                    content: `${socialPreviewImageFullUri}`
+                }
+            ]}
+        />
         <StyledPage>
             <StyledSection className="container">
                 <div className="row mb-5">
