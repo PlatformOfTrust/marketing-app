@@ -54,12 +54,8 @@ const StyledPartners = styled.div`
 const IndexPage = ({ data, pathContext }) => {
     const testContent = data.allContent.edges[0].node;
     const contents = data.allContent.edges;
-    const socialPreviewImageFullUri =
-        typeof window !== 'undefined' &&
-        window.location.origin + SocialPreviewImage;
-    console.log(data);
     return (
-        <Layout locale={pathContext.locale}>
+        <Layout locale={pathContext.locale} metaImage={SocialPreviewImage}>
             <Helmet
                 meta={[
                     {
@@ -69,10 +65,6 @@ const IndexPage = ({ data, pathContext }) => {
                     {
                         property: 'og:description',
                         content: `${SocialPreviewData.description}`
-                    },
-                    {
-                        property: 'og:image',
-                        content: `${socialPreviewImageFullUri}`
                     },
                     {
                         property: 'twitter:card',
@@ -85,10 +77,6 @@ const IndexPage = ({ data, pathContext }) => {
                     {
                         property: 'twitter:description',
                         content: `${SocialPreviewData.description}`
-                    },
-                    {
-                        property: 'twitter:image',
-                        content: `${socialPreviewImageFullUri}`
                     }
                 ]}
             />
