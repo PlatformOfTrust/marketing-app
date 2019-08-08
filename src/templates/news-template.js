@@ -178,7 +178,7 @@ export default function Template({ data, location, pageContext }) {
     const post = data.mdx;
     const { next, prev, locale } = pageContext;
     const shortDescription = `${post.frontmatter.date} ${post.excerpt}`;
-    const socialPreviewImage = `${post.frontmatter.image.childImageSharp.fluid.src}`
+    const socialPreviewImage = `${post.frontmatter.image.childImageSharp.fluid.src}`;
 
     console.log(next, prev);
     return (
