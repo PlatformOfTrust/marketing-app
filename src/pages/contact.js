@@ -54,7 +54,7 @@ const StyledPad = styled.div`
     // margin: 1rem;
 `;
 
-const Contact = ({ pathContext, data, location }) => {
+const Contact = ({ pathContext, data }) => {
     return (
         <Layout locale={pathContext.locale} metaImage={SocialPreviewImage}>
             <SEO title="Platform of Trust Contact information" />
