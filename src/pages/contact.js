@@ -53,13 +53,10 @@ const StyledBilling = styled.article`
 const StyledPad = styled.div`
     // margin: 1rem;
 `;
-const socialPreviewImageFullUri =
-    typeof window !== 'undefined' &&
-    window.location.origin + SocialPreviewImage;
 
-const Contact = ({ pathContext, data }) => {
+const Contact = ({ pathContext, data, location }) => {
     return (
-        <Layout locale={pathContext.locale}>
+        <Layout locale={pathContext.locale} metaImage={SocialPreviewImage}>
             <SEO title="Platform of Trust Contact information" />
             <Helmet
                 meta={[
@@ -72,10 +69,6 @@ const Contact = ({ pathContext, data }) => {
                         content: `${SocialPreviewData.description}`
                     },
                     {
-                        property: 'og:image',
-                        content: `${socialPreviewImageFullUri}`
-                    },
-                    {
                         property: 'twitter:card',
                         content: 'summary_large_image'
                     },
@@ -86,10 +79,6 @@ const Contact = ({ pathContext, data }) => {
                     {
                         property: 'twitter:description',
                         content: `${SocialPreviewData.description}`
-                    },
-                    {
-                        property: 'twitter:image',
-                        content: `${socialPreviewImageFullUri}`
                     }
                 ]}
             />
