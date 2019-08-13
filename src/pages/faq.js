@@ -165,7 +165,6 @@ export const query = graphql`
                     id
                     frontmatter {
                         question
-                        answer
                     }
                     code {
                         body
