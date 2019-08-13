@@ -25,6 +25,10 @@ const StyledMain = styled.main`
         max-width: ${variables.pageWidth};
     }
     margin: 0 auto;
+
+    .dev-test {
+        display: none;
+    }
 `;
 const StyledBenefits = styled.ul`
     font-size: 1.4rem;
@@ -94,7 +98,7 @@ const IndexPage = ({ data, pathContext }) => {
             />
             <SEO title="Home" keywords={['Platform of Trust']} />
             <StyledMain className="home page-content container">
-                <div className="dev-test" style={{ display: 'none' }}>
+                <div className="dev-test">
                     <div
                         key={testContent.id}
                         dangerouslySetInnerHTML={{ __html: testContent.html }}
