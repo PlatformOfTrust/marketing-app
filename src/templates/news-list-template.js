@@ -230,7 +230,7 @@ export default class NewsList extends React.Component {
     render() {
         const { filters, selected } = this.state;
         const posts = this.props.data.allMdx.edges;
-        
+
         return (
             <Layout
                 locale={this.props.pathContext.locale}
