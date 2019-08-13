@@ -63,7 +63,9 @@ const StyledPost = styled.div`
     background: ${colors.mainDarker};
     p {
         line-height: 1.5;
+        font-size: 20px;
     }
+
     a:link {
         text-decoration: underline dotted;
     }
