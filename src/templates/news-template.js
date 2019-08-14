@@ -182,11 +182,41 @@ const StyledDisqus = styled.div`
 export default function Template({ data, location, pageContext }) {
     const post = data.mdx;
     const { next, prev, locale } = pageContext;
+    const shortDescription = `${post.frontmatter.date} ${post.excerpt}`;
+    const socialPreviewImage = `${post.frontmatter.image.childImageSharp.fluid.src}`;
 
     console.log(next, prev);
     return (
-        <Layout pathname={location.pathname} locale={locale}>
-            <Helmet title={`Platform of Trust - ${post.frontmatter.title}`} />
+        <Layout
+            pathname={location.pathname}
+            locale={locale}
+            metaImage={socialPreviewImage}
+        >
+            <Helmet
+                title={`Platform of Trust - ${post.frontmatter.title}`}
+                meta={[
+                    {
+                        property: 'og:title',
+                        content: `Platform of Trust - ${post.frontmatter.title}`
+                    },
+                    {
+                        property: 'og:description',
+                        content: shortDescription
+                    },
+                    {
+                        property: 'twitter:card',
+                        content: 'summary_large_image'
+                    },
+                    {
+                        property: 'twitter:title',
+                        content: `Platform of Trust - ${post.frontmatter.title}`
+                    },
+                    {
+                        property: 'twitter:description',
+                        content: shortDescription
+                    }
+                ]}
+            />
             <StyledBlog>
                 <StyledHeader className="container">
                     <div className="row">
@@ -388,6 +418,7 @@ export const pageQuery = graphql`
             code {
                 body
             }
+            excerpt(pruneLength: 120)
         }
     }
 `;
