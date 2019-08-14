@@ -230,22 +230,12 @@ export default class NewsList extends React.Component {
     render() {
         const { filters, selected } = this.state;
         const posts = this.props.data.allMdx.edges;
-        const { currentPage, numPages } = this.props.pageContext;
-        const isFirst = currentPage === 1;
-        const isLast = currentPage === numPages;
-        const prevPage =
-            currentPage - 1 === 1
-                ? '/news'
-                : `/news/${(currentPage - 1).toString()}`;
-        const nextPage = `/news/${(currentPage + 1).toString()}`;
-        const socialPreviewImageFullUri =
-            typeof window !== 'undefined' &&
-            window.location.origin + SocialPreviewImage;
 
         return (
             <Layout
                 locale={this.props.pathContext.locale}
                 className="blog-posts"
+                metaImage={SocialPreviewImage}
             >
                 <Helmet
                     meta={[
@@ -258,10 +248,6 @@ export default class NewsList extends React.Component {
                             content: `${SocialPreviewData.description}`
                         },
                         {
-                            property: 'og:image',
-                            content: `${socialPreviewImageFullUri}`
-                        },
-                        {
                             property: 'twitter:card',
                             content: 'summary_large_image'
                         },
@@ -272,10 +258,6 @@ export default class NewsList extends React.Component {
                         {
                             property: 'twitter:description',
                             content: `${SocialPreviewData.description}`
-                        },
-                        {
-                            property: 'twitter:image',
-                            content: `${socialPreviewImageFullUri}`
                         }
                     ]}
                 />
@@ -540,70 +522,6 @@ export default class NewsList extends React.Component {
                                     })}
                             </div>
                         </StyledBlogs>
-
-                        {(numPages > 1 || !isFirst) && (
-                            <StyledBlogFooter>
-                                <div className="row">
-                                    <div className="col col-3 offset-1">
-                                        {!isFirst && (
-                                            <p>
-                                                <LocalizedLink to={prevPage}>
-                                                    <FontAwesomeIcon
-                                                        icon={[
-                                                            'fal',
-                                                            'arrow-left'
-                                                        ]}
-                                                        color="white"
-                                                        size="1x"
-                                                    />
-                                                    <SpanElement text="previousPage" />
-                                                </LocalizedLink>
-                                            </p>
-                                        )}
-                                    </div>
-
-                                    <div className="col col-4">
-                                        {Array.from(
-                                            { length: numPages },
-                                            (_, i) => (
-                                                <LocalizedLink
-                                                    className={`pagination-number ${
-                                                        i + 1 === currentPage
-                                                            ? 'current'
-                                                            : ''
-                                                    }`}
-                                                    key={`pagination-number${i +
-                                                        1}`}
-                                                    to={`/news/${
-                                                        i === 0 ? '' : i + 1
-                                                    }`}
-                                                >
-                                                    {i + 1}
-                                                </LocalizedLink>
-                                            )
-                                        )}
-                                    </div>
-
-                                    <div className="col col-3">
-                                        {!isLast && (
-                                            <p>
-                                                <LocalizedLink to={nextPage}>
-                                                    More news
-                                                    <FontAwesomeIcon
-                                                        icon={[
-                                                            'fal',
-                                                            'arrow-right'
-                                                        ]}
-                                                        color="white"
-                                                        size="1x"
-                                                    />
-                                                </LocalizedLink>
-                                            </p>
-                                        )}
-                                    </div>
-                                </div>
-                            </StyledBlogFooter>
-                        )}
                     </StyledSection>
                 </StyledPad>
             </Layout>
@@ -618,14 +536,12 @@ const SocialPreviewData = {
 };
 
 export const newsListQuery = graphql`
-    query newsListQuery($skip: Int!, $limit: Int!, $locale: String!) {
+    query newsListQuery($locale: String!) {
         allMdx(
             filter: {
                 frontmatter: { type: { eq: "news" }, locale: { eq: $locale } }
             }
             sort: { fields: [frontmatter___date], order: DESC }
-            limit: $limit
-            skip: $skip
         ) {
             edges {
                 node {

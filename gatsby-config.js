@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `Platform of Trust `,
-    siteUrl: 'https://www.platformoftrust.net/',
+    siteUrl: 'https://www.platformoftrust.net',
     description: `Platform of trust helps to create better built environments by providing ​data one can trust on.​`
   },
   plugins: [

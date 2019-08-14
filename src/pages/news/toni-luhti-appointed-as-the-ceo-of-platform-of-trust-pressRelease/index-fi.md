@@ -14,7 +14,7 @@ authorpic: 'suomen-tilaajavastuu.jpg'
 status: 'published' # "published" / "draft" / "pending" / "archived"
 ---
 
-Platform of Trustin toimitusjohtajaksi on nimitetty kauppatieteiden maisteri Toni Luhti (s. 1982). Luhti aloittaa toimitusjohtajana virallisesti 1.7.2019. Luhti on aiemmin toiminut johtavissa tehtävissä useassa kansainvälisen liiketoiminnan teknologiayrityksessä, kuten Elisa Oyj ja ALSO Group. Luhdilla on laaja-alainen kokemus alustaliiketoiminnasta ja teknologisten ratkaisujen muuttamisessa arvoa tuottavaksi ja tulokselliseksi liiketoiminnaksi.
+##### Platform of Trustin toimitusjohtajaksi on nimitetty kauppatieteiden maisteri **Toni Luhti** (s. 1982). Luhti aloittaa toimitusjohtajana virallisesti 1.7.2019. Luhti on aiemmin toiminut johtavissa tehtävissä useassa kansainvälisen liiketoiminnan teknologiayrityksessä, kuten Elisa Oyj ja ALSO Group. Luhdilla on laaja-alainen kokemus alustaliiketoiminnasta ja teknologisten ratkaisujen muuttamisessa arvoa tuottavaksi ja tulokselliseksi liiketoiminnaksi.
 
 <br/><br/>
 

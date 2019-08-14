@@ -1,5 +1,5 @@
 ---
-path: "/news/toni-luhti-appointed-as-the-ceo-of-platform-of-trust" # path to where you want blog to be published aka https://www.platformoftrust.net//blogs/sport-venue
+path: '/news/toni-luhti-appointed-as-the-ceo-of-platform-of-trust' # path to where you want blog to be published aka https://www.platformoftrust.net//blogs/sport-venue
 date: '2019-07-23T13:45:33.962Z'
 title: 'Toni Luhti appointed as the CEO of Platform of Trust'
 image: './../../static/toni.jpg' # Featured image shown on page and listings. Save in same folder. Don't use svg.
@@ -8,19 +8,19 @@ pictext: ''
 type: 'news' # All "News" are blogs to separate them from real pages made with MarkDown, so that they appear in blog listings etc.
 subtype: 'pressRelease' # "blog" / "news" / "pressRelease" etc.
 tags: ['ToniLuhti'] # Any string, can be used in search / "related content"
-locale: "en"
+locale: 'en'
 author: 'Suomen Tilaajavastuu'
 authorpic: 'suomen-tilaajavastuu.jpg'
 status: 'published' # "published" / "draft" / "pending" / "archived"
 ---
 
-M.Sc. (Econ.) **Toni Luhti** (b. 1982) has been appointed as the CEO of Platform of Trust. Luhti started in the position officially on 1 July 2019. Luhti has previously held a leading position in several international business technology companies, including Elisa Corporation and ALSO Group. Luhti has extensive experience in the platform business and in turning technological solutions into profit-generating and successful business operations.
+##### M.Sc. (Econ.) **Toni Luhti** (b. 1982) has been appointed as the CEO of Platform of Trust. Luhti started in the position officially on 1 July 2019. Luhti has previously held a leading position in several international business technology companies, including Elisa Corporation and ALSO Group. Luhti has extensive experience in the platform business and in turning technological solutions into profit-generating and successful business operations.
 
 <br/><br/>
 
 > _“One of the current global megatrends is to manage and develop business operations, innovations, and services increasingly based on information and data. Unfortunately, many companies lose their competitiveness and in-depth understanding because they fail to utilise existing data and do not collect new data comprehensively. This offers a very significant opportunity for generating value and success, and we want to be part of enabling it.”_
 
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- says *Luhti.
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- says Luhti.
 
 <br/><br/>
 
