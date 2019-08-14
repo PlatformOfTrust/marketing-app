@@ -55,11 +55,12 @@ const StyledWrapper = styled.section`
     padding-top: 0;
 `;
 
-const socialPreviewImageFullUri =
-    typeof window !== 'undefined' &&
-    window.location.origin + SocialPreviewImage;
+const Layout = ({ locale, children, metaImage }) => {
+    let socialPreviewImage = SocialPreviewImage;
+    if (typeof metaImage !== 'undefined') {
+        socialPreviewImage = metaImage;
+    }
 
-const Layout = ({ locale, children }) => {
     return (
         <IntlProvider locale={locale} messages={messages[locale]}>
             <StaticQuery
@@ -97,7 +98,7 @@ const Layout = ({ locale, children }) => {
                                 },
                                 {
                                     property: 'og:image',
-                                    content: `${socialPreviewImageFullUri}`
+                                    content: `${data.site.siteMetadata.siteUrl}${socialPreviewImage}`
                                 },
                                 {
                                     property: 'og:type',
@@ -117,7 +118,7 @@ const Layout = ({ locale, children }) => {
                                 },
                                 {
                                     property: 'twitter:image',
-                                    content: `${socialPreviewImageFullUri}`
+                                    content: `${data.site.siteMetadata.siteUrl}${socialPreviewImage}`
                                 }
                             ]}
                         />
@@ -140,7 +141,7 @@ Layout.propTypes = {
 };
 
 const SocialPreviewData = {
-    title: 'Platform Of Trust | Home',
+    title: 'Platform Of Trust',
     description:
         'Platform of Trust harmonizes incompatible data and makes it flow to enable automated business ecosystems and knowledge-based decision making.'
 };
