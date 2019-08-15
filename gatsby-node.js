@@ -145,30 +145,16 @@ exports.createPages = ({ actions, graphql }) => {
 
         // Create news-list pages
         const posts = result.data.news.edges;
-        const postsPerPage = 10;
-        const numPages = Math.ceil(posts.length / postsPerPage);
-        Array.from({ length: numPages }).forEach((_, i) => {
+        posts.forEach(({ node }, index) => {
             Object.keys(locales).map(lang => {
-                const pagePath = (i === 0 ? `/news` : `/news/${i + 1}`);
-                let localizedPath = pagePath;
-
-                if (!locales[lang].default) {
-                    Object.keys(pathMap).map((key) => {
-                        localizedPath = localizedPath.replace(key, pathMap[key]);
-                    });
-
-                    localizedPath = '/fi' + localizedPath;
-                }
+                const pagePath = '/news';
+                let localizedPath = locales[lang].default ? pagePath : `${locales[lang].path}${pagePath}`;
 
                 console.log('creating path for news root', localizedPath);
                 createPage({
                     path: localizedPath,
                     component: path.resolve(newsListTemplate),
                     context: {
-                        limit: postsPerPage,
-                        skip: i * postsPerPage,
-                        numPages,
-                        currentPage: i + 1,
                         pagePath,
                         locale: lang
                     }
