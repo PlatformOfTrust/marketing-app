@@ -25,6 +25,10 @@ const StyledMain = styled.main`
         max-width: ${variables.pageWidth};
     }
     margin: 0 auto;
+
+    .dev-test {
+        display: none;
+    }
 `;
 const StyledBenefits = styled.ul`
     font-size: 1.4rem;
@@ -54,12 +58,8 @@ const StyledPartners = styled.div`
 const IndexPage = ({ data, pathContext }) => {
     const testContent = data.allContent.edges[0].node;
     const contents = data.allContent.edges;
-    const socialPreviewImageFullUri =
-        typeof window !== 'undefined' &&
-        window.location.origin + SocialPreviewImage;
-    console.log(data);
     return (
-        <Layout locale={pathContext.locale}>
+        <Layout locale={pathContext.locale} metaImage={SocialPreviewImage}>
             <Helmet
                 meta={[
                     {
@@ -69,10 +69,6 @@ const IndexPage = ({ data, pathContext }) => {
                     {
                         property: 'og:description',
                         content: `${SocialPreviewData.description}`
-                    },
-                    {
-                        property: 'og:image',
-                        content: `${socialPreviewImageFullUri}`
                     },
                     {
                         property: 'twitter:card',
@@ -85,16 +81,12 @@ const IndexPage = ({ data, pathContext }) => {
                     {
                         property: 'twitter:description',
                         content: `${SocialPreviewData.description}`
-                    },
-                    {
-                        property: 'twitter:image',
-                        content: `${socialPreviewImageFullUri}`
                     }
                 ]}
             />
             <SEO title="Home" keywords={['Platform of Trust']} />
             <StyledMain className="home page-content container">
-                <div className="dev-test" style={{ display: 'none' }}>
+                <div className="dev-test">
                     <div
                         key={testContent.id}
                         dangerouslySetInnerHTML={{ __html: testContent.html }}

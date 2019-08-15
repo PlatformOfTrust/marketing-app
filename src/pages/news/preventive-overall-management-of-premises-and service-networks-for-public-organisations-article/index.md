@@ -1,5 +1,5 @@
 ---
-path: '/news/preventive-overall-management-of-premises-and service-networks-for-public-organisations' # path to where you want blog to be published aka https://www.platformoftrust.net//blogs/sport-venue
+path: '/news/preventive-overall-management-of-premises-and-service-networks-for-public-organisations' # path to where you want blog to be published aka https://www.platformoftrust.net//blogs/sport-venue
 date: '2019-04-09T13:45:33.962Z'
 title: 'Preventive overall management of premises and service networks for public organisations'
 image: './../../static/Preventive management for cities.jpg' # Featured image shown on page and listings. Save in same folder. Don't use svg.

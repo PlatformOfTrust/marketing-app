@@ -183,14 +183,11 @@ export default class Events extends React.Component {
         const pastEvents = posts.filter(
             post => Date.now() - Date.parse(post.node.frontmatter.time) >= 0
         );
-        const socialPreviewImageFullUri =
-            typeof window !== 'undefined' &&
-            window.location.origin + SocialPreviewImage;
-
         return (
             <Layout
                 locale={this.props.pathContext.locale}
                 className="blog-posts"
+                metaImage={SocialPreviewImage}
             >
                 <Helmet
                     meta={[
@@ -203,10 +200,6 @@ export default class Events extends React.Component {
                             content: `${SocialPreviewData.description}`
                         },
                         {
-                            property: 'og:image',
-                            content: `${socialPreviewImageFullUri}`
-                        },
-                        {
                             property: 'twitter:card',
                             content: 'summary_large_image'
                         },
@@ -217,10 +210,6 @@ export default class Events extends React.Component {
                         {
                             property: 'twitter:description',
                             content: `${SocialPreviewData.description}`
-                        },
-                        {
-                            property: 'twitter:image',
-                            content: `${socialPreviewImageFullUri}`
                         }
                     ]}
                 />
