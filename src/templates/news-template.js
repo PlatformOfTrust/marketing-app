@@ -66,8 +66,26 @@ const StyledPost = styled.div`
         font-size: 20px;
     }
 
+
     a:link {
-        text-decoration: underline dotted;
+        font-weight: bold;
+        color: #53d2fc;
+        text-decoration: none;
+        -webkit-transition: color 0.5s;
+        transition: color 0.5s;
+    }
+
+    a:visited {
+        color: #b5a1ff;
+    }
+
+    a:hover {
+        color: #ffffff;
+        cursor: pointer;
+    }
+
+    a:active {
+        text-decoration: underline;
     }
 `;
 const StyledCaption = styled.div`
