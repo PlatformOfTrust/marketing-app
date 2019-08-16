@@ -77,19 +77,23 @@ const StyledPost = styled.div`
     }
 `;
 const StyledCaption = styled.div`
-  width: 100%;
-  position: absolute;
-  transform: translateY(-100%);
-  background: linear-gradient(to bottom, rgba(0,0,0,0), ${colors.mainDarker} 100%);
-  padding: 4rem 10% 0;
-  justify-content: flex-end;
-  p {
-    max-width: 30%;
-    border-top: 2px dotted white;
-    padding-top: 1em;
-    font-size: 1rem;
-    color: white;
-  }
+    width: 100%;
+    position: absolute;
+    transform: translateY(-100%);
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0),
+        ${colors.mainDarker} 100%
+    );
+    padding: 4rem 10% 0;
+    justify-content: flex-end;
+    p {
+        max-width: 30%;
+        border-top: 2px dotted white;
+        padding-top: 1em;
+        font-size: 1rem;
+        color: white;
+    }
 `;
 const StyledPostFooter = styled.div`
     &&& {

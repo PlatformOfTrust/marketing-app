@@ -66,7 +66,6 @@ const StyledPost = styled.div`
         font-size: 20px;
     }
 
-
     a:link {
         font-weight: bold;
         color: #53d2fc;
