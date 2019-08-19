@@ -196,19 +196,6 @@ const Footer = ({ intl }) => {
                             <SpanElement text="contact" />
                         </LocalizedLink>
                         <br />
-                        <SpanElement
-                            className="footer-elements-opacity pointer"
-                            onClick={() => {
-                                /* TODO: This part can be improved */
-                                if (intl.locale === 'en') {
-                                    window.location.pathname = '/fi';
-                                } else if (intl.locale === 'fi') {
-                                    window.location.pathname = '/';
-                                }
-                            }}
-                            text="changeLanguageText"
-                        />
-                        <br />
                     </div>
 
                     {/* <div className="sitemap col-md-1">
