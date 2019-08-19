@@ -42,7 +42,6 @@ const StyledHeader = styled.header`
     }
 `;
 const StyledMeta = styled.div`
-    // display: block;display
     text-transform: capitalize;
     * {
         margin-right: 0.5em;
@@ -69,7 +68,6 @@ const StyledPost = styled.div`
 
     a:hover {
         color: #ffffff;
-        cursor: pointer;
     }
 
     a:active {
@@ -134,10 +132,7 @@ const StyledBlogFooter = styled.div`
         color: white;
     }
     svg {
-        // margin-right: 1rem;margin-right
         vertical-align: middle;
-        // &.fa-hexagon { transform: rotate(90deg); }
-        // &.fa-arrow-right { margin-left: 1rem; }
     }
 `;
 
