@@ -53,6 +53,7 @@ const StyledSite = styled.section`
 const StyledWrapper = styled.section`
     margin: '0 auto';
     padding-top: 0;
+    min-height: calc(100vh - 160px);
 `;
 
 const socialPreviewImageFullUri =
