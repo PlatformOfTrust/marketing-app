@@ -137,7 +137,7 @@ const About = ({ data, pathContext }) => {
                     <h3>
                         <SpanElement text="aboutPartText" />{' '}
                         <a href="https://www.tilaajavastuu.fi/en/">
-                            Suomen Tilaajavastuu Group
+                            Suomen Tilaajavastuu Oy
                         </a>
                     </h3>
                 </StyledSection>
