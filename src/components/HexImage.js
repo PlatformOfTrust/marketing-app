@@ -10,7 +10,7 @@ const StyledHexImage = styled.div`
   width: auto;
   // svg: { height: 50%; }
   // background: ${props =>
-      props.color ? colors[props.color] : 'transparent'};
+        props.color ? colors[props.color] : 'transparent'};
 `;
 
 const HexImage = props => {
@@ -35,15 +35,15 @@ const HexImage = props => {
                                 props.isContactImage
                                     ? '0'
                                     : props.isNewsImage
-                                    ? '-0.05'
-                                    : '0.05'
+                                        ? '-0.05'
+                                        : '0.05'
                             }
                             y={
                                 props.isContactImage
                                     ? '0.05'
                                     : props.isNewsImage
-                                    ? '0'
-                                    : '-0.17'
+                                        ? '0.05'
+                                        : '-0.05'
                             }
                             width="1"
                             height="1"
