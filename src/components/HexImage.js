@@ -42,8 +42,8 @@ const HexImage = props => {
                                 props.isContactImage
                                     ? '0.05'
                                     : props.isNewsImage
-                                    ? '0'
-                                    : '-0.17'
+                                    ? '0.05'
+                                    : '-0.05'
                             }
                             width="1"
                             height="1"
