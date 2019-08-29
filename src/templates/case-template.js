@@ -144,7 +144,11 @@ export default function Template({ data, location, pageContext }) {
     const shortDescription = `${post.frontmatter.date} ${post.excerpt}`;
 
     return (
-        <Layout pathname={location.pathname} locale={locale} metaImage={socialPreviewImageFullUri}>
+        <Layout
+            pathname={location.pathname}
+            locale={locale}
+            metaImage={socialPreviewImageFullUri}
+        >
             <Helmet
                 title={`Platform of Trust - ${post.frontmatter.title}`}
                 meta={[
