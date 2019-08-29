@@ -140,11 +140,15 @@ export default function Template({ data, location, pageContext }) {
     const post = data.mdx;
     const { next, prev, locale } = pageContext;
 
-    const socialPreviewImageFullUri = `${location.origin}${post.frontmatter.image.childImageSharp.fluid.src}`;
+    const socialPreviewImageFullUri = `${post.frontmatter.image.childImageSharp.fluid.src}`;
     const shortDescription = `${post.frontmatter.date} ${post.excerpt}`;
 
     return (
-        <Layout pathname={location.pathname} locale={locale}>
+        <Layout
+            pathname={location.pathname}
+            locale={locale}
+            metaImage={socialPreviewImageFullUri}
+        >
             <Helmet
                 title={`Platform of Trust - ${post.frontmatter.title}`}
                 meta={[
@@ -157,10 +161,6 @@ export default function Template({ data, location, pageContext }) {
                         content: shortDescription
                     },
                     {
-                        property: 'og:image',
-                        content: `${socialPreviewImageFullUri}`
-                    },
-                    {
                         property: 'twitter:card',
                         content: 'summary_large_image'
                     },
@@ -171,10 +171,6 @@ export default function Template({ data, location, pageContext }) {
                     {
                         property: 'twitter:description',
                         content: shortDescription
-                    },
-                    {
-                        property: 'twitter:image',
-                        content: `${socialPreviewImageFullUri}`
                     }
                 ]}
             />
