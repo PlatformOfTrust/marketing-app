@@ -1,19 +1,20 @@
 ---
-path: "/fi/ajankohtaista/toimitila-ja-palveluverkkojen-ennakoivaa-kokonaishallintaa-julkisille-organisaatioille" # path to where you want blog to be published aka https://www.platformoftrust.net//blogs/sport-venue
-date: "2019-04-09T13:45:33.962Z"
-title: "Toimitila- ja palveluverkkojen ennakoivaa kokonaishallintaa julkisille organisaatioille"
-image: "./../../static/Preventive management for cities.jpg" # Featured image shown on page and listings. Save in same folder. Don't use svg.
-pic: "Preventive management for cities2.jpg" # Hex image shown on page and listings. No path, just filename. Save in same folder. Don't use svg.
-pictext: ""
-type: "news" # All "News" are blogs to separate them from real pages made with MarkDown, so that they appear in blog listings etc.
-subtype: "article" # "blog" / "news" / "press-realease" etc.
+path: '/fi/ajankohtaista/toimitila-ja-palveluverkkojen-ennakoivaa-kokonaishallintaa-julkisille-organisaatioille' # path to where you want blog to be published aka https://www.platformoftrust.net//blogs/sport-venue
+date: '2019-04-09T13:45:33.962Z'
+title: 'Toimitila- ja palveluverkkojen ennakoivaa kokonaishallintaa julkisille organisaatioille'
+image: './../../static/Preventive management for cities.jpg' # Featured image shown on page and listings. Save in same folder. Don't use svg.
+pic: 'Preventive management for cities2.jpg' # Hex image shown on page and listings. No path, just filename. Save in same folder. Don't use svg.
+pictext: ''
+type: 'news' # All "News" are blogs to separate them from real pages made with MarkDown, so that they appear in blog listings etc.
+subtype: 'article' # "blog" / "news" / "press-realease" etc.
 tags: ['Locia'] # Any string, can be used in search / "related content"
-locale: "fi"
-author: "Pirkko Laitinen"
-authorpic: "pirkko-laitinen.jpg"
-status: "published" # "published" / "draft" / "pending" / "archived"
+locale: 'fi'
+author: 'Pirkko Laitinen'
+authorpic: 'pirkko-laitinen.jpg'
+status: 'published' # "published" / "draft" / "pending" / "archived"
 ---
-Tulevaisuuden kaupungeissa asiakaslähtöisyys, digitaalisuus sekä palveluiden järjestämisen ja monitahoisen tuottamisen kokonaiskoordinaatio tulevat edellyttämään julkiselta sektorilta rohkeaa toimintatapojen uudistamista.
+
+##### Tulevaisuuden kaupungeissa asiakaslähtöisyys, digitaalisuus sekä palveluiden järjestämisen ja monitahoisen tuottamisen kokonaiskoordinaatio tulevat edellyttämään julkiselta sektorilta rohkeaa toimintatapojen uudistamista.
 
 Niukkenevien resurssien myötä palvelutuotantoa ja kiinteistöomaisuutta on arvioitava kokonaisuutena ja pohdittava, minkälaisia ja kuinka paljon tiloja palvelutuotannolle tarvitaan sekä kuinka niiden tarvitsemat investoinnit ja ylläpito hoidetaan. Optimoidulla palveluverkolla voidaan saavuttaa merkittäviä kustannussäästöjä ja tuottavuuden tason nostoa palveluverkon toiminnan ja mm. tilankäytön tehostumisen kautta.
 
@@ -25,15 +26,17 @@ Platform of Trustin ja Locian yhteistyö mahdollistaa palveluverkkotietojen rika
 
 Kesäkuussa julkaistava ja yhteisöllisesti kehittyvä Platform of Trust on alusta, joka harmonisoi eri lähteistä tulevan datan yhteisesti käytettävään muotoon. Datan luotettavuus varmistetaan datalähteiden validoinnilla ja automatisoiduilla luvitus- ja sopimustyökaluilla. Alustan kehitys on alkanut kiinteistö- ja rakennusalan tarpeista, joten alussa alustalla on erityisesti näihin aloihin liittyvää dataa. Jatkossa alustaa voi hyödyntää minkä tahansa alan tarpeisiin.
 
-<br/><br/><br/><br/>
+<br/><br/>
+
+<hr/>
+
+<br/><br/>
 
 ### Lisätietoja
 
-<br/><br/><br/><br/>
+<br/><br/><br/>
 
 ### **Toni Luhti**
-
-<br/>
 
 Platform of Trust Oy
 
@@ -41,11 +44,9 @@ Platform of Trust Oy
 
 toni.luhti@oftrust.net
 
-<br/><br/><br/><br/>
+<br/><br/><br/>
 
 ### **Emilia Rönkkö**
-
-<br/>
 
 Locia Oy
 

@@ -12,17 +12,16 @@ const StyledHexIcon = styled.div`
   // clip-path: url("#hex-clip");
 `;
 const HexContent = styled.div`
-    position: absolute;
-    width: 86%;
-    top: 0;
-    left: 0;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    position: relative;
+    width: 100%;
+    margin-top: -75%;
     text-align: center;
     z-index: 1;
     && * {
         color: ${props => (props.color ? colors[props.color] : 'black')};
+    }
+    @media only screen and (max-width: 1000px) {
+        margin-top: -79%;
     }
 `;
 const StyledHexBg = styled.div`

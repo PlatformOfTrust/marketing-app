@@ -38,118 +38,113 @@ const StyledVideo = styled.section`
     }
     margin: 5rem auto;
 `;
-const socialPreviewImageFullUri =
-    typeof window !== 'undefined' &&
-    window.location.origin + SocialPreviewImage;
 
-const About = ({ data, pathContext }) => (
-    <Layout locale={pathContext.locale}>
-        <SEO title="About Platform of Trust" />
-        <Helmet
-            meta={[
-                {
-                    property: 'og:title',
-                    content: `${SocialPreviewData.title}`
-                },
-                {
-                    property: 'og:description',
-                    content: `${SocialPreviewData.description}`
-                },
-                {
-                    property: 'og:image',
-                    content: `${socialPreviewImageFullUri}`
-                },
-                {
-                    property: 'twitter:card',
-                    content: 'summary_large_image'
-                },
-                {
-                    property: 'twitter:title',
-                    content: `${SocialPreviewData.title}`
-                },
-                {
-                    property: 'twitter:description',
-                    content: `${SocialPreviewData.description}`
-                },
-                {
-                    property: 'twitter:image',
-                    content: `${socialPreviewImageFullUri}`
-                }
-            ]}
-        />
-        <StyledPage>
-            <StyledSection className="container">
-                <div className="row mb-5">
-                    <div className="col-12">
-                        <HeaderElement tag="h1" content="about" />
-                        <Img fluid={data.file.childImageSharp.fluid} />
+const About = ({ data, pathContext }) => {
+    return (
+        <Layout locale={pathContext.locale} metaImage={SocialPreviewImage}>
+            <SEO title="About Platform of Trust" />
+            <Helmet
+                meta={[
+                    {
+                        property: 'og:title',
+                        content: `${SocialPreviewData.title}`
+                    },
+                    {
+                        property: 'og:description',
+                        content: `${SocialPreviewData.description}`
+                    },
+                    {
+                        property: 'twitter:card',
+                        content: 'summary_large_image'
+                    },
+                    {
+                        property: 'twitter:title',
+                        content: `${SocialPreviewData.title}`
+                    },
+                    {
+                        property: 'twitter:description',
+                        content: `${SocialPreviewData.description}`
+                    }
+                ]}
+            />
+            <StyledPage>
+                <StyledSection className="container">
+                    <div className="row mb-5">
+                        <div className="col-12">
+                            <HeaderElement tag="h1" content="about" />
+                            <Img fluid={data.file.childImageSharp.fluid} />
+                        </div>
                     </div>
-                </div>
-                <div className="row">
-                    <div className="col-md-6">
-                        <p>
-                            <SpanElement text="aboutText1" />
-                        </p>
+                    <div className="row">
+                        <div className="col-md-6">
+                            <p>
+                                <SpanElement text="aboutText1" />
+                            </p>
+                        </div>
+                        <div className="col-md-6">
+                            <p>
+                                <SpanElement text="aboutText2" />
+                            </p>
+                        </div>
                     </div>
-                    <div className="col-md-6">
-                        <p>
-                            <SpanElement text="aboutText2" />
-                        </p>
+                </StyledSection>
+                <StyledSection className="container">
+                    <HeaderElement tag="h2" content="forWhom" />
+                    <div className="row">
+                        <div className="col-4 col-md-2">
+                            <HexIcon
+                                icon="chart-line"
+                                color="main"
+                                bgColor="light"
+                            />
+                        </div>
+                        <div className="col-7 col-md-4 d-flex align-items-center">
+                            <p>
+                                <SpanElement text="aboutText3" />
+                            </p>
+                        </div>
+                        <div className="col-4 col-md-2">
+                            <HexIcon
+                                icon="terminal"
+                                color="main"
+                                bgColor="light"
+                            />
+                        </div>
+                        <div className="col-7 col-md-4 d-flex align-items-center">
+                            <p>
+                                <SpanElement text="aboutText4" />
+                            </p>
+                        </div>
                     </div>
-                </div>
-            </StyledSection>
-            <StyledSection className="container">
-                <HeaderElement tag="h2" content="forWhom" />
-                <div className="row">
-                    <div className="col-4 col-md-2">
-                        <HexIcon
-                            icon="chart-line"
-                            color="main"
-                            bgColor="light"
+                </StyledSection>
+                <StyledSection className="container">
+                    <StyledVideo>
+                        <HeaderElement tag="h2" content="aboutVideoText" />
+                        <Video
+                            videoSrcURL="https://www.youtube.com/embed/sGgt88bkoOA"
+                            videoTitle="Start using your data"
                         />
-                    </div>
-                    <div className="col-7 col-md-4 d-flex align-items-center">
-                        <p>
-                            <SpanElement text="aboutText3" />
-                        </p>
-                    </div>
-                    <div className="col-4 col-md-2">
-                        <HexIcon icon="terminal" color="main" bgColor="light" />
-                    </div>
-                    <div className="col-7 col-md-4 d-flex align-items-center">
-                        <p>
-                            <SpanElement text="aboutText4" />
-                        </p>
-                    </div>
-                </div>
-            </StyledSection>
-            <StyledSection className="container">
-                <StyledVideo>
-                    <HeaderElement tag="h2" content="aboutVideoText" />
-                    <Video
-                        videoSrcURL="https://www.youtube.com/embed/sGgt88bkoOA"
-                        videoTitle="Start using your data"
-                    />
-                </StyledVideo>
-                {/* <Link to="/">
+                    </StyledVideo>
+                    {/* <Link to="/">
           <CustomRoundedButton label="See our pricing plans" textColor="light" bgColor="tomato" />
         </Link> */}
-            </StyledSection>
-            <StyledSection className="container">
-                <HeaderElement tag="h2" content="aboutPartnersText" />
-                <Logos />
-            </StyledSection>
-            <StyledSection className="container">
-                <h3>
-                    <SpanElement text="aboutPartText" />{' '}
-                    <a href="https://www.tilaajavastuu.fi/en/">
-                        Suomen Tilaajavastuu Group
-                    </a>
-                </h3>
-            </StyledSection>
-        </StyledPage>
-    </Layout>
-);
+                </StyledSection>
+                <StyledSection className="container">
+                    <HeaderElement tag="h2" content="aboutPartnersText" />
+                    <Logos />
+                </StyledSection>
+                <StyledSection className="container">
+                    <h3>
+                        <SpanElement text="aboutPartText" />{' '}
+                        <a href="https://www.tilaajavastuu.fi/en/">
+                            Suomen Tilaajavastuu Oy
+                        </a>
+                    </h3>
+                </StyledSection>
+            </StyledPage>
+        </Layout>
+    );
+};
 
 const SocialPreviewData = {
     title: 'Platform Of Trust | About',

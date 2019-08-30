@@ -31,6 +31,9 @@ const StyledHeader = styled.header`
         font-size: 1.2rem;
         text-decoration: none;
     }
+    &&& .row {
+        margin-top: 50px;
+    }
     h1 {
         margin-top: 0.4em;
         color: white;
@@ -39,7 +42,6 @@ const StyledHeader = styled.header`
     }
 `;
 const StyledMeta = styled.div`
-    // display: block;
     text-transform: capitalize;
     * {
         margin-right: 0.5em;
@@ -51,21 +53,45 @@ const StyledPost = styled.div`
     }
     position: relative;
     background: ${colors.mainDarker};
+
+    a:link {
+        font-weight: bold;
+        color: #53d2fc;
+        text-decoration: none;
+        -webkit-transition: color 0.5s;
+        transition: color 0.5s;
+    }
+
+    a:visited {
+        color: #b5a1ff;
+    }
+
+    a:hover {
+        color: #ffffff;
+    }
+
+    a:active {
+        text-decoration: underline;
+    }
 `;
 const StyledCaption = styled.div`
-  width: 100%
-  position: absolute;
-  transform: translateY(-100%);
-  background: linear-gradient(to bottom, rgba(0,0,0,0), ${colors.mainDarker} 100%);
-  padding: 4rem 10% 0;
-  justify-content: flex-end;
-  p {
-    max-width: 30%;
-    border-top: 2px dotted white;
-    padding-top: 1em;
-    font-size: 1rem;
-    color: white;
-  }
+    width: 100%;
+    position: absolute;
+    transform: translateY(-100%);
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0),
+        ${colors.mainDarker} 100%
+    );
+    padding: 4rem 10% 0;
+    justify-content: flex-end;
+    p {
+        max-width: 30%;
+        border-top: 2px dotted white;
+        padding-top: 1em;
+        font-size: 1rem;
+        color: white;
+    }
 `;
 const StyledPostFooter = styled.div`
     &&& {
@@ -106,24 +132,51 @@ const StyledBlogFooter = styled.div`
         color: white;
     }
     svg {
-        // margin-right: 1rem;
         vertical-align: middle;
-        // &.fa-hexagon { transform: rotate(90deg); }
-        // &.fa-arrow-right { margin-left: 1rem; }
     }
 `;
 
 export default function Template({ data, location, pageContext }) {
     const post = data.mdx;
     const { next, prev, locale } = pageContext;
-    console.log(data);
+
+    const socialPreviewImageFullUri = `${post.frontmatter.image.childImageSharp.fluid.src}`;
+    const shortDescription = `${post.frontmatter.date} ${post.excerpt}`;
 
     return (
-        <Layout pathname={location.pathname} locale={locale}>
-            <Helmet title={`Platform of Trust - ${post.frontmatter.title}`} />
+        <Layout
+            pathname={location.pathname}
+            locale={locale}
+            metaImage={socialPreviewImageFullUri}
+        >
+            <Helmet
+                title={`Platform of Trust - ${post.frontmatter.title}`}
+                meta={[
+                    {
+                        property: 'og:title',
+                        content: `Platform of Trust - ${post.frontmatter.title}`
+                    },
+                    {
+                        property: 'og:description',
+                        content: shortDescription
+                    },
+                    {
+                        property: 'twitter:card',
+                        content: 'summary_large_image'
+                    },
+                    {
+                        property: 'twitter:title',
+                        content: `Platform of Trust - ${post.frontmatter.title}`
+                    },
+                    {
+                        property: 'twitter:description',
+                        content: shortDescription
+                    }
+                ]}
+            />
             <StyledBlog>
                 <StyledHeader className="container">
-                    <div style={{ marginTop: '50px' }} className="row">
+                    <div className="row">
                         <LocalizedLink to="/cases">
                             <FontAwesomeIcon icon={['fal', 'arrow-left']} />{' '}
                             Back to cases
@@ -281,6 +334,7 @@ export const pageQuery = graphql`
             code {
                 body
             }
+            excerpt(pruneLength: 120)
         }
     }
 `;

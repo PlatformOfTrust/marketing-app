@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import styled from 'styled-components';
-
+import MDXRenderer from 'gatsby-mdx/mdx-renderer';
 import Layout from '../components/Layout';
 import SEO from '../components/seo';
 import { variables, colors } from '../Theme.js';
@@ -53,22 +53,16 @@ const StyledQuestion = styled.div`
         box-shadow: 0 0 5px 2px ${colors.mainLightest};
         transition-duration: 0.1s;
     }
-`;
 
-const StyledAnswer = styled.p`
-    display: none;
-    opacity: 0;
-    margin: 1rem;
-    transition-duration: 0.3s;
-    text-align: left;
-    font-size: 18px;
-    transition-duration: 0.3s;
-`;
-
-const StyledHr = styled.hr`
-    /* display: none; */
-    opacity: 1;
-    color: ${colors.mainLightest};
+    p {
+        display: none;
+        opacity: 0;
+        margin: 1rem;
+        transition-duration: 0.3s;
+        text-align: left;
+        font-size: 18px;
+        transition-duration: 0.3s;
+    }
 `;
 
 const StyledArrow = styled.span`
@@ -145,10 +139,10 @@ class Faq extends React.Component {
                                     onClick={this.handleTest}
                                 >
                                     {post.node.frontmatter.question}
-                                    <StyledAnswer>
-                                        <StyledHr />
-                                        {post.node.frontmatter.answer}
-                                    </StyledAnswer>
+
+                                    <MDXRenderer>
+                                        {post.node.code.body}
+                                    </MDXRenderer>
                                     <StyledArrow />
                                 </StyledQuestion>
                             );
@@ -171,7 +165,9 @@ export const query = graphql`
                     id
                     frontmatter {
                         question
-                        answer
+                    }
+                    code {
+                        body
                     }
                 }
             }
