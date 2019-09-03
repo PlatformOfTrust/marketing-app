@@ -83,7 +83,7 @@ class Faq extends React.Component {
     }
 
     handleTest = event => {
-        const target = event.target;
+        const target = event.currentTarget;
         const child =
             target.tagName === 'DIV'
                 ? target.querySelector('p')
@@ -93,14 +93,15 @@ class Faq extends React.Component {
                 ? target.style.maxHeight
                 : target.parentNode.style.maxHeight;
 
+        const arrow = event.currentTarget.querySelector('#drop-arrow');
+        arrow.style.transform == 'rotate(-45deg)'
+            ? (arrow.style.transform = 'rotate(135deg)')
+            : (arrow.style.transform = 'rotate(-45deg)');
+
         if (height === '12rem' || height === '') {
             child.style.display = 'block';
             child.style.opacity = '1';
             target.style.maxHeight = '50rem';
-            target.tagName === 'DIV'
-                ? (target.querySelector('span').style.transform =
-                      'rotate(-45deg)')
-                : (target.style.transform = 'rotate(-45deg)');
         } else {
             if (
                 target.tagName === 'P' ||
@@ -110,13 +111,10 @@ class Faq extends React.Component {
                 target.style.display = 'none';
                 target.style.opacity = '0';
                 target.parentNode.style.maxHeight = '12rem';
-                target.parentNode.querySelector('span').style.transform =
-                    'rotate(135deg)';
             } else {
                 child.style.opacity = '0';
                 child.style.display = 'none';
                 target.style.maxHeight = '12rem';
-                target.querySelector('span').style.transform = 'rotate(135deg)';
             }
         }
     };
@@ -143,7 +141,7 @@ class Faq extends React.Component {
                                     <MDXRenderer>
                                         {post.node.code.body}
                                     </MDXRenderer>
-                                    <StyledArrow />
+                                    <StyledArrow id="drop-arrow" />
                                 </StyledQuestion>
                             );
                         })}
