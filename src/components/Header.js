@@ -19,7 +19,7 @@ const StyledToggler = styled.div`
     position: fixed;
     display: block;
     box-sizing: content-box;
-    // width: 2rem;
+    // width: 2rem;width
     top: 1.8rem;
     left: 0;
     transform: translateX(calc(100vw - 4.2rem)) rotate(0deg);
@@ -41,6 +41,7 @@ const StyledToggler = styled.div`
         }
         .hamburger {
             background: transparent;
+            padding: 0.5rem;
         }
     }
     .hamburger {
