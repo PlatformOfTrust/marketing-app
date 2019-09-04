@@ -93,7 +93,7 @@ class Faq extends React.Component {
                 ? target.style.maxHeight
                 : target.parentNode.style.maxHeight;
 
-        const arrow = event.currentTarget.querySelector('#drop-arrow');
+        const arrow = event.currentTarget.querySelector('.drop-arrow-faq');
         arrow.style.transform === 'rotate(-45deg)'
             ? (arrow.style.transform = 'rotate(135deg)')
             : (arrow.style.transform = 'rotate(-45deg)');
@@ -141,7 +141,7 @@ class Faq extends React.Component {
                                     <MDXRenderer>
                                         {post.node.code.body}
                                     </MDXRenderer>
-                                    <StyledArrow id="drop-arrow" />
+                                    <StyledArrow className="drop-arrow-faq" />
                                 </StyledQuestion>
                             );
                         })}
