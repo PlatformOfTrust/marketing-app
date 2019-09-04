@@ -94,7 +94,7 @@ class Faq extends React.Component {
                 : target.parentNode.style.maxHeight;
 
         const arrow = event.currentTarget.querySelector('#drop-arrow');
-        arrow.style.transform == 'rotate(-45deg)'
+        arrow.style.transform === 'rotate(-45deg)'
             ? (arrow.style.transform = 'rotate(135deg)')
             : (arrow.style.transform = 'rotate(-45deg)');
 
