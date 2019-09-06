@@ -41,6 +41,7 @@ const StyledToggler = styled.div`
         }
         .hamburger {
             background: transparent;
+            padding: 0.5rem;
         }
     }
     .hamburger {
