@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import LocalizedLink from './LocalizedLink';
+import CustomRoundedButton from './CustomRoundedButton';
 
 import { injectIntl } from 'react-intl';
 
@@ -8,6 +9,7 @@ import { colors, device } from '../Theme.js';
 
 const StyledSiteNav = styled.nav`
     color: ${colors.mainDark};
+    margin-top: 2rem;
     a {
         display: block;
         padding: 0.5rem 1rem;
@@ -105,6 +107,9 @@ const SiteNav = ({
                 activeStyle={activeStyles}
             >
                 FAQ
+            </LocalizedLink>
+            <LocalizedLink className="site-nav-link" to="/online-meeting">
+                <CustomRoundedButton label="bookAnOnlineMeeting" />
             </LocalizedLink>
         </StyledSiteNav>
     );
