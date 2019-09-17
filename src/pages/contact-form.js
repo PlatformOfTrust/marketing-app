@@ -15,9 +15,6 @@ const StyledPage = styled.div`
         margin: 0 auto;
         @media ${device.laptop} {
         }
-        * {
-            color: white;
-        }
     }
 `;
 const StyledSection = styled.article`

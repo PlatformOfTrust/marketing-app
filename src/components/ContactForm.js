@@ -9,7 +9,9 @@ const StyledForm = styled.article`
   max-width: 34rem;
   padding: 1rem;
   box-shadow: 0 0 0.8rem ${colors.mainDarkest};
-  * { color: white; }
+
+  label, .hs-error-msg { color: white; }
+  .hs-input { color: black;}
 }
 `;
 
