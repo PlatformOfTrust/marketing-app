@@ -215,8 +215,8 @@ const IndexPage = ({ data, pathContext }) => {
                                                     ''
                                                 )}
                                                 icon={node.frontmatter.icon}
-                                                textColor={colors.main}
-                                                bgColor="light"
+                                                textColor={colors.light}
+                                                bgColor="mainDark"
                                             />
                                         </div>
                                     );
