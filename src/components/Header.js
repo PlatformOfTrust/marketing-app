@@ -57,6 +57,7 @@ const StyledBranding = styled.div`
     display: inline-block;
     width: 20vw;
     vertical-align: middle;
+    padding-left: 1rem;
     transform: translateY(1rem);
 `;
 
