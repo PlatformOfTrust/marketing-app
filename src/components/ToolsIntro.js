@@ -20,16 +20,15 @@ const ToolsSection = styled.div`
             transform: translateY(2.5rem);
         }
     }
-
     @media ${device.laptop} {
         .row:nth-of-type(2) {
             transform: translateY(25%);
         }
         .row:nth-of-type(3) {
-            transform: translateX(-1.5%);
+            transform: translateX(-1.5%) translateY(30%);
         }
         .row:nth-of-type(4) {
-            transform: translate(-3%, -25%);
+            transform: translateX(-3%) translateY(25%);
         }
         h3 {
             margin-bottom: 0.2rem;
