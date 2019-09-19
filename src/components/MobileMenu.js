@@ -14,7 +14,7 @@ const StyledMobileMenu = styled.div`
     width: 100vw;
     min-height: 100vh;
     nav {
-        flex: 1;
+        margin-top: 2rem;
     }
     @media ${device.tablet} {
         display: none;
