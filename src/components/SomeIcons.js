@@ -38,6 +38,7 @@ const SomeIcons = props => {
                 className="some-link facebook footer-elements-opacity"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="facebook"
             >
                 <FontAwesomeIcon icon={['fab', 'facebook-square']} size="8x" />
             </a>
@@ -47,6 +48,7 @@ const SomeIcons = props => {
                 className="some-link twitter footer-elements-opacity"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="twitter"
             >
                 <FontAwesomeIcon icon={['fab', 'twitter-square']} size="8x" />
             </a>
@@ -56,6 +58,7 @@ const SomeIcons = props => {
                 className="some-link github footer-elements-opacity"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="github"
             >
                 <FontAwesomeIcon icon={['fab', 'github-square']} size="8x" />
             </a>
@@ -65,6 +68,7 @@ const SomeIcons = props => {
                 className="some-link linkedin footer-elements-opacity"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="linkedin"
             >
                 <FontAwesomeIcon icon={['fab', 'linkedin']} size="8x" />
             </a>
@@ -74,6 +78,7 @@ const SomeIcons = props => {
                 className="some-link youtube footer-elements-opacity"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="youtube"
             >
                 <FontAwesomeIcon icon={['fab', 'youtube-square']} size="8x" />
             </a>

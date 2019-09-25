@@ -95,7 +95,12 @@ export default class HeaderFoo extends React.Component {
 
                 <header className="wrapper">
                     <StyledBranding className="XXXlogo">
-                        <LocalizedLink className="XXXnavbar-brand" to="/">
+                        <LocalizedLink
+                            aria-label={'homepage'}
+                            aria-hidden={'false'}
+                            className="XXXnavbar-brand"
+                            to="/"
+                        >
                             <img
                                 src={Logo}
                                 className="header-logo"

@@ -92,7 +92,11 @@ const FeaturedNews = ({ intl: { messages }, data }) => {
                 <h2>{`${messages.latestNews}`}</h2>
 
                 {data.edges.map(({ node }) => (
-                    <Link to={node.frontmatter.path} key={node.id}>
+                    <Link
+                        aria-label={node.frontmatter.title}
+                        to={node.frontmatter.path}
+                        key={node.id}
+                    >
                         <div>
                             <p className="meta">
                                 <span className="icon icon-blog">
