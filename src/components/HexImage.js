@@ -42,13 +42,15 @@ const HexImage = props => {
                                 props.isContactImage
                                     ? '0.05'
                                     : props.isNewsImage
-                                    ? '0.05'
+                                    ? '0'
                                     : '-0.05'
                             }
                             width="1"
                             height="1"
                             transform={`scale(${
-                                props.isContactImage ? '1.2 1.1' : '1.3'
+                                props.isContactImage || props.isNewsImage
+                                    ? '1.2 1.1'
+                                    : '1.3'
                             })
               rotate(${props.rotate ? -10 : 0})
               translate(-0.15 0)`}
