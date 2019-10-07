@@ -4,14 +4,15 @@ import SEO from '../components/seo';
 import styled from 'styled-components';
 import { Helmet } from 'react-helmet';
 
+import LocalizedLink from './../components/LocalizedLink';
+
 import HeaderElement from '../components/HeaderElement';
 import SpanElement from './../components/SpanElement';
-
+import CustomRoundedButton from '../components/CustomRoundedButton';
 import ContactBlurbs from '../components/ContactBlurbs';
 import Locations from '../components/Locations';
-import ContactForm from '../components/ContactForm';
 
-import { colors, device, variables } from '../Theme.js';
+import { device, variables } from '../Theme.js';
 import SocialPreviewImage from '../images/preview_social_share/contact.jpg';
 
 const StyledPage = styled.div`
@@ -24,16 +25,6 @@ const StyledPage = styled.div`
     }
     * {
         color: white;
-    }
-`;
-const StyledGraph = styled.div`
-    width: auto;
-    max-width: ${variables.pageWidth};
-    min-height: 30vh;
-    margin: 0 auto;
-    // background-color: white;
-    h2 {
-        color: ${colors.main};
     }
 `;
 const StyledSection = styled.section`
@@ -87,9 +78,9 @@ const Contact = ({ pathContext, data }) => {
                     <StyledSection className="contacts container">
                         <HeaderElement tag="h1" content="contact" />
                         <HeaderElement tag="h2" content="contactHeader" />
-                        <StyledGraph>
-                            <ContactForm />
-                        </StyledGraph>
+                        <LocalizedLink to="/contact-form">
+                            <CustomRoundedButton label="contactUs" />
+                        </LocalizedLink>
                     </StyledSection>
                     <StyledSection className="contacts container">
                         <HeaderElement tag="h2" content="contactMeetText" />

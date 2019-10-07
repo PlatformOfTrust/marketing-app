@@ -41,6 +41,7 @@ const StyledToggler = styled.div`
         }
         .hamburger {
             background: transparent;
+            padding: 0.1rem;
         }
     }
     .hamburger {
@@ -56,6 +57,7 @@ const StyledBranding = styled.div`
     display: inline-block;
     width: 20vw;
     vertical-align: middle;
+    padding-left: 1rem;
     transform: translateY(1rem);
 `;
 

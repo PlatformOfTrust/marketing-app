@@ -9,22 +9,20 @@ const StyledForm = styled.article`
   max-width: 34rem;
   padding: 1rem;
   box-shadow: 0 0 0.8rem ${colors.mainDarkest};
-
-  label, .hs-error-msg { color: white; }
-  .hs-input { color: black;}
+  * { color: white; }
 }
 `;
 
-const Contactform = props => {
+const OnlineMeetingForm = props => {
     return (
         <StyledForm>
             <HubspotForm
-                portalId="4568282" // '4568282'
-                formId="0c04f084-c2f6-4fbd-8f58-1d55b988580b" // '6ac54a8a-a93a-4e18-91ef-6698f8ba380f'
+                portalId="4568282"
+                formId="0a02c8a6-0b77-4fec-babe-c87de5065d88"
                 loading={<div>Loading...</div>}
             />
         </StyledForm>
     );
 };
 
-export default Contactform;
+export default OnlineMeetingForm;
