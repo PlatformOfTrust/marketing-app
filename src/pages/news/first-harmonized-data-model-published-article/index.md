@@ -14,11 +14,7 @@ authorpic: 'vesa-ilmarinen.jpg'
 status: 'published'
 ---
 
-### First harmonized data model published.
-
-<br/><br/>
-
-##### First version of harmonized data models by Platform of Trust has been published
+##### First version of harmonized data models by Platform of Trust has been published.
 
 <br/><br/>
 
