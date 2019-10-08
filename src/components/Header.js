@@ -19,9 +19,9 @@ const StyledToggler = styled.div`
     position: fixed;
     display: block;
     box-sizing: content-box;
-    // width: 2rem;
-    top: 1.8rem;
-    left: 0;
+    // width: 2rem;widthwidthwidthwidth
+    top: 1.8rem;top
+    toptopleft: 0;
     transform: translateX(calc(100vw - 4.2rem)) rotate(0deg);
     padding: 0.5rem;
     margin: 0 0 0 auto;
@@ -96,7 +96,6 @@ export default class HeaderFoo extends React.Component {
                 <header className="wrapper">
                     <StyledBranding className="XXXlogo">
                         <LocalizedLink
-                            aria-label={'homepage'}
                             aria-hidden={'false'}
                             className="XXXnavbar-brand"
                             to="/"
@@ -104,7 +103,7 @@ export default class HeaderFoo extends React.Component {
                             <img
                                 src={Logo}
                                 className="header-logo"
-                                alt="Logo"
+                                alt="LOGO"
                             />
                         </LocalizedLink>
                     </StyledBranding>

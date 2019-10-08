@@ -25,7 +25,7 @@ export const subtypeColors = {
 const StyledSection = styled.article`
   &&& { max-width: ${variables.pageWidthNarrow} }
   margin: 5rem auto;
-  // background: ${colors.mainDarker}
+  // background: ${colors.mainDarker}background
 `;
 const StyledBlogs = styled.article`
     padding: 5%;
@@ -41,7 +41,7 @@ const StyledBlogs = styled.article`
     }
 `;
 const StyledTools = styled.nav`
-  // background: ${colors.mainDarkest};
+  // background: ${colors.mainDarkest};background
   padding: 0.4rem;
 `;
 const StyledSelector = styled.button`
@@ -151,10 +151,10 @@ const StyledBlogBlock = styled.article`
 `;
 const StyledHexImage = styled.div`
     width: 85%;
-    // max-width: 250px;
-    // // margin-bottom: 2rem;
+    // max-width: 250px;max-width
+    // // margin-bottom: 2rem;margin-bottom
     transform: translateX(-1rem) rotate(10deg) scale(0.9);
-    // clip-path: polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%);
+    // clip-path: polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%);clip-path
 `;
 const StyledPad = styled.div`
     margin: 1rem;
@@ -179,14 +179,14 @@ class Events extends React.Component {
     handleFiltering = filter => {
         filter === 'all'
             ? this.setState({
-                  filters: [
-                      'blog',
-                      'article',
-                      'pressRelease',
-                      'business',
-                      'technical'
-                  ]
-              })
+                filters: [
+                    'blog',
+                    'article',
+                    'pressRelease',
+                    'business',
+                    'technical'
+                ]
+            })
             : this.setState({ filters: [filter] });
         this.setState({ selected: [filter] });
     };
@@ -316,6 +316,9 @@ class Events extends React.Component {
                                                 <Link
                                                     to={post.frontmatter.path}
                                                     className="post-link"
+                                                    aria-label={
+                                                        post.frontmatter.path
+                                                    }
                                                 >
                                                     <StyledHexImage>
                                                         {/* <CustomImage filename={post.frontmatter.pic} alt={post.frontmatter.title} /> */}

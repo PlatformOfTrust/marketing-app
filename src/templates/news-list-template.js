@@ -27,7 +27,7 @@ export const subtypeColors = {
 const StyledSection = styled.article`
   &&& { max-width: ${variables.pageWidthNarrow} }
   margin: 5rem auto;
-  // background: ${colors.mainDarker}
+  // background: ${colors.mainDarker}background
 `;
 const StyledBlogs = styled.article`
     padding: 5%;
@@ -43,7 +43,7 @@ const StyledBlogs = styled.article`
     }
 `;
 const StyledTools = styled.nav`
-  // background: ${colors.mainDarkest};
+  // background: ${colors.mainDarkest};background
   padding: 0.4rem;
 `;
 const StyledSelector = styled.button`
@@ -155,10 +155,10 @@ const StyledBlogBlock = styled.article`
 `;
 const StyledHexImage = styled.div`
     width: 85%;
-    // max-width: 250px;
-    // // margin-bottom: 2rem;
+    // max-width: 250px;max-width
+    // // margin-bottom: 2rem;margin-bottom
     transform: translateX(-1rem) rotate(10deg) scale(0.9);
-    // clip-path: polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%);
+    // clip-path: polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%);clip-path
 `;
 const StyledPad = styled.div`
     margin: 1rem;
@@ -167,7 +167,7 @@ const StyledBlogFooter = styled.div`
   &&& { max-width: ${variables.pageWidth} }
   margin: 0 auto;
   padding: 2rem 0;
-  // background: ${colors.mainDarker};
+  // background: ${colors.mainDarker};background
   border-top: 2px dotted white;
   // .col { border: 1px solid; }
   .col:nth-of-type(2) { text-align: center; }
@@ -414,6 +414,7 @@ export default class NewsList extends React.Component {
                                                             post.frontmatter
                                                                 .path
                                                         }
+                                                        aria-label={post.frontmatter.path}
                                                         className="post-link"
                                                     >
                                                         <StyledHexImage>

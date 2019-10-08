@@ -26,7 +26,7 @@ export const subtypeColors = {
 const StyledSection = styled.article`
   &&& { max-width: ${variables.pageWidthNarrow} }
   margin: 5rem auto;
-  // background: ${colors.mainDarker}
+  // background: ${colors.mainDarker}backgroundbackgroundbackgroundbackground
 `;
 const StyledHeader = styled.div`
     h2 {
@@ -37,8 +37,8 @@ const StyledBlogs = styled.div`
     padding: 5%;
 `;
 const StyledTools = styled.nav`
-  // background: ${colors.mainDarkest};
-  padding: 0.4rem;
+  // background: ${colors.mainDarkest};backgroundbackgroundbackgroundbackground
+  padding: 0.4rem;paddingpaddingpadding
 `;
 const StyledSelector = styled.button`
     background: none;
@@ -83,13 +83,13 @@ const StyledBlogBlock = styled.article`
   h2 { font-size: 1.4rem; }
 
   // &:nth-of-type(1) {
-  //   width: 100%;
-  //   border-top: none;
+  //   width: 100%;widthwidthwidthwidth
+  //   border-top: none;border-topborder-topborder-topborder-top
   //   h2 { font-size: 2.4rem; }
   // }
 
   // &:nth-child(n+5) {
-  //   width: 100%;
+  //   width: 100%;widthwidthwidthwidth
   //   .featured-image, .excerpt { display: none }
   //   .title { order: 2; }
   //   .meta { order: 1; }
@@ -129,7 +129,7 @@ const StyledBlogBlock = styled.article`
 const StyledHexImage = styled.div`
     width: 85%;
     transform: translateX(-1rem) rotate(10deg) scale(0.9);
-    // clip-path: polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%);
+    // clip-path: polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%);clip-pathclip-pathclip-pathclip-path
 `;
 const StyledPad = styled.div`
     margin: 1rem;
@@ -154,14 +154,14 @@ export default class Events extends React.Component {
     handleFiltering = filter => {
         filter === 'all'
             ? this.setState({
-                  filters: [
-                      'blog',
-                      'article',
-                      'pressRelease',
-                      'business',
-                      'technical'
-                  ]
-              })
+                filters: [
+                    'blog',
+                    'article',
+                    'pressRelease',
+                    'business',
+                    'technical'
+                ]
+            })
             : this.setState({ filters: [filter] });
         this.setState({ selected: [filter] });
     };
@@ -332,6 +332,11 @@ export default class Events extends React.Component {
                                                                         .frontmatter
                                                                         .path
                                                                 }
+                                                                aria-label={
+                                                                    post
+                                                                        .frontmatter
+                                                                        .path
+                                                                }
                                                                 className="post-link"
                                                             >
                                                                 <StyledHexImage>
@@ -351,6 +356,11 @@ export default class Events extends React.Component {
                                                             <StyledHexImage>
                                                                 <a
                                                                     href={
+                                                                        post
+                                                                            .frontmatter
+                                                                            .eventlink
+                                                                    }
+                                                                    aria-label={
                                                                         post
                                                                             .frontmatter
                                                                             .eventlink
@@ -380,6 +390,11 @@ export default class Events extends React.Component {
                                                                             .frontmatter
                                                                             .path
                                                                     }
+                                                                    aria-label={
+                                                                        post
+                                                                            .frontmatter
+                                                                            .path
+                                                                    }
                                                                     className="post-link"
                                                                 >
                                                                     <h2>
@@ -395,6 +410,11 @@ export default class Events extends React.Component {
                                                                 .potevent && (
                                                                 <a
                                                                     href={
+                                                                        post
+                                                                            .frontmatter
+                                                                            .eventlink
+                                                                    }
+                                                                    aria-label={
                                                                         post
                                                                             .frontmatter
                                                                             .eventlink
@@ -477,6 +497,11 @@ export default class Events extends React.Component {
                                                                 .potevent && (
                                                                 <LocalizedLink
                                                                     to={
+                                                                        post
+                                                                            .frontmatter
+                                                                            .path
+                                                                    }
+                                                                    aria-label={
                                                                         post
                                                                             .frontmatter
                                                                             .path
