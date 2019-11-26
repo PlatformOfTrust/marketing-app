@@ -42,9 +42,7 @@ const Featured = ({ data }) => (
 
         <StyledFeaturedHex className="featured-event">
             <FeaturedEvent />
-            {document.querySelectorAll(
-                '.hex-content.FeaturedEvent__StyledFeaturedEvent-loBBuM'
-            ).length > 0 ? (
+            {document.querySelectorAll('.hex-content')[1] != undefined ? (
                 <div className="hex">
                     <Hex color="mainDarker" />
                 </div>
