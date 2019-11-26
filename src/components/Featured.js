@@ -47,7 +47,7 @@ const Featured = ({ data }) => (
                     <div className="hex">
                         <Hex color="mainDarker" />
                     </div>
-            )}
+                )}
         </StyledFeaturedHex>
     </StyledFeatured>
 );
