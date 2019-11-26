@@ -42,9 +42,15 @@ const Featured = ({ data }) => (
 
         <StyledFeaturedHex className="featured-event">
             <FeaturedEvent />
-            <div className="hex">
-                <Hex color="mainDarker" />
-            </div>
+            {document.querySelectorAll(
+                '.hex-content.FeaturedEvent__StyledFeaturedEvent-loBBuM'
+            ).length > 0 ? (
+                <div className="hex">
+                    <Hex color="mainDarker" />
+                </div>
+            ) : (
+                <div />
+            )}
         </StyledFeaturedHex>
     </StyledFeatured>
 );
