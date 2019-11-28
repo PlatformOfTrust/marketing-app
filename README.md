@@ -1,6 +1,6 @@
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=PlatformOfTrust_Git_Marketing_App&metric=alert_status)](https://sonarcloud.io/dashboard?id=PlatformOfTrust_Git_Marketing_App)
 
-[![Build status](https://dev.azure.com/DLIOy/Platform%20of%20Trust/_apis/build/status/Builds/Build%20Marketing%20App%20(Github)?branchName=master)](https://dev.azure.com/DLIOy/Platform%20of%20Trust/_build/latest?definitionId=65)
+[![Build status](https://dev.azure.com/DLIOy/Platform%20of%20Trust/_apis/build/status/Builds/Build%20Marketing%20App%20(Github)?branchName=develop)](https://dev.azure.com/DLIOy/Platform%20of%20Trust/_build/latest?definitionId=65)
 
 # Marketing app 
 
